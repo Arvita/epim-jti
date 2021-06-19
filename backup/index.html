@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone Website</title>
+
+    <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./dist/css/styles.css" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="./dist/font-awesome/css/all.min.css">
+  </head>
+  <body>    
+    <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
+      <div class="container d-flex align-items-center">
+        <div class="logo me-auto">
+          <!-- <a href="https://dtikfest.pens.ac.id/"><img src="https://dtikfest.pens.ac.id/img/logo.png" alt="" class="img-fluid"></a> -->
+          <a href="#"
+            ><img
+              src="http://jti.polije.ac.id/epim/assets/logoo.png"
+              width="40"
+              height="60"
+              alt=""
+          /></a>
+          <p class="d-inline">EPIM 2021</p>
+        </div>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li class="dropdown">
+              <a class="nav-link scrollto active" href="#">
+                <span>Beranda</span> <i class="fa fa-angle-down"></i>
+              </a>
+              <ul>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/#about"
+                    >Tentang</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/#galeri"
+                    >Galeri</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/#testimonials"
+                    >Testimoni</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/#kegiatan"
+                    >Kegiatan</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="nav-link scrollto" href="#">
+                <span>Produk</span> <i class="fa fa-angle-down"></i>
+              </a>
+              <ul>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/produk/1
+                            "
+                    >Mobile</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/produk/2
+                            "
+                    >Website</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/produk/3
+                            "
+                    >Desktop</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="nav-link dropdown-link scrollto"
+                    href="https://dtikfest.pens.ac.id/produk/4
+                            "
+                    >IOT</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                class="nav-link scrollto"
+                href="https://dtikfest.pens.ac.id/pemenang"
+                >Pemenang</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link scrollto"
+                href="https://dtikfest.pens.ac.id/arsip"
+                >Arsip</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link scrollto"
+                href="https://dtikfest.pens.ac.id/#faq"
+                >FAQ</a
+              >
+            </li>
+          </ul>
+          <i class="fa fa-bars mobile-nav-toggle"></i>
+        </nav>
+
+        <div class="header-social-links d-flex align-items-center">
+          <a href="https://www.facebook.com/dtik.fest" class="facebook"
+            ><i class="fa fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/channel/UCmNTGcvJd4732qboYY8vf7A/featured"
+            class="youtube"
+            ><i class="fa fa-youtube"></i
+          ></a>
+          <a href="https://www.instagram.com/dtik.fest/" class="instagram"
+            ><i class="fa fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </header>
+    <section id="hero">
+      <div class="container">
+        <div class="row align-items-center">        
+          <div class="col-lg-7 col-sm-12 order order-lg-2">
+            <div class="hero-img">
+              <img src="./img/EPIM 2.png" alt="maskot-epim" class="img-hero" />
+            </div>
+          </div>
+          <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
+            <h1 class="hero-title">
+              EXPO PEKAN ILMIAH MAHASISWA 2021 (EPIM 2021)
+            </h1>
+            <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
+            <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum quis dolores reprehenderit aliquid qui minima, voluptate delectus?</i></p>
+            <p class="hero-desc">
+              
+              Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
+              
+            </p>
+            <button class="hero-btn">Selengkapnya</button>
+          </div>
+          <div class="col-lg-8 col-sm-12 mx-auto order order-lg-3">
+            <div class="sponsor-panel">
+              <!-- <p>Didukung oleh: </p> -->
+              <img src="./img/img_poije.png" alt="" height="30">
+              <img src="./img/img_jawaPost.png" alt="" height="30">        
+              <img src="./img/img_jemberTv.png" alt="" height="30">        
+              <img src="./img/biznet_logo-1571886850 1.png" alt="" height="30">        
+              <img src="./img/Wallpaper Laptop Biro SI 2 1.png" alt="" height="30">        
+            </div>
+          </div>
+        </div>        
+    </section>
+    
+    <main>
+      <section class="section-1">
+        <div class="container">
+        <div class="row">
+          <div class="col-lg-6 embed-video">
+            <div class="embed-responsive">              
+              <iframe class="responsive-iframe" src="https://www.youtube.com/embed/kH11UX3BB7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> 
+          </div>
+          <div class="col-lg-6 embed-description">
+            <p class="title-1">Teaser EPIM 2021</p>
+            <p class="desc-1">Lorem ipmsumLorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+            </p>
+          </div>
+        </div>
+      </div>
+      </section>
+      <section class="section-2">
+        <div class="container">        
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-12 title-section-2">            
+            <p class="title-1">SERANGKAIAN KEGIATAN EPIM 2021</p>
+          </div>                   
+        </div>
+        <div class="row justify-content-around text-center">          
+            <div class="col-lg-5 epim">
+              <p class="title-1">EPIM SESI 1</p>  
+              <div class="col-lg-12 my-4 text-center">
+                <div class="col-lg-12">
+                  <img class="proker-img" src="./img/EXPOed.png" alt="Gambar Expo">
+                </div>
+                <div class="col-lg-12 proker">
+                  <p class="proker-title">EXPO PRODUK IT</p>
+                  <p class="desc-1">Expo Produk IT adalah kegiatan pameran
+                    produk mahasiswa Jurusan Teknologi Informasi
+                    Politeknik Negeri Jember</p>
+                </div>                  
+              </div>
+              <div class="col-lg-12 my-4 text-center">
+                <div class="col-lg-12">
+                  <img class="proker-img" src="./img/TN.png" alt="Gambar Lomba IT">
+                </div>
+                <div class="col-lg-12 proker">
+                  <p class="proker-title">LOMBA IT</p>
+                  <p class="desc-1">Expo Produk IT adalah kegiatan pameran
+                    produk mahasiswa Jurusan Teknologi Informasi
+                    Politeknik Negeri Jember</p>
+                </div>                  
+              </div>
+              <div class="col-lg-12 my-4 text-center">
+                <div class="col-lg-12">
+                  <img class="proker-img" src="./img/tcp.png" alt="Gambar TCP IT">
+                </div>
+                <div class="col-lg-12 proker">
+                  <p class="proker-title">LOMBA TCP IT</p>
+                  <p class="desc-1">Expo Produk IT adalah kegiatan pameran
+                    produk mahasiswa Jurusan Teknologi Informasi
+                    Politeknik Negeri Jember</p>
+                </div>                  
+              </div>
+
+            </div>
+            <div class="col-lg-5 epim">
+              <p class="title-1">EPIM SESI 2</p>
+              <div class="col-lg-12 my-4 text-center">
+                <div class="col-lg-12">
+                  <img class="proker-img" src="./img/Talkshow.png" alt="Gambar Expo">
+                </div>
+                <div class="col-lg-12 proker">
+                  <p class="proker-title">TALKSHOW NASIONAL</p>
+                  <p class="desc-1">Expo Produk IT adalah kegiatan pameran
+                    produk mahasiswa Jurusan Teknologi Informasi
+                    Politeknik Negeri Jember</p>
+                </div>                  
+              </div>
+              <div class="col-lg-12 my-4 text-center">
+                <div class="col-lg-12">
+                  <img class="proker-img" src="./img/AOM.png" alt="Gambar Expo">
+                </div>
+                <div class="col-lg-12 proker">
+                  <p class="proker-title">ART OF MANUNGGALANG</p>
+                  <p class="desc-1">Expo Produk IT adalah kegiatan pameran
+                    produk mahasiswa Jurusan Teknologi Informasi
+                    Politeknik Negeri Jember</p>
+                </div>                  
+              </div>
+            </div>
+        </div>
+      </div>
+      </section>
+      <section class="section-3">
+        <div class="container">
+          <div class="row">
+            <div class="text-center">
+                <p class="title-1">TIMELINE KEGIATAN EPIM SESI 1 2021</p>
+                <div class="table-responsive">
+                <table class="table table-borderless table-timeline">
+                  <thead class="thead thead-proker">
+                    <tr>
+                      <th>EXPO PRODUK IT</th>
+                      <th>LOMBA IT</th>
+                      <th>LOMBA TCP IT</th>
+                    </tr>
+                  </thead>
+                  <tbody class="tbody-proker">
+                    <tr>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                    </tr>                    
+                    <tr>
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                    </tr>
+                    <tr>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                    </tr>                    
+                    <tr>
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                    </tr>
+                    <tr>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                    </tr>                    
+                    <tr>
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                    </tr>
+                    <tr>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                    </tr>                    
+                    <tr>
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                    </tr>
+                    <tr>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                      <td><b>Pendaftaran</b></td>
+                    </tr>                    
+                    <tr>
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                      <td>7 Juli - 8 Juli 2021</td>                      
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="section-4">
+        <div class="container faq">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="faq-title">
+                <h1 class="title-1">Frequently Answered Question</h1>
+              </div>
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Accordion Item #1
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Accordion Item #2
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Accordion Item #3
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-12 col-sm-12 wrapper-logo">
+             <div class="footer-logo">
+               <img
+               src="http://jti.polije.ac.id/epim/assets/logoo.png"           
+               alt=""
+             />        
+             <p class="title-1">EXPO DAN PEKAN ILMIAH MAHASISWA 2021</p>  
+             </div>
+           </div>
+           <div class="col-lg-12 footer-links">
+             <a href="#">Kebijakan</a>
+             <a href="#">Privasi</a>
+             <a href="#">Support</a>
+             <a href="#">Sponsorship</a>
+           </div>
+          
+         </div>
+       </div>
+       <div class=" dev-thanks">
+        <p>&copy 2021 Expo dan Pekan Ilmiah Mahasiswa, All Rights Reserved. Developed by <b>Biro Sistem Informasi 2021</b></p>             
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top"></a>
+  </body>
+  <script src="./dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+        // Transition effect for navbar 
+        $(window).scroll(function() {
+          // checks if window is scrolled more than 500px, adds/removes solid class
+          if($(this).scrollTop() > 150) { 
+              $('#header').addClass('solid');
+              $('#header > .container').addClass('solid-font');
+              $('.nav-link').addClass('solid-font');
+          } else {
+              $('#header').removeClass('solid');
+              $('#header > .container').removeClass('solid-font');
+              $('.nav-link').removeClass('solid-font');
+
+          }
+        });
+});
+  </script>
+  <script>
+    // const btnMobile = document.querySelector(".mobile-nav-toggle");
+    // const navMobile = document.getElementById("navbarNav");
+    // let isInMobile = true;
+    // btnMobile.addEventListener("click", () => {
+    //   !navMobile.classList.contains("mobile-nav") ? navMobile.classList.add("mobile-nav") : navMobile.classList.remove("mobile-nav")
+    // })
+
+    (function () {
+      "use strict";
+
+      /**
+       * Easy selector helper function
+       */
+      const select = (el, all = false) => {
+        el = el.trim();
+        if (all) {
+          return [...document.querySelectorAll(el)];
+        } else {
+          return document.querySelector(el);
+        }
+      };
+
+      /**
+       * Easy event listener function
+       */
+      const on = (type, el, listener, all = false) => {
+        let selectEl = select(el, all);
+        if (selectEl) {
+          if (all) {
+            selectEl.forEach((e) => e.addEventListener(type, listener));
+          } else {
+            selectEl.addEventListener(type, listener);
+          }
+        }
+      };
+
+      /**
+       * Easy on scroll event listener
+       */
+      const onscroll = (el, listener) => {
+        el.addEventListener("scroll", listener);
+      };
+
+      /**
+       * Navbar links active state on scroll
+       */
+      let navbarlinks = select("#navbar .scrollto", true);
+      const navbarlinksActive = () => {
+        let position = window.scrollY + 200;
+        navbarlinks.forEach((navbarlink) => {
+          if (!navbarlink.hash) return;
+          let section = select(navbarlink.hash);
+          if (!section) return;
+          if (
+            position >= section.offsetTop &&
+            position <= section.offsetTop + section.offsetHeight
+          ) {
+            navbarlink.classList.add("active");
+          } else {
+            navbarlink.classList.remove("active");
+          }
+        });
+      };
+      window.addEventListener("load", navbarlinksActive);
+      onscroll(document, navbarlinksActive);
+
+      /**
+       * Scrolls to an element with header offset
+       */
+      const scrollto = (el) => {
+        let header = select("#header");
+        let offset = header.offsetHeight;
+
+        let elementPos = select(el).offsetTop;
+        window.scrollTo({
+          top: elementPos - offset,
+          behavior: "smooth",
+        });
+      };
+
+      /**
+       * Toggle .header-scrolled class to #header when page is scrolled
+       */
+      let selectHeader = select("#header");
+      if (selectHeader) {
+        const headerScrolled = () => {
+          if (window.scrollY > 100) {
+            selectHeader.classList.add("header-scrolled");
+          } else {
+            selectHeader.classList.remove("header-scrolled");
+          }
+        };
+        window.addEventListener("load", headerScrolled);
+        onscroll(document, headerScrolled);
+      }
+
+      /**
+       * Back to top button
+       */
+      let backtotop = select(".back-to-top");
+      if (backtotop) {
+        const toggleBacktotop = () => {
+          if (window.scrollY > 100) {
+            backtotop.classList.add("active");
+          } else {
+            backtotop.classList.remove("active");
+          }
+        };
+        window.addEventListener("load", toggleBacktotop);
+        onscroll(document, toggleBacktotop);
+      }
+
+      /**
+       * Mobile nav toggle
+       */
+      on("click", ".mobile-nav-toggle", function (e) {
+        select("#navbar").classList.toggle("navbar-mobile");
+        this.classList.toggle("fa-bars");
+        this.classList.toggle("fa-times");
+      });
+
+      /**
+       * Mobile nav dropdowns activate
+       */
+      on(
+        "click",
+        ".navbar .dropdown > a",
+        function (e) {
+          if (select("#navbar").classList.contains("navbar-mobile")) {
+            e.preventDefault();
+            this.nextElementSibling.classList.toggle("dropdown-active");
+          }
+        },
+        true
+      );
+
+      /**
+       * Scrool with ofset on links with a class name .scrollto
+       */
+      on(
+        "click",
+        ".scrollto",
+        function (e) {
+          if (select(this.hash)) {
+            e.preventDefault();
+
+            let navbar = select("#navbar");
+            if (navbar.classList.contains("navbar-mobile")) {
+              navbar.classList.remove("navbar-mobile");
+              let navbarToggle = select(".mobile-nav-toggle");
+              navbarToggle.classList.toggle("fa-bars");
+              navbarToggle.classList.toggle("fa-times");
+            }
+            scrollto(this.hash);
+          }
+        },
+        true
+      );
+
+      /**
+       * Scroll with ofset on page load with hash links in the url
+       */
+      window.addEventListener("load", () => {
+        if (window.location.hash) {
+          if (select(window.location.hash)) {
+            scrollto(window.location.hash);
+          }
+        }
+      });
+
+      /**
+       * Initiate video lightbox
+       */
+      const portfolioLightbox = GLightbox({
+        selector: ".video-lightbox",
+      });
+
+      /**
+       * Gallery slider
+       */
+      new Swiper(".gallery-slider", {
+        speed: 600,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: "auto",
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+
+          1200: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+        },
+      });
+
+      /**
+       * Testimonials slider
+       */
+      new Swiper(".testimonials-slider", {
+        speed: 600,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: "auto",
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+
+      /**
+       * Animation on scroll
+       */
+      window.addEventListener("load", () => {
+        AOS.init({
+          duration: 1000,
+          easing: "ease-in-out",
+          once: true,
+          mirror: false,
+        });
+      });
+    })();
+  </script>
+</html>
