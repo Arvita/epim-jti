@@ -1,15 +1,24 @@
-window.addEventListener("load", showPage);
-function showPage() {
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+  AOS.init({
+    duration: 1000,
+    easing: "ease-in-out",
+    once: false,
+    animatedClassName: 'aos-animate',
+    mirror: false,
+  });
+  if (window.location.hash) {
+    if (select(window.location.hash)) {
+      scrollto(window.location.hash);
+    }
+  }
   document.querySelector(".loader").style.display = "none"; 
   document.querySelector("body").classList.remove("no-scroll")
-}
+});
 
-
-
-  $(document).ready(function () {
-    // Transition effect for navbar 
-    $(window).scroll(function () {
-      // checks if window is scrolled more than 500px, adds/removes solid class
+// $(document).load().scrollTop(0);
+$(document).ready(function () {   
+    $(window).scroll(function () {      
       if ($(this).scrollTop() > 70) {
         $('#header').addClass('solid');
         $('#header > .container').addClass('solid-font');
@@ -25,34 +34,9 @@ function showPage() {
     });
   });
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // const btnMobile = document.querySelector(".mobile-nav-toggle");
-  // const navMobile = document.getElementById("navbarNav");
-  // let isInMobile = true;
-  // btnMobile.addEventListener("click", () => {
-  //   !navMobile.classList.contains("mobile-nav") ? navMobile.classList.add("mobile-nav") : navMobile.classList.remove("mobile-nav")
-  // })
-
   (function () {
     "use strict";
-
-    /**
-     * Easy selector helper function
-     */
+    
     const select = (el, all = false) => {
       el = el.trim();
       if (all) {
@@ -62,9 +46,6 @@ function showPage() {
       }
     };
 
-    /**
-     * Easy event listener function
-     */
     const on = (type, el, listener, all = false) => {
       let selectEl = select(el, all);
       if (selectEl) {
@@ -106,9 +87,6 @@ function showPage() {
     window.addEventListener("load", navbarlinksActive);
     onscroll(document, navbarlinksActive);
 
-    /**
-     * Scrolls to an element with header offset
-     */
     const scrollto = (el) => {
       let header = select("#header");
       let offset = header.offsetHeight;
@@ -120,9 +98,6 @@ function showPage() {
       });
     };
 
-    /**
-     * Toggle .header-scrolled class to #header when page is scrolled
-     */
     let selectHeader = select("#header");
     if (selectHeader) {
       const headerScrolled = () => {
@@ -136,9 +111,6 @@ function showPage() {
       onscroll(document, headerScrolled);
     }
 
-    /**
-     * Back to top button
-     */
     let backtotop = select(".back-to-top");
     if (backtotop) {
       const toggleBacktotop = () => {
@@ -151,19 +123,13 @@ function showPage() {
       window.addEventListener("load", toggleBacktotop);
       onscroll(document, toggleBacktotop);
     }
-
-    /**
-     * Mobile nav toggle
-     */
+   
     on("click", ".mobile-nav-toggle", function (e) {
       select("#navbar").classList.toggle("navbar-mobile");
       this.classList.toggle("fa-bars");
       this.classList.toggle("fa-times");
     });
 
-    /**
-     * Mobile nav dropdowns activate
-     */
     on(
       "click",
       ".navbar .dropdown > a",
@@ -176,9 +142,6 @@ function showPage() {
       true
     );
 
-    /**
-     * Scrool with ofset on links with a class name .scrollto
-     */
     on(
       "click",
       ".scrollto",
@@ -197,34 +160,5 @@ function showPage() {
         }
       },
       true
-    );
-
-    /**
-     * Scroll with ofset on page load with hash links in the url
-     */
-    window.addEventListener("load", () => {
-      if (window.location.hash) {
-        if (select(window.location.hash)) {
-          scrollto(window.location.hash);
-        }
-      }
-    });
-
-    /**
-     * Initiate video lightbox
-     */
- 
-
-    /**
-     * Animation on scroll
-     */
-    window.addEventListener("load", () => {
-      AOS.init({
-        duration: 1000,
-        easing: "ease-in-out",
-        once: true,
-        mirror: false,
-      });
-    });
+    );      
   })();
-
