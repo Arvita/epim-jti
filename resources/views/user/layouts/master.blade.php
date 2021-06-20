@@ -1,6 +1,6 @@
-@include('admin.layouts.header')
+@include('user.layouts.header')
 
 @yield('content')
 
-@include('admin.layouts.footer')
+@include('user.layouts.footer')
 

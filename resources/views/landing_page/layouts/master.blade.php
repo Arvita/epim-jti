@@ -1,5 +1,5 @@
-@include('user.layouts.header')
+@include('landing_page.layouts.header')
 
 @yield('content')
 
-@include('user.layouts.footer')
+@include('landing_page.layouts.footer')

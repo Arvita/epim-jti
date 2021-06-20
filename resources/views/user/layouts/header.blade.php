@@ -37,7 +37,7 @@
     <div class="main-wrapper main-wrapper-1">
 
         {{-- NAVBAR / TOP BAR --}}
-      @include('admin.layouts.navbar')
+      @include('user.layouts.navbar')
 
       {{-- SIDEBAR --}}
-      @include('admin.layouts.sidebar')
+      @include('user.layouts.sidebar')
