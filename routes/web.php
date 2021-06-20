@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.pages.index');
+    return view('landing_page.index');
 });
 
 // Route::get('/admin', function () {
@@ -26,13 +26,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
+
+
 // ROUTE ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     //Dashboard
-    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
 
     // Auth Admin
     // Route::middleware(['admin'])->group(function () {
@@ -47,6 +49,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // });
 });
 
+
+
+// ROUTE USER
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+});
+
+
 // Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'index']);
 
 
@@ -59,17 +69,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 */
 
 Route::get('/', function () {
-    return view('user.pages.index');
+    return view('landing_page.index');
 })->name("home");
 
 Route::get('/expo-it', function () {
-    return view('user.pages.expo_it');
+    return view('landing_page.pages.expo_it');
 })->name('expo');
 
 Route::get('/lomba-it', function () {
-    return view('user.pages.lomba_jaringan');
+    return view('landing_page.pages.lomba_jaringan');
 })->name('lomba_it');
 
 Route::get('/lomba-bisnis-tik', function () {
-    return view('user.pages.lomba_bisnis');
+    return view('landing_page.pages.lomba_bisnis');
 })->name('tcp_it');

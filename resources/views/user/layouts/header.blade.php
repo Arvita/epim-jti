@@ -1,94 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EPIM 2021</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>@yield('title')</title>
 
-    <!-- Plugin Style -->
-    <link href="./dist/aos/aos.css" rel="stylesheet">
-    <link rel="stylesheet"
-      href="./dist/filepond/filepond-plugin-image-preview.min.css">
-    <link rel="stylesheet" href="./dist/filepond/filepond.min.css">
-    <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./dist/font-awesome/css/all.min.css">
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{{asset('backend/modules/bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/modules/fontawesome/css/all.min.css')}}">
 
-    <!-- Font-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet">
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{{asset('backend/modules/jqvmap/dist/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/modules/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/modules/owlcarousel2/dist/assets/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/modules/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
 
-    <!-- User Style -->
-    <link rel="stylesheet" href="./dist/css/styles.css" />
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/css/components.css')}}">
 
-</head>
+    <!-- Custom CSS -->
+    @stack('customcss')
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<body class="no-scroll">
+  gtag('config', 'UA-94034622-3');
+</script>
+<!-- /END GA --></head>
 
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
 
-  <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
-    <div class="container d-flex align-items-center">
-      <div class="logo me-auto">
-        <a href="/"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" width="40" height="60" alt="" /></a>
-        <a href="/" class="logo-text">
-          EPIM 2021
-        </a>
-      </div>
+        {{-- NAVBAR / TOP BAR --}}
+      @include('admin.layouts.navbar')
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li class="dropdown">
-            <a class="nav-link scrollto active" href="#">
-              <span>Beranda</span> <i class="fa fa-angle-down"></i>
-            </a>
-            <ul>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#tentang">Tentang</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#event">Event</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#timeline">Timeline</a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a class="nav-link scrollto" href="#">
-              <span>Produk</span> <i class="fa fa-angle-down"></i>
-            </a>
-            <ul>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Mobile</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Website</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Desktop</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">IOT</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#">Pengumuman</a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#faq">FAQ</a>
-          </li>
-        </ul>
-        <i class="fa fa-bars mobile-nav-toggle"></i>
-      </nav>
-
-      <div class="navbar-social-media d-flex align-items-center">
-        <a href="https://www.facebook.com/hmjti.polije" class="facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.youtube.com/channel/UCcIzhQvQ4t_-9ejb-aK0Raw" class="youtube"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/hmjti_polije" class="instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </header>
+      {{-- SIDEBAR --}}
+      @include('admin.layouts.sidebar')

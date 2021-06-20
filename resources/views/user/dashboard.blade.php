@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Admin - Dashboard')
+@section('title', 'Peserta - Dashboard')
 @section('content')
 <!-- Main Content -->
 <div class="main-content">
