@@ -1,4 +1,4 @@
-@extends("user.layouts.master")
+@extends("landing_page.layouts.master")
 
 @section("content")
 <div class="overlay hidden">
