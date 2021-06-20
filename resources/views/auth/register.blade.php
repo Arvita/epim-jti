@@ -65,7 +65,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="{{route('register')}}">Create One</a>
+            Have an account? <a href="{{route('login')}}">Sign in</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Biro Sistem Informasi {{date("Y")}}
