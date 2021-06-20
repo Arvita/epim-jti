@@ -41,11 +41,11 @@
   </div>
   <a href="#" class="back-to-top"></a>
 
-</body>
 <script src="./dist/js/jquery.js"></script>
 <script src="./dist/js/bootstrap.min.js"></script>
 <script src="./dist/js/jquery.countdown.min.js"></script>
 @yield('script', '<script></script>')
 <script src="./dist/aos/aos.js"></script>
 <script src="./dist/js/main.js"></script>
+</body>
 </html>

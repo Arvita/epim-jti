@@ -130,7 +130,7 @@
     </li>
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
       <img alt="image" src="{{asset('backend/img/avatar/avatar-1.png')}}" class="rounded-circle mr-1">
-      <div class="d-sm-none d-lg-inline-block">Hi, Hi, {{ Auth::user()->name }}</div></a>
+      <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title">Logged in {{\Carbon\Carbon::parse(session('time_logged'))->diffForHumans()}}</div>
         <a href="features-profile.html" class="dropdown-item has-icon">
