@@ -56,7 +56,7 @@
                 <p class="hero-desc">
                   Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
                 </p>
-                <a href="/expo.html" class="hero-btn">Selengkapnya</a>
+                <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
               </div>
 
             </div>
@@ -82,7 +82,7 @@
                   Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
 
                 </p>
-                <a href="/lomba_it.html" class="hero-btn">Selengkapnya</a>
+                <a href="{{ route('lomba_it') }}" class="hero-btn">Selengkapnya</a>
               </div>
 
             </div>
@@ -108,7 +108,7 @@
                   Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
 
                 </p>
-                <a href="/tcp_it.html" class="hero-btn">Selengkapnya</a>
+                <a href="{{ route('tcp_it') }}" class="hero-btn">Selengkapnya</a>
               </div>
 
             </div>
