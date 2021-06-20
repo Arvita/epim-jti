@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('user.pages.index');
+});
+
+Route::get('/admin', function () {
     return view('admin.dashboard');
 });
+
+
 
 Auth::routes();
 
@@ -42,3 +48,28 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 });
 
 // Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'index']);
+
+
+
+
+
+
+/*
+    Landing Page Route
+*/
+
+Route::get('/', function () {
+    return view('user.pages.index');
+})->name("home");
+
+Route::get('/expo-it', function () {
+    return view('user.pages.expo_it');
+})->name('expo');
+
+Route::get('/lomba-it', function () {
+    return view('user.pages.lomba_jaringan');
+})->name('lomba_it');
+
+Route::get('/lomba-bisnis-tik', function () {
+    return view('user.pages.lomba_bisnis');
+})->name('tcp_it');
