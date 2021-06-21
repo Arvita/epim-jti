@@ -180,7 +180,7 @@
   </main>@endsection
 
   <div class="overlay hidden">
-    <div class="section-form-pendaftaran">
+    {{-- <div class="section-form-pendaftaran">
       <div class="fixed-btn-wrapper">
         <button class="close-form">
           <i class="fa fa-times"></i>
@@ -272,8 +272,8 @@
           </form>
         </div>
       </div>
-    </div>
-    <!-- <div class="section-form-pendaftaran">
+    </div> --}}
+     <div class="section-form-pendaftaran">
         <div class="fixed-btn-wrapper">
           <button class="close-form">
             <i class="fa fa-times"></i>
@@ -350,10 +350,10 @@
                 </div>
                 <div class="mb-3">
                   <div class="form-group">
-                    <label for="file_bmc" class="form-label">Upload BMC</label>
+                    <label for="file-proposal" class="form-label">Upload Proposal</label>
                     <input type="file"
-                    class="filepond file-bmc"
-                    name="file_bmc"/>
+                    class="filepond file-proposal"
+                    name="file-proposal"/>
                   </div>
                 </div>
               </div>
@@ -373,7 +373,7 @@
           </form>
         </div>
       </div>
-    </div>  -->
+    </div>
 
 </div>
   @section("script")

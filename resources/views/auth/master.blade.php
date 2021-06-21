@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="{{ asset('backend/css/style.min.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/components.css') }}">
 
+
+  {{-- Custom CSS --}}
+  @yield('customcss','')
 </head>
 
 <body>
@@ -40,6 +43,7 @@
   <script src="{{ asset('backend/js/custom.js') }}"></script>
   <script src="{{ asset('backend/js/stisla.js') }}"></script>
 
+  @yield('customjs','')
 
   <!-- Page Specific JS File -->
 </body>

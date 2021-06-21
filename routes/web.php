@@ -62,6 +62,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
 // ROUTE USER
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+    Route::post('/registrasi/lomba-it', [App\Http\Controllers\User\DashboardController::class, 'registrasi_lomba'])->name('admin.registrasi.lomba');
+    Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('admin.registrasi.bisnis');
 });
 
 

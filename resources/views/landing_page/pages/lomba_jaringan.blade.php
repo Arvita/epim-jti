@@ -465,8 +465,8 @@
               <button class="btn-register-submit" type="submit">
                 Daftar
               </button>
-        </div>
-      </form>
+            </div>
+            </form>
         </div>
       </div>
   </div>

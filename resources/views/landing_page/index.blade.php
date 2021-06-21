@@ -30,11 +30,8 @@
                   Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
 
                 </p>
-
                   <a href="#more" class="hero-btn">Selengkapnya</a>
-
               </div>
-
             </div>
           </div>
         </div>

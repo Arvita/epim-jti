@@ -17,13 +17,6 @@
             <img src="./img/Wallpaper Laptop Biro SI 2 1.png" alt="" height="30">
           </div>
         </div>
-        <!-- <div class="col-lg-12 footer-links">
-          <a href="#">Kebijakan</a>
-          <a href="#">Privasi</a>
-          <a href="#">Support</a>
-          <a href="#">Sponsorship</a>
-        </div> -->
-
       </div>
     </div>
     <div class=" dev-thanks">

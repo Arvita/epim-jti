@@ -80,15 +80,23 @@
           <li>
             <a class="nav-link scrollto" href="#faq">FAQ</a>
           </li>
+          <li class="nav-link scrollto">
+              <div class="btn-group-cta">
+                  <a href="{{ route('login') }}" class="btn-login"> Login </a>
+                  <a href="{{ route('register') }}" class="btn-register"> Daftar </a>
+              </div>
+        </li>
         </ul>
         <i class="fa fa-bars mobile-nav-toggle"></i>
       </nav>
 
-      <div class="navbar-social-media d-flex align-items-center">
+      {{-- <div class="navbar-social-media d-flex align-items-center">
         <a href="https://www.facebook.com/hmjti.polije" class="facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://www.youtube.com/channel/UCcIzhQvQ4t_-9ejb-aK0Raw" class="youtube"><i
             class="fab fa-youtube"></i></a>
         <a href="https://www.instagram.com/hmjti_polije" class="instagram"><i class="fab fa-instagram"></i></a>
-      </div>
+      </div> --}}
+
+
     </div>
   </header>
