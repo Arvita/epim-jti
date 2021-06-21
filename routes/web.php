@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Just Testing Templating
+Route::get('/test', function () {
+    return view('admin.pages.expo.list_peserta');
+});
+
+
+
 Route::get('/', function () {
     return view('landing_page.index');
 });
@@ -26,7 +33,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 
@@ -34,6 +40,8 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 // ROUTE ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     //Dashboard
+
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
 
     // Auth Admin

@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $data = [
-            'title' => 'Hello World From Dashboard Controller',
+            'title' => 'Admin Dashboard',
         ];
 
         return view('admin.dashboard', $data)->render();
