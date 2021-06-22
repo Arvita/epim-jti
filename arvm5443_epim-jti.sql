@@ -9,6 +9,7 @@
 
 CREATE TABLE `expos` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
   `nama_tim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prodi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `semester` int(11) NOT NULL,
@@ -42,32 +43,34 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `lomba_its` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_peserta` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nis` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `usia` int(11) NOT NULL,
-  `no_wa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_wa_peserta` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_pendamping` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nip` int(11) NOT NULL,
   `no_wa_pendamping` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto_ketua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto_peserta` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kartu_pelajar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto_peserta1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto_peserta2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto_peserta3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surat_pernyataan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lampiran_guru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -76,38 +79,23 @@ CREATE TABLE `password_resets` (
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `tcp_it2s` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_tim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `perguruan_tinggi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `judul_proposal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_ketua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_anggota1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_anggota2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `proposal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 CREATE TABLE `tcp_its` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_tim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `perguruan_tinggi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `judul_proposal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ketua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_anggota1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_anggota2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_anggota1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_anggota2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ktm` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url_biodata` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bmc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proposal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `biodata` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -122,12 +110,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 
 
-
+INSERT INTO `lomba_its` (`id`, `user_id`, `email`, `nama_peserta`, `nis`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `usia`, `no_wa_peserta`, `nama_pendamping`, `nip`, `no_wa_pendamping`, `foto_peserta`, `kartu_pelajar`, `surat_pernyataan`, `bukti_pembayaran`, `lampiran_guru`, `created_at`, `updated_at`) VALUES
+(1, 12, 'fasdsdasadf@sfasd.com', 'sdfasdfasdfsadfsadf', 'sdfasdfsdafsd', 'afsadfasdfsadfsadfasfsa', '2021-06-10', 'laki-laki', 213, 'asdfsafdsafsafsda', 'dsfsadfd', 213, 'asdsafasdfas', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FE.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FF.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA00.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA10.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA11.tmp', '2021-06-22 06:36:16', '2021-06-22 06:36:16');
 
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -139,35 +128,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2021_06_17_095244_create_expos_table', 1),
 (5, '2021_06_17_173242_create_tcp_its_table', 1),
-(6, '2021_06_17_173617_create_lomba_its_table', 1),
-(7, '2021_06_17_180904_create_tcp_it2s_table', 1);
-
-
+(6, '2021_06_17_173617_create_lomba_its_table', 1);
 
 
 
 
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `event`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Stacy O\'Conner', 'xgottlieb@example.com', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '6JzovyeEek', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04');
+(1, 'Vance Harvey', 'freynolds@example.org', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'uJ0Gzbu4Nm', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31');
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `event`, `role`, `created_at`, `updated_at`) VALUES
-(2, 'Jaren Hoeger', 'lowell19@example.com', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'uePcZiykGT', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04');
+(2, 'Gerardo Bashirian', 'telly.wintheiser@example.org', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'IkLX4ClDQN', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31');
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `event`, `role`, `created_at`, `updated_at`) VALUES
-(3, 'Leonora Hills', 'margarete.parker@example.net', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YKkVj6FcBx', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04');
+(3, 'Shyanne West', 'twila.cole@example.org', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '4dkGdetMDk', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31');
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `event`, `role`, `created_at`, `updated_at`) VALUES
-(4, 'Bernadette Simonis', 'timmy22@example.org', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'CdZoZ3CzSt', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(5, 'Madyson Goyette', 'gottlieb.caden@example.org', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Hmq2RglGFp', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(6, 'Dr. Rosario Mayer', 'blick.edgardo@example.org', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'yjTpNrc31W', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(7, 'Sam Ryan', 'uhettinger@example.org', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lVU4LgPNL8', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(8, 'Tristin Daugherty', 'torp.jesus@example.org', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'G7YBoMrvxU', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(9, 'Ms. Gia Koepp PhD', 'jhintz@example.com', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NaICP5bQB3', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(10, 'Jerry Kuhlman', 'quentin27@example.net', '2021-06-20 02:49:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'vPfyNnbnqa', 'lomba', 'user', '2021-06-20 02:49:04', '2021-06-20 02:49:04'),
-(11, 'admin', 'admin@admin.com', NULL, '$2y$10$eeRDnkayJglT9PUrZaLvQ.B4SYu6uAUUfoGXvynri7EDPe0YHKW3a', NULL, 'admin', 'admin', '2021-06-20 03:01:56', '2021-06-20 03:01:56'),
-(12, 'Admin2', 'admin2@admin.com', NULL, '$2y$10$t0SDM93.RYMWTCoHqNoxJ.u1f26hU82rn/R/etK3VfrToTMC/WzD.', NULL, 'admin', 'user', '2021-06-20 04:16:29', '2021-06-20 04:16:29'),
-(13, 'Lukman Afandi', 'lukmanafandi10@gmail.com', NULL, '$2y$10$Kk7rTG4oFXbk2rViHmsMT.XvM9sC76ce9mnxkt4OEecGdHVyBTgka', NULL, 'admin', 'user', '2021-06-20 04:53:58', '2021-06-20 04:53:58'),
-(14, '123123123', '12313@sdafasdf.com', NULL, '$2y$10$cKaijixMy9zp84i0qFkPxOHh8NYyf0s9ux/XkbNUi5qbKgxLEh0yy', NULL, 'admin', 'user', '2021-06-20 04:55:32', '2021-06-20 04:55:32'),
-(16, 'admin3', 'admin3@admin.com', NULL, '$2y$10$.78u8qJd2mHEfP3hBIpfoeIbDGVE8sC/gM6ro07QtBL8yXk8ir6Be', NULL, 'admin', 'user', '2021-06-20 06:28:36', '2021-06-20 06:28:36'),
-(17, 'adf', 'sadfsadf@dasfasd.com', NULL, '$2y$10$6swYhis9sw8DETLwPa1h7.J9OlwNA7cRALnO50RAihue6gI9BNVaa', NULL, 'admin', 'user', '2021-06-20 06:30:31', '2021-06-20 06:30:31');
+(4, 'Cleta Ratke Jr.', 'gdietrich@example.com', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'JZGTy0zGFF', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(5, 'Kailee Langworth II', 'annamae.grimes@example.com', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'GdxVUi2xLD', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(6, 'Prof. Shanie Altenwerth Sr.', 'casper.randall@example.net', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'SmwWEHgzFW', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(7, 'Harry Carter', 'shegmann@example.com', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2eeE8a3Ptr', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(8, 'Jewell Johnson', 'qkoss@example.org', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'xFxcK9pSLC', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(9, 'Prof. Jack Macejkovic I', 'deshawn.macejkovic@example.org', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'nge2FVuY09', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(10, 'Mr. Maximilian Cummerata', 'wzulauf@example.net', '2021-06-22 05:13:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'WcJsnVKXqQ', 'lomba', 'user', '2021-06-22 05:13:31', '2021-06-22 05:13:31'),
+(11, 'Admin', 'admin@admin.com', NULL, '$2y$10$I4.J5XBse9rLiROWc0vxjeU0jHiLLd9JZRJQdLhaVTZmkqXpInkxS', NULL, 'admin', 'admin', '2021-06-22 05:14:44', '2021-06-22 05:14:44'),
+(12, 'Lukman Afandi', 'lukmanafandi10@gmail.com', NULL, '$2y$10$MRKxehauKhuARp7.m6zz8uZAsz3ua74O5eqY1o127DX6XH72x/.9W', NULL, 'lomba_it', 'user', '2021-06-22 05:35:25', '2021-06-22 06:36:16'),
+(13, 'admin', 'admin2@admin.com', NULL, '$2y$10$jTgeukr6uNELKcvo6yGMC.TeoDXvbut0ifYdaTEp31x4MVr7IKH1a', NULL, '', 'user', '2021-06-22 06:38:40', '2021-06-22 06:38:40');
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
