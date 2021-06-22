@@ -15,20 +15,22 @@ class LombaIt extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'email',
-        'nama',
+        'nama_peserta',
         'nis',
         'tempat_lahir',
+        'tanggal_lahir',
         'jenis_kelamin',
         'usia',
-        'no_wa',
+        'no_wa_peserta',
         'nama_pendamping',
         'nip',
         'no_wa_pendamping',
-        'foto_ketua',
+        'foto_peserta',
         'kartu_pelajar',
-        'foto_peserta1',
-        'foto_peserta2',
-        'foto_peserta3',
+        'surat_pernyataan',
+        'bukti_pembayaran',
+        'lampiran_guru',
     ];
 }

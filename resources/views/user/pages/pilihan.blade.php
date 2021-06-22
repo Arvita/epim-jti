@@ -1,4 +1,5 @@
 @extends('auth.master')
+@section('title', 'Pilih Lomba EPIM')
 @section('customcss')
 <link rel="stylesheet"
 href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
@@ -105,7 +106,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     </p>
                                     <button id="modal-2"
                                         class="btn btn-warning btn-lg w-100 mt-4">Daftar</button>
-                                    <a href="{{route('tcp_it')}}" class="mt-4 bb">Lihat Panduan</a>
+                                    <a href="{{route('lomba_it')}}" class="mt-4 bb">Lihat Panduan</a>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +118,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 </div>
 
 
-<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-1" aria-modal="true">
+<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-2" aria-modal="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -136,7 +137,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           PENDAFTARAN LOMBA IT
                         </h1>
                       </div>
-                      <form action="{{route('admin.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST">
+                      <form action="{{route('user.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
                           @csrf
                         <div class="col-lg-12">
                           <h2 class="form-sub-title">
@@ -145,40 +146,46 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="email" class="form-label">Email Peserta</label>
-                              <input type="email" class="form-control" id="email" name="email">
+                              <input type="email" class="form-control @error('email_l') is-invalid @enderror" id="email" name="email_l" value="{{old('email_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap</label>
-                              <input type="text" class="form-control" id="nama_lengkap_peserta" name="nama_lengkap_peserta">
+                              <input type="text" class="form-control @error('nama_peserta_l') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_l" value="{{old('nama_peserta_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="nis" class="form-label">NIS</label>
-                              <input type="text" class="form-control" id="nis" name="nis">
+                              <input type="text" class="form-control @error('nis_l') is-invalid @enderror" id="nis" name="nis_l" value="{{old('nis_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                              <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                              <input type="text" class="form-control @error('tempat_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir_l" value="{{old('tempat_lahir_l')}}">
+                            </div>
+                            <div class="mb-3">
+                              <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                              <input type="date" class="form-control @error('tanggal_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tanggal_lahir_l" value="{{old('tanggal_lahir_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="tempat_lahir" class="form-label">Jenis Kelamin</label>
-                              <div class="btn-group-toggle" data-toggle="buttons">
-                                <div class="mb-2 radio-button-wrapper">
-                                  <input type="radio" name="jenis_kelamin" id="jk_laki">
-                                  <label class="form-label radio-button" for="jk_laki">Laki-Laki</label>
-                                </div>
-                                <div class="mb-2 radio-button-wrapper">
-                                  <input type="radio" name="jenis_kelamin" id="jk_perempuan">
-                                  <label class="form-label radio-button" for="jk_perempuan">Perempuan</label>
-                                </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin_l"  value="laki-laki" id="jk_laki" checked>
+                                <label class="form-check-label" for="jk_laki">
+                                  Laki-Laki
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin_l"  value="perempuan" id="jk_perempuan" >
+                                <label class="form-check-label" for="jk_perempuan">
+                                  Perempuan
+                                </label>
                               </div>
                             </div>
                             <div class="mb-3">
                               <label for="usia" class="form-label">Usia</label>
-                              <input type="text" class="form-control" id="usia" name="usia">
+                              <input type="text" class="form-control @error('usia_l') is-invalid @enderror" id="usia" name="usia_l" value="{{old('usia_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="no_wa_peserta" class="form-label">No WhatsApp</label>
-                              <input type="text" class="form-control" id="no_wa_peserta" name="no_wa_peserta">
+                              <input type="text" class="form-control @error('no_wa_peserta_l') is-invalid @enderror" id="no_wa_peserta" name="no_wa_peserta_l" value="{{old('no_wa_peserta_l')}}">
                             </div>
                           </div>
                         </div>
@@ -189,15 +196,15 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="nama_lengkap_pendamping" class="form-label">Nama Lengkap</label>
-                              <input type="text" class="form-control" id="nama_lengkap_pendamping" name="nama_lengkap_pendamping">
+                              <input type="text" class="form-control @error('nama_pendamping_l') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_pendamping_l" value="{{old('nama_pendamping_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="nip" class="form-label">NIP</label>
-                              <input type="text" class="form-control" id="nip" name="nip">
+                              <input type="text" class="form-control @error('nip_l') is-invalid @enderror" id="nip" name="nip_l" value="{{old('nip_l')}}">
                             </div>
                             <div class="mb-3">
                               <label for="no_wa_pendamping" class="form-label">No WhatsApp</label>
-                              <input type="text" class="form-control" id="no_wa_pendamping" name="no_wa_pendamping">
+                              <input type="text" class="form-control @error('no_wa_pendamping_l') is-invalid @enderror" id="no_wa_pendamping" name="no_wa_pendamping_l" value="{{old('no_wa_pendamping_l')}}">
                             </div>
                           </div>
                         </div>
@@ -211,15 +218,15 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="foto_peserta" class="form-label">Upload Foto Peserta *3x4</label>
                                 <input type="file"
                                 class="filepond foto_peserta"
-                                name="foto_peserta"/>
+                                name="foto_peserta_l"/>
                               </div>
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="KTP" class="form-label">Kartu Tanda Pelajar</label>
+                                <label for="ktp" class="form-label">Kartu Tanda Pelajar</label>
                                 <input type="file"
                                 class="filepond ktp"
-                                name="KTP"/>
+                                name="kartu_pelajar_l"/>
                               </div>
                             </div>
                             <div class="mb-3">
@@ -227,7 +234,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="surat_pernyataan" class="form-label">Scan Surat Pernyataan</label>
                                 <input type="file"
                                 class="filepond surat_pernyataan"
-                                name="surat_pernyataan"/>
+                                name="surat_pernyataan_l"/>
                               </div>
                             </div>
                             <div class="mb-3">
@@ -235,7 +242,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="bukti_pembayaran" class="form-label">Scan Bukti Pembayaran</label>
                                 <input type="file"
                                 class="filepond bukti_pembayaran"
-                                name="bukti_pembayaran"/>
+                                name="bukti_pembayaran_l"/>
                               </div>
                             </div>
                             <div class="mb-3">
@@ -243,7 +250,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="lampiran_guru" class="form-label">File Lampiran Guru Pendamping</label>
                                 <input type="file"
                                 class="filepond lampiran_guru"
-                                name="lampiran_guru"/>
+                                name="lampiran_guru_l"/>
                               </div>
                             </div>
                           </div>
@@ -256,7 +263,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </ul>
                         </div>
                         <div class="col-lg-12 text-center">
-                          <button class="btn-register-submit" type="submit">
+                          <button class="btn-register-submit" type="submit" name="submit" value="lomba_it">
                             Daftar
                           </button>
                         </div>
@@ -266,7 +273,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
         </div>
     </div>
 </div>
-<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-2" aria-modal="true">
+<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-1" aria-modal="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -282,10 +289,10 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <p class="d-inline">EPIM 2021</p>
                         </div>
                         <h1 class="form-title">
-                          PENDAFTARAN LOMBA TCP IT
+                          PENDAFTARAN LOMBA BISNIS TIK
                         </h1>
                       </div>
-                      <form action="{{route('admin.registrasi.bisnis')}}" class="form-pendaftaran col-12"  method="POST">
+                      <form action="{{route('user.registrasi.lomba')}}" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-12">
                           <h2 class="form-sub-title">
@@ -294,31 +301,31 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email" name="email" aria-describedby="input-help">
+                              <input type="email" class="form-control @error('email_t') is-invalid @enderror" id="email" name="email_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="nama_tim" class="form-label">Nama TIM</label>
-                              <input type="text" class="form-control" id="nama_tim" name="nama_tim" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_tim_t') is-invalid @enderror" id="nama_tim" name="nama_tim_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
-                              <input type="text" class="form-control" id="perguruan_tinggi" name="perguruan_tinggi" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('perguruan_tinggi_t') is-invalid @enderror" id="perguruan_tinggi" name="perguruan_tinggi_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="judul_proposal" class="form-label">Judul Propsosal Bisnis</label>
-                              <input type="text" class="form-control" id="judul_proposal" name="judul_proposal" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('judul_proposal_t') is-invalid @enderror" id="judul_proposal" name="judul_proposal_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="nama_ketua" class="form-label">Nama Lengkap Ketua TIM</label>
-                              <input type="text" class="form-control" id="nama_ketua" name="nama_ketua" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_ketua_t') is-invalid @enderror" id="nama_ketua" name="nama_ketua_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="nama_anggota1" class="form-label">Nama Lengkap Anggota 1</label>
-                              <input type="text" class="form-control" id="nama_anggota1" name="nama_anggota1" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_anggota1_t') is-invalid @enderror" id="nama_anggota1" name="nama_anggota1_t" aria-describedby="input-help">
                             </div>
                             <div class="mb-3">
                               <label for="nama_anggota2" class="form-label">Nama Lengkap Anggota 2</label>
-                              <input type="text" class="form-control" id="nama_anggota2" name="nama_anggota2" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_anggota2_t') is-invalid @enderror" id="nama_anggota2" name="nama_anggota2_t" aria-describedby="input-help">
                             </div>
                           </div>
 
@@ -333,23 +340,23 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="file_ktm" class="form-label">Upload KTM</label>
                                 <input type="file"
                                 class="filepond file-ktm"
-                                name="file_ktm"/>
+                                name="ktm_t"/>
                               </div>
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="file_biodata" class="form-label">Upload Bioadata</label>
+                                <label for="biodata" class="form-label">Upload Bioadata</label>
                                 <input type="file"
                                 class="filepond file-biodata"
-                                name="file_biodata"/>
+                                name="biodata_t"/>
                               </div>
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="file-proposal" class="form-label">Upload Proposal</label>
                                 <input type="file"
-                                class="filepond file-proposal"
-                                name="file-proposal"/>
+                                class="filepond"
+                                name="proposal_t"/>
                               </div>
                             </div>
                           </div>
@@ -362,11 +369,11 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </ul>
                         </div>
                         <div class="col-lg-12 text-center">
-                          <button class="btn-register-submit" name="submit" type="submit">
-                            Daftar
-                          </button>
-                        </div>
-                      </form>
+                            <button class="btn-register-submit" name="submit" type="submit" value="tcp_it">
+                              Daftar
+                            </button>
+                          </div>
+                        </form>
                     </div>
                   </div>
             </div>
@@ -384,78 +391,111 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
   src="{{asset('dist/filepond/filepond-plugin-image-exif-orientation.min.js')}}"></script>
 <script src="{{asset('dist/filepond/filepond-plugin-image-preview.min.js')}}"></script>
 <script src="{{asset('dist/filepond/filepond.min.js')}}"></script>
-<script>
-    FilePond.registerPlugin(
-        // FilePondPluginFileValidateType,
-        // FilePondPluginFileValidateSize,
-    // encodes the file as base64 data
-    FilePondPluginFileEncode,
-
-    // validates the size of the file
-    FilePondPluginFileValidateSize,
-
-    // corrects mobile image orientation
-    FilePondPluginImageExifOrientation,
-
-    // previews dropped images
-    FilePondPluginImagePreview
-    );
-
-    var option = {
-        maxFiles : 1,
-        maxFileSize : '1MB',
-        acceptedFileTypes : [],
-        server: {
-            url: '',
-            process: {
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            },
-            revert: null,
-            restore: null,
-            load: null,
-            fetch: null
+@if (count($errors) > 0)
+<script type="text/javascript">
+    $( document ).ready(function() {
+        if('{{old('submit')}}' === 'lomba_it'){
+            $('#fire-modal-1').modal('show');
         }
-    };
+
+        if('{{old('submit')}}' === 'tcp_it'){
+            $('#fire-modal-2').modal('show');
+        }
+    });
+</script>
+@endif
+<script>
+
+    // FilePond.registerPlugin(
+    //     // FilePondPluginFileValidateType,
+    //     // FilePondPluginFileValidateSize,
+    // // encodes the file as base64 data
+    // FilePondPluginFileEncode,
+
+    // // validates the size of the file
+    // FilePondPluginFileValidateSize,
+
+    // // corrects mobile image orientation
+    // FilePondPluginImageExifOrientation,
+
+    // // previews dropped images
+    // FilePondPluginImagePreview
+    // );
+
+    // var option = {
+    //     maxFiles : 1,
+    //     // maxFileSize : '1MB',
+    //     // acceptedFileTypes : [],
+    //     // server: '{{route('user.registrasi.lomba')}}',
+    //     method: 'POST',
+    //     // headers: {
+    //     //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     // },
+    //     // revert: null,
+    //     // restore: null,
+    //     // load: null,
+    //     // fetch: null
+    //     server: {
+    //         url: '{{route('user.registrasi.lomba')}}',
+    //         process: {
+    //             headers: {
+    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    //             }
+    //         }
+    //     }
+    // };
+
+    // FilePond.setOptions({
+    //     server: {
+    //         url: '{{route('user.registrasi.lomba')}}',
+    //         process: {
+    //             headers: {
+    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    //             }
+    //         }
+    //     }
+    //       });
+
+    //       const inputElement = document.querySelector('input[name="file_proposal_tcp"]');
+    //       const pond = FilePond.create( inputElement);
 
     // Select the file input and use create() to turn it into a pond
-    FilePond.create(
-    document.querySelector('.foto_peserta')
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector(".ktp")
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector(".surat_pernyataan")
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector(".bukti_pembayaran")
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector(".lampiran_guru")
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector('.file-ktm')
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector('.file-biodata')
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
 
-    FilePond.create(
-    document.querySelector('.file-bukti-pembayaran')
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
-    FilePond.create(
-    document.querySelector('.file-proposal')
-    , option);
+    // FilePond.create(
+    // document.querySelector("input[type='file']")
+    // , option);
 
 </script>
 @endsection

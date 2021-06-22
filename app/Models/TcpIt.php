@@ -15,6 +15,7 @@ class TcpIt extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'email',
         'nama_tim',
         'perguruan_tinggi',
@@ -23,7 +24,7 @@ class TcpIt extends Model
         'nama_anggota1',
         'nama_anggota2',
         'ktm',
-        'url_biodata',
-        'bmc',
+        'proposal',
+        'biodata',
     ];
 }

@@ -15,21 +15,23 @@ class CreateLombaItsTable extends Migration
     {
         Schema::create('lomba_its', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('email');
-            $table->string('nama');
+            $table->string('nama_peserta');
             $table->string('nis');
             $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->integer('usia');
-            $table->string('no_wa');
+            $table->string('no_wa_peserta');
             $table->string('nama_pendamping');
             $table->integer('nip');
             $table->string('no_wa_pendamping');
-            $table->string('foto_ketua');
+            $table->string('foto_peserta');
             $table->string('kartu_pelajar');
-            $table->string('foto_peserta1');
-            $table->string('foto_peserta2');
-            $table->string('foto_peserta3');
+            $table->string('surat_pernyataan');
+            $table->string('bukti_pembayaran');
+            $table->string('lampiran_guru');
             $table->timestamps();
         });
     }

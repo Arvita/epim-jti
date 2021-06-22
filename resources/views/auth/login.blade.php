@@ -1,4 +1,4 @@
-@extends('auth.master ')
+@extends('auth.master')
 @section('content')
     <section class="section">
       <div class="container mt-5">

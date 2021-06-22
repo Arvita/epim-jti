@@ -15,6 +15,7 @@ class CreateTcpItsTable extends Migration
     {
         Schema::create('tcp_its', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('email');
             $table->string('nama_tim');
             $table->string('perguruan_tinggi');
@@ -23,8 +24,8 @@ class CreateTcpItsTable extends Migration
             $table->string('nama_anggota1');
             $table->string('nama_anggota2');
             $table->string('ktm');
-            $table->string('url_biodata');
-            $table->string('bmc');
+            $table->string('proposal');
+            $table->string('biodata');
             $table->timestamps();
         });
     }

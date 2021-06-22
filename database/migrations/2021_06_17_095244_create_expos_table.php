@@ -15,6 +15,7 @@ class CreateExposTable extends Migration
     {
         Schema::create('expos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_tim');
             $table->string('prodi');
             $table->integer('semester');
