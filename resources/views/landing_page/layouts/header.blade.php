@@ -82,8 +82,8 @@
           </li>
           <li class="nav-link scrollto">
               <div class="btn-group-cta">
-                  <a href="{{ route('login') }}" class="btn-login"> Login </a>
-                  <a href="{{ route('register') }}" class="btn-register"> Daftar </a>
+                  <a href="{{ route('login') }}" class="btn-login"> <span>Login</span> </a>
+                  <a href="{{ route('register') }}" class="btn-register"> <span>Daftar</span> </a>
               </div>
         </li>
         </ul>
