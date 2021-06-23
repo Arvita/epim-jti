@@ -26,9 +26,7 @@
                                 EXPO PEKAN ILMIAH MAHASISWA 2021 (EPIM 2021)
                             </h1>
                             <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
-                            <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum
-                                    quis dolores
-                                    reprehenderit aliquid qui minima, voluptate delectus?</i></p>
+                            <p><i>"Millennial optimization to create creative, competitive, and realistic technologies innovations for indonesia golden 2045"</i></p>
                             <p class="hero-desc">
 
                                 Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
@@ -44,20 +42,13 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-sm-12 order order-lg-2">
                             <div class="hero-img">
-                                <img src="{{asset('img/AOM.png')}}" alt="maskot-epim" class="img-hero">
+                                <img src="{{asset('img/EXPO2ed.png')}}" alt="maskot-epim" class="img-hero">
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
-                            <h1 class="hero-title">
-                                EXPO PRODUK IT 2021
+                            <h1 class="hero-title mb-5">
+                                EXPO PRODUK IT
                             </h1>
-                            <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
-                            <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum
-                                    quis dolores
-                                    reprehenderit aliquid qui minima, voluptate delectus?</i></p>
-                            <p class="hero-desc">
-                                Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
-                            </p>
                             <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -73,18 +64,9 @@
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
-                            <h1 class="hero-title">
-                                LOMBA IT JARINGAN 2021
+                            <h1 class="hero-title mb-5">
+                                LOMBA KONFIGURASI JARINGAN
                             </h1>
-                            <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
-                            <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum
-                                    quis dolores
-                                    reprehenderit aliquid qui minima, voluptate delectus?</i></p>
-                            <p class="hero-desc">
-
-                                Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
-
-                            </p>
                             <a href="{{ route('lomba_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -100,18 +82,9 @@
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
-                            <h1 class="hero-title">
+                            <h1 class="hero-title mb-5">
                                 LOMBA BISNIS TIK
                             </h1>
-                            <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
-                            <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum
-                                    quis dolores
-                                    reprehenderit aliquid qui minima, voluptate delectus?</i></p>
-                            <p class="hero-desc">
-
-                                Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
-
-                            </p>
                             <a href="{{ route('tcp_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -150,13 +123,7 @@
                 </div>
                 <div class="col-lg-6 embed-description" data-aos="fade-left">
                     <p class="title-1">Teaser EPIM 2021</p>
-                    <p class="desc-1">Lorem ipmsumLorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-                        laying
-                        out print, graphic or web designs. The passage is attributed to an unknown typesetter in the
-                        15th century
-                        who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a
-                        type
-                        specimen book. It usually begins with:
+                    <p class="desc-1">Expo dan Pekan Ilmiah Mahasiswa adalah kegiatan perwujudan kreativitas mahasiswa yang dilaksanakan perguruan tinggi yang terjadwal, guna meningkatkan budaya kompetisi akademik dan unjuk prestasi di kalangan mahasiswa. EPIM sebagai media pertemuan nasional dan wadah untuk saling berkomunikasi, bertukar fikiran serta pengalaman antar mahasiswa, siswa dan siswi aktif seluruh indonesia
                     </p>
                 </div>
             </div>
@@ -181,8 +148,8 @@
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">EXPO PRODUK IT</p>
                             <p class="desc-1">Expo Produk IT adalah kegiatan pameran
-                                produk mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember</p>
+                                produk Mahasiswa Jurusan Teknologi Informasi
+                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring). Expo Produk IT memberikan kesempatan kepada Mahasiswa Jurusan teknologi Informasi untuk memamerkan hasil karya dan inovasi mereka dibidang teknologi kepada khalayak serta meningkatkan jiwa kompotitif dan kreatifitas mahasiswa.</p>
                         </div>
                     </div>
                     <div class="col-lg-12 my-4 text-center">
@@ -192,10 +159,8 @@
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
-                            <p class="proker-title">LOMBA IT</p>
-                            <p class="desc-1">Expo Produk IT adalah kegiatan pameran
-                                produk mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember</p>
+                            <p class="proker-title">LOMBA KONFIGURASI JARINGAN</p>
+                            <p class="desc-1">lomba konfigurasi jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional</p>
                         </div>
                     </div>
                     <div class="col-lg-12 my-4 text-center">
@@ -205,10 +170,8 @@
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
-                            <p class="proker-title">LOMBA TCP IT</p>
-                            <p class="desc-1">Expo Produk IT adalah kegiatan pameran
-                                produk mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember</p>
+                            <p class="proker-title">LOMBA BISNIS TIK</p>
+                            <p class="desc-1">Lomba Bisnis TIK merupakan perlombaan atau kompetisi pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1 Se-Indonesia di perguruan tinggi negeri maupun swasta. Lomba ini memberikan kesempatan kepada peserta yang memiliki ide bisnis, start up, dan pengembangan usaha serta inovasi dan kreatifitas siswa, baik berupa jasa atau produk yang berorientasi pada bidang Teknologi Informasi.</p>
                         </div>
                     </div>
 
@@ -221,9 +184,7 @@
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">TALKSHOW NASIONAL</p>
-                            <p class="desc-1">Expo Produk IT adalah kegiatan pameran
-                                produk mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember</p>
+                            <p class="desc-1">Talkshow Nasional merupakan kegiatan yang dilakukan untuk memberikan wawasan serta berbagi pengalaman tentang kewirausahaan, bisnis, dan teknologi informasi yang dilakukan oleh orang yang sudah berkompeten dalam bidang tersebut yang bertujuan untuk dapat memberikan motivasi serta semangat kepada para untuk dapat menumbuhkan semangat berwirausaha di era digital seperti sekarang ini.</p>
                         </div>
                     </div>
                     <div class="col-lg-12 my-4 text-center">
@@ -232,9 +193,7 @@
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">ART OF MANUNGGALANG</p>
-                            <p class="desc-1">Expo Produk IT adalah kegiatan pameran
-                                produk mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember</p>
+                            <p class="desc-1">AOM (Art Of Manunggalan) merupakan kegiatan keakraban seluruh mahasiswa baru Teknologi Informasi dan ucapan selamat datang Kepada Mahasiswa Baru sebagai anggota keluarga besar Jurusan Teknologi Informasi Politeknik Negeri Jember</p>
                         </div>
                     </div>
                 </div>
@@ -251,12 +210,19 @@
                     <div class="card card-timeline">
                         <div class="card-body">
                             <h5 class="card-title">EXPO PRODUK IT</h5>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pendaftaran Peserta</h6>
+                            <p class="card-text">19 Juli - 9 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Hasil Seleksi</h6>
+                            <p class="card-text">17 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Technical Meeting</h6>
+                            <p class="card-text">21 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumpulan Berkas Pendukung Expo</h6>
+                            <p class="card-text">23 Agustus - 1 September 2021
+                            </p>
+                            <h6 class="card-subtitle mb-2">Acara Expo</h6>
+                            <p class="card-text">13-17 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Final dan Penutupan</h6>
+                            <p class="card-text">17 September 2021</p>
 
                         </div>
                     </div>
@@ -264,13 +230,25 @@
                 <div class="col-lg-4" data-aos="zoom-in-up">
                     <div class="card card-timeline">
                         <div class="card-body">
-                            <h5 class="card-title">LOMBA JARINGAN</h5>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
+                            <h5 class="card-title">LOMBA KONFIGURASI JARINGAN</h5>
+                            <h6 class="card-subtitle mb-2">Pendaftaran dan Pembayaran Gelombang 1</h6>
+                            <p class="card-text">28 Juni - 27 Juli 2021</p>
+                            <h6 class="card-subtitle mb-2">Pendaftaran dan Pembayaran Gelombang 2</h6>
+                            <p class="card-text">28 Juli – 18 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Panduan Seleksi Online</h6>
+                            <p class="card-text">22 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Seleksi Online Jaringan</h6>
+                            <p class="card-text">29 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Finalis</h6>
+                            <p class="card-text">1 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Technical Meeting</h6>
+                            <p class="card-text">5 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pembukaan EPIM 1</h6>
+                            <p class="card-text">13 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Acara Final</h6>
+                            <p class="card-text">14 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Final dan Penutupan</h6>
+                            <p class="card-text">17 September 2021</p>
 
                         </div>
                     </div>
@@ -279,12 +257,18 @@
                     <div class="card card-timeline">
                         <div class="card-body">
                             <h5 class="card-title">LOMBA BISNIS TIK </h5>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
-                            <h6 class="card-subtitle mb-2">Timeline Acara</h6>
-                            <p class="card-text">13 -17 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pendaftaran dan Pengumpulan Proposal</h6>
+                            <p class="card-text">28 Juni - 15 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Finalis</h6>
+                            <p class="card-text">1 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Technical Meeting</h6>
+                            <p class="card-text">4 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pembukaan EPIM 1</h6>
+                            <p class="card-text">13 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Final Lomba Bisnis TIK</h6>
+                            <p class="card-text">16 September 2021</p>
+                            <h6 class="card-subtitle mb-2">Pengumuman Final dan Penutupan</h6>
+                            <p class="card-text">17 September 2021</p>
 
                         </div>
                     </div>
@@ -305,14 +289,12 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
                                     aria-controls="flush-collapseOne">
-                                    Accordion Item #1
+                                    Apakah ada batasan usia untuk peserta yang mengikuti lomba Bisnis TIK?
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate
-                                    the <code>.accordion-flush</code> class. This is the first item's accordion body.
+                                <div class="accordion-body">Tidak ada. Sejauh peserta terdaftar sebagai mahasiswa dibuktikan dari kartu mahasiswa yang masih aktif.
                                 </div>
                             </div>
                         </div>
@@ -321,16 +303,13 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                     aria-controls="flush-collapseTwo">
-                                    Accordion Item #2
+                                    Apakah satu tim boleh mengirimkan lebih dari 1 proposal Bisnis TIK?
                                 </button>
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate
-                                    the <code>.accordion-flush</code> class. This is the second item's accordion body.
-                                    Let's imagine
-                                    this being filled with some actual content.</div>
+                                <div class="accordion-body">Boleh, Namun untuk pembayaran registrasi tetap berlaku per proposal. Yaitu Rp. 100.000 untuk Mahasiswa Umum dan Rp. 70.000 untuk Mahasiswa Politeknik Negeri Jember
+                                </div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -338,19 +317,83 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseThree" aria-expanded="false"
                                     aria-controls="flush-collapseThree">
-                                    Accordion Item #3
+                                    Apakah boleh mengirim karya yang pernah menang di lomba lain?
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate
-                                    the <code>.accordion-flush</code> class. This is the third item's accordion body.
-                                    Nothing more
-                                    exciting happening here in terms of content, but just filling up the space to make
-                                    it look, at least
-                                    at first glance, a bit more representative of how this would look in a real-world
-                                    application.</div>
+                                <div class="accordion-body">Tidak. Karya yang dikirimkan harus merupakan karya yang belum pernah menang di ajang perlombaan apapun.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+                                    Jika kami sebagai tim (2 / 3 orang), apakah semuanya harus mendaftar?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Untuk tim, cukup ketua yang mendaftar, lalu isikan data ketua dan anggota dengan lengkap dan benar.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                    aria-controls="flush-collapseFive">
+                                    Jika kami tidak memiliki dosen pembimbing, apakah tidak masalah bila dikosongkan?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Setiap tim harus memiliki dosen pembimbing dan tidak boleh dikosongkan
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                    aria-controls="flush-collapseSix">
+                                    Apakah seluruh peserta mendapatkan sertifikat peserta ?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSix" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Iya, mendapatkan, seluruh peserta yang terdaftar akan mendapatkan e-sertifikat individu
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                    aria-controls="flush-collapseSeven">
+                                    Apakah Mahasiswa Luar Politeknik Negeri Jember dapat mendaftar sebagai perserta Expo/Pameran?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Tidak, Peserta Expo Produk IT hanya berasal dari mahasiswa Jurusan Teknologi Informasi Politeknik Negeri Jember
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseEight" aria-expanded="false"
+                                    aria-controls="flush-collapseEight">
+                                    Bagaimana cara mengunjungi Expo secara Online?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEight" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Dengan cara mengunjungi tautan <a href="http://expo.epimjti.com" target="_blank">http://expo.epimjti.com/</a>. atau dengan cara klik kategori pada navigasi bar website ini.
+                                </div>
                             </div>
                         </div>
                     </div>
