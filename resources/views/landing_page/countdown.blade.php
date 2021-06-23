@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12 wrapper-image-countdown">
-                <img src="./img/EPIM 2.png" alt="maskot-epim" class="img-countdown" />
+                <img src="{{asset('img/EPIM 2.png')}}" alt="maskot-epim" class="img-countdown" />
             </div>
             <div class="col-lg-12">
                 <div class="cs-desc">
@@ -49,22 +49,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- <div class="col-lg-3 days-wrapper">
-                  <p class="clock">00</p>
-                  <p class="clock-name">Hari</p>
-                </div>
-                <div class="col-lg-3 hours-wrapper">
-                  <p class="clock">00</p>
-                  <p class="clock-name">Jam</p>
-                </div>
-                <div class="col-lg-3 minutes-wrapper">
-                  <p class="clock">00</p>
-                  <p class="clock-name">Menit</p>
-                </div>
-                <div class="col-lg-3 second-wrapper">
-                  <p class="clock">00</p>
-                  <p class="clock-name">Detik</p>
-                </div> -->
                     </div>
                     <div class="row my-3 justify-content-center">
                         <div class="col-lg-4 sponsor-countdown">
@@ -108,7 +92,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-sm-12 order order-lg-2" data-aos="zoom-in-up">
                             <div class="hero-img">
-                                <img src="./img/EPIM 2.png" alt="maskot-epim" class="img-hero">
+                                <img src="{{asset('img/EPIM 2.png')}}" alt="maskot-epim" class="img-hero">
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1" data-aos="zoom-in">
@@ -134,7 +118,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-sm-12 order order-lg-2">
                             <div class="hero-img">
-                                <img src="./img/AOM.png" alt="maskot-epim" class="img-hero">
+                                <img src="{{asset('img/AOM.png')}}" alt="maskot-epim" class="img-hero">
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
@@ -159,7 +143,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-sm-12 order order-lg-2">
                             <div class="hero-img">
-                                <img src="./img/TN2.png" alt="maskot-epim" class="img-hero">
+                                <img src="{{asset('img/TN2.png')}}" alt="maskot-epim" class="img-hero">
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
@@ -186,7 +170,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-7 col-sm-12 order order-lg-2">
                             <div class="hero-img">
-                                <img src="./img/tcp.png" alt="maskot-epim" class="img-hero">
+                                <img src="{{asset('img/tcp.png')}}" alt="maskot-epim" class="img-hero">
                             </div>
                         </div>
                         <div class="hero-section col-lg-5 col-sm-12 order-lg-1">
@@ -265,7 +249,7 @@
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
                             <a href="/detail_page.html">
-                                <img class="proker-img" src="./img/EXPOed.png" alt="Gambar Expo">
+                                <img class="proker-img" src="{{asset(img/EXPOed.png)}}" alt="Gambar Expo">
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
@@ -278,7 +262,7 @@
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
                             <a href="/lomba_it.html">
-                                <img class="proker-img" src="./img/TN.png" alt="Gambar Lomba IT">
+                                <img class="proker-img" src="{{asset('img/TN.png')}}" alt="Gambar Lomba IT">
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
@@ -291,7 +275,7 @@
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
                             <a href="/tcp_it.html">
-                                <img class="proker-img" src="./img/tcp.png" alt="Gambar TCP IT">
+                                <img class="proker-img" src="{{asset('img/tcp.png')}}" alt="Gambar TCP IT">
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
@@ -307,7 +291,7 @@
                     <p class="title-1">EPIM SESI 2</p>
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
-                            <img class="proker-img" src="./img/Talkshow.png" alt="Gambar Expo">
+                            <img class="proker-img" src="{{asset('img/Talkshow.png')}}" alt="Gambar Expo">
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">TALKSHOW NASIONAL</p>
@@ -318,7 +302,7 @@
                     </div>
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
-                            <img class="proker-img" src="./img/AOM.png" alt="Gambar Expo">
+                            <img class="proker-img" src="{{asset('img/AOM.png')}}" alt="Gambar Expo">
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">ART OF MANUNGGALANG</p>

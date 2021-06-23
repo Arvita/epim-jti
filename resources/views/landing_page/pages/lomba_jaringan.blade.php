@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <div class="form-logo">
-              <a href="#"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" alt=""></a>
+              <a href="#"><img src="{{asset('img/logoo.png')}}" alt=""></a>
               <p class="d-inline">LOMBA IT 2021</p>
             </div>
             <h1 class="form-title">
@@ -152,7 +152,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 col-sm-12 text-center" data-aos="zoom-in-up">
-          <img src="./img/TN.png" alt="maskot-epim" class="img-detail-page-hero" />
+          <img src="{{asset('img/TN.png')}}" alt="maskot-epim" class="img-detail-page-hero" />
         </div>
         <div class="detail-page-hero-section col-lg-12 col-sm-12" data-aos="zoom-in">
           <p class="detail-page-hero-desc">
