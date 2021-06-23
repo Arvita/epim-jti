@@ -1,6 +1,5 @@
 @extends('user.layouts.master')
 @section('content')
-
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">

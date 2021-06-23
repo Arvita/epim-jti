@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,9 +61,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
 
 
 // ROUTE USER
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
     Route::post('/registrasi/lomba', [App\Http\Controllers\User\DashboardController::class, 'registrasi_lomba'])->name('user.registrasi.lomba');
+
+
+
+    // TCP IT
+    Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.list.proposal');
     // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
 });
 
@@ -78,9 +84,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Landing Page Route
 */
 
-Route::get('/', function () {
-    return view('landing_page.index');
-})->name("home");
+$isCountdownActive = false;
+
+if($isCountdownActive){
+    Route::get('/', function () {
+        return view('landing_page.countdown');
+    })->name("home.countdown");
+}else{
+    Route::get('/', function () {
+        return view('landing_page.index');
+    })->name("home");
+}
 
 Route::get('/expo-it', function () {
     return view('landing_page.pages.expo_it');

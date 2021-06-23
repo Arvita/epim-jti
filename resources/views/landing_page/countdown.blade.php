@@ -1,5 +1,95 @@
 @extends("landing_page.layouts.master")
+@section('customcss')
+    <style>
+        body{
+            overflow: hidden !important;
+        }
+    </style>
+@endsection
 @section("content")
+<div class="overlay coming-soon">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12 wrapper-image-countdown">
+                <img src="./img/EPIM 2.png" alt="maskot-epim" class="img-countdown" />
+            </div>
+            <div class="col-lg-12">
+                <div class="cs-desc">
+                    <h1 class="cs-title">
+                        EXPO PEKAN ILMIAH MAHASISWA 2021
+                        POLITEKNIK NEGERI JEMBER
+                    </h1>
+                    <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint debitis quod laborum quis
+                            dolores
+                            reprehenderit aliquid qui minima, voluptate delectus?</i></p>
+                    <p class="cs-date">13-17 September 2021</p>
+                </div>
+                <div class="col-lg-12 cs-countdown-box">
+
+                    <div class="top-box">
+                        <p>COMING SOON</p>
+                    </div>
+                    <div class="row cs-countdown align-items-end">
+                        <div class="col-lg-12">
+                            <ul id="countdown">
+                                <li><span class="days">00</span>
+                                    <p class="clock-name">Days</p>
+                                </li>
+                                <li class="seperator">:</li>
+                                <li><span class="hours">00</span>
+                                    <p class="clock-name">Hours</p>
+                                </li>
+                                <li class="seperator">:</li>
+                                <li><span class="minutes">00</span>
+                                    <p class="clock-name">Minutes</p>
+                                </li>
+                                <li class="seperator">:</li>
+                                <li><span class="seconds">00</span>
+                                    <p class="clock-name">Seconds</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <div class="col-lg-3 days-wrapper">
+                  <p class="clock">00</p>
+                  <p class="clock-name">Hari</p>
+                </div>
+                <div class="col-lg-3 hours-wrapper">
+                  <p class="clock">00</p>
+                  <p class="clock-name">Jam</p>
+                </div>
+                <div class="col-lg-3 minutes-wrapper">
+                  <p class="clock">00</p>
+                  <p class="clock-name">Menit</p>
+                </div>
+                <div class="col-lg-3 second-wrapper">
+                  <p class="clock">00</p>
+                  <p class="clock-name">Detik</p>
+                </div> -->
+                    </div>
+                    <div class="row my-3 justify-content-center">
+                        <div class="col-lg-4 sponsor-countdown">
+                            <p>
+                                Sponsorship
+                            </p>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 sponsor-countdown">
+                            <p>
+                                Mediapartner
+                            </p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section id="hero">
     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -360,5 +450,37 @@
     </section>
 </main>
 @endsection
+@section("script")
+<script>
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    }, false);
+    $('#countdown').countdown({
+        date: '6/28/2021 00:00:00',
+        // Target date
+
+        // time zone
+        offset: null,
+
+        // Countdown text
+        day: 'Day',
+        days: 'Days',
+        hour: 'Hour',
+        hours: 'Hours',
+        minute: 'Minute',
+        minutes: 'Minutes',
+        second: 'Second',
+        seconds: 'Seconds'
+    }, function () {
+        //  alert('');
+        $('.overlay').removeClass('hidden');
+    });
+
+    window.addEventListener('load', () => {
+        $("body").addClass("no-scroll");
+    });
 
 
+</script>
+
+@endsection

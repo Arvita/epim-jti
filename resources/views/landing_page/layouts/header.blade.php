@@ -22,7 +22,7 @@
 
     <!-- User Style -->
     <link rel="stylesheet" href="./dist/css/styles.css" />
-
+    @yield('customcss', '')
 </head>
 
 <body class="no-scroll">
