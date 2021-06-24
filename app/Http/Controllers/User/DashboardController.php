@@ -73,11 +73,13 @@ class DashboardController extends Controller
         $user = User::find($id_user);
 
         if($request->submit == 'lomba_it'){
-           register_lomba_it($request);
+            $this->register_lomba_it($request);
+            $user->event = 'lomba_it';
         }
 
         if($request->submit == 'tcp_it'){
-            register_tcp_it($request);
+            $this->register_tcp_it($request);
+            $user->event = 'tcp_it';
         }
 
 
@@ -86,12 +88,12 @@ class DashboardController extends Controller
         return \redirect()->route('user.dashboard');
     }
 
-    public function register_tcp_it($request){
+    private function register_tcp_it($request){
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
 
-        $this->validate($request, [
+        $request->validate([
             'email_t' => 'required',
             'nama_tim_t' => 'required',
             'perguruan_tinggi_t' => 'required',
@@ -113,6 +115,9 @@ class DashboardController extends Controller
         $tcp_it->nama_anggota1 = $request->nama_anggota1_t;
         $tcp_it->nama_anggota2 = $request->nama_anggota2_t;
 
+        //Set status to proses at first time data added
+        $tcp_it->status = 'proses';
+
         // FileName
         $ktm_t = time().'.'.$request->ktm_t->extension();
         $proposal_t = time().'.'.$request->proposal_t->extension();
@@ -129,16 +134,14 @@ class DashboardController extends Controller
         $tcp_it->biodata = 'tcp/'.$email.'/'.$biodata_t;
         $tcp_it->save();
 
-        //Save to table User
-        $user->event = 'tcp_it';
     }
-    public  function register_lomba_it($request)
+    private  function register_lomba_it($request)
     {
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
 
-        $this->validate($request, [
+        $request->validate([
             'email_l' => 'required',
             'nama_peserta_l' => 'required',
             'nis_l' => 'required',
@@ -174,6 +177,9 @@ class DashboardController extends Controller
         $lomba_it->nip = $request->nip_l;
         $lomba_it->no_wa_pendamping = $request->no_wa_pendamping_l;
 
+        //Set status to proses at first time data added
+        $lomba_it->status = 'proses';
+
         // FileName
         $foto_peserta_l = time().'.'.$request->foto_peserta_l->extension();
         $kartu_pelajar_l = time().'.'.$request->kartu_pelajar_l->extension();
@@ -196,8 +202,6 @@ class DashboardController extends Controller
         $lomba_it->lampiran_guru = 'lomba/'.$email.'/'.$lampiran_guru_l;
         $lomba_it->save();
 
-        //Save to table User
-        $user->event = 'lomba_it';
     }
 }
 
