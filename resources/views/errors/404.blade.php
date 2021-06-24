@@ -12,10 +12,12 @@
           <div class="page-search">
             <div class="mt-3">
                 @guest
-                    <a href="{{route('home')}}">Kembali ke beranda</a>
+                    <a href="/">Kembali ke beranda</a>
+                    {{-- <a href="{{route('home')}}">Kembali ke beranda</a> --}}
                 @endguest
                 @auth
-                    <a href="{{redirect()->back()}}">Kembali ke halaman sebelumnya</a>
+                    <a href="/">Kembali ke halaman sebelumnya</a>
+                    {{-- <a href="{{redirect()->back()}}">Kembali ke halaman sebelumnya</a> --}}
                 @endauth
               </div>
           </div>
