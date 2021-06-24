@@ -49,6 +49,9 @@
                             <h1 class="hero-title mb-5">
                                 EXPO PRODUK IT
                             </h1>
+                            <p>Expo Produk IT adalah kegiatan pameran
+                                produk Mahasiswa Jurusan Teknologi Informasi
+                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring). Expo Produk IT memberikan kesempatan kepada Mahasiswa Jurusan teknologi Informasi untuk memamerkan hasil karya dan inovasi mereka dibidang teknologi kepada khalayak serta meningkatkan jiwa kompotitif dan kreatifitas mahasiswa.</p>
                             <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -160,7 +163,7 @@
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
                             <p class="proker-title">LOMBA KONFIGURASI JARINGAN</p>
-                            <p class="desc-1">lomba konfigurasi jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional</p>
+                            <p class="desc-1">Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional</p>
                         </div>
                     </div>
                     <div class="col-lg-12 my-4 text-center">
@@ -192,7 +195,7 @@
                             <img class="proker-img" src="{{asset('img/AOM.png')}}" alt="Gambar Expo">
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
-                            <p class="proker-title">ART OF MANUNGGALANG</p>
+                            <p class="proker-title">ART OF MANUNGGALAN</p>
                             <p class="desc-1">AOM (Art Of Manunggalan) merupakan kegiatan keakraban seluruh mahasiswa baru Teknologi Informasi dan ucapan selamat datang Kepada Mahasiswa Baru sebagai anggota keluarga besar Jurusan Teknologi Informasi Politeknik Negeri Jember</p>
                         </div>
                     </div>
