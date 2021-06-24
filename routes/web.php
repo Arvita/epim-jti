@@ -39,7 +39,7 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 
 // ROUTE ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     //Dashboard
 
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
@@ -86,11 +86,11 @@ Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
 
 $isCountdownActive = false;
 
-if ($isCountdownActive) {
+if($isCountdownActive){
     Route::get('/', function () {
         return view('landing_page.countdown');
     })->name("home.countdown");
-} else {
+}else{
     Route::get('/', function () {
         return view('landing_page.index');
     })->name("home");
