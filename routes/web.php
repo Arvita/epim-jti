@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$isCountdownActive = true;
+$isCountdownActive = false;
 
 if($isCountdownActive){
     Route::get('/', function () {
@@ -64,7 +64,8 @@ Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
 
 
     // TCP IT
-    Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.list.proposal');
+    Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.proposal.list');
+    Route::post('/proposal', [DashboardController::class, 'register_tcp_it'])->name('user.proposal.tambah');
     // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
 });
 

@@ -13,6 +13,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('backend/css/components.css')}}">
+    @yield('customcss','')
 </head>
 
 <body class="layout-3">

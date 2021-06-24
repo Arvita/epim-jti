@@ -39,6 +39,9 @@ class DashboardController extends Controller
     // TCP IT
     public function list_proposal(){
 
+        if(Auth::user()->event != 'tcp_it'){
+            return \abort(404);
+        }
         $user_id = Auth::user()->id;
 
         $user = User::find($user_id);
@@ -88,20 +91,20 @@ class DashboardController extends Controller
         return \redirect()->route('user.dashboard');
     }
 
-    private function register_tcp_it($request){
+    public function register_tcp_it(Request $request){
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
 
         $request->validate([
-            'email_t' => 'required',
+            'email_t' => 'required|email',
             'nama_tim_t' => 'required',
-            'perguruan_tinggi_t' => 'required',
-            'judul_proposal_t' => 'required',
+            'perguruan_tinggi_t' => 'required|min:8',
+            'judul_proposal_t' => 'required|8',
             'nama_ketua_t' => 'required',
-            'ktm_t' => 'required',
-            'proposal_t' => 'required',
-            'biodata_t' => 'required',
+            'ktm_t' => 'required|image',
+            'proposal_t' => 'required|mimes:pdf',
+            'biodata_t' => 'required|mimes:pdf',
                 ]);
         // \dd($request);
 
@@ -115,8 +118,8 @@ class DashboardController extends Controller
         $tcp_it->nama_anggota1 = $request->nama_anggota1_t;
         $tcp_it->nama_anggota2 = $request->nama_anggota2_t;
 
-        //Set status to proses at first time data added
-        $tcp_it->status = 'proses';
+        //Set status to not verified at first time data added
+        $tcp_it->status = 'not verified';
 
         // FileName
         $ktm_t = time().'.'.$request->ktm_t->extension();
@@ -134,8 +137,12 @@ class DashboardController extends Controller
         $tcp_it->biodata = 'tcp/'.$email.'/'.$biodata_t;
         $tcp_it->save();
 
+        if( request()->is('peserta/proposal') ){
+            return \redirect()->back();
+        }
+
     }
-    private  function register_lomba_it($request)
+    public  function register_lomba_it(Request $request)
     {
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
@@ -178,7 +185,7 @@ class DashboardController extends Controller
         $lomba_it->no_wa_pendamping = $request->no_wa_pendamping_l;
 
         //Set status to proses at first time data added
-        $lomba_it->status = 'proses';
+        $lomba_it->status = 'not verified';
 
         // FileName
         $foto_peserta_l = time().'.'.$request->foto_peserta_l->extension();

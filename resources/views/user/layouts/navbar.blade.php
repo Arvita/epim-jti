@@ -41,15 +41,21 @@
 <nav class="navbar navbar-secondary navbar-expand-lg">
   <div class="container">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Beranda</span></a>
+      <li class="nav-item {{ request()->is('peserta') ? 'active' : '' }}">
+        <a href="{{ route('user.dashboard') }}" class="nav-link"><i class="far fa-heart"></i><span>Beranda</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ request()->is('peserta/profile') ? 'active' : '' }}">
         <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Profile</span></a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Cek Status</span></a>
-      </li>
+      @if (Auth::user()->event == 'tcp_it')
+        <li class="nav-item {{ request()->is('peserta/proposal') ? 'active' : '' }}">
+            <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="far fa-heart"></i><span>Cek Status</span></a>
+        </li>
+       @else
+        <li class="nav-item active">
+            <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Cek Status</span></a>
+        </li>
+      @endif
     </ul>
   </div>
 </nav>

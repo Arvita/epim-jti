@@ -1,11 +1,61 @@
 @extends('user.layouts.master')
+@section('customcss')
+<style>
+    .empty-state-icon {
+        background-color: transparent !important;
+        width: 280px !important;
+        /* height: 80px; */
+        margin-bottom: 50px;
+        line-height: 100px;
+        border-radius: 5px;
+    }
+
+    .form-title {
+    font-size: 1.5rem;
+    padding: 10px 0 30px;
+}
+.form-sub-title {
+    font-size: 1.2rem;
+}
+.form-wrapper {
+    padding: 10px 20px;
+}
+.filepond--root * {
+    box-sizing: inherit;
+    line-height: 1;
+}
+
+.btn-register-submit{
+    background-color: #a30b00;
+    margin: 30px 0;
+    font-size: 12px;
+    width: 100%;
+    line-height: 24px;
+    padding: .55rem 1.5rem;
+    text-decoration: none;
+    border-radius: .3rem;
+    text-transform: uppercase;
+    border: 2px solid #a30b00;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: .3s opacity;
+}
+
+.btn-register-submit:hover{
+    background-color: #a30b00ec
+}
+</style>
+@endsection()
 @section('content')
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
           <div class="section-header justify-content-between">
             <h1>List Proposal</h1>
-            <button class="btn btn-primary">Tambah Proposal</button>
+            <button class="btn btn-primary" id="modal-1">Tambah Proposal</button>
           </div>
 
           <div class="section-body">
@@ -34,134 +84,18 @@
                             <td>{{ $item->nama_tim }}</td>
                             <td>{{ $item->perguruan_tinggi }}</td>
                             <td class="align-middle">
-                                @for
-                                <div class="badge badge-danger">{{ $item->status }}</div>
+                                @if ($item->status == 'verified')
+                                    <div class="badge badge-success">{{ Str::title($item->status) }}</div>
+                                @else
+                                    <div class="badge badge-danger">{{  Str::title($item->status) }}</div>
+                                @endif
                             </td>
                         </tr>
                           @empty
                           <tr>
-                              <td>Tidak Ada data ya</td>
+                              <td colspan="5" class="text-center">Tidak Ada data proposal</td>
                           </tr>
                           @endforelse
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>Advanced Table</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-striped" id="table-2">
-                        <thead>
-                          <tr>
-                            <th class="text-center">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </th>
-                            <th>Task Name</th>
-                            <th>Progress</th>
-                            <th>Members</th>
-                            <th>Due Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Create a mobile app</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                            </td>
-                            <td>2018-01-20</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
-                                <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Redesign homepage</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="0%">
-                                <div class="progress-bar" data-width="0"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                              <img alt="image" src="../assets/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                              <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
-                            </td>
-                            <td>2018-04-10</td>
-                            <td><div class="badge badge-info">Todo</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
-                                <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Backup database</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
-                                <div class="progress-bar bg-warning" data-width="70%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
-                            </td>
-                            <td>2018-01-29</td>
-                            <td><div class="badge badge-warning">In Progress</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
-                                <label for="checkbox-4" class="custom-control-label">&nbsp;</label>
-                              </div>
-                            </td>
-                            <td>Input data</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                              <img alt="image" src="../assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
-                            </td>
-                            <td>2018-01-16</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -193,7 +127,7 @@
                               PENDAFTARAN LOMBA BISNIS TIK
                             </h1>
                           </div>
-                          <form action="{{route('user.registrasi.lomba')}}" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
+                          <form action="{{route('user.proposal.tambah')}}" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-lg-12">
                               <h2 class="form-sub-title">
@@ -282,3 +216,13 @@
         </div>
     </div>
 @endsection()
+@section('customjs')
+    <script>
+        $(document).ready(function() {
+            $("#modal-1").fireModal('#fire-tambah');
+
+
+        })
+
+    </script>
+@endsection

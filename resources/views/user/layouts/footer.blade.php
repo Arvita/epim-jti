@@ -13,14 +13,17 @@
 <script src="{{asset('backend/modules/jquery.min.js')}}"></script>
 <script src="{{asset('backend/modules/popper.js')}}"></script>
 <script src="{{asset('backend/modules/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('backend/modules/prism/prism.js') }}"></script>
+{{-- <script src="{{ asset('backend/js/page/bootstrap-modal.js') }}"></script> --}}
 <script src="{{asset('backend/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
 <script src="{{asset('backend/modules/moment.min.js')}}"></script>
 <script src="{{asset('backend/js/stisla.js')}}"></script>
 
 <!-- Page Specific JS File -->
-<script src="{{asset('backend/js/page/index.js')}}"></script>
+{{-- <script src="{{asset('backend/js/page/index.js')}}"></script> --}}
 
   <!-- Custom JS File -->
+@yield('customjs', '')
   {{-- @stack('customjs') --}}
 
 <!-- Template JS File -->

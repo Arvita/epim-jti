@@ -36,7 +36,7 @@
 <script src="{{asset('dist/js/jquery.js')}}"></script>
 <script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('dist/js/jquery.countdown.min.js')}}"></script>
-@yield('script', '<script></script>')
+@yield('script', '')
 <script src="{{asset('dist/aos/aos.js')}}"></script>
 <script src="{{asset('dist/js/main.js')}}"></script>
 </body>

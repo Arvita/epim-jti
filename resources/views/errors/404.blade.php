@@ -13,11 +13,13 @@
             <div class="mt-3">
                 @guest
                     <a href="/">Kembali ke beranda</a>
-                    {{-- <a href="{{route('home')}}">Kembali ke beranda</a> --}}
                 @endguest
                 @auth
-                    <a href="/">Kembali ke halaman sebelumnya</a>
-                    {{-- <a href="{{redirect()->back()}}">Kembali ke halaman sebelumnya</a> --}}
+                    @if (Auth::user()->role == 'admin')
+                        <a href="{{ route('admin.dasboard') }}">Kembali ke dashboard</>
+                    @else
+                        <a href="{{ route('user.dashboard') }}">Kembali ke dashboard</>
+                    @endif
                 @endauth
               </div>
           </div>
