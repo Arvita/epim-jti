@@ -84,7 +84,7 @@ Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
     Landing Page Route
 */
 
-$isCountdownActive = true;
+$isCountdownActive = false;
 
 if ($isCountdownActive) {
     Route::get('/', function () {
