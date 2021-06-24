@@ -215,6 +215,15 @@ body {
 
 }
 
+.btn-lebihlanjut {
+    text-decoration: none;
+    color: #640700;
+}
+
+.btn-lebihlanjut:hover {
+    color: #670700;
+}
+
 /*=====  End of Utilities  ======*/
 
 

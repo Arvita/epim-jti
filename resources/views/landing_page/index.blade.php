@@ -26,7 +26,7 @@
                                 EXPO PEKAN ILMIAH MAHASISWA 2021 (EPIM 2021)
                             </h1>
                             <h1 class="hero-title">POLITEKNIK NEGERI JEMBER</h1>
-                            <p><i>"Millennial optimization to create creative, competitive, and realistic technologies innovations for indonesia golden 2045"</i></p>
+                            <p><i>"Millennial optimization to create creative, competitive, and realistic technologies innovations for Indonesian golden 2045"</i></p>
                             <p class="hero-desc">
 
                                 Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
