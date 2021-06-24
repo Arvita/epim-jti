@@ -12,8 +12,8 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <div class="form-logo">
-              <a href="#"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" alt=""></a>
-              <p class="d-inline">LOMBA IT 2021</p>
+              <a href="#"><img src="{{asset('img/logoo.png')}}" alt=""></a>
+              <p class="d-inline">LOMBA KONFIGURASI JARINGAN 2021</p>
             </div>
             <h1 class="form-title">
               PENDAFTARAN LOMBA IT
@@ -152,22 +152,19 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 col-sm-12 text-center" data-aos="zoom-in-up">
-          <img src="./img/TN.png" alt="maskot-epim" class="img-detail-page-hero" />
+          <img src="{{asset('img/TN.png')}}" alt="maskot-epim" class="img-detail-page-hero" />
         </div>
         <div class="detail-page-hero-section col-lg-12 col-sm-12" data-aos="zoom-in">
-          <p class="detail-page-hero-desc">
-            ? - ? September 2021
-          </p>
-          <h1 class="detail-page-hero-title">
-            LOMBA IT 2021
-          </h1>
-          <p class="detail-page-hero-info"> Optimalisasi Peran Generasi Milenial untuk Menciptakan Inovasi Teknologi Kreatif, Kompetitif, dan Realistis Menuju Infonesia Emas 2045</p>
-        </div>
-        <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper" data-aos="zoom-in-up">
-          <a href="#more" class="detail-page-hero-btn">Pendaftaran</a>
+            <h1 class="detail-page-hero-title">
+                LOMBA KONFIGURASI JARINGAN 2021
+            </h1>
+            <p class="detail-page-hero-desc">
+              14 September 2021
+            </p>
+          <p class="detail-page-hero-info">"Millennial optimization to create creative, competitive, and realistic technologies innovations for Indonesian golden 2045"</p>
         </div>
         <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper"  data-aos="zoom-in-up">
-          <button class="detail-page-hero-btn invert" id="show-form">Pendaftaran</button>
+          <a href="{{route('login')}}" class="detail-page-hero-btn invert" id="show-form">Pendaftaran</a>
         </div>
       </div>
   </section>
@@ -208,7 +205,7 @@
             <div class="wrapper">
 
 
-              <div class="tiang">
+              <div class="tiang" style="height: 950px">
                 <div class="circle-wrapper">
                   <div class="circle circle-left"></div>
                   <div class="circle circle-right"></div>
@@ -217,6 +214,9 @@
                   <div class="circle circle-left"></div>
                   <div class="circle circle-right"></div>
                   <div class="circle circle-left"></div>
+                  <div class="circle circle-right"></div>
+                  <div class="circle circle-left"></div>
+                  <div class="circle circle-right"></div>
                 </div>
 
 
@@ -227,54 +227,81 @@
                   <div class="tiang-rotate tiang-right"></div>
                   <div class="tiang-rotate tiang-left"></div>
                   <div class="tiang-rotate tiang-right"></div>
+                  <div class="tiang-rotate tiang-left"></div>
+                  <div class="tiang-rotate tiang-right"></div>
+                  <div class="tiang-rotate tiang-left"></div>
                 </div>
                 <div class="box-wrapper box-wrapper-timeline-kegiatan">
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title ">
-                      Pendaftaran Gelombang 1
+                        Pendaftaran dan Pembayaran Gelombang 1
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        28 Juni - 27 Juli 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Panduan Seleksi Online
+                        Pendaftaran dan Pembayaran Gelombang 2
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        28 Juli – 18 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title">
-                      Seleksi Online Jaringan
+                        Panduan Seleksi Online
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        22 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Pengumuman Finalis
+                        Seleksi Online Jaringan
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        29 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title">
-                      Technical Meeting
+                        Pengumuman Finalis
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        1 September 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Final Lomba
+                        Technical Meeting
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        5 September 2021
+                    </div>
+                  </div>
+                  <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
+                    <div class="box-round-title">
+                        Pembukaan EPIM 1
+                    </div>
+                    <div class="box-round-desc">
+                        13 September 2021
+                    </div>
+                  </div>
+                  <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
+                    <div class="box-round-title">
+                        Acara Final
+                    </div>
+                    <div class="box-round-desc">
+                        14 September 2021
+                    </div>
+                  </div>
+                  <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
+                    <div class="box-round-title">
+                        Pengumuman Final dan Penutupan
+                    </div>
+                    <div class="box-round-desc">
+                        17 September 2021
                     </div>
                   </div>
                 </div>
@@ -295,30 +322,14 @@
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                GOR PERJUANGAN 45
-              </div>
-              <div class="box-round-desc">
-                Politeknik Negeri Jember
+                <a href="#" class="btn-lebihlanjut">Buku Panduan</a>
               </div>
             </div>
           </div>
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                GOR PERJUANGAN 45
-              </div>
-              <div class="box-round-desc">
-                Politeknik Negeri Jember
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12 d-flex justify-content-center">
-            <div class="box-round more" data-aos="fade-up">
-              <div class="box-round-title">
-                GOR PERJUANGAN 45
-              </div>
-              <div class="box-round-desc">
-                Politeknik Negeri Jember
+                <a href="{{route('login')}}" class="btn-lebihlanjut">Daftar Sekarang!</a>
               </div>
             </div>
           </div>

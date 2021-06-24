@@ -7,12 +7,12 @@
   <title>EPIM 2021</title>
 
     <!-- Plugin Style -->
-    <link href="./dist/aos/aos.css" rel="stylesheet">
+    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">
     <link rel="stylesheet"
-      href="./dist/filepond/filepond-plugin-image-preview.min.css">
-    <link rel="stylesheet" href="./dist/filepond/filepond.min.css">
-    <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./dist/font-awesome/css/all.min.css">
+      href="{{asset('/dist/filepond/filepond-plugin-image-preview.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/filepond/filepond.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('dist/font-awesome/css/all.min.css')}}">
 
     <!-- Font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,7 @@
       rel="stylesheet">
 
     <!-- User Style -->
-    <link rel="stylesheet" href="./dist/css/styles.css" />
+    <link rel="stylesheet" href="{{asset('dist/css/styles.css')}}" />
     @yield('customcss', '')
 </head>
 
@@ -31,10 +31,8 @@
   <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
     <div class="container d-flex align-items-center">
       <div class="logo me-auto">
-        <a href="/"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" width="40" height="60" alt="" /></a>
-        <a href="/" class="logo-text">
-          EPIM 2021
-        </a>
+        <a href="/"><img src="{{asset('img/logoo.png')}}" height="50" alt="" /></a>
+        <a href="/" ><img src="{{asset('img/logo_epim.png')}}" height="40" alt="" style="padding-left: 10px"/></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">

@@ -6,22 +6,22 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 col-sm-12 text-center"  data-aos="zoom-in-up">
-          <img src="./img/EXPOed.png" alt="maskot-epim" class="img-detail-page-hero" />
+          <img src="{{asset('img/EXPOed.png')}}" alt="maskot-epim" class="img-detail-page-hero" />
         </div>
         <div class="detail-page-hero-section col-lg-12 col-sm-12"  data-aos="zoom-in">
-          <p class="detail-page-hero-desc">
-            13 - 17 September 2021
-          </p>
-          <h1 class="detail-page-hero-title">
-            EXPO PRODUK IT 2021
-          </h1>
-          <p class="detail-page-hero-info"> Optimalisasi Peran Generasi Milenial untuk Menciptakan Inovasi Teknologi Kreatif, Kompetitif, dan Realistis Menuju Infonesia Emas 2045</p>
+            <h1 class="detail-page-hero-title">
+                EXPO PRODUK IT 2021
+            </h1>
+            <p class="detail-page-hero-desc">
+              13 - 17 September 2021
+            </p>
+          <p class="detail-page-hero-info">"Millennial optimization to create creative, competitive, and realistic technologies innovations for Indonesian golden 2045"</p>
         </div>
         <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper"  data-aos="zoom-in-up">
-          <a href="#more" class="detail-page-hero-btn">Pendaftaran</a>
+          <a href="{{route('login')}}" class="detail-page-hero-btn">Pendaftaran</a>
         </div>
         <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper"  data-aos="zoom-in-up">
-          <button class="detail-page-hero-btn invert" id="show-form">Pendaftaran</button>
+          <a href="http://expo.epimjti.com" class="detail-page-hero-btn invert" id="show-form">Kunjungi Expo!</a>
         </div>
       </div>
 </section>
@@ -47,7 +47,7 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <div class="box-round pelaksanaan" data-aos="fade-up">
               <div class="box-round-title">
-                Lippo Plaza
+                Lippo Plaza Mall Jember
               </div>
               <div class="box-round-body">
                 <i>Offline</i>
@@ -69,7 +69,7 @@
         <div class="row justify-content-center timeline-kegiatan">
           <div class="col-lg-12">
             <div class="wrapper">
-              <div class="tiang" style="height: 750px">
+              <div class="tiang" style="height: 700px">
                 <div class="circle-wrapper">
                   <div class="circle circle-left"></div>
                   <div class="circle circle-right"></div>
@@ -78,7 +78,6 @@
                   <div class="circle circle-left"></div>
                   <div class="circle circle-right"></div>
                   <div class="circle circle-left"></div>
-                  <div class="circle circle-right"></div>
                 </div>
                 <div class="tiang-wrapper">
                   <div class="tiang-rotate tiang-left"></div>
@@ -87,63 +86,54 @@
                   <div class="tiang-rotate tiang-right"></div>
                   <div class="tiang-rotate tiang-left"></div>
                   <div class="tiang-rotate tiang-right"></div>
-                  <div class="tiang-rotate tiang-left"></div>
                 </div>
                 <div class="box-wrapper box-wrapper-timeline-kegiatan" >
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title ">
-                      Pendafataran dan Pengumumpulan Berkas Peserta
+                        Pendaftaran Peserta
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        19 Juli - 9 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Seleksi Berkas Peserta
+                        Pengumuman Hasil Seleksi
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        17 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title">
-                      Pengumuman Hasil Seleksi
+                        Technical Meeting
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        21 Agustus 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Technical Meeting
+                        Pengumpulan Berkas Pendukung Expo
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        23 Agustus - 1 September 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
                     <div class="box-round-title">
-                      Pengumpulan File Pendukung
+                        Acara Expo
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
+                        13-17 September 2021
                     </div>
                   </div>
                   <div class="box-round box-timeline-kegiatan box-right" data-aos="fade-right">
                     <div class="box-round-title">
-                      Acara
+                        Pengumuman Final dan Penutupan
                     </div>
                     <div class="box-round-desc">
-                      13 -17 September 2021
-                    </div>
-                  </div>
-                  <div class="box-round box-timeline-kegiatan box-left" data-aos="fade-left">
-                    <div class="box-round-title">
-                      Pengumuman Pemenang
-                    </div>
-                    <div class="box-round-desc">
-                      13 -17 September 2021
+                        17 September 2021
                     </div>
                   </div>
                 </div>
@@ -164,30 +154,24 @@
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                GOR PERJUANGAN 45
-              </div>
-              <div class="box-round-desc">
-                Politeknik Negeri Jember
+                <a href="#" class="btn-lebihlanjut">Buku Pedoman</a>
               </div>
             </div>
           </div>
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                GOR PERJUANGAN 45
-              </div>
-              <div class="box-round-desc">
-                Politeknik Negeri Jember
+                <a href="{{route('login')}}" class="btn-lebihlanjut">Daftar Sekarang</a>
               </div>
             </div>
           </div>
           <div class="col-lg-12 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                GOR PERJUANGAN 45
+                  <a href="http://expo.epimjti.com" class="btn-lebihlanjut">Kunjungi Expo</a>
               </div>
               <div class="box-round-desc">
-                Politeknik Negeri Jember
+                <a href="http://expo.epimjti.com" class="btn-lebihlanjut">http://expo.epimjti.com</a>
               </div>
             </div>
           </div>
