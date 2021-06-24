@@ -1,102 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EPIM 2021</title>
-
-    <!-- Plugin Style -->
-    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">
-    <link rel="stylesheet"
-      href="{{asset('/dist/filepond/filepond-plugin-image-preview.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/filepond/filepond.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('dist/font-awesome/css/all.min.css')}}">
-
-    <!-- Font-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet">
-
-    <!-- User Style -->
-    <link rel="stylesheet" href="{{asset('dist/css/styles.css')}}" />
-</head>
-
-<body class="no-scroll">
-
-
-  <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
-    <div class="container d-flex align-items-center">
-      <div class="logo me-auto">
-        <a href="/"><img src="{{asset('img/logoo.png')}}" height="50" alt="" /></a>
-        <a href="/" ><img src="{{asset('img/logo_epim.png')}}" height="40" alt="" style="padding-left: 10px"/></a>
-      </div>
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li class="dropdown">
-            <a class="nav-link scrollto active" href="#">
-              <span>Beranda</span> <i class="fa fa-angle-down"></i>
-            </a>
-            <ul>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#tentang">Tentang</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#event">Event</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#timeline">Timeline</a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a class="nav-link scrollto" href="#">
-              <span>Produk</span> <i class="fa fa-angle-down"></i>
-            </a>
-            <ul>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Mobile</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Website</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">Desktop</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="#">IOT</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#">Pengumuman</a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#faq">FAQ</a>
-          </li>
-          <li class="nav-link scrollto">
-              <div class="btn-group-cta">
-                  <a href="#" class="btn-login"> <span>Login</span> </a>
-                  <a href="#" class="btn-register"> <span>Daftar</span> </a>
-              </div>
-        </li>
-        </ul>
-        <i class="fa fa-bars mobile-nav-toggle"></i>
-      </nav>
-
-      {{-- <div class="navbar-social-media d-flex align-items-center">
-        <a href="https://www.facebook.com/hmjti.polije" class="facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.youtube.com/channel/UCcIzhQvQ4t_-9ejb-aK0Raw" class="youtube"><i
-            class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/hmjti_polije" class="instagram"><i class="fab fa-instagram"></i></a>
-      </div> --}}
-
-
-    </div>
-  </header>
+@extends("landing_page.layouts.master")
+@section('customcss')
+    <style>
+        body{
+            overflow: hidden !important;
+        }
+    </style>
+@endsection
+@section("content")
 <div class="overlay coming-soon">
     <div class="container">
         <div class="row text-center">
@@ -222,7 +132,7 @@
                             <p class="hero-desc">
                                 Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
                             </p>
-                            <a href="#" class="hero-btn">Selengkapnya</a>
+                            <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
                     </div>
@@ -249,7 +159,7 @@
                                 Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
 
                             </p>
-                            <a href="#" class="hero-btn">Selengkapnya</a>
+                            <a href="{{ route('lomba_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
                     </div>
@@ -276,7 +186,7 @@
                                 Organized by <b>Himpunan Mahasiswa Jurusan Teknologi Informasi.</b>
 
                             </p>
-                            <a href="#" class="hero-btn">Selengkapnya</a>
+                            <a href="{{ route('tcp_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
                     </div>
@@ -339,7 +249,7 @@
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
                             <a href="/detail_page.html">
-                                <img class="proker-img" src="{{asset('img/EXPOed.png')}}" alt="Gambar Expo">
+                                <img class="proker-img" src="{{asset(img/EXPOed.png)}}" alt="Gambar Expo">
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
@@ -523,44 +433,8 @@
         </div>
     </section>
 </main>
-<footer id="footer">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-12 col-sm-12 wrapper-logo">
-          <div class="footer-logo">
-            <img src="{{asset('img/logoo.png')}}" alt="" />
-            <p class="title-1">EXPO DAN PEKAN ILMIAH MAHASISWA 2021</p>
-          </div>
-        </div>
-        <div class="col-lg-8 col-sm-12 mx-auto order order-lg-3">
-          <div class="sponsor-panel">
-            <!-- <p>Didukung oleh: </p> -->
-            <a href="https://www.polije.ac.id/" target="_blank"><img src="{{asset('img/img_poije.png')}}" alt="" height="30"></a>
-            <a href="http://jti.polije.ac.id/" target="_blank"><img src="{{asset('img/img_jti.png')}}" alt="" height="30"></a>
-            <a href="https://www.instagram.com/hmjti_polije/" target="_blank"><img src="{{asset('img/img_hmjti.png')}}" alt="" height="30"></a>
-            <a href="https://www.instagram.com/birosi_hmjti/" target="_blank"><img src="{{asset('img/img_birosi.png')}}" alt="" height="30"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="dev-thanks">
-      <p>&copy 2021 Expo dan Pekan Ilmiah Mahasiswa - All Rights Reserved. Developed by <b>Biro Sistem Informasi HMJ TI 2021</b>
-      </p>
-    </div>
-  </footer>
-
-  <div class="loader">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <a href="#" class="back-to-top"></a>
-
-<script src="{{asset('dist/js/jquery.js')}}"></script>
-<script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('dist/js/jquery.countdown.min.js')}}"></script>
+@endsection
+@section("script")
 <script>
     document.addEventListener("contextmenu", function(e){
         e.preventDefault();
@@ -592,7 +466,5 @@
 
 
 </script>
-<script src="{{asset('dist/aos/aos.js')}}"></script>
-<script src="{{asset('dist/js/main.js')}}"></script>
-</body>
-</html>
+
+@endsection

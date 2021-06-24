@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$isCountdownActive = true;
+
+if($isCountdownActive){
+    Route::get('/', function () {
+        return view('landing_page.countdown');
+    })->name("home.countdown");
+}else{
 // Just Testing Templating
 Route::get('/test', function () {
     return view('admin.pages.expo.list_peserta');
@@ -45,17 +52,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
 
-    // Auth Admin
-    // Route::middleware(['admin'])->group(function () {
-
-    // Expo
-    // Route::get('kegiatan', [KegiatanController::class, 'index'])->name('list.kegiatan');
-    // Route::get('kegiatan/tambah', [KegiatanController::class, 'create'])->name('tambah.kegiatan');
-    // Route::get('kegiatan/edit/{id}', [KegiatanController::class, 'edit'])->name('edit.kegiatan');
-    // Route::post('kegiatan/store', [KegiatanController::class, 'store'])->name('add.kegiatan');
-    // Route::post('kegiatan/update/{id}', 'KegiatanController@update')->name('update.kegiatan');
-    // Route::get('/kegiatan/delete/{id}', 'KegiatanController@destroy')->name('delete.kegiatan');
-    // });
 });
 
 
@@ -84,17 +80,13 @@ Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
     Landing Page Route
 */
 
-$isCountdownActive = false;
 
-if($isCountdownActive){
-    Route::get('/', function () {
-        return view('landing_page.countdown');
-    })->name("home.countdown");
-}else{
-    Route::get('/', function () {
-        return view('landing_page.index');
-    })->name("home");
-}
+
+
+
+Route::get('/', function () {
+    return view('landing_page.index');
+})->name("home");
 
 Route::get('/expo-it', function () {
     return view('landing_page.pages.expo_it');
@@ -107,3 +99,4 @@ Route::get('/lomba-it', function () {
 Route::get('/lomba-bisnis-tik', function () {
     return view('landing_page.pages.lomba_bisnis');
 })->name('tcp_it');
+}

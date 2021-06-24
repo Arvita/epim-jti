@@ -39,7 +39,9 @@
                             </td>
                         </tr>
                           @empty
-                          <tr></tr>
+                          <tr>
+                              <td>Tidak Ada data ya</td>
+                          </tr>
                           @endforelse
                         </tbody>
                       </table>
