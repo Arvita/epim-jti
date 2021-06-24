@@ -27,17 +27,20 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($proposal as $item)
+                          @forelse ($proposal as $item)
                           <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $item->judul_proposal }}</td>
                             <td>{{ $item->nama_tim }}</td>
                             <td>{{ $item->perguruan_tinggi }}</td>
                             <td class="align-middle">
-                                <div class="badge badge-danger">Belum Terverifikasi</div>
+                                @for
+                                <div class="badge badge-danger">{{ $item->status }}</div>
                             </td>
                         </tr>
-                          @endforeach
+                          @empty
+                          <tr></tr>
+                          @endforelse
                         </tbody>
                       </table>
                     </div>
