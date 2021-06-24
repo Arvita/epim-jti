@@ -51,7 +51,7 @@
                             </h1>
                             <p>Expo Produk IT adalah kegiatan pameran
                                 produk Mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring).</p>
+                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring). Expo Produk IT memberikan kesempatan kepada Mahasiswa Jurusan teknologi Informasi untuk memamerkan hasil karya dan inovasi mereka dibidang teknologi kepada khalayak serta meningkatkan jiwa kompotitif dan kreatifitas mahasiswa.
                             <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
