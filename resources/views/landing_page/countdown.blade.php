@@ -249,7 +249,7 @@
                     <div class="col-lg-12 my-4 text-center">
                         <div class="col-lg-12" data-aos="fade-up">
                             <a href="/detail_page.html">
-                                <img class="proker-img" src="{{asset(img/EXPOed.png)}}" alt="Gambar Expo">
+                                <img class="proker-img" src="{{asset('img/EXPOed.png')}}" alt="Gambar Expo">
                             </a>
                         </div>
                         <div class="col-lg-12 proker" data-aos="fade-up">
