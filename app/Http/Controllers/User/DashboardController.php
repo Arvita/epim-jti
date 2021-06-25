@@ -95,18 +95,18 @@ class DashboardController extends Controller
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
+        // \dd($request);
 
         $request->validate([
             'email_t' => 'required|email',
             'nama_tim_t' => 'required',
             'perguruan_tinggi_t' => 'required|min:8',
-            'judul_proposal_t' => 'required|8',
+            'judul_proposal_t' => 'required|min:8',
             'nama_ketua_t' => 'required',
-            'ktm_t' => 'required|image',
+            // 'ktm_t' => 'required|mimes:jpg, jpeg, png, bmp',
             'proposal_t' => 'required|mimes:pdf',
             'biodata_t' => 'required|mimes:pdf',
                 ]);
-        // \dd($request);
 
         $tcp_it = new TcpIt();
         $tcp_it->user_id = $user->id;
@@ -122,19 +122,26 @@ class DashboardController extends Controller
         $tcp_it->status = 'not verified';
 
         // FileName
-        $ktm_t = time().'.'.$request->ktm_t->extension();
         $proposal_t = time().'.'.$request->proposal_t->extension();
         $biodata_t = time().'.'.$request->biodata_t->extension();
 
         // Save To Folder
-        $request->ktm_t->move(public_path('/upload/tcp/'.$email), $ktm_t);
         $request->proposal_t->move(public_path('/upload/tcp/'.$email), $proposal_t);
         $request->biodata_t->move(public_path('/upload/tcp/'.$email), $biodata_t);
 
         //Save To DB
-        $tcp_it->ktm = 'tcp/'.$email.'/'.$ktm_t;
         $tcp_it->proposal = 'tcp/'.$email.'/'.$proposal_t;
         $tcp_it->biodata = 'tcp/'.$email.'/'.$biodata_t;
+
+
+
+
+        foreach ($request->ktm_t as $ktm) {
+            $ktm_t = time().'.'.$ktm->extension();
+            $ktm->move(public_path('/upload/tcp/'.$email), $ktm_t);
+            $foto_ktm[] = 'tcp/'.$email.'/'.$ktm_t;
+        }
+        $tcp_it->ktm = $foto_ktm;
         $tcp_it->save();
 
         if( request()->is('peserta/proposal') ){
@@ -165,6 +172,9 @@ class DashboardController extends Controller
             'surat_pernyataan_l' => 'required',
             'bukti_pembayaran_l' => 'required',
             'lampiran_guru_l' => 'required',
+        ],[
+            'email_l.required' => 'Harap mengisi email terlebih dahulu',
+            'nama_peserta_l.required' => 'Harap mengisi nama peserta terlebih dahulu',
         ]);
 
 

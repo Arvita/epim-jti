@@ -8,16 +8,16 @@
     <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
       <i class="fas fa-ellipsis-v"></i>
     </a>
-    <ul class="navbar-nav">
+    {{-- <ul class="navbar-nav">
       <li class="nav-item active"><a href="#" class="nav-link">Application</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Report Something</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Server Status</a></li>
-    </ul>
+    </ul> --}}
   </div>
   <ul class="navbar-nav navbar-right ml-auto">
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-      <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-      <div class="d-sm-none d-lg-inline-block">Halo, {{ Str::ucfirst(Auth::user()->name) }}</div></a>
+      {{-- <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1"> --}}
+      <div class="d-sm-none d-lg-inline-block"><i class="fa fa-user mr-1"></i> {{ Str::ucfirst(Auth::user()->name) }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title">Logged in 5 min ago</div>
         <a href="features-profile.html" class="dropdown-item has-icon">
@@ -42,18 +42,18 @@
   <div class="container">
     <ul class="navbar-nav">
       <li class="nav-item {{ request()->is('peserta') ? 'active' : '' }}">
-        <a href="{{ route('user.dashboard') }}" class="nav-link"><i class="far fa-heart"></i><span>Beranda</span></a>
+        <a href="{{ route('user.dashboard') }}" class="nav-link"><i class="fa fa-home"></i><span>Beranda</span></a>
       </li>
       <li class="nav-item {{ request()->is('peserta/profile') ? 'active' : '' }}">
-        <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Profile</span></a>
+        <a href="#" class="nav-link"><i class="far fa-user"></i><span>Profile</span></a>
       </li>
       @if (Auth::user()->event == 'tcp_it')
         <li class="nav-item {{ request()->is('peserta/proposal') ? 'active' : '' }}">
-            <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="far fa-heart"></i><span>Cek Status</span></a>
+            <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
         </li>
        @else
-        <li class="nav-item active">
-            <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Cek Status</span></a>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
         </li>
       @endif
     </ul>

@@ -85,19 +85,19 @@ Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
 
 
 
-Route::get('/', function () {
-    return view('landing_page.index');
-})->name("home");
+    Route::get('/', function () {
+        return view('landing_page.index');
+    })->name("home");
 
-Route::get('/expo-it', function () {
-    return view('landing_page.pages.expo_it');
-})->name('expo');
+    Route::get('/expo-it', function () {
+        return view('landing_page.pages.expo_it');
+    })->name('expo');
 
-Route::get('/lomba-it', function () {
-    return view('landing_page.pages.lomba_jaringan');
-})->name('lomba_it');
+    Route::get('/lomba-it', function () {
+        return view('landing_page.pages.lomba_jaringan');
+    })->name('lomba_it');
 
-Route::get('/lomba-bisnis-tik', function () {
-    return view('landing_page.pages.lomba_bisnis');
-})->name('tcp_it');
+    Route::get('/lomba-bisnis-tik', function () {
+        return view('landing_page.pages.lomba_bisnis');
+    })->name('tcp_it');
 }

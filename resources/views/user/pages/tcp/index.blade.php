@@ -73,6 +73,7 @@
                             <th>Judul</th>
                             <th>Nama TIM</th>
                             <th>Perguruan Tinggi</th>
+                            <th>Proposal</th>
                             <th>Status</th>
                           </tr>
                         </thead>
@@ -83,6 +84,7 @@
                             <td>{{ $item->judul_proposal }}</td>
                             <td>{{ $item->nama_tim }}</td>
                             <td>{{ $item->perguruan_tinggi }}</td>
+                            <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">{{ Str::title($item->status) }}</div>
@@ -175,7 +177,7 @@
                                     <label for="file_ktm" class="form-label">Upload KTM</label>
                                     <input type="file"
                                     class="filepond file-ktm"
-                                    name="ktm_t"/>
+                                    name="ktm_t[]" multiple/>
                                   </div>
                                 </div>
                                 <div class="mb-3">
@@ -217,11 +219,14 @@
     </div>
 @endsection()
 @section('customjs')
+    @if (count($errors) > 0)
+        <script>
+        $('#fire-modal-1').modal('show');
+        </script>
+    @endif
     <script>
         $(document).ready(function() {
-            $("#modal-1").fireModal('#fire-tambah');
-
-
+            $("#modal-1").fireModal('');
         })
 
     </script>

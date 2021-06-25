@@ -146,23 +146,48 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="email" class="form-label">Email Peserta</label>
-                              <input type="email" class="form-control @error('email_l') is-invalid @enderror" id="email" name="email_l" value="{{old('email_l')}}">
+                              <input type="email" class="form-control @error('email_l') is-invalid @enderror" id="email" name="email_l" value="{{old('email_l')}}" required>
+                                @error('email_l')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap</label>
-                              <input type="text" class="form-control @error('nama_peserta_l') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_l" value="{{old('nama_peserta_l')}}">
+                              <input type="text" class="form-control @error('nama_peserta_l') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_l" value="{{old('nama_peserta_l')}}" required>
+                              @error('nama_peserta_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nis" class="form-label">NIS</label>
-                              <input type="text" class="form-control @error('nis_l') is-invalid @enderror" id="nis" name="nis_l" value="{{old('nis_l')}}">
+                              <input type="text" class="form-control @error('nis_l') is-invalid @enderror" id="nis" name="nis_l" value="{{old('nis_l')}}" required>
+                              @error('nis_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
                             </div>
                             <div class="mb-3">
                               <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                              <input type="text" class="form-control @error('tempat_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir_l" value="{{old('tempat_lahir_l')}}">
+                              <input type="text" class="form-control @error('tempat_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir_l" value="{{old('tempat_lahir_l')}}" required>
+                              @error('tempat_lahir_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
                             </div>
                             <div class="mb-3">
                               <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                              <input type="date" class="form-control @error('tanggal_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tanggal_lahir_l" value="{{old('tanggal_lahir_l')}}">
+                              <input type="date" class="form-control @error('tanggal_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tanggal_lahir_l" value="{{old('tanggal_lahir_l')}}" required>
+                              @error('tanggal_lahir_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
                             </div>
                             <div class="mb-3">
                               <label for="tempat_lahir" class="form-label">Jenis Kelamin</label>
@@ -181,11 +206,21 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <label for="usia" class="form-label">Usia</label>
-                              <input type="text" class="form-control @error('usia_l') is-invalid @enderror" id="usia" name="usia_l" value="{{old('usia_l')}}">
+                              <input type="text" class="form-control @error('usia_l') is-invalid @enderror" id="usia" name="usia_l" value="{{old('usia_l')}}" required>
+                                @error('usia_l')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="no_wa_peserta" class="form-label">No WhatsApp</label>
-                              <input type="text" class="form-control @error('no_wa_peserta_l') is-invalid @enderror" id="no_wa_peserta" name="no_wa_peserta_l" value="{{old('no_wa_peserta_l')}}">
+                              <input type="text" class="form-control @error('no_wa_peserta_l') is-invalid @enderror" id="no_wa_peserta" name="no_wa_peserta_l" value="{{old('no_wa_peserta_l')}}" required>
+                              @error('no_wa_peserta_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                           </div>
                         </div>
@@ -196,15 +231,30 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="nama_lengkap_pendamping" class="form-label">Nama Lengkap</label>
-                              <input type="text" class="form-control @error('nama_pendamping_l') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_pendamping_l" value="{{old('nama_pendamping_l')}}">
+                              <input type="text" class="form-control @error('nama_pendamping_l') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_pendamping_l" value="{{old('nama_pendamping_l')}}" required>
+                              @error('nama_pendamping_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nip" class="form-label">NIP</label>
-                              <input type="text" class="form-control @error('nip_l') is-invalid @enderror" id="nip" name="nip_l" value="{{old('nip_l')}}">
+                              <input type="text" class="form-control @error('nip_l') is-invalid @enderror" id="nip" name="nip_l" value="{{old('nip_l')}}" required>
+                              @error('nip_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="no_wa_pendamping" class="form-label">No WhatsApp</label>
-                              <input type="text" class="form-control @error('no_wa_pendamping_l') is-invalid @enderror" id="no_wa_pendamping" name="no_wa_pendamping_l" value="{{old('no_wa_pendamping_l')}}">
+                              <input type="text" class="form-control @error('no_wa_pendamping_l') is-invalid @enderror" id="no_wa_pendamping" name="no_wa_pendamping_l" value="{{old('no_wa_pendamping_l')}}" required>
+                              @error('no_wa_pendamping_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                           </div>
                         </div>
@@ -218,40 +268,66 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="foto_peserta" class="form-label">Upload Foto Peserta *3x4</label>
                                 <input type="file"
                                 class="filepond foto_peserta"
-                                name="foto_peserta_l"/>
+                                name="foto_peserta_l" required/>
                               </div>
+                              @error('foto_peserta_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="ktp" class="form-label">Kartu Tanda Pelajar</label>
                                 <input type="file"
                                 class="filepond ktp"
-                                name="kartu_pelajar_l"/>
+                                name="kartu_pelajar_l" required/>
                               </div>
+                              @error('kartu_pelajar_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="surat_pernyataan" class="form-label">Scan Surat Pernyataan</label>
                                 <input type="file"
                                 class="filepond surat_pernyataan"
-                                name="surat_pernyataan_l"/>
+                                name="surat_pernyataan_l" required/>
                               </div>
+                              @error('surat_pernyataan_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="bukti_pembayaran" class="form-label">Scan Bukti Pembayaran</label>
                                 <input type="file"
                                 class="filepond bukti_pembayaran"
-                                name="bukti_pembayaran_l"/>
+                                name="bukti_pembayaran_l" required/>
                               </div>
+                              @error('bukti_pembayaran_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="lampiran_guru" class="form-label">File Lampiran Guru Pendamping</label>
                                 <input type="file"
                                 class="filepond lampiran_guru"
-                                name="lampiran_guru_l"/>
+                                name="lampiran_guru_l" required/>
+                                @error('lampiran_guru_l')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                  </div>
+                                  @enderror
                               </div>
+
                             </div>
                           </div>
                         </div>
@@ -301,27 +377,57 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control @error('email_t') is-invalid @enderror" id="email" name="email_t" aria-describedby="input-help">
+                              <input type="email" class="form-control @error('email_t') is-invalid @enderror" id="email" name="email_t" aria-describedby="input-help" required>
+                              @error('email_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nama_tim" class="form-label">Nama TIM</label>
-                              <input type="text" class="form-control @error('nama_tim_t') is-invalid @enderror" id="nama_tim" name="nama_tim_t" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_tim_t') is-invalid @enderror" id="nama_tim" name="nama_tim_t" aria-describedby="input-help" required>
+                              @error('nama_tim_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
-                              <input type="text" class="form-control @error('perguruan_tinggi_t') is-invalid @enderror" id="perguruan_tinggi" name="perguruan_tinggi_t" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('perguruan_tinggi_t') is-invalid @enderror" id="perguruan_tinggi" name="perguruan_tinggi_t" aria-describedby="input-help" required>
+                              @error('perguruan_tinggi_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="judul_proposal" class="form-label">Judul Propsosal Bisnis</label>
-                              <input type="text" class="form-control @error('judul_proposal_t') is-invalid @enderror" id="judul_proposal" name="judul_proposal_t" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('judul_proposal_t') is-invalid @enderror" id="judul_proposal" name="judul_proposal_t" aria-describedby="input-help" required>
+                              @error('judul_proposal_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nama_ketua" class="form-label">Nama Lengkap Ketua TIM</label>
-                              <input type="text" class="form-control @error('nama_ketua_t') is-invalid @enderror" id="nama_ketua" name="nama_ketua_t" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_ketua_t') is-invalid @enderror" id="nama_ketua" name="nama_ketua_t" aria-describedby="input-help" required>
+                              @error('nama_ketua_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nama_anggota1" class="form-label">Nama Lengkap Anggota 1</label>
-                              <input type="text" class="form-control @error('nama_anggota1_t') is-invalid @enderror" id="nama_anggota1" name="nama_anggota1_t" aria-describedby="input-help">
+                              <input type="text" class="form-control @error('nama_anggota1_t') is-invalid @enderror" id="nama_anggota1" name="nama_anggota1_t" aria-describedby="input-help" required>
+                              @error('nama_anggota1_t')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                               <label for="nama_anggota2" class="form-label">Nama Lengkap Anggota 2</label>
@@ -340,7 +446,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="file_ktm" class="form-label">Upload KTM</label>
                                 <input type="file"
                                 class="filepond file-ktm"
-                                name="ktm_t"/>
+                                name="ktm_t[]" required/>
                               </div>
                             </div>
                             <div class="mb-3">
@@ -348,7 +454,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="biodata" class="form-label">Upload Bioadata</label>
                                 <input type="file"
                                 class="filepond file-biodata"
-                                name="biodata_t"/>
+                                name="biodata_t" required/>
                               </div>
                             </div>
                             <div class="mb-3">
@@ -356,8 +462,9 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <label for="file-proposal" class="form-label">Upload Proposal</label>
                                 <input type="file"
                                 class="filepond"
-                                name="proposal_t"/>
+                                name="proposal_t" required/>
                               </div>
+
                             </div>
                           </div>
                         </div>
@@ -395,11 +502,11 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 <script type="text/javascript">
     $( document ).ready(function() {
         if('{{old('submit')}}' === 'lomba_it'){
-            $('#fire-modal-1').modal('show');
+            $('#fire-modal-2').modal('show');
         }
 
         if('{{old('submit')}}' === 'tcp_it'){
-            $('#fire-modal-2').modal('show');
+            $('#fire-modal-1').modal('show');
         }
     });
 </script>

@@ -41,6 +41,15 @@ class TcpIt extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function setKtmAttribute($value)
+
+    {
+
+        $this->attributes['ktm'] = json_encode($value);
+
+    }
 }
 
 
