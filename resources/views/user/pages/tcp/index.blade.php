@@ -59,10 +59,6 @@
             <h1>List Proposal</h1>
             <button class="btn btn-primary" id="modal-1">Tambah Proposal</button>
           </div>
-          <form action="{{ route('dropzone.store') }}" method="post" enctype="multipart/form-data" class="dropzone" id="image-upload">
-            @csrf
-
-        </form>
           <div class="section-body">
             <div class="row">
               <div class="col-12">
@@ -113,8 +109,6 @@
           </div>
         </section>
       </div>
-
-
       <div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-1" aria-modal="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -137,87 +131,132 @@
                           <form action="{{route('user.proposal.tambah')}}" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-lg-12">
-                              <h2 class="form-sub-title">
-                                Data TIM
-                              </h2>
-                              <div class="form-wrapper">
-                                <div class="mb-3">
-                                  <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control @error('email_t') is-invalid @enderror" id="email" name="email_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="nama_tim" class="form-label">Nama TIM</label>
-                                  <input type="text" class="form-control @error('nama_tim_t') is-invalid @enderror" id="nama_tim" name="nama_tim_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
-                                  <input type="text" class="form-control @error('perguruan_tinggi_t') is-invalid @enderror" id="perguruan_tinggi" name="perguruan_tinggi_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="judul_proposal" class="form-label">Judul Propsosal Bisnis</label>
-                                  <input type="text" class="form-control @error('judul_proposal_t') is-invalid @enderror" id="judul_proposal" name="judul_proposal_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="nama_ketua" class="form-label">Nama Lengkap Ketua TIM</label>
-                                  <input type="text" class="form-control @error('nama_ketua_t') is-invalid @enderror" id="nama_ketua" name="nama_ketua_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="nama_anggota1" class="form-label">Nama Lengkap Anggota 1</label>
-                                  <input type="text" class="form-control @error('nama_anggota1_t') is-invalid @enderror" id="nama_anggota1" name="nama_anggota1_t" aria-describedby="input-help">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="nama_anggota2" class="form-label">Nama Lengkap Anggota 2</label>
-                                  <input type="text" class="form-control @error('nama_anggota2_t') is-invalid @enderror" id="nama_anggota2" name="nama_anggota2_t" aria-describedby="input-help">
+                                <h2 class="form-sub-title">
+                                  Data TIM
+                                </h2>
+                                <div class="form-wrapper">
+                                  <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control @error('email_t') is-invalid @enderror" id="email" value="{{old('email_t')}}" name="email_t" aria-describedby="input-help" required>
+                                    @error('email_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="nama_tim" class="form-label">Nama TIM</label>
+                                    <input type="text" class="form-control @error('nama_tim_t') is-invalid @enderror" id="nama_tim" value="{{old('nama_tim_t')}}" name="nama_tim_t" aria-describedby="input-help" required>
+                                    @error('nama_tim_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="perguruan_tinggi" class="form-label">Perguruan Tinggi</label>
+                                    <input type="text" class="form-control @error('perguruan_tinggi_t') is-invalid @enderror" id="perguruan_tinggi" value="{{old('perguruan_tinggi_t')}}" name="perguruan_tinggi_t" aria-describedby="input-help" required>
+                                    @error('perguruan_tinggi_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="judul_proposal" class="form-label">Judul Propsosal Bisnis</label>
+                                    <input type="text" class="form-control @error('judul_proposal_t') is-invalid @enderror" id="judul_proposal" value="{{old('judul_proposal_t')}}" name="judul_proposal_t" aria-describedby="input-help" required>
+                                    @error('judul_proposal_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="nama_ketua" class="form-label">Nama Lengkap Ketua TIM</label>
+                                    <input type="text" class="form-control @error('nama_ketua_t') is-invalid @enderror" id="nama_ketua" value="{{old('nama_ketua_t')}}" name="nama_ketua_t" aria-describedby="input-help" required>
+                                    @error('nama_ketua_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="nama_anggota1" class="form-label">Nama Lengkap Anggota 1</label>
+                                    <input type="text" class="form-control @error('nama_anggota1_t') is-invalid @enderror" id="nama_anggota1" value="{{old('nama_anggota1_t')}}" name="nama_anggota1_t" aria-describedby="input-help" required>
+                                    @error('nama_anggota1_t')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </div>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="nama_anggota2" class="form-label">Nama Lengkap Anggota 2</label>
+                                    <input type="text" class="form-control @error('nama_anggota2_t') is-invalid @enderror" id="nama_anggota2" value="{{old('nama_anggota2_t')}}" name="nama_anggota2_t" aria-describedby="input-help">
+                                  </div>
                                 </div>
 
                               </div>
+                              <div class="col-lg-12">
+                                <h2 class="form-sub-title">
+                                  Lampiran
+                                </h2>
+                                <div class="form-wrapper">
+                                  <div class="mb-3">
+                                    <div class="form-group">
+                                      <label for="file_ktm" class="form-label">Upload KTM
+                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
+                                      </label>
 
-                            </div>
-                            <div class="col-lg-12">
-                              <h2 class="form-sub-title">
-                                Lampiran
-                              </h2>
-                              <div class="form-wrapper">
-                                <div class="mb-3">
-                                  <div class="form-group">
-                                    <label for="file_ktm" class="form-label">Upload KTM</label>
-                                    <input type="file"
-                                    class="filepond file-ktm"
-                                    name="ktm_t[]" multiple/>
+                                      <input type="file"
+                                      class="filepond file-ktm"
+                                      name="ktm_t[]" multiple required/>
+                                    </div>
+                                    @error('ktm_t')
+                                    <small id="ktm_t" class="form-text text-danger">{{ $message }}</small>
+                                      @enderror
                                   </div>
-                                </div>
-                                <div class="mb-3">
-                                  <div class="form-group">
-                                    <label for="biodata" class="form-label">Upload Bioadata</label>
-                                    <input type="file"
-                                    class="filepond file-biodata"
-                                    name="biodata_t"/>
+                                  <div class="mb-3">
+                                    <div class="form-group">
+                                      <label for="biodata" class="form-label">Upload Biodata
+                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                      </label>
+                                      <input type="file"
+                                      class="filepond file-biodata"
+                                      name="biodata_t" required/>
+                                      @error('biodata_t')
+                                      <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
+                                      @enderror
                                   </div>
-                                </div>
-                                <div class="mb-3">
-                                  <div class="form-group">
-                                    <label for="file-proposal" class="form-label">Upload Proposal</label>
-                                    <input type="file"
-                                    class="filepond"
-                                    name="proposal_t"/>
+                                  </div>
+                                  <div class="mb-3">
+                                    <div class="form-group">
+                                      <label for="file-proposal" class="form-label">Upload Proposal
+                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
+                                      </label>
+                                      <input type="file"
+                                      class="filepond"
+                                      name="proposal_t" required/>
+                                      @error('proposal_t')
+                                      <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
+                                      @enderror
+                                    </div>
+
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-12">
-                              <ul class="list-term">
-                                <li>Silahkan cek kembali data anda sebelum klik tombol daftar</li>
-                                <li>Pastikan anda telah membaca buku panduan</li>
-                                <li>Setelah klik daftar, anda telah menyetujui syarat dan ketentuan yang berlaku</li>
-                              </ul>
-                            </div>
-                            <div class="col-lg-12 text-center">
-                                <button class="btn-register-submit" name="submit" type="submit" value="tcp_it">
-                                  Daftar
-                                </button>
+                              <div class="col-lg-12">
+                                <ul class="list-term">
+                                  <li>Silahkan cek kembali data anda sebelum klik tombol daftar</li>
+                                  <li>Pastikan anda telah membaca buku panduan</li>
+                                  <li>Setelah klik daftar, anda telah menyetujui syarat dan ketentuan yang berlaku</li>
+                                </ul>
                               </div>
-                            </form>
-
+                              <div class="col-lg-12 text-center">
+                                  <button class="btn-register-submit" name="submit" type="submit" value="tcp_it">
+                                    Daftar
+                                  </button>
+                                </div>
+                              </form>
                         </div>
                       </div>
                 </div>
@@ -228,7 +267,7 @@
 @section('customjs')
     <script src="{{asset('dist/dropzone/dropzone.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function() {
             Dropzone.options.imageUpload = {
             maxFilesize         :       1,
@@ -236,7 +275,7 @@
         };
         })
 
-    </script>
+    </script> --}}
     @if (count($errors) > 0)
         <script>
         $('#fire-modal-1').modal('show');

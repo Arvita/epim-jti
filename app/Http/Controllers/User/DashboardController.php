@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\LombaIt;
-use App\Models\TcpIt;
 use App\Models\User;
+use App\Models\TcpIt;
+use App\Models\LombaIt;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -103,10 +104,15 @@ class DashboardController extends Controller
             'perguruan_tinggi_t' => 'required|min:8',
             'judul_proposal_t' => 'required|min:8',
             'nama_ketua_t' => 'required',
-            // 'ktm_t' => 'required|mimes:jpg, jpeg, png, bmp',
-            'proposal_t' => 'required|mimes:pdf',
-            'biodata_t' => 'required|mimes:pdf',
-                ]);
+            'proposal_t' => 'required|mimes:pdf|max:20000',
+            'biodata_t' => 'required|mimes:pdf|max:1024',
+                ],
+                [
+                    'email_t.required' => 'Harap mengisi email terlebih dahulu',
+                    'nama_tim_t.required' => 'Harap mengisi nama tim terlebih dahulu',
+                    // dan seterusnya
+                ]
+            );
 
         $tcp_it = new TcpIt();
         $tcp_it->user_id = $user->id;
@@ -156,25 +162,26 @@ class DashboardController extends Controller
         $email = $user->email;
 
         $request->validate([
-            'email_l' => 'required',
-            'nama_peserta_l' => 'required',
+            'email_l' => 'required|email',
+            'nama_peserta_l' => 'required|min:4',
             'nis_l' => 'required',
             'tempat_lahir_l' => 'required',
             'tanggal_lahir_l' => 'required',
             'jenis_kelamin_l' => 'required',
             'usia_l' => 'required|numeric',
-            'no_wa_peserta_l' => 'required',
+            'no_wa_peserta_l' => 'required|min:10',
             'nama_pendamping_l' => 'required',
             'nip_l' => 'required|numeric',
-            'no_wa_pendamping_l' => 'required',
-            'foto_peserta_l' => 'required',
-            'kartu_pelajar_l' => 'required',
-            'surat_pernyataan_l' => 'required',
-            'bukti_pembayaran_l' => 'required',
-            'lampiran_guru_l' => 'required',
+            'no_wa_pendamping_l' => 'required|min:10',
+            'foto_peserta_l' => 'required|max:300|mimes:jpg,jpeg,png',
+            'kartu_pelajar_l' => 'required|max:300|mimes:pdf',
+            'surat_pernyataan_l' => 'required|max:1024|mimes:pdf',
+            'bukti_pembayaran_l' => 'required|max:1024|mimes:pdf',
+            'lampiran_guru_l' => 'required|max:1024|mimes:pdf',
         ],[
             'email_l.required' => 'Harap mengisi email terlebih dahulu',
             'nama_peserta_l.required' => 'Harap mengisi nama peserta terlebih dahulu',
+            // dan seterusnya
         ]);
 
 
