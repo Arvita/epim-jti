@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\LombaIt;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LombaItController extends Controller
@@ -16,8 +17,14 @@ class LombaItController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $data = LombaIt::latest()->get();
-
+        $data_lomba = LombaIt::latest()->get();
+        $data_peserta = User::where('event', 'lomba_it')->get();
+        $data = [
+            'data_admin' => $user,
+            'data_lomba' => $data_lomba,
+            'data_peserta' => $data_peserta,
+        ];
+        dd($data);
         return view('admin.pages.lomba_it.index', compact('data'));
     }
 

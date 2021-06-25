@@ -24,10 +24,8 @@
     <link rel="stylesheet" href="{{asset('dist/css/styles.css')}}" />
 </head>
 
-<body class="no-scroll">
-
-
-  <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
+<body class="no-scroll" style="overflow: hidden">
+  <header id="header" class="fixed-top d-flex align-items-center shadow-sm" style="overflow: hidden;">
     <div class="container d-flex align-items-center">
       <div class="logo me-auto">
         <a href="/"><img src="{{asset('img/logoo.png')}}" height="50" alt="" /></a>
@@ -164,7 +162,7 @@
         </div>
     </div>
 </div>
-<section id="hero">
+<section id="hero" style="overflow: hidden">
     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"
@@ -300,7 +298,7 @@
     </div>
 
 </section>
-<main>
+<main style="overflow: hidden">
     <section class="section-1" id="tentang">
         <div class="container">
             <div class="row">
