@@ -51,7 +51,7 @@
                             </h1>
                             <p>Expo Produk IT adalah kegiatan pameran
                                 produk Mahasiswa Jurusan Teknologi Informasi
-                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring). Expo Produk IT memberikan kesempatan kepada Mahasiswa Jurusan teknologi Informasi untuk memamerkan hasil karya dan inovasi mereka dibidang teknologi kepada khalayak serta meningkatkan jiwa kompotitif dan kreatifitas mahasiswa.</p>
+                                Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring). Expo Produk IT memberikan kesempatan kepada Mahasiswa Jurusan teknologi Informasi untuk memamerkan hasil karya dan inovasi mereka dibidang teknologi kepada khalayak serta meningkatkan jiwa kompotitif dan kreatifitas mahasiswa.
                             <a href="{{ route('expo') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -70,6 +70,7 @@
                             <h1 class="hero-title mb-5">
                                 LOMBA KONFIGURASI JARINGAN
                             </h1>
+                            <p>Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional</p>
                             <a href="{{ route('lomba_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -88,6 +89,7 @@
                             <h1 class="hero-title mb-5">
                                 LOMBA BISNIS TIK
                             </h1>
+                            <p>Lomba Bisnis TIK merupakan perlombaan atau kompetisi pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1 Se-Indonesia di perguruan tinggi negeri maupun swasta. Lomba ini memberikan kesempatan kepada peserta yang memiliki ide bisnis, start up, dan pengembangan usaha serta inovasi dan kreatifitas siswa, baik berupa jasa atau produk yang berorientasi pada bidang Teknologi Informasi.</p>
                             <a href="{{ route('tcp_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
