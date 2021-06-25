@@ -861,8 +861,11 @@ ul#countdown li.seperator {
     width: 900px;
 }
 
+
 .hero-btn {
     margin-top: 20px;
+    display: block;
+    width: fit-content;;
     background-color: transparent;
     padding: 10px 70px;
     text-decoration: none;
@@ -1649,6 +1652,10 @@ ul#countdown li.seperator {
 
     .img-hero {
         position: static;
+    }
+
+    .hero-btn{
+        margin: 20px auto 0;
     }
 
     .sponsor-panel>img {

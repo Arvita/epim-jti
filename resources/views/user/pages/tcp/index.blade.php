@@ -1,5 +1,7 @@
 @extends('user.layouts.master')
 @section('customcss')
+<link rel="stylesheet" href="{{asset('dist/dropzone/dropzone.min.css')}}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">
 <style>
     .empty-state-icon {
         background-color: transparent !important;
@@ -57,7 +59,10 @@
             <h1>List Proposal</h1>
             <button class="btn btn-primary" id="modal-1">Tambah Proposal</button>
           </div>
+          <form action="{{ route('dropzone.store') }}" method="post" enctype="multipart/form-data" class="dropzone" id="image-upload">
+            @csrf
 
+        </form>
           <div class="section-body">
             <div class="row">
               <div class="col-12">
@@ -164,6 +169,7 @@
                                   <label for="nama_anggota2" class="form-label">Nama Lengkap Anggota 2</label>
                                   <input type="text" class="form-control @error('nama_anggota2_t') is-invalid @enderror" id="nama_anggota2" name="nama_anggota2_t" aria-describedby="input-help">
                                 </div>
+
                               </div>
 
                             </div>
@@ -211,6 +217,7 @@
                                 </button>
                               </div>
                             </form>
+
                         </div>
                       </div>
                 </div>
@@ -219,6 +226,17 @@
     </div>
 @endsection()
 @section('customjs')
+    <script src="{{asset('dist/dropzone/dropzone.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            Dropzone.options.imageUpload = {
+            maxFilesize         :       1,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif"
+        };
+        })
+
+    </script>
     @if (count($errors) > 0)
         <script>
         $('#fire-modal-1').modal('show');
