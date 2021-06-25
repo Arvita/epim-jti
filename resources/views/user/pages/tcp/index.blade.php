@@ -209,7 +209,7 @@
 
                                       <input type="file"
                                       class="filepond file-ktm"
-                                      name="ktm_t[]" multiple required/>
+                                      name="ktm_t[]" multiple required accept=".jpg,.jpeg,.png"/>
                                     </div>
                                     @error('ktm_t')
                                     <small id="ktm_t" class="form-text text-danger">{{ $message }}</small>
@@ -222,7 +222,7 @@
                                       </label>
                                       <input type="file"
                                       class="filepond file-biodata"
-                                      name="biodata_t" required/>
+                                      name="biodata_t" required accept=".pdf"/>
                                       @error('biodata_t')
                                       <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
                                       @enderror
@@ -235,7 +235,7 @@
                                       </label>
                                       <input type="file"
                                       class="filepond"
-                                      name="proposal_t" required/>
+                                      name="proposal_t" required accept=".pdf"/>
                                       @error('proposal_t')
                                       <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
                                       @enderror

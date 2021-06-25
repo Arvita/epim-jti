@@ -270,7 +270,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 </label>
                                 <input type="file"
                                 class="filepond foto_peserta"
-                                name="foto_peserta_l" required/>
+                                name="foto_peserta_l" required accept=".jpg,.jpeg,.png"/>
                                 @error('foto_peserta_l')
                                 <small id="foto_peserta_l" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -283,7 +283,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 </label>
                                 <input type="file"
                                 class="filepond ktp"
-                                name="kartu_pelajar_l" required/>
+                                name="kartu_pelajar_l" required accept=".pdf"/>
                                 @error('kartu_pelajar_l')
                                 <small id="kartu_pelajar_l" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -296,7 +296,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 </label>
                                 <input type="file"
                                 class="filepond surat_pernyataan"
-                                name="surat_pernyataan_l" required/>
+                                name="surat_pernyataan_l" required accept=".pdf"/>
                                 @error('surat_pernyataan_l')
                                 <small id="surat_pernyataan_l" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -309,7 +309,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 </label>
                                 <input type="file"
                                 class="filepond bukti_pembayaran"
-                                name="bukti_pembayaran_l" required/>
+                                name="bukti_pembayaran_l" required accept=".pdf"/>
                                 @error('bukti_pembayaran_l')
                                 <small id="bukti_pembayaran_l" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -322,7 +322,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 </label>
                                 <input type="file"
                                 class="filepond lampiran_guru"
-                                name="lampiran_guru_l" required/>
+                                name="lampiran_guru_l" required accept=".pdf"/>
                                 @error('lampiran_guru_l')
                                 <small id="lampiran_guru_l" class="form-text text-danger">{{ $message }}</small>
                                   @enderror
@@ -449,7 +449,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 
                                   <input type="file"
                                   class="filepond file-ktm"
-                                  name="ktm_t[]" multiple required/>
+                                  name="ktm_t[]" multiple required accept=".jpg,.jpeg,.png"/>
                                 </div>
                                 @error('ktm_t')
                                 <small id="ktm_t" class="form-text text-danger">{{ $message }}</small>
@@ -462,7 +462,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   </label>
                                   <input type="file"
                                   class="filepond file-biodata"
-                                  name="biodata_t" required/>
+                                  name="biodata_t" required accept=".pdf"/>
                                   @error('biodata_t')
                                   <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
                                   @enderror
@@ -475,7 +475,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   </label>
                                   <input type="file"
                                   class="filepond"
-                                  name="proposal_t" required/>
+                                  name="proposal_t" required accept=".pdf"/>
                                   @error('proposal_t')
                                   <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
                                   @enderror
