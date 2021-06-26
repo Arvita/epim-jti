@@ -69,17 +69,14 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
-                            <div class="card-header">
-                                <h4>Lomba 1</h4>
-                            </div>
                             <div class="card-body">
-                                <div class="empty-state" data-height="400">
+                                <div class="empty-state" data-height="500">
                                     <div class="empty-state-icon">
                                         <img src="{{ asset('img/tcp.png') }}" alt="" class="img-fluid">
                                     </div>
                                     <h2>Lomba Bisnis TIK</h2>
                                     <p class="lead">
-                                        Sorry we can't find any data, to get rid of this message, make at least 1 entry.
+                                        Lomba Bisnis TIK merupakan perlombaan atau kompetisi tingkat nasional pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1.
                                     </p>
                                     <button id="modal-1" class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
                                     <a href="{{route('lomba_it')}}" class="mt-4 bb">Lihat Panduan</a>
@@ -90,19 +87,15 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
-                            <div class="card-header">
-                                <h4>Lomba 2</h4>
-                            </div>
                             <div class="card-body">
-                                <div class="empty-state" data-height="400">
+                                <div class="empty-state" data-height="500">
                                     <div class="empty-state-icon">
                                         <img src="{{ asset('img/TN.png') }}" alt="lomba konfigurasi jaringan"
                                             class="img-fluid">
                                     </div>
                                     <h2>Lomba Konfigurasi Jaringan</h2>
                                     <p class="lead">
-                                        We tried it, but failed when requesting data to the server, sorry. (Code: <a
-                                            class="bb">14045</a>)
+                                        Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data.
                                     </p>
                                     <button id="modal-2"
                                         class="btn btn-warning btn-lg w-100 mt-4">Daftar</button>
@@ -129,9 +122,9 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                 <div class="container">
                     <div class="row">
                       <div class="col-lg-12 text-center">
-                        <div class="form-logo">
-                          <a href="#"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" alt="" width="50px"></a>
-                          <p class="d-inline">LOMBA IT 2021</p>
+                        <div class="form-logo mb-3">
+                          <a href="#"><img src="{{asset('img/logoo.png')}}" alt="" height="70px"></a>
+                          <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
                         </div>
                         <h1 class="form-title">
                           PENDAFTARAN LOMBA IT
@@ -327,7 +320,19 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <small id="lampiran_guru_l" class="form-text text-danger">{{ $message }}</small>
                                   @enderror
                               </div>
-
+                            </div>
+                            <div class="mb-3">
+                              <div class="form-group">
+                                <label for="lampiran_guru" class="form-label">Twibbon
+                                    <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
+                                </label>
+                                <input type="file"
+                                class="filepond lampiran_guru"
+                                name="twibbon_l" required accept=".jpg,.jpeg,.png"/>
+                                @error('twibbon_l')
+                                <small id="twibbon_l" class="form-text text-danger">{{ $message }}</small>
+                                  @enderror
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -457,6 +462,20 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </div>
                               <div class="mb-3">
                                 <div class="form-group">
+                                  <label for="file_ktm" class="form-label">Upload Bukti Pembayaran
+                                      <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                  </label>
+
+                                  <input type="file"
+                                  class="filepond bukti_pembayaran"
+                                  name="bukti_pembayaran_t" required accept=".pdf"/>
+                                </div>
+                                @error('bukti_pembayaran_t')
+                                <small id="bukti_pembayaran_t" class="form-text text-danger">{{ $message }}</small>
+                                  @enderror
+                              </div>
+                              <div class="mb-3">
+                                <div class="form-group">
                                   <label for="biodata" class="form-label">Upload Biodata
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                   </label>
@@ -480,7 +499,19 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
                                   @enderror
                                 </div>
-
+                              </div>
+                              <div class="mb-3">
+                                <div class="form-group">
+                                  <label for="lampiran_guru" class="form-label">Twibbon
+                                      <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
+                                  </label>
+                                  <input type="file"
+                                  class="filepond lampiran_guru"
+                                  name="twibbon_t" required accept=".jpg,.jpeg,.png"/>
+                                  @error('twibbon_t')
+                                  <small id="twibbon_t" class="form-text text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -507,13 +538,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 @section('customjs')
 <script src="{{ asset('backend/modules/prism/prism.js') }}"></script>
 <script src="{{ asset('backend/js/page/bootstrap-modal.js') }}"></script>
-<script src="{{asset('dist/filepond/filepond-plugin-file-encode.min.js')}}"></script>
-<script
-  src="{{asset('dist/filepond/filepond-plugin-file-validate-size.min.js')}}"></script>
-<script
-  src="{{asset('dist/filepond/filepond-plugin-image-exif-orientation.min.js')}}"></script>
-<script src="{{asset('dist/filepond/filepond-plugin-image-preview.min.js')}}"></script>
-<script src="{{asset('dist/filepond/filepond.min.js')}}"></script>
+
 @if (count($errors) > 0)
 <script type="text/javascript">
     $( document ).ready(function() {
@@ -527,98 +552,4 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
     });
 </script>
 @endif
-<script>
-
-    // FilePond.registerPlugin(
-    //     // FilePondPluginFileValidateType,
-    //     // FilePondPluginFileValidateSize,
-    // // encodes the file as base64 data
-    // FilePondPluginFileEncode,
-
-    // // validates the size of the file
-    // FilePondPluginFileValidateSize,
-
-    // // corrects mobile image orientation
-    // FilePondPluginImageExifOrientation,
-
-    // // previews dropped images
-    // FilePondPluginImagePreview
-    // );
-
-    // var option = {
-    //     maxFiles : 1,
-    //     // maxFileSize : '1MB',
-    //     // acceptedFileTypes : [],
-    //     // server: '{{route('user.registrasi.lomba')}}',
-    //     method: 'POST',
-    //     // headers: {
-    //     //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     // },
-    //     // revert: null,
-    //     // restore: null,
-    //     // load: null,
-    //     // fetch: null
-    //     server: {
-    //         url: '{{route('user.registrasi.lomba')}}',
-    //         process: {
-    //             headers: {
-    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
-    //             }
-    //         }
-    //     }
-    // };
-
-    // FilePond.setOptions({
-    //     server: {
-    //         url: '{{route('user.registrasi.lomba')}}',
-    //         process: {
-    //             headers: {
-    //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
-    //             }
-    //         }
-    //     }
-    //       });
-
-    //       const inputElement = document.querySelector('input[name="file_proposal_tcp"]');
-    //       const pond = FilePond.create( inputElement);
-
-    // Select the file input and use create() to turn it into a pond
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-    // FilePond.create(
-    // document.querySelector("input[type='file']")
-    // , option);
-
-</script>
 @endsection

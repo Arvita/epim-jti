@@ -73,7 +73,7 @@ if ($isCountdownActive) {
 
         // TCP IT
         Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.proposal.list');
-        Route::post('/proposal', [DashboardController::class, 'register_tcp_it'])->name('user.proposal.tambah');
+        Route::post('/proposal', [DashboardController::class, 'tambah_proposal'])->name('user.proposal.tambah');
         Route::post('/dropzone/store', [DashboardController::class, 'dropzoneStore'])->name('dropzone.store');
         // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
     });

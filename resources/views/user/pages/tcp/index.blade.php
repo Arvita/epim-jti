@@ -204,7 +204,7 @@
                                   <div class="mb-3">
                                     <div class="form-group">
                                       <label for="file_ktm" class="form-label">Upload KTM
-                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
+                                          <small class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
                                       </label>
 
                                       <input type="file"
@@ -217,21 +217,35 @@
                                   </div>
                                   <div class="mb-3">
                                     <div class="form-group">
+                                      <label for="file_ktm" class="form-label">Upload Bukti Pembayaran
+                                          <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                      </label>
+
+                                      <input type="file"
+                                      class="filepond bukti_pembayaran"
+                                      name="bukti_pembayaran_t" required accept=".pdf"/>
+                                    </div>
+                                    @error('bukti_pembayaran_t')
+                                    <small id="bukti_pembayaran_t" class="form-text text-danger">{{ $message }}</small>
+                                      @enderror
+                                  </div>
+                                  <div class="mb-3">
+                                    <div class="form-group">
                                       <label for="biodata" class="form-label">Upload Biodata
-                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                          <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                       </label>
                                       <input type="file"
                                       class="filepond file-biodata"
                                       name="biodata_t" required accept=".pdf"/>
                                       @error('biodata_t')
-                                      <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
+                                      <small class="form-text text-danger">{{ $message }}</small>
                                       @enderror
                                   </div>
                                   </div>
                                   <div class="mb-3">
                                     <div class="form-group">
                                       <label for="file-proposal" class="form-label">Upload Proposal
-                                          <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
+                                          <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
                                       </label>
                                       <input type="file"
                                       class="filepond"
@@ -240,7 +254,6 @@
                                       <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
                                       @enderror
                                     </div>
-
                                   </div>
                                 </div>
                               </div>

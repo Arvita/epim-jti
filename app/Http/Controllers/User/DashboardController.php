@@ -107,6 +107,8 @@ class DashboardController extends Controller
                 'nama_ketua_t' => 'required',
                 'proposal_t' => 'required|mimes:pdf|max:20000',
                 'biodata_t' => 'required|mimes:pdf|max:1024',
+                'bukti_pembayaran_t' => 'required|mimes:pdf|max:1024',
+                'twibbon_t' => 'required|max:1024|mimes:jpg,jpeg,png',
             ],
             [
                 'email_t.required' => 'Harap mengisi email terlebih dahulu',
@@ -130,15 +132,21 @@ class DashboardController extends Controller
 
         // FileName
         $proposal_t = time() . '.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = time() . '.' . $request->bukti_pembayaran_t->extension();
         $biodata_t = time() . '.' . $request->biodata_t->extension();
+        $twibbon_t = time() . '.' . $request->twibbon_t->extension();
 
         // Save To Folder
+        $request->bukti_pembayaran_t->move(public_path('/upload/tcp/' . $email), $bukti_pembayaran_t);
         $request->proposal_t->move(public_path('/upload/tcp/' . $email), $proposal_t);
         $request->biodata_t->move(public_path('/upload/tcp/' . $email), $biodata_t);
+        $request->twibbon_t->move(public_path('/upload/tcp/' . $email), $twibbon_t);
 
         //Save To DB
         $tcp_it->proposal = 'tcp/' . $email . '/' . $proposal_t;
+        $tcp_it->bukti_pembayaran = 'tcp/' . $email . '/' . $bukti_pembayaran_t;
         $tcp_it->biodata = 'tcp/' . $email . '/' . $biodata_t;
+        $tcp_it->twibbon = 'tcp/' . $email . '/' . $twibbon_t;
 
 
 
@@ -178,6 +186,7 @@ class DashboardController extends Controller
             'surat_pernyataan_l' => 'required|max:1024|mimes:pdf',
             'bukti_pembayaran_l' => 'required|max:1024|mimes:pdf',
             'lampiran_guru_l' => 'required|max:1024|mimes:pdf',
+            'twibbon_l' => 'required|max:1024|mimes:jpg,jpeg,png',
         ], [
             'email_l.required' => 'Harap mengisi email terlebih dahulu',
             'nama_peserta_l.required' => 'Harap mengisi nama peserta terlebih dahulu',
@@ -200,6 +209,7 @@ class DashboardController extends Controller
         $lomba_it->nama_pendamping = $request->nama_pendamping_l;
         $lomba_it->nip = $request->nip_l;
         $lomba_it->no_wa_pendamping = $request->no_wa_pendamping_l;
+        $lomba_it->twibbon = $request->twibbon_l;
 
         //Set status to proses at first time data added
         $lomba_it->status = 'pending';
@@ -210,6 +220,7 @@ class DashboardController extends Controller
         $surat_pernyataan_l = time() . '.' . $request->surat_pernyataan_l->extension();
         $bukti_pembayaran_l = time() . '.' . $request->bukti_pembayaran_l->extension();
         $lampiran_guru_l = time() . '.' . $request->lampiran_guru_l->extension();
+        $twibbon_l = time() . '.' . $request->twibbon_l->extension();
 
         // Save To Folder
         $request->foto_peserta_l->move(public_path('/upload/lomba/' . $email), $foto_peserta_l);
@@ -217,6 +228,7 @@ class DashboardController extends Controller
         $request->surat_pernyataan_l->move(public_path('/upload/lomba/' . $email), $surat_pernyataan_l);
         $request->bukti_pembayaran_l->move(public_path('/upload/lomba/' . $email), $bukti_pembayaran_l);
         $request->lampiran_guru_l->move(public_path('/upload/lomba/' . $email), $lampiran_guru_l);
+        $request->twibbon_l->move(public_path('/upload/lomba/' . $email), $twibbon_l);
 
         //Save To DB
         $lomba_it->foto_peserta = 'lomba/' . $email . '/' . $foto_peserta_l;
@@ -224,6 +236,7 @@ class DashboardController extends Controller
         $lomba_it->surat_pernyataan = 'lomba/' . $email . '/' . $surat_pernyataan_l;
         $lomba_it->bukti_pembayaran = 'lomba/' . $email . '/' . $bukti_pembayaran_l;
         $lomba_it->lampiran_guru = 'lomba/' . $email . '/' . $lampiran_guru_l;
+        $lomba_it->twibbon = 'lomba/' . $email . '/' . $twibbon_l;
         $lomba_it->save();
     }
 
@@ -244,6 +257,79 @@ class DashboardController extends Controller
     // }
 
 
+    public function tambah_proposal(Request $request)
+    {
+        $id_user = Auth::user()->id;
+        $user = User::find($id_user);
+        $email = $user->email;
+        // \dd($request);
+
+        $request->validate(
+            [
+                'email_t' => 'required|email',
+                'nama_tim_t' => 'required',
+                'perguruan_tinggi_t' => 'required|min:8',
+                'judul_proposal_t' => 'required|min:8',
+                'nama_ketua_t' => 'required',
+                'proposal_t' => 'required|mimes:pdf|max:20000',
+                'biodata_t' => 'required|mimes:pdf|max:1024',
+                'bukti_pembayaran_t' => 'required|mimes:pdf|max:1024',
+            ],
+            [
+                'email_t.required' => 'Harap mengisi email terlebih dahulu',
+                'nama_tim_t.required' => 'Harap mengisi nama tim terlebih dahulu',
+                // dan seterusnya
+            ]
+        );
+
+        $tcp_it = new TcpIt();
+        $tcp_it->user_id = $user->id;
+        $tcp_it->email = $request->email_t;
+        $tcp_it->nama_tim = $request->nama_tim_t;
+        $tcp_it->perguruan_tinggi = $request->perguruan_tinggi_t;
+        $tcp_it->judul_proposal = $request->judul_proposal_t;
+        $tcp_it->nama_ketua = $request->nama_ketua_t;
+        $tcp_it->nama_anggota1 = $request->nama_anggota1_t;
+        $tcp_it->nama_anggota2 = $request->nama_anggota2_t;
+
+        //Set status to not verified at first time data added
+        $tcp_it->status = 'pending';
+
+        // FileName
+        $proposal_t = time() . '.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = time() . '.' . $request->bukti_pembayaran_t->extension();
+        $biodata_t = time() . '.' . $request->biodata_t->extension();
+
+
+        // Save To Folder
+        $request->bukti_pembayaran_t->move(public_path('/upload/tcp/' . $email), $bukti_pembayaran_t);
+        $request->proposal_t->move(public_path('/upload/tcp/' . $email), $proposal_t);
+        $request->biodata_t->move(public_path('/upload/tcp/' . $email), $biodata_t);
+
+
+        //Save To DB
+        $tcp_it->proposal = 'tcp/' . $email . '/' . $proposal_t;
+        $tcp_it->bukti_pembayaran = 'tcp/' . $email . '/' . $bukti_pembayaran_t;
+        $tcp_it->biodata = 'tcp/' . $email . '/' . $biodata_t;
+
+        $twibbon_db = TcpIt::select('twibbon')->where('user_id', Auth::user()->id)->get();
+        $tcp_it->twibbon = $twibbon_db[0]->twibbon;
+
+
+
+
+        foreach ($request->ktm_t as $ktm) {
+            $ktm_t = time() . '.' . $ktm->extension();
+            $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
+            $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
+        }
+        $tcp_it->ktm = $foto_ktm;
+        $tcp_it->save();
+
+        if (request()->is('peserta/proposal')) {
+            return \redirect()->back();
+        }
+    }
 
     public function dropzoneStore(Request $request)
     {
