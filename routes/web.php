@@ -47,10 +47,18 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 // ROUTE ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
-    //Dashboard
 
+    //Dashboard
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
+
+
+    //LombaIT
+    Route::get('/lomba_it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
+
+    //LombaIT
+    Route::get('/bisnis_tik', [App\Http\Controllers\Admin\TcpItController::class, 'index'])->name('admin.tcp_it');
+
 
 });
 

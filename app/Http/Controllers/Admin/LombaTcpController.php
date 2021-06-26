@@ -13,12 +13,28 @@ class LombaTcpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $user = auth()->user();
-        $data = TcpIt::latest()->get();
+        $data_lomba = TcpIt::latest()->get();
+        $data_peserta = User::where('event', 'tcp_it')->get();
+        $data_verified = TcpIt::where('status', 'verified')->get();
+        $data_not_verified = TcpIt::where('status', 'not verified')->get();
 
-        return view('admin.pages.tcp_it.index', compact('data'));
+        $data = [
+            'data_admin' => $user,
+            'data_lomba' => $data_lomba,
+            'data_peserta' => $data_peserta,
+            'data_verified' => $data_verified,
+            'data_not_verified' => $data_not_verified,
+        ];
+        // dd($data);
+        return view('admin.pages.tcp.index',$data)->render();
     }
 
     /**
