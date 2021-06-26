@@ -28,7 +28,7 @@
 <body class="no-scroll">
 
 
-  <header id="header" class="fixed-top d-flex align-items-center shadow-sm">
+  <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
       <div class="logo me-auto">
         <a href="/"><img src="{{asset('img/logoo.png')}}" height="50" alt="" /></a>
