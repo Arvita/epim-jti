@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-12 col-sm-12 text-center"  data-aos="zoom-in-up">
-          <img src="{{asset('img/EXPOed.png')}}" alt="maskot-epim" class="img-detail-page-hero" />
+          <img src="{{asset('img/expo-ti.png')}}" alt="maskot-epim" class="img-detail-page-hero" />
         </div>
         <div class="detail-page-hero-section col-lg-12 col-sm-12"  data-aos="zoom-in">
             <h1 class="detail-page-hero-title">
@@ -18,7 +18,7 @@
           <p class="detail-page-hero-info">"Millennial optimization to create creative, competitive, and realistic technologies innovations for Indonesian golden 2045"</p>
         </div>
         <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper"  data-aos="zoom-in-up">
-          <a href="{{route('login')}}" class="detail-page-hero-btn">Pendaftaran</a>
+          <a href="{{route('register')}}" class="detail-page-hero-btn">Pendaftaran</a>
         </div>
         <div class="col-lg-4 col-sm-12 detail-page-hero-btn-wrapper"  data-aos="zoom-in-up">
           <a href="http://expo.epimjti.com" class="detail-page-hero-btn invert" id="show-form">Kunjungi Expo!</a>
@@ -161,7 +161,7 @@
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                <a href="{{route('login')}}" class="btn-lebihlanjut">Daftar Sekarang</a>
+                <a href="{{route('register')}}" class="btn-lebihlanjut">Daftar Sekarang</a>
               </div>
             </div>
           </div>
