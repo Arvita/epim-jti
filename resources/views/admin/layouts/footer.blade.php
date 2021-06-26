@@ -28,7 +28,7 @@
 <!-- Page Specific JS File -->
 {{-- <script src="{{asset('backend/js/page/index.js')}}"></script> --}}
 
-@yield('sripts','')
+@yield('customjs','')
 
 <!-- Template JS File -->
 <script src="{{asset('backend/js/scripts.js')}}"></script>

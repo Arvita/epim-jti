@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\LombaIt;
@@ -21,6 +22,8 @@ class LombaItController extends Controller
         $data_peserta = User::where('event', 'lomba_it')->get();
         $data_verified = LombaIt::where('status', 'verified')->get();
         $data_not_verified = LombaIt::where('status', 'not verified')->get();
+        $data_pending = LombaIt::where('status', 'pending')->get();
+
 
         $data = [
             'data_admin' => $user,
@@ -28,9 +31,23 @@ class LombaItController extends Controller
             'data_peserta' => $data_peserta,
             'data_verified' => $data_verified,
             'data_not_verified' => $data_not_verified,
+            'data_pending' => $data_pending,
         ];
         // dd($data);
-        return view('admin.pages.lomba_it.index',$data)->render();
+        return view('admin.pages.lomba_it.index', $data)->render();
+    }
+
+    /**
+     * Update status verified
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateEvent(Request $request)
+    {
+        $lomba_it = LombaIt::find($request->id);
+        $lomba_it->status = $request->status;
+        $lomba_it->save();
+        return redirect()->back();
     }
 
     /**

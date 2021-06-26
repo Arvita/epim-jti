@@ -17,76 +17,76 @@ use Illuminate\Support\Facades\Route;
 
 $isCountdownActive = false;
 
-if($isCountdownActive){
+if ($isCountdownActive) {
     Route::get('/', function () {
         return view('landing_page.countdown');
     })->name("home.countdown");
-}else{
-// Just Testing Templating
-Route::get('/test', function () {
-    return view('admin.pages.expo.list_peserta');
-});
+} else {
+    // Just Testing Templating
+    Route::get('/test', function () {
+        return view('admin.pages.expo.list_peserta');
+    });
 
 
 
-Route::get('/', function () {
-    return view('landing_page.index');
-});
+    Route::get('/', function () {
+        return view('landing_page.index');
+    });
 
-// Route::get('/admin', function () {
-//     return view('admin.dashboard');
-// });
-
-
-
-Auth::routes();
-
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+    // Route::get('/admin', function () {
+    //     return view('admin.dashboard');
+    // });
 
 
 
-// ROUTE ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
+    Auth::routes();
 
-    //Dashboard
-    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
-    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
-
-
-    //LombaIT
-    Route::get('/lomba_it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
-
-    //LombaIT
-    Route::get('/bisnis_tik', [App\Http\Controllers\Admin\TcpItController::class, 'index'])->name('admin.tcp_it');
-
-
-});
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 
 
-// ROUTE USER
-Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
-    Route::get('/', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
-    Route::post('/registrasi/lomba', [App\Http\Controllers\User\DashboardController::class, 'registrasi_lomba'])->name('user.registrasi.lomba');
+    // ROUTE ADMIN
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+
+        //Dashboard
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
+
+
+        //LombaIT
+        Route::get('/lomba-it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
+        Route::post('/lomba-it/update', [App\Http\Controllers\Admin\LombaItController::class, 'updateEvent'])->name('admin.lomba_it.update');
+
+        //LombaIT
+        Route::get('/bisnis-tik', [App\Http\Controllers\Admin\LombaTcpController::class, 'index'])->name('admin.tcp_it');
+        Route::post('/bisnis-tik/update', [App\Http\Controllers\Admin\LombaTcpController::class, 'updateEvent'])->name('admin.tcp_it.update');
+    });
 
 
 
-    // TCP IT
-    Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.proposal.list');
-    Route::post('/proposal', [DashboardController::class, 'register_tcp_it'])->name('user.proposal.tambah');
-    Route::post('/dropzone/store', [DashboardController::class, 'dropzoneStore'])->name('dropzone.store');
-    // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
-});
+    // ROUTE USER
+    Route::group(['prefix' => 'peserta', 'middleware' => ['auth']], function () {
+        Route::get('/', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
+        Route::post('/registrasi/lomba', [App\Http\Controllers\User\DashboardController::class, 'registrasi_lomba'])->name('user.registrasi.lomba');
 
 
-// Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'index']);
+
+        // TCP IT
+        Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.proposal.list');
+        Route::post('/proposal', [DashboardController::class, 'register_tcp_it'])->name('user.proposal.tambah');
+        Route::post('/dropzone/store', [DashboardController::class, 'dropzoneStore'])->name('dropzone.store');
+        // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
+    });
 
 
+    // Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'index']);
 
 
 
 
-/*
+
+
+    /*
     Landing Page Route
 */
 

@@ -1,18 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
+
+use App\Models\User;
 
 use App\Models\TcpIt;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LombaTcpController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     /**
      * Display a listing of the resource.
      *
@@ -25,17 +22,35 @@ class LombaTcpController extends Controller
         $data_peserta = User::where('event', 'tcp_it')->get();
         $data_verified = TcpIt::where('status', 'verified')->get();
         $data_not_verified = TcpIt::where('status', 'not verified')->get();
-
+        $data_pending = TcpIt::where('status', 'pending')->get();
         $data = [
             'data_admin' => $user,
             'data_lomba' => $data_lomba,
             'data_peserta' => $data_peserta,
             'data_verified' => $data_verified,
             'data_not_verified' => $data_not_verified,
+            'data_pending' => $data_pending,
         ];
+
+
         // dd($data);
-        return view('admin.pages.tcp.index',$data)->render();
+        return view('admin.pages.tcp.index', $data)->render();
     }
+
+    /**
+     * Update status verified
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateEvent(Request $request)
+    {
+        $tcp_it = TcpIt::find($request->id);
+        $tcp_it->status = $request->status;
+        $tcp_it->save();
+        return redirect()->back();
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

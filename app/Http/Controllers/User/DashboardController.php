@@ -15,32 +15,32 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $event = Auth::user()->event;
-        if(empty($event)){
+        if (empty($event)) {
             return view('user.pages.pilihan');
         }
         $data = [];
-        if($event == 'lomba_it'){
+        if ($event == 'lomba_it') {
             $data = [
                 'title' => 'Lomba Konfigurasi Jaringan IT',
             ];
-        }elseif($event == 'tcp_it'){
+        } elseif ($event == 'tcp_it') {
             $data = [
                 'title' => 'Lomba Bisnis Jaringan TIK',
             ];
-        }else{
+        } else {
             $data = [
                 'title' => '',
             ];
         }
         return view('user.dashboard', $data)->render();
-
     }
 
 
     // TCP IT
-    public function list_proposal(){
+    public function list_proposal()
+    {
 
-        if(Auth::user()->event != 'tcp_it'){
+        if (Auth::user()->event != 'tcp_it') {
             return \abort(404);
         }
         $user_id = Auth::user()->id;
@@ -52,8 +52,7 @@ class DashboardController extends Controller
         ];
 
         // \dd($user->tcp_its);
-        return view('user.pages.tcp.index',$data)->render();
-
+        return view('user.pages.tcp.index', $data)->render();
     }
 
 
@@ -76,12 +75,12 @@ class DashboardController extends Controller
 
         $user = User::find($id_user);
 
-        if($request->submit == 'lomba_it'){
+        if ($request->submit == 'lomba_it') {
             $this->register_lomba_it($request);
             $user->event = 'lomba_it';
         }
 
-        if($request->submit == 'tcp_it'){
+        if ($request->submit == 'tcp_it') {
             $this->register_tcp_it($request);
             $user->event = 'tcp_it';
         }
@@ -92,27 +91,29 @@ class DashboardController extends Controller
         return \redirect()->route('user.dashboard');
     }
 
-    public function register_tcp_it(Request $request){
+    public function register_tcp_it(Request $request)
+    {
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
         // \dd($request);
 
-        $request->validate([
-            'email_t' => 'required|email',
-            'nama_tim_t' => 'required',
-            'perguruan_tinggi_t' => 'required|min:8',
-            'judul_proposal_t' => 'required|min:8',
-            'nama_ketua_t' => 'required',
-            'proposal_t' => 'required|mimes:pdf|max:20000',
-            'biodata_t' => 'required|mimes:pdf|max:1024',
-                ],
-                [
-                    'email_t.required' => 'Harap mengisi email terlebih dahulu',
-                    'nama_tim_t.required' => 'Harap mengisi nama tim terlebih dahulu',
-                    // dan seterusnya
-                ]
-            );
+        $request->validate(
+            [
+                'email_t' => 'required|email',
+                'nama_tim_t' => 'required',
+                'perguruan_tinggi_t' => 'required|min:8',
+                'judul_proposal_t' => 'required|min:8',
+                'nama_ketua_t' => 'required',
+                'proposal_t' => 'required|mimes:pdf|max:20000',
+                'biodata_t' => 'required|mimes:pdf|max:1024',
+            ],
+            [
+                'email_t.required' => 'Harap mengisi email terlebih dahulu',
+                'nama_tim_t.required' => 'Harap mengisi nama tim terlebih dahulu',
+                // dan seterusnya
+            ]
+        );
 
         $tcp_it = new TcpIt();
         $tcp_it->user_id = $user->id;
@@ -125,35 +126,34 @@ class DashboardController extends Controller
         $tcp_it->nama_anggota2 = $request->nama_anggota2_t;
 
         //Set status to not verified at first time data added
-        $tcp_it->status = 'not verified';
+        $tcp_it->status = 'pending';
 
         // FileName
-        $proposal_t = time().'.'.$request->proposal_t->extension();
-        $biodata_t = time().'.'.$request->biodata_t->extension();
+        $proposal_t = time() . '.' . $request->proposal_t->extension();
+        $biodata_t = time() . '.' . $request->biodata_t->extension();
 
         // Save To Folder
-        $request->proposal_t->move(public_path('/upload/tcp/'.$email), $proposal_t);
-        $request->biodata_t->move(public_path('/upload/tcp/'.$email), $biodata_t);
+        $request->proposal_t->move(public_path('/upload/tcp/' . $email), $proposal_t);
+        $request->biodata_t->move(public_path('/upload/tcp/' . $email), $biodata_t);
 
         //Save To DB
-        $tcp_it->proposal = 'tcp/'.$email.'/'.$proposal_t;
-        $tcp_it->biodata = 'tcp/'.$email.'/'.$biodata_t;
+        $tcp_it->proposal = 'tcp/' . $email . '/' . $proposal_t;
+        $tcp_it->biodata = 'tcp/' . $email . '/' . $biodata_t;
 
 
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = time().'.'.$ktm->extension();
-            $ktm->move(public_path('/upload/tcp/'.$email), $ktm_t);
-            $foto_ktm[] = 'tcp/'.$email.'/'.$ktm_t;
+            $ktm_t = time() . '.' . $ktm->extension();
+            $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
+            $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
         $tcp_it->ktm = $foto_ktm;
         $tcp_it->save();
 
-        if( request()->is('peserta/proposal') ){
+        if (request()->is('peserta/proposal')) {
             return \redirect()->back();
         }
-
     }
     public  function register_lomba_it(Request $request)
     {
@@ -178,7 +178,7 @@ class DashboardController extends Controller
             'surat_pernyataan_l' => 'required|max:1024|mimes:pdf',
             'bukti_pembayaran_l' => 'required|max:1024|mimes:pdf',
             'lampiran_guru_l' => 'required|max:1024|mimes:pdf',
-        ],[
+        ], [
             'email_l.required' => 'Harap mengisi email terlebih dahulu',
             'nama_peserta_l.required' => 'Harap mengisi nama peserta terlebih dahulu',
             // dan seterusnya
@@ -202,30 +202,29 @@ class DashboardController extends Controller
         $lomba_it->no_wa_pendamping = $request->no_wa_pendamping_l;
 
         //Set status to proses at first time data added
-        $lomba_it->status = 'not verified';
+        $lomba_it->status = 'pending';
 
         // FileName
-        $foto_peserta_l = time().'.'.$request->foto_peserta_l->extension();
-        $kartu_pelajar_l = time().'.'.$request->kartu_pelajar_l->extension();
-        $surat_pernyataan_l = time().'.'.$request->surat_pernyataan_l->extension();
-        $bukti_pembayaran_l = time().'.'.$request->bukti_pembayaran_l->extension();
-        $lampiran_guru_l = time().'.'.$request->lampiran_guru_l->extension();
+        $foto_peserta_l = time() . '.' . $request->foto_peserta_l->extension();
+        $kartu_pelajar_l = time() . '.' . $request->kartu_pelajar_l->extension();
+        $surat_pernyataan_l = time() . '.' . $request->surat_pernyataan_l->extension();
+        $bukti_pembayaran_l = time() . '.' . $request->bukti_pembayaran_l->extension();
+        $lampiran_guru_l = time() . '.' . $request->lampiran_guru_l->extension();
 
         // Save To Folder
-        $request->foto_peserta_l->move(public_path('/upload/lomba/'.$email), $foto_peserta_l);
-        $request->kartu_pelajar_l->move(public_path('/upload/lomba/'.$email), $kartu_pelajar_l);
-        $request->surat_pernyataan_l->move(public_path('/upload/lomba/'.$email), $surat_pernyataan_l);
-        $request->bukti_pembayaran_l->move(public_path('/upload/lomba/'.$email), $bukti_pembayaran_l);
-        $request->lampiran_guru_l->move(public_path('/upload/lomba/'.$email), $lampiran_guru_l);
+        $request->foto_peserta_l->move(public_path('/upload/lomba/' . $email), $foto_peserta_l);
+        $request->kartu_pelajar_l->move(public_path('/upload/lomba/' . $email), $kartu_pelajar_l);
+        $request->surat_pernyataan_l->move(public_path('/upload/lomba/' . $email), $surat_pernyataan_l);
+        $request->bukti_pembayaran_l->move(public_path('/upload/lomba/' . $email), $bukti_pembayaran_l);
+        $request->lampiran_guru_l->move(public_path('/upload/lomba/' . $email), $lampiran_guru_l);
 
         //Save To DB
-        $lomba_it->foto_peserta = 'lomba/'.$email.'/'.$foto_peserta_l;
-        $lomba_it->kartu_pelajar = 'lomba/'.$email.'/'.$kartu_pelajar_l;
-        $lomba_it->surat_pernyataan = 'lomba/'.$email.'/'.$surat_pernyataan_l;
-        $lomba_it->bukti_pembayaran = 'lomba/'.$email.'/'.$bukti_pembayaran_l;
-        $lomba_it->lampiran_guru = 'lomba/'.$email.'/'.$lampiran_guru_l;
+        $lomba_it->foto_peserta = 'lomba/' . $email . '/' . $foto_peserta_l;
+        $lomba_it->kartu_pelajar = 'lomba/' . $email . '/' . $kartu_pelajar_l;
+        $lomba_it->surat_pernyataan = 'lomba/' . $email . '/' . $surat_pernyataan_l;
+        $lomba_it->bukti_pembayaran = 'lomba/' . $email . '/' . $bukti_pembayaran_l;
+        $lomba_it->lampiran_guru = 'lomba/' . $email . '/' . $lampiran_guru_l;
         $lomba_it->save();
-
     }
 
 
@@ -244,6 +243,8 @@ class DashboardController extends Controller
     //     return view('welcome', compact('data'));
     // }
 
+
+
     public function dropzoneStore(Request $request)
     {
         $image = $request->file('file');
@@ -251,7 +252,6 @@ class DashboardController extends Controller
         $imageName = time() . '-' . strtoupper(Str::random(10)) . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
 
-        return response()->json(['success'=> $imageName]);
+        return response()->json(['success' => $imageName]);
     }
 }
-

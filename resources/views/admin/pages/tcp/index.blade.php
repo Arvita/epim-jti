@@ -68,10 +68,10 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Online Users</h4>
+                                <h4>Belum Terseleksi</h4>
                             </div>
                             <div class="card-body">
-                                47
+                                {{count($data_pending)}}
                             </div>
                         </div>
                     </div>
@@ -111,13 +111,15 @@
                             <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
-                                    <div class="badge badge-success">{{ Str::title($item->status) }}</div>
+                                    <div class="badge badge-success">Lolos</div>
+                                @elseif ($item->status == 'not verified')
+                                    <div class="badge badge-danger">Tidak Lolos</div>
                                 @else
-                                    <div class="badge badge-danger">{{  Str::title($item->status) }}</div>
+                                    <div class="badge badge-warning">Belum Diseleksi</div>
                                 @endif
                             </td>
                             <td>
-
+                                <button class="btn btn-warning" onclick="openModal('{{$item->status}}', {{$item->id}})"><i class="fa fa-edit"></i></button>
                             </td>
                         </tr>
                           @empty
@@ -134,4 +136,68 @@
         </div>
     </section>
 </div>
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-1" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Status</h5> <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close"> <span aria-hidden="true">×</span> </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                      <form action="{{route('admin.tcp_it.update')}}" method="POST">
+                        @csrf
+                      <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="">Status</label>
+                                <select class="form-control" name="status" id="status">
+                                </select>
+                                <input type="hidden" id="id" name="id" value="">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-success" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                  </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('customjs')
+    <script>
+             function openModal(status, id){
+                let html = ''
+                if(status == 'verified'){
+                    html = `
+                    <option value="verified" selected>Lolos</option>
+                    <option value="not verified">Tidak Lolos</option>
+                    <option value="pending">Belum Diseleksi</option>
+                `
+                }else if(status == 'not verified'){
+                    html = `
+                    <option value="verified">Lolos</option>
+                    <option value="not verified" selected>Tidak Lolos</option>
+                    <option value="pending">Belum Diseleksi</option>
+                `
+                }else{
+                    html = `
+                    <option value="verified">Lolos</option>
+                    <option value="not verified">Tidak Lolos</option>
+                    <option value="pending" selected>Belum Diseleksi</option>
+                `
+                }
+                $('#status').html(html);
+                $('#id').val(id)
+                $('#fire-modal-1').modal('show');
+            }
+    </script>
 @endsection
