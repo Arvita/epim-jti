@@ -19,13 +19,18 @@ class LombaItController extends Controller
         $user = auth()->user();
         $data_lomba = LombaIt::latest()->get();
         $data_peserta = User::where('event', 'lomba_it')->get();
+        $data_verified = LombaIt::where('status', 'verified')->get();
+        $data_not_verified = LombaIt::where('status', 'not verified')->get();
+
         $data = [
             'data_admin' => $user,
             'data_lomba' => $data_lomba,
             'data_peserta' => $data_peserta,
+            'data_verified' => $data_verified,
+            'data_not_verified' => $data_not_verified,
         ];
-        dd($data);
-        return view('admin.pages.lomba_it.index', compact('data'));
+        // dd($data);
+        return view('admin.pages.lomba_it.index',$data)->render();
     }
 
     /**

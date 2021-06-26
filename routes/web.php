@@ -56,6 +56,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     //LombaIT
     Route::get('/lomba_it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
 
+    //LombaIT
+    Route::get('/bisnis_tik', [App\Http\Controllers\Admin\TcpItController::class, 'index'])->name('admin.tcp_it');
+
 
 });
 
