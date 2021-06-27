@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$isCountdownActive = false;
+$isCountdownActive = true;
 
 if ($isCountdownActive) {
     Route::get('/', function () {
@@ -65,7 +65,6 @@ if ($isCountdownActive) {
         Route::post('/user/data', [App\Http\Controllers\Admin\UserController::class, 'data']);
         Route::get('/user/{data}/conf', [App\Http\Controllers\Admin\UserController::class, 'confirm']);
         Route::resource('user', '\App\Http\Controllers\Admin\UserController');
-
     });
 
 
@@ -83,7 +82,7 @@ if ($isCountdownActive) {
         Route::post('/dropzone/store', [DashboardController::class, 'dropzoneStore'])->name('dropzone.store');
         // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
 
-        
+
     });
 
 

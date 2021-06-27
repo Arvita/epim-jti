@@ -157,7 +157,10 @@
                                 Mediapartner
                             </p>
                             <div>
-
+                                <img src="{{ asset('danus/medpat/1571676452481.png') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/IMG_20210614_120150.jpg') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/Logo BeritaLomba.png') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/Olimpiade Update(15-06-2021).png') }}" alt="media partner" height="50px">
                             </div>
                         </div>
                     </div>
