@@ -8,14 +8,12 @@
           </div>
 
           <div class="section-body">
-            <h2 class="section-title">This is Example Page</h2>
-            <p class="section-lead">This page is just an example for you to create your own page.</p>
             <div class="row">
                 <div class="col-12 mb-4">
                   <div class="hero bg-primary text-white">
                     <div class="hero-inner">
                       <h2>Selamat Datang, {{ Auth::user()->name }}!</h2>
-                      <p class="lead">This page is a place to manage posts, categories and more.</p>
+                      <p class="lead">Pada halaman ini, anda dapat memonitoring perlombaan yang anda pilih.</p>
                     </div>
                   </div>
                 </div>

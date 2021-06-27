@@ -75,12 +75,19 @@
           <li>
             <a class="nav-link scrollto" href="#faq">FAQ</a>
           </li>
-          <li class="nav-link scrollto">
-              <div class="btn-group-cta">
-                  <a href="#" class="btn-login"> <span>Login</span> </a>
-                  <a href="#" class="btn-register"> <span>Daftar</span> </a>
-              </div>
-        </li>
+          <li class="dropdown">
+            <a class="nav-link scrollto" href="#">
+              <span>My Account</span> <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="">Login</a>
+              </li>
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="">Register</a>
+              </li>
+            </ul>
+          </li>
         </ul>
         <i class="fa fa-bars mobile-nav-toggle"></i>
       </nav>
@@ -150,7 +157,10 @@
                                 Mediapartner
                             </p>
                             <div>
-
+                                <img src="{{ asset('danus/medpat/1571676452481.png') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/IMG_20210614_120150.jpg') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/Logo BeritaLomba.png') }}" alt="media partner" height="50px">
+                                <img src="{{ asset('danus/medpat/Olimpiade Update(15-06-2021).png') }}" alt="media partner" height="50px">
                             </div>
                         </div>
                     </div>
