@@ -12,8 +12,8 @@
             <!-- <p>Didukung oleh: </p> -->
             <a href="https://www.polije.ac.id/" target="_blank"><img src="{{asset('img/img_poije.png')}}" alt="" height="30"></a>
             <a href="http://jti.polije.ac.id/" target="_blank"><img src="{{asset('img/img_jti.png')}}" alt="" height="30"></a>
-            <a href="https://www.instagram.com/hmjti_polije/" target="_blank"><img src="{{asset('img/img_hmjti.png')}}" alt="" height="30"></a>
-            <a href="https://www.instagram.com/birosi_hmjti/" target="_blank"><img src="{{asset('img/img_birosi.png')}}" alt="" height="30"></a>
+            <a href="https://www.instagram.com/hmjti_polije/" target="_blank"><img src="{{asset('img/img_hmjti.png')}}" alt="" height="50"></a>
+            <a href="https://www.instagram.com/birosi_hmjti/" target="_blank"><img src="{{asset('img/img_birosi.png')}}" alt="" ></a>
           </div>
         </div>
       </div>
