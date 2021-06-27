@@ -60,13 +60,13 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 @section('content')
 <div class="container full-height">
     <section class="section">
-        <div class="section-header justify-content-center shadow-lg">
+        <div class="section-header justify-content-center shadow-lg">          
             <h1>Pilihan Lomba</h1>
         </div>
 
         <div class="section-body">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
@@ -98,8 +98,27 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                         Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data.
                                     </p>
                                     <button id="modal-2"
-                                        class="btn btn-warning btn-lg w-100 mt-4">Daftar</button>
+                                        class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
                                     <a href="{{route('lomba_it')}}" class="mt-4 bb">Lihat Panduan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <div class="empty-state" data-height="550px">
+                                    <div class="empty-state-icon">
+                                        <img src="{{ asset('img/expo-ti.png') }}" alt="Expo Produk IT"
+                                            class="img-fluid">
+                                    </div>
+                                    <h2>Expo Produk IT</h2>
+                                    <p class="lead">
+                                      Expo Produk IT adalah kegiatan pameran produk Mahasiswa Jurusan Teknologi Informasi Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring).
+                                    </p>
+                                    <button disabled
+                                        class="btn btn-primary btn-lg w-100 mt-4">Coming Soon</button>
+                                    <a href="{{route('expo')}}" class="mt-4 bb">Lihat Panduan</a>
                                 </div>
                             </div>
                         </div>

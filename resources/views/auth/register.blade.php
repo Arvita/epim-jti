@@ -25,7 +25,7 @@
                         @enderror
                 </div>
                   <div class="form-group">
-                      <label for="email">{{ __('E-Mail Address') }}</label>
+                      <label for="email">{{ __('E-Mail') }}</label>
                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                           @error('email')
@@ -45,7 +45,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm">{{ __('Konfirmasi Password') }}</label>
                     <input id="password-confirm" type="password" class="form-control @error('password_confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
                   </div>
 

@@ -92,10 +92,7 @@
               </li>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('logout') }}">Logout</a>
-              </li>
-              <li>
-                <a class="nav-link dropdown-link scrollto" href="{{ route('register') }}">Register</a>
-              </li>
+              </li>             
             </ul>
           </li>
           @endauth         
