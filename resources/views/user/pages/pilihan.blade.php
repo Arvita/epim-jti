@@ -100,7 +100,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     </p>
                                     <button id="modal-2"
                                         class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
-                                        <a href="" class="mt-4 bb">Download Lampiran Lomba Konfigurasi Jaringan</a>
+                                        <a href="https://bit.ly/PedomanDanLampiranKonfigurasi2021" class="mt-4 bb">Download Lampiran Lomba Konfigurasi Jaringan</a>
                                     <a href="{{asset('buku_pedoman/PEDOMAN LOMBA KONFIGURASI JARINGAN EPIM 2021.pdf')}}" class="mt-2 bb">Download Buku Panduan</a>
                                 </div>
                             </div>

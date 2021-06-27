@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left">
-        Copyright &copy; Biro Sistem Informasi {{date("Y")}}
+        Copyright &copy; Expo dan Pekan Ilmiah Mahasiswa Politeknik Negeri Jember {{date("Y")}}
     </div>
     <div class="footer-right">
 

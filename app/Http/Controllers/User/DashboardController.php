@@ -25,7 +25,7 @@ class DashboardController extends Controller
             ];
         } elseif ($event == 'tcp_it') {
             $data = [
-                'title' => 'Lomba Bisnis Jaringan TIK',
+                'title' => 'Lomba Bisnis TIK',
             ];
         } else {
             $data = [
