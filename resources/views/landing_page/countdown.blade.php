@@ -75,12 +75,19 @@
           <li>
             <a class="nav-link scrollto" href="#faq">FAQ</a>
           </li>
-          <li class="nav-link scrollto">
-              <div class="btn-group-cta">
-                  <a href="#" class="btn-login"> <span>Login</span> </a>
-                  <a href="#" class="btn-register"> <span>Daftar</span> </a>
-              </div>
-        </li>
+          <li class="dropdown">
+            <a class="nav-link scrollto" href="#">
+              <span>My Account</span> <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="">Login</a>
+              </li>
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="">Register</a>
+              </li>
+            </ul>
+          </li>
         </ul>
         <i class="fa fa-bars mobile-nav-toggle"></i>
       </nav>
