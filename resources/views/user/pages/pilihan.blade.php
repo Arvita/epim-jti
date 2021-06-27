@@ -79,7 +79,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                         Lomba Bisnis TIK merupakan perlombaan atau kompetisi tingkat nasional pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1.
                                     </p>
                                     <button id="modal-1" class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
-                                    <a href="{{route('lomba_it')}}" class="mt-4 bb">Lihat Panduan</a>
+                                    <a href="{{route('tcp_it')}}" class="mt-4 bb">Lihat Panduan</a>
 
                                 </div>
                             </div>

@@ -179,7 +179,7 @@ class DashboardController extends Controller
             'usia_l' => 'required|numeric',
             'no_wa_peserta_l' => 'required|min:10',
             'nama_pendamping_l' => 'required',
-            'nip_l' => 'required|numeric',
+            'nip_l' => 'required|numeric|max:11',
             'no_wa_pendamping_l' => 'required|min:10',
             'foto_peserta_l' => 'required|max:300|mimes:jpg,jpeg,png',
             'kartu_pelajar_l' => 'required|max:300|mimes:pdf',
@@ -191,6 +191,11 @@ class DashboardController extends Controller
             'email_l.required' => 'Harap mengisi email terlebih dahulu',
             'nama_peserta_l.required' => 'Harap mengisi nama peserta terlebih dahulu',
             // dan seterusnya
+
+
+
+            'twibbon_l.max' => 'File maksimal 1 MB .....',
+            'twibbon_l.mimes' => 'File harus bertipe .jpg, .jpeg, .png ....',
         ]);
 
 
@@ -278,7 +283,11 @@ class DashboardController extends Controller
             [
                 'email_t.required' => 'Harap mengisi email terlebih dahulu',
                 'nama_tim_t.required' => 'Harap mengisi nama tim terlebih dahulu',
-                // dan seterusnya
+                
+                
+
+                'twibbon_t.max' => 'File maksimal 1 MB .....',
+                'twibbon_t.mimes' => 'File harus bertipe .jpg, .jpeg, .png ....',
             ]
         );
 
