@@ -179,7 +179,7 @@ class DashboardController extends Controller
             'usia_l' => 'required|numeric',
             'no_wa_peserta_l' => 'required|min:10',
             'nama_pendamping_l' => 'required',
-            'nip_l' => 'required|numeric|max:11',
+            'nip_l' => 'required|numeric|digits_between:1,11',
             'no_wa_pendamping_l' => 'required|min:10',
             'foto_peserta_l' => 'required|max:300|mimes:jpg,jpeg,png',
             'kartu_pelajar_l' => 'required|max:300|mimes:pdf',

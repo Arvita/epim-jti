@@ -13,7 +13,7 @@
             <div class="col-lg-12 mb-4">
                 <div class="hero bg-primary text-white">
                     <div class="hero-inner">
-                      <h2>Selamat datang kembali, Semangat🔥🔥🔥</h2>
+                      <h2>Selamat datang kembali {{Str::title(Auth::user()->name)}}, Semangat🔥🔥🔥</h2>
                       <p class="lead"></p>
                     </div>
                   </div>
