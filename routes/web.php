@@ -60,6 +60,12 @@ if ($isCountdownActive) {
         //LombaIT
         Route::get('/bisnis-tik', [App\Http\Controllers\Admin\LombaTcpController::class, 'index'])->name('admin.tcp_it');
         Route::post('/bisnis-tik/update', [App\Http\Controllers\Admin\LombaTcpController::class, 'updateEvent'])->name('admin.tcp_it.update');
+
+        //USER SETTING
+        Route::post('/user/data', [App\Http\Controllers\Admin\UserController::class, 'data']);
+        Route::get('/user/{data}/conf', [App\Http\Controllers\Admin\UserController::class, 'confirm']);
+        Route::resource('user', '\App\Http\Controllers\Admin\UserController');
+
     });
 
 
@@ -76,6 +82,8 @@ if ($isCountdownActive) {
         Route::post('/proposal', [DashboardController::class, 'tambah_proposal'])->name('user.proposal.tambah');
         Route::post('/dropzone/store', [DashboardController::class, 'dropzoneStore'])->name('dropzone.store');
         // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
+
+        
     });
 
 

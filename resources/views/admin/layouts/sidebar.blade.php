@@ -21,7 +21,12 @@
                 <a href="{{route('admin.tcp_it')}}" class="nav-link"><i class="fas fa-file-invoice-dollar"></i><span>Lomba Bisnis TIK</span></a>
             </li>
             <li class="{{ request()->is('admin/lomba-it') ? 'active' : '' }}">
-                <a href="{{route('admin.lomba_it')}}" class="nav-link"><i class="fas fa-server"></i><span>Lomba Konf. Jaringan`</span></a>
+                <a href="{{route('admin.lomba_it')}}" class="nav-link"><i class="fas fa-server"></i><span>Lomba Konf. Jaringan</span></a>
+            </li>
+
+            <li class="menu-header">Setting</li>
+            <li class="{{ isset($s_user) ? $s_user : '' }}">
+                <a href="{{ route('user.index') }}" class="nav-link"><i class="fas fa-user-cog"></i><span>Management User</span></a>
             </li>
             
     </aside>
