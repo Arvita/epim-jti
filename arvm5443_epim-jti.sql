@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2021 at 05:04 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 27, 2021 at 03:33 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -100,13 +100,13 @@ CREATE TABLE `lomba_its` (
 --
 
 INSERT INTO `lomba_its` (`id`, `user_id`, `email`, `nama_peserta`, `nis`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `usia`, `no_wa_peserta`, `nama_pendamping`, `nip`, `no_wa_pendamping`, `foto_peserta`, `kartu_pelajar`, `surat_pernyataan`, `bukti_pembayaran`, `lampiran_guru`, `twibbon`, `created_at`, `updated_at`, `status`) VALUES
-(1, 12, 'fasdsdasadf@sfasd.com', 'sdfasdfasdfsadfsadf', 'sdfasdfsdafsd', 'afsadfasdfsadfsadfasfsa', '2021-06-10', 'laki-laki', 213, 'asdfsafdsafsafsda', 'dsfsadfd', 213, 'asdsafasdfas', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FE.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FF.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA00.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA10.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA11.tmp', '', '2021-06-21 23:36:16', '2021-06-21 23:36:16', ''),
-(2, 15, 'asdfsadfsadfsdafsdaf@sda.com', 'fsadfsdafsdfsdfdfas', 'fasdfasfasfsadfasdfsdfsdaf', 'sdafsdfsdfsadfasd', '2021-06-12', 'laki-laki', 123, '123123', 'sdfasfasdfasfasf', 12213, '12312', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', '', '2021-06-23 18:29:49', '2021-06-23 18:29:49', ''),
-(3, 15, 'Lukman@Afandi.com', 'Lukman Afandi', '65464646', 'sdkfljsadlfjasdlfjk', '2021-06-17', 'laki-laki', 213, '2138271837123', 'dfasfasdfsd', 123123, '123213123123', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', '', '2021-06-23 18:33:21', '2021-06-23 18:33:21', ''),
-(4, 15, 'dsafasdfsdfsdfasdf@asdfs.com', 'asdfsadfsdfasdf', 'sdfsdafsdfsd', 'fasdfsadfsdaf', '2021-06-26', 'laki-laki', 1231, 'sdfasassa', 'fsasafasdfasf', 123, 'asdfsdfadf', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', '', '2021-06-23 18:42:42', '2021-06-23 18:42:42', ''),
-(5, 17, 'lukmanafandi10@gmail.com', 'Lukman Afandi', 'E31200844', 'asfsfasfasfasfasdfsdafasfasf', '2021-06-08', 'laki-laki', 12, '21', 'sdfsadfasdfsdfasdasdfasdfsdfasfsadfasdfs', 2131312312, '123123123123123', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', '', '2021-06-24 17:47:33', '2021-06-24 17:47:33', ''),
-(6, 19, 'asdfasdfasdfasdfsdfa@dfasdfasd.com', 'fadsfasdfasdf', 'asdfasdfasdfasdfasdf', 'sadfasdfasdfasdfasdfasdfasdfasf', '2021-06-04', 'laki-laki', 213123123, 'asdfasdfasdfasdfasdfsadf', 'adfsadfsdafasdfsd', 123123, 'fsadfasdfasdfasdfasd', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.jpg', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', '', '2021-06-24 21:23:11', '2021-06-24 21:23:11', ''),
-(7, 20, 'asdsffssadfsadfsa@asdfasdf.com', 'dfasdfasdfasdfsadf', 'asdfasdfasdfasdf', 'sdfasfsfsafasfasdfasdf', '2021-07-01', 'laki-laki', 123, 'asdfsadfsadfasdfasdf', 'asdfasdfasdfasfasdfasd', 213123123, 'dfasfasdfasdf', 'lomba/safsdkf@sdfasdf.com/1624597979.jpg', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', '', '2021-06-24 22:12:59', '2021-06-24 22:12:59', '');
+(1, 12, 'fasdsdasadf@sfasd.com', 'sdfasdfasdfsadfsadf', 'sdfasdfsdafsd', 'afsadfasdfsadfsadfasfsa', '2021-06-10', 'laki-laki', 213, 'asdfsafdsafsafsda', 'dsfsadfd', 213, 'asdsafasdfas', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FE.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpB9FF.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA00.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA10.tmp', 'lomba/lukmanafandi10@gmail.com/C:\\xampp\\tmp\\phpBA11.tmp', '', '2021-06-21 23:36:16', '2021-06-21 23:36:16', 'not verified'),
+(2, 15, 'asdfsadfsadfsdafsdaf@sda.com', 'fsadfsdafsdfsdfdfas', 'fasdfasfasfsadfasdfsdfsdaf', 'sdafsdfsdfsadfasd', '2021-06-12', 'laki-laki', 123, '123123', 'sdfasfasdfasfasf', 12213, '12312', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498189.jpg', '', '2021-06-23 18:29:49', '2021-06-23 18:29:49', 'pending'),
+(3, 15, 'Lukman@Afandi.com', 'Lukman Afandi', '65464646', 'sdkfljsadlfjasdlfjk', '2021-06-17', 'laki-laki', 213, '2138271837123', 'dfasfasdfsd', 123123, '123213123123', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498401.jpg', '', '2021-06-23 18:33:21', '2021-06-23 18:33:21', 'verified'),
+(4, 15, 'dsafasdfsdfsdfasdf@asdfs.com', 'asdfsadfsdfasdf', 'sdfsdafsdfsd', 'fasdfsadfsdaf', '2021-06-26', 'laki-laki', 1231, 'sdfasassa', 'fsasafasdfasf', 123, 'asdfsdfadf', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', 'lomba/luksdjaflsjdf@sdfasdf.com/1624498962.jpg', '', '2021-06-23 18:42:42', '2021-06-23 18:42:42', 'not verified'),
+(5, 17, 'lukmanafandi10@gmail.com', 'Lukman Afandi', 'E31200844', 'asfsfasfasfasfasdfsdafasfasf', '2021-06-08', 'laki-laki', 12, '21', 'sdfsadfasdfsdfasdasdfasdfsdfasfsadfasdfs', 2131312312, '123123123123123', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', 'lomba/afdasdfsadfs@ffsafasdf.com/1624582053.jpg', '', '2021-06-24 17:47:33', '2021-06-24 17:47:33', 'not verified'),
+(6, 19, 'asdfasdfasdfasdfsdfa@dfasdfasd.com', 'fadsfasdfasdf', 'asdfasdfasdfasdfasdf', 'sadfasdfasdfasdfasdfasdfasdfasf', '2021-06-04', 'laki-laki', 213123123, 'asdfasdfasdfasdfasdfsadf', 'adfsadfsdafasdfsd', 123123, 'fsadfasdfasdfasdfasd', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.jpg', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', 'lomba/asfdhaskdjfa@afjkhsdfkj.com/1624594991.pdf', '', '2021-06-24 21:23:11', '2021-06-25 23:10:25', 'pending'),
+(7, 20, 'asdsffssadfsadfsa@asdfasdf.com', 'dfasdfasdfasdfsadf', 'asdfasdfasdfasdf', 'sdfasfsfsafasfasdfasdf', '2021-07-01', 'laki-laki', 123, 'asdfsadfsadfasdfasdf', 'asdfasdfasdfasfasdfasd', 213123123, 'dfasfasdfasdf', 'lomba/safsdkf@sdfasdf.com/1624597979.jpg', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', 'lomba/safsdkf@sdfasdf.com/1624597979.pdf', '', '2021-06-24 22:12:59', '2021-06-25 23:10:16', 'verified');
 
 -- --------------------------------------------------------
 
@@ -164,30 +164,27 @@ CREATE TABLE `tcp_its` (
   `nama_anggota1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama_anggota2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ktm` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bukti_pembayaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `proposal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `biodata` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `twibbon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `twibbon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tcp_its`
 --
 
-INSERT INTO `tcp_its` (`id`, `user_id`, `email`, `nama_tim`, `perguruan_tinggi`, `judul_proposal`, `nama_ketua`, `nama_anggota1`, `nama_anggota2`, `ktm`, `proposal`, `biodata`, `created_at`, `updated_at`, `status`, `twibbon`) VALUES
-(7, 15, 'lukmanafandi10@gmail.com', 'test', 'test ui', 'test ui', 'test ui', 'test ui', 'test ui', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.webp', '2021-06-23 18:23:39', '2021-06-23 18:23:39', '', ''),
-(8, 15, 'lukmanafandi10@gmailfd.com', 'asdfasdf', 'sdf', 'sdfsdfsadfsafsadfsdafsadf', 'asdfasdfasdfasdf', 'sdfsdfasdfsdf', 'sdfsdfsdfsdfsdfsa', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.webp', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.webp', '2021-06-23 18:24:21', '2021-06-23 18:24:21', '', ''),
-(9, 15, 'asdfsadfasdfsadfsa@d.com', 'fsadfasdfasdf', 'sdfsdafsdfsfsdfsadf', 'sadfsdafsdfsd', 'fsdfsadfsadfsad', 'fsadfsafsadfsadf', 'asdfsdfsdafsdaf', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', '2021-06-23 18:25:17', '2021-06-23 18:25:17', '', ''),
-(10, 12, 'lukmanafandi10@gmail.com', 'Lukman Afandi', 'Test lagi', 'Test', 'Lukman Afandi', NULL, NULL, 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', '2021-06-23 21:21:52', '2021-06-23 21:21:52', '', ''),
-(11, 12, 'asdklfsadfjskfas@dsaf.com', 'sdafasdfasdfasd', 'asdfasdfasdfasf', 'sadfasfasdfasdf', 'sadfasdfasf', 'sdafasfasd', 'asdfsdafasdf', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', '2021-06-23 21:27:15', '2021-06-23 21:27:15', '', ''),
-(12, 16, 'sdfsadfasdfsadfsdaf@asfdsd.com', 'sdfsadfsdafsadf', 'fsdafsadfsadfasfsadfsa', 'dfasdfasdf', 'asdfasdfasdfasdfasf', 'asdfasdfasdsadfasdf', 'sdfasdfasdfasdf', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', '2021-06-23 21:28:17', '2021-06-23 21:28:17', '', ''),
-(13, 12, 'Lukmanand@asdfasdfa.com', 'Lukman Afandi', 'Universitas Negeri Jember', 'Test 123', 'Test 123', NULL, NULL, 'tcp/lukmanafandi10@gmail.com/1624518193.txt', 'tcp/lukmanafandi10@gmail.com/1624518193.txt', 'tcp/lukmanafandi10@gmail.com/1624518193.txt', '2021-06-24 00:03:13', '2021-06-24 00:03:13', '', ''),
-(14, 12, 'sadfsadfasdfas@asdf.com', 'fsadfsafsadfsadfsdfsadf', 'asdfsadfsadf', 'sadfsadfsadf', 'asdfasdfasdfasdf', 'sdafasdfasdfsdafsadf', 'asdfsadfsadfasdfasdf', 'tcp/lukmanafandi10@gmail.com/1624543347.jpg', 'tcp/lukmanafandi10@gmail.com/1624543347.pdf', 'tcp/lukmanafandi10@gmail.com/1624543347.pdf', '2021-06-24 07:02:27', '2021-06-24 07:02:27', '', ''),
-(15, 12, 'dfasdfasdf@afasdf.com', 'sdfkjasdkfhaskjh', 'sdjkafhasdkjfhasjkdfhaskjfh', 'sdjkfhasjkfhasjkdfhksadh', 'asdjkfhskdfhaskhfasdjfhaskd', 'ajkdfhaskjfhaskdjfhasdfasdfasf', NULL, '[\"tcp\\/lukmanafandi10@gmail.com\\/1624583489.jpg\",\"tcp\\/lukmanafandi10@gmail.com\\/1624583489.jpg\",\"tcp\\/lukmanafandi10@gmail.com\\/1624583489.jpg\"]', 'tcp/lukmanafandi10@gmail.com/1624583489.pdf', 'tcp/lukmanafandi10@gmail.com/1624583489.pdf', '2021-06-24 18:11:29', '2021-06-24 18:11:29', '', ''),
-(16, 18, 'asdfasdfsdfsadfasfasdf@asdfasdf.com', 'sdafasdfasdfsadfasd', 'fasdfasdfasdfasdfasdfsadf', 'asdfsadfasdfasdfasd', 'fasdfasdfasdfasdfsda', 'fasdfasdfasdfasd', 'fasdfasdfasdfasdf', '[\"tcp\\/asdfasdfasdfasdfsdfa@dfasdfasd.com\\/1624594800.jpg\",\"tcp\\/asdfasdfasdfasdfsdfa@dfasdfasd.com\\/1624594800.jpg\",\"tcp\\/asdfasdfasdfasdfsdfa@dfasdfasd.com\\/1624594800.jpg\"]', 'tcp/asdfasdfasdfasdfsdfa@dfasdfasd.com/1624594800.pdf', 'tcp/asdfasdfasdfasdfsdfa@dfasdfasd.com/1624594800.pdf', '2021-06-24 21:20:00', '2021-06-24 21:20:00', '', ''),
-(17, 21, 'luiasdmflkasdjfklas@sadfasd.com', 'sdfasdfasfsadfasf', 'asdfsadfsdfasdf', 'asdfsadfsadfsdfsd', 'fsdafsadfsadfsadf', 'fsadfasdfsadfasdfas', NULL, '[\"tcp\\/cvxcvzxcvzxcv@fsdffsadf.com\\/1624598300.png\",\"tcp\\/cvxcvzxcvzxcv@fsdffsadf.com\\/1624598300.png\",\"tcp\\/cvxcvzxcvzxcv@fsdffsadf.com\\/1624598300.png\"]', 'tcp/cvxcvzxcvzxcv@fsdffsadf.com/1624598300.pdf', 'tcp/cvxcvzxcvzxcv@fsdffsadf.com/1624598300.pdf', '2021-06-24 22:18:20', '2021-06-24 22:18:20', '', '');
+INSERT INTO `tcp_its` (`id`, `user_id`, `email`, `nama_tim`, `perguruan_tinggi`, `judul_proposal`, `nama_ketua`, `nama_anggota1`, `nama_anggota2`, `ktm`, `bukti_pembayaran`, `proposal`, `biodata`, `created_at`, `updated_at`, `status`, `twibbon`) VALUES
+(7, 15, 'lukmanafandi10@gmail.com', 'test', 'test ui', 'test ui', 'test ui', 'test ui', 'test ui', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.jpg', '', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497819.webp', '2021-06-23 18:23:39', '2021-06-23 18:23:39', 'not verified', ''),
+(8, 15, 'lukmanafandi10@gmailfd.com', 'asdfasdf', 'sdf', 'sdfsdfsadfsafsadfsdafsadf', 'asdfasdfasdfasdf', 'sdfsdfasdfsdf', 'sdfsdfsdfsdfsdfsa', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.webp', '', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497861.webp', '2021-06-23 18:24:21', '2021-06-23 18:24:21', 'verified', ''),
+(9, 15, 'asdfsadfasdfsadfsa@d.com', 'fsadfasdfasdf', 'sdfsdafsdfsfsdfsadf', 'sadfsdafsdfsd', 'fsdfsadfsadfsad', 'fsadfsafsadfsadf', 'asdfsdfsdafsdaf', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', '', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', 'tcp/luksdjaflsjdf@sdfasdf.com/1624497917.jpg', '2021-06-23 18:25:17', '2021-06-23 18:25:17', 'pending', ''),
+(10, 12, 'lukmanafandi10@gmail.com', 'Lukman Afandi', 'Test lagi', 'Test', 'Lukman Afandi', NULL, NULL, 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', '', 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', 'tcp/lukmanafandi10@gmail.com/1624508512.jpg', '2021-06-23 21:21:52', '2021-06-23 21:21:52', 'not verified', ''),
+(11, 12, 'asdklfsadfjskfas@dsaf.com', 'sdafasdfasdfasd', 'asdfasdfasdfasf', 'sadfasfasdfasdf', 'sadfasdfasf', 'sdafasfasd', 'asdfsdafasdf', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', '', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', 'tcp/lukmanafandi10@gmail.com/1624508835.jpg', '2021-06-23 21:27:15', '2021-06-23 21:27:15', 'not verified', ''),
+(12, 16, 'sdfsadfasdfsadfsdaf@asfdsd.com', 'sdfsadfsdafsadf', 'fsdafsadfsadfasfsadfsa', 'dfasdfasdf', 'asdfasdfasdfasdfasf', 'asdfasdfasdsadfasdf', 'sdfasdfasdfasdf', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', '', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', 'tcp/asdfsdaf@sdfasdf.com/1624508897.jpg', '2021-06-23 21:28:17', '2021-06-23 21:28:17', 'not verified', ''),
+(13, 12, 'Lukmanand@asdfasdfa.com', 'Lukman Afandi', 'Universitas Negeri Jember', 'Test 123', 'Test 123', NULL, NULL, 'tcp/lukmanafandi10@gmail.com/1624518193.txt', '', 'tcp/lukmanafandi10@gmail.com/1624518193.txt', 'tcp/lukmanafandi10@gmail.com/1624518193.txt', '2021-06-24 00:03:13', '2021-06-24 00:03:13', 'not verified', '');
 
 -- --------------------------------------------------------
 
@@ -233,7 +230,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (18, 'fadsfasdfasdf', 'asdfasdfasdfasdfsdfa@dfasdfasd.com', NULL, '$2y$10$1wEooQib.1cW0XTvP87c8eP0fbWQeg73PPo8DwpIUetict6RKc8EW', NULL, 'tcp_it', 'user', '2021-06-24 21:09:23', '2021-06-24 21:20:00'),
 (19, 'kjhfjkashfkjasdfhkjasdfh', 'asfdhaskdjfa@afjkhsdfkj.com', NULL, '$2y$10$yo8KYU1b615Qybx8QWgswekhu2DwbH0ccQE8Gw2YKeO00jIQyofb6', NULL, 'lomba_it', 'user', '2021-06-24 21:20:43', '2021-06-24 21:23:11'),
 (20, 'sadfsadfdsfs', 'safsdkf@sdfasdf.com', NULL, '$2y$10$BHIugFyPIeZS0wCaXZO1/uw/1TfK3XXV7eBFW4Ksoiw15BerU4ZL6', NULL, 'lomba_it', 'user', '2021-06-24 22:00:27', '2021-06-24 22:12:59'),
-(21, 'sdfsdfasdfsdf', 'cvxcvzxcvzxcv@fsdffsadf.com', NULL, '$2y$10$lZT.x.bpjHx3cQFOH3GcG.d7SNOo/pivI2JuLWh0PduGDWg/cy.By', NULL, 'tcp_it', 'user', '2021-06-24 22:13:27', '2021-06-24 22:18:20');
+(21, 'sdfsdfasdfsdf', 'cvxcvzxcvzxcv@fsdffsadf.com', NULL, '$2y$10$lZT.x.bpjHx3cQFOH3GcG.d7SNOo/pivI2JuLWh0PduGDWg/cy.By', NULL, 'tcp_it', 'user', '2021-06-24 22:13:27', '2021-06-24 22:18:20'),
+(22, 'iqbal', 'iqbaliamal@gmail.com', NULL, '$2y$10$26x3ZIBlTadMCVgO4uSfPuhmhjUJA9O/rtU964pJ.bXQT4GYbfZyG', NULL, 'tcp_it', 'user', '2021-06-26 02:55:47', '2021-06-26 04:30:46');
 
 --
 -- Indexes for dumped tables
@@ -315,13 +313,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tcp_its`
 --
 ALTER TABLE `tcp_its`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
