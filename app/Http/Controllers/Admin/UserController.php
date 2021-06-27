@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User,
-    Yajra\DataTables\DataTables,
+    DataTables,
     Validator,
     Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
