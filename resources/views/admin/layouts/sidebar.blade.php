@@ -31,8 +31,8 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Lomba IT</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="{{ request()->is('admin/donasi') ? 'active' : '' }} nav-link"
-                            href="">Dashboard</a></li>
+                    <li><a class="{{ request()->is('admin/lomba-it') ? 'active' : '' }} nav-link"
+                            href="{{route('admin.lomba_it')}}">Dashboard</a></li>
                     <li><a class="{{ request()->is('admin/donatur') ? 'active' : '' }} nav-link"
                             href="">Peserta</a></li>
                     <li><a class="{{ request()->is('admin/ajukan-donasi') ? 'active' : '' }} nav-link"
@@ -44,12 +44,12 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Lomba Bisnis TIK</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="{{ request()->is('admin/donasi') ? 'active' : '' }} nav-link"
-                            href="">Dashboard</a></li>
+                    <li><a class="{{ request()->is('admin/bisnis-tik') ? 'active' : '' }} nav-link"
+                            href="{{route('admin.tcp_it')}}">Tahap 1</a></li>
                     <li><a class="{{ request()->is('admin/donatur') ? 'active' : '' }} nav-link"
-                            href="">Peserta</a></li>
+                            href="">Tahap 2</a></li>
                     <li><a class="{{ request()->is('admin/ajukan-donasi') ? 'active' : '' }} nav-link"
-                            href="">Verifikasi</a></li>
+                            href="">Final</a></li>
                 </ul>
             </li>
 
