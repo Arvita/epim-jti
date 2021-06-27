@@ -70,7 +70,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <div class="empty-state" data-height="500">
+                                <div class="empty-state">
                                     <div class="empty-state-icon">
                                         <img src="{{ asset('img/tcp.png') }}" alt="" class="img-fluid">
                                     </div>
@@ -88,7 +88,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <div class="empty-state" data-height="500">
+                                <div class="empty-state">
                                     <div class="empty-state-icon">
                                         <img src="{{ asset('img/TN.png') }}" alt="lomba konfigurasi jaringan"
                                             class="img-fluid">
@@ -107,7 +107,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <div class="empty-state" data-height="550px">
+                                <div class="empty-state">
                                     <div class="empty-state-icon">
                                         <img src="{{ asset('img/expo-ti.png') }}" alt="Expo Produk IT"
                                             class="img-fluid">
