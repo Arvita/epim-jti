@@ -1,7 +1,6 @@
 @extends("landing_page.layouts.master")
 
 @section("content")
-
 <section id="detail-page-hero">
     <div class="container">
       <div class="row align-items-center justify-content-center">

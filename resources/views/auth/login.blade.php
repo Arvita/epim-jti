@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="{{ asset('img/EPIM 2.png') }}" alt="logo" width="80" class="shadow-light rounded-circle">
+              <img src="{{ asset('img/logo_epim.png') }}" alt="logo" width="120">
             </div>
 
             <div class="card card-primary">
@@ -15,7 +15,7 @@
               <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
                   @csrf
                   <div class="form-group">
-                      <label for="email">{{ __('E-Mail Address') }}</label>
+                      <label for="email">{{ __('E-Mail') }}</label>
 
                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="{{route('register')}}">Create One</a>
+             Belum punya akun EPIM 2021? <a href="{{route('register')}}">Buat disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Biro Sistem Informasi {{date("Y")}}

@@ -50,7 +50,7 @@ if ($isCountdownActive) {
 
         //Dashboard
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
-        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dasboard');
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
 
         //LombaIT

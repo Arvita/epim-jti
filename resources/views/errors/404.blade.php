@@ -16,7 +16,7 @@
                 @endguest
                 @auth
                     @if (Auth::user()->role == 'admin')
-                        <a href="{{ route('admin.dasboard') }}">Kembali ke dashboard</>
+                        <a href="{{ route('admin.dashboard') }}">Kembali ke dashboard</>
                     @else
                         <a href="{{ route('user.dashboard') }}">Kembali ke dashboard</>
                     @endif

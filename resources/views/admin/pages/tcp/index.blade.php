@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Terverfikasi</h4>
+                                <h4>Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_verified) }}
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Tidak Terverifikasi</h4>
+                                <h4>Tidak Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_not_verified) }}
@@ -68,7 +68,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Belum Terseleksi</h4>
+                                <h4>Proses</h4>
                             </div>
                             <div class="card-body">
                                 {{count($data_pending)}}
@@ -87,15 +87,18 @@
                             <th class="text-center">
                               #
                             </th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#Action</th>
+                            <th>Email</th>
+                            <th>Nama Tim</th>
+                            <th>Perguruan Tinggi</th>
+                            <th>Judul Proposal</th>
+                            <th>Nama Ketua</th>
+                            <th>KTM</th>
+                            <th>Bukti Pembayaran</th>
+                            <th>Proposal</th>
+                            <th>Biodata</th>
+                            <th>Twibbon</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -103,12 +106,19 @@
                           <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->nama_peserta }}</td>
-                            <td>{{ $item->nis }}</td>
-                            <td>{{ $item->tempat_lahir }}</td>
-                            <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->usia }}</td>
-                            <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
+                            <td>{{ $item->nama_tim }}</td>
+                            <td>{{ $item->perguruan_tinggi }}</td>
+                            <td>{{ $item->judul_proposal }}</td>
+                            <td>{{ $item->nama_ketua }}</td>                            
+                            <td>
+                                @foreach (json_decode($item->ktm) as $ktm)                                    
+                                    <a  target="_blank" href="{{ asset('upload/'.$ktm) }}">KTM{{$loop->iteration}}</a>
+                                @endforeach
+                            </td>
+                            <td><a  target="_blank" href="{{ asset('upload/'.$item->bukti_pembayaran) }}">Bukti Pembayaran</a></td>
+                            <td><a  target="_blank" href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
+                            <td><a  target="_blank" href="{{ asset('upload/'.$item->biodata) }}">Biodata</a></td>
+                            <td><a  target="_blank" href="{{ asset('upload/'.$item->twibbon) }}">Twibbon</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>

@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="{{ asset('img/EPIM 2.png') }}" alt="logo" width="80" class="shadow-light rounded-circle">
+              <img src="{{ asset('img/logo_epim.png') }}" alt="logo" width="120">
             </div>
 
             <div class="card card-primary">
@@ -25,7 +25,7 @@
                         @enderror
                 </div>
                   <div class="form-group">
-                      <label for="email">{{ __('E-Mail Address') }}</label>
+                      <label for="email">{{ __('E-Mail') }}</label>
                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                           @error('email')
@@ -45,7 +45,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm">{{ __('Konfirmasi Password') }}</label>
                     <input id="password-confirm" type="password" class="form-control @error('password_confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
                   </div>
 
@@ -66,7 +66,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-            Have an account? <a href="{{route('login')}}">Sign in</a>
+            Sudah punya akun? <a href="{{route('login')}}">Login disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Biro Sistem Informasi {{date("Y")}}

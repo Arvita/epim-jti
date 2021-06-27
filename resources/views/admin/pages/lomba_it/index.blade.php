@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Terverfikasi</h4>
+                                <h4>Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_verified) }}
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Tidak Terverifikasi</h4>
+                                <h4>Tidak Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_not_verified) }}
@@ -68,10 +68,10 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Online Users</h4>
+                                <h4>Proses Seleksi</h4>
                             </div>
                             <div class="card-body">
-                                47
+                                {{count($data_pending)}}
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,12 @@
                             <td>{{ $item->tempat_lahir }}</td>
                             <td>{{ $item->jenis_kelamin }}</td>
                             <td>{{ $item->usia }}</td>
-                            <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
+                            <td><a href="{{ asset('upload/'.$item->foto_peserta) }}">Foto Peserta</a></td>
+                            <td><a href="{{ asset('upload/'.$item->kartu_pelajar) }}">Kartu Pelajar</a></td>
+                            <td><a href="{{ asset('upload/'.$item->surat_pernyataan) }}">Surat Pernyataan</a></td>
+                            <td><a href="{{ asset('upload/'.$item->bukti_pembayaran) }}">Bukti Pembayaran</a></td>
+                            <td><a href="{{ asset('upload/'.$item->lampiran_guru) }}">Lampiran Guru</a></td>
+                            <td><a href="{{ asset('upload/'.$item->twibbon) }}">twibbon</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>
