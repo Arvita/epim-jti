@@ -60,7 +60,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 @section('content')
 <div class="container full-height">
     <section class="section">
-        <div class="section-header justify-content-center shadow-lg">          
+        <div class="section-header justify-content-center shadow-lg">
             <h1>Pilihan Lomba</h1>
         </div>
 
@@ -79,7 +79,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                         Lomba Bisnis TIK merupakan perlombaan atau kompetisi tingkat nasional pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1.
                                     </p>
                                     <button id="modal-1" class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
-                                    <a href="{{route('tcp_it')}}" class="mt-4 bb">Lihat Panduan</a>
+                                    <a href="https://bit.ly/twibondanlampiran_BisnisTik2021" class="mt-4 bb" target="_blank">Download Lampiran Lomba Bisnis TIK</a>
+                                    <a href="{{asset('buku_pedoman/BUKU PEDOMAN BISNIS TIK 2021.pdf')}}" class="mt-2 bb">Download Buku Panduan</a>
 
                                 </div>
                             </div>
@@ -99,7 +100,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     </p>
                                     <button id="modal-2"
                                         class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
-                                    <a href="{{route('lomba_it')}}" class="mt-4 bb">Lihat Panduan</a>
+                                        <a href="" class="mt-4 bb">Download Lampiran Lomba Konfigurasi Jaringan</a>
+                                    <a href="{{asset('buku_pedoman/PEDOMAN LOMBA KONFIGURASI JARINGAN EPIM 2021.pdf')}}" class="mt-2 bb">Download Buku Panduan</a>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +120,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     </p>
                                     <button disabled
                                         class="btn btn-primary btn-lg w-100 mt-4">Coming Soon</button>
-                                    <a href="{{route('expo')}}" class="mt-4 bb">Lihat Panduan</a>
+                                    <a href="{{asset('expo')}}" class="mt-4 bb">Lihat Panduan</a>
                                 </div>
                             </div>
                         </div>

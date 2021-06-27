@@ -145,7 +145,7 @@
           <div class="col-lg-6 d-flex justify-content-center">
             <div class="box-round more" data-aos="fade-up">
               <div class="box-round-title">
-                <a href="#" class="btn-lebihlanjut">Buku Panduan</a>
+                <a href="{{asset('buku_pedoman/BUKU PEDOMAN BISNIS TIK 2021.pdf')}}" class="btn-lebihlanjut">Buku Panduan</a>
               </div>
             </div>
           </div>
