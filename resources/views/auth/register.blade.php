@@ -66,7 +66,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-            Have an account? <a href="{{route('login')}}">Sign in</a>
+            Sudah punya akun? <a href="{{route('login')}}">Login disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Biro Sistem Informasi {{date("Y")}}

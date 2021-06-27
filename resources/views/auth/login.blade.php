@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="{{route('register')}}">Create One</a>
+             Belum punya akun EPIM 2021? <a href="{{route('register')}}">Buat disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Biro Sistem Informasi {{date("Y")}}

@@ -68,7 +68,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Belum Terseleksi</h4>
+                                <h4>Proses</h4>
                             </div>
                             <div class="card-body">
                                 {{count($data_pending)}}
