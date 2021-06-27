@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Terverfikasi</h4>
+                                <h4>Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_verified) }}
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Tidak Terverifikasi</h4>
+                                <h4>Tidak Lolos</h4>
                             </div>
                             <div class="card-body">
                                 {{ count($data_not_verified) }}
@@ -68,7 +68,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Belum Diproses</h4>
+                                <h4>Proses Seleksi</h4>
                             </div>
                             <div class="card-body">
                                 {{count($data_pending)}}

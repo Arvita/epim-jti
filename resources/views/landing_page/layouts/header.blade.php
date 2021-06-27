@@ -13,10 +13,7 @@
   <title>EPIM 2021</title>
 
     <!-- Plugin Style -->
-    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">
-    <link rel="stylesheet"
-      href="{{asset('/dist/filepond/filepond-plugin-image-preview.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/filepond/filepond.min.css')}}">
+    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">    
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('dist/font-awesome/css/all.min.css')}}">
 
@@ -94,7 +91,7 @@
                 <a class="nav-link dropdown-link scrollto" href="{{ route('user.dashboard') }}">Dashboard</a>
               </li>
               <li>
-                <a class="nav-link dropdown-link scrollto" href="{{ route('login') }}">Login</a>
+                <a class="nav-link dropdown-link scrollto" href="{{ route('logout') }}">Logout</a>
               </li>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('register') }}">Register</a>
@@ -103,11 +100,18 @@
           </li>
           @endauth         
           @guest              
-          <li class="nav-link scrollto">
-              <div class="btn-group-cta">
-                  <a href="{{ route('login') }}" class="btn-login"> <span>Login</span> </a>
-                  <a href="{{ route('register') }}" class="btn-register"> <span>Daftar</span> </a>
-              </div>
+          <li class="dropdown">
+            <a class="nav-link scrollto" href="#">
+              <span>My Account</span> <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="{{ route('login') }}">Login</a>
+              </li>              
+              <li>
+                <a class="nav-link dropdown-link scrollto" href="{{ route('register') }}">Register</a>
+              </li>
+            </ul>
           </li>
           @endguest
         </ul>

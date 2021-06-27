@@ -266,7 +266,7 @@
                               </div>
                               <div class="col-lg-12 text-center">
                                   <button class="btn-register-submit" name="submit" type="submit" value="tcp_it">
-                                    Daftar
+                                    Tambah Proposal
                                   </button>
                                 </div>
                               </form>
