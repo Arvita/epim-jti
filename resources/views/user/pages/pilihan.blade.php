@@ -279,7 +279,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="form-wrapper">
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="foto_peserta" class="form-label">Upload Foto Peserta *3x4
+                                <label for="foto_peserta" class="form-label d-block">Upload Foto Peserta *3x4
                                     <small id="foto_peserta" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
                                 </label>
                                 <input type="file"
@@ -292,7 +292,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="ktp" class="form-label">Kartu Tanda Pelajar
+                                <label for="ktp" class="form-label d-block">Kartu Tanda Pelajar
                                     <small id="ktp" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 300KB</small>
                                 </label>
                                 <input type="file"
@@ -305,7 +305,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="surat_pernyataan" class="form-label">Scan Surat Pernyataan
+                                <label for="surat_pernyataan" class="form-label d-block">Scan Surat Pernyataan
                                     <small id="surat_pernyataan" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                 </label>
                                 <input type="file"
@@ -318,7 +318,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="bukti_pembayaran" class="form-label">Scan Bukti Pembayaran
+                                <label for="bukti_pembayaran" class="form-label d-block">Scan Bukti Pembayaran
                                     <small id="bukti_pembayaran" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                 </label>
                                 <input type="file"
@@ -331,7 +331,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="lampiran_guru" class="form-label">File Lampiran Guru Pendamping
+                                <label for="lampiran_guru" class="form-label d-block">File Lampiran Guru Pendamping
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                 </label>
                                 <input type="file"
@@ -344,7 +344,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                             <div class="mb-3">
                               <div class="form-group">
-                                <label for="lampiran_guru" class="form-label">Twibbon
+                                <label for="lampiran_guru" class="form-label d-block">Twibbon
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
                                 </label>
                                 <input type="file"
@@ -469,7 +469,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="form-wrapper">
                               <div class="mb-3">
                                 <div class="form-group">
-                                  <label for="file_ktm" class="form-label">Upload KTM
+                                  <label for="file_ktm" class="form-label d-block">Upload KTM
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
                                   </label>
 
@@ -483,7 +483,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </div>
                               <div class="mb-3">
                                 <div class="form-group">
-                                  <label for="file_ktm" class="form-label">Upload Bukti Pembayaran
+                                  <label for="file_ktm" class="form-label d-block">Upload Bukti Pembayaran
                                       <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                   </label>
 
@@ -497,7 +497,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </div>
                               <div class="mb-3">
                                 <div class="form-group">
-                                  <label for="biodata" class="form-label">Upload Biodata
+                                  <label for="biodata" class="form-label d-block">Upload Biodata
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                   </label>
                                   <input type="file"
@@ -510,7 +510,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </div>
                               <div class="mb-3">
                                 <div class="form-group">
-                                  <label for="file-proposal" class="form-label">Upload Proposal
+                                  <label for="file-proposal" class="form-label d-block">Upload Proposal
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
                                   </label>
                                   <input type="file"
@@ -523,7 +523,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </div>
                               <div class="mb-3">
                                 <div class="form-group">
-                                  <label for="lampiran_guru" class="form-label">Twibbon
+                                  <label for="lampiran_guru" class="form-label d-block">Twibbon
                                       <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
                                   </label>
                                   <input type="file"

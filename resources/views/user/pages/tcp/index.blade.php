@@ -203,7 +203,7 @@
                                 <div class="form-wrapper">
                                   <div class="mb-3">
                                     <div class="form-group">
-                                      <label for="file_ktm" class="form-label">Upload KTM
+                                      <label for="file_ktm" class="form-label d-block">Upload KTM
                                           <small class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
                                       </label>
 
@@ -217,7 +217,7 @@
                                   </div>
                                   <div class="mb-3">
                                     <div class="form-group">
-                                      <label for="file_ktm" class="form-label">Upload Bukti Pembayaran
+                                      <label for="file_ktm" class="form-label d-block">Upload Bukti Pembayaran
                                           <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                       </label>
 
@@ -231,7 +231,7 @@
                                   </div>
                                   <div class="mb-3">
                                     <div class="form-group">
-                                      <label for="biodata" class="form-label">Upload Biodata
+                                      <label for="biodata" class="form-label d-block">Upload Biodata
                                           <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
                                       </label>
                                       <input type="file"
@@ -244,7 +244,7 @@
                                   </div>
                                   <div class="mb-3">
                                     <div class="form-group">
-                                      <label for="file-proposal" class="form-label">Upload Proposal
+                                      <label for="file-proposal" class="form-label d-block">Upload Proposal
                                           <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
                                       </label>
                                       <input type="file"
