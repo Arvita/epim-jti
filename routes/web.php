@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$isCountdownActive = false;
+$isCountdownActive = true;
 
 if ($isCountdownActive) {
     Route::get('/', function () {
