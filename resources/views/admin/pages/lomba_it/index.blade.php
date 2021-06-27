@@ -26,7 +26,7 @@
                                 <h4>Peserta</h4>
                             </div>
                             <div class="card-body">
-                                {{ count($data_peserta) }}
+                                {{ count($data_lomba) }}
                             </div>
                         </div>
                     </div>
