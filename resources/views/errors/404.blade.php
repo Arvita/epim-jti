@@ -5,7 +5,7 @@
     <div class="container mt-5">
       <div class="page-error">
         <div class="page-inner">
-          <h1>404</h1>
+          <h1 style="color: #640700">404</h1>
           <div class="page-description">
             Halaman yang anda cari tidak ditemukan.
           </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="simple-footer mt-5">
-        Copyright &copy; Politeknik Negeri Jember
+        Copyright &copy; Expo dan Pekan Ilmiah Mahasiswa Politeknik Negeri Jember
       </div>
     </div>
   </section>
