@@ -26,7 +26,7 @@
                                 <h4>Peserta</h4>
                             </div>
                             <div class="card-body">
-                                {{ count($data_peserta) }}
+                                {{ count($data_lomba) }}
                             </div>
                         </div>
                     </div>
@@ -87,15 +87,20 @@
                             <th class="text-center">
                               #
                             </th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#</th>
-                            <th>#Action</th>
+                            <th>Email</th>
+                            <th>Nama Peserta</th>
+                            <th>NIS</th>
+                            <th>Tempat Lahir</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Usia</th>
+                            <th>Foto Peserta</th>
+                            <th>Kartu Pelajar</th>
+                            <th>Surat Pernyataan</th>
+                            <th>Bukti Pembayaran</th>
+                            <th>Lampiran Guru</th>
+                            <th>Twibbon</th>
+                            <th>Status</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
