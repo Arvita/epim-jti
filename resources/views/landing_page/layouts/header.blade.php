@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="{{asset('favicon/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon/favicon-16x16.png')}}">
+  <link rel="manifest" href="/site.webmanifest">
+
   <title>EPIM 2021</title>
 
     <!-- Plugin Style -->
@@ -78,6 +84,7 @@
           <li>
             <a class="nav-link scrollto" href="#faq">FAQ</a>
           </li>
+          @auth
           <li class="dropdown">
             <a class="nav-link scrollto" href="#">
               <span>My Account</span> <i class="fa fa-angle-down"></i>
@@ -94,12 +101,15 @@
               </li>
             </ul>
           </li>
-          {{-- <li class="nav-link scrollto">
+          @endauth         
+          @guest              
+          <li class="nav-link scrollto">
               <div class="btn-group-cta">
                   <a href="{{ route('login') }}" class="btn-login"> <span>Login</span> </a>
                   <a href="{{ route('register') }}" class="btn-register"> <span>Daftar</span> </a>
               </div>
-          </li> --}}
+          </li>
+          @endguest
         </ul>
         <i class="fa fa-bars mobile-nav-toggle"></i>
       </nav>
