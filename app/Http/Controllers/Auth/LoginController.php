@@ -70,4 +70,9 @@ class LoginController extends Controller
         $request->session()->flush();
         return redirect()->route('login');
     }
+
+    protected function authenticated()
+    {
+        \Auth::logoutOtherDevices(request('password'));
+    }
 }
