@@ -71,7 +71,7 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        // $id = Crypt::decrypt($id);        
+        $id = Crypt::decrypt($id);        
         $manage_user = User::find($id);
         if ($manage_user['role']!='admin') {
             $event = 'event_edit';
