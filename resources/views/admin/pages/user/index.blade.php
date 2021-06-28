@@ -139,10 +139,13 @@
                             return '<span class="badge badge-info">IT</span>';
                             break;
                         case "tcp_it":
-                            return '<span class="badge badge-danger">TCP</span>';
+                            return '<span class="badge badge-secondary">TCP</span>';
                             break;
                         case "admin":
                             return '<span class="badge badge-warning">Admin</span>';
+                            break;
+                        case "":
+                            return '<span class="badge badge-danger">Belum Memilih</span>';
                             break;
                     }
                 },
