@@ -571,6 +571,10 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
             $('#fire-modal-1').modal('show');
         }
     });
+
+
+
+    // TCP IT
 </script>
 @endif
 @endsection
