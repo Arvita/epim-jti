@@ -511,7 +511,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="file-proposal" class="form-label d-block">Upload Proposal
-                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 20MB</small>
+                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 10MB</small>
                                   </label>
                                   <input type="file"
                                   class="filepond"
