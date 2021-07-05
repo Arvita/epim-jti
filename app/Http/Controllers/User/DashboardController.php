@@ -14,9 +14,9 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-    $this->middleware(function(){
-          if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
-    });
+    // $this->middleware(function(){
+    //       if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
+    // });
     }
     public function index(Request $request)
     {
