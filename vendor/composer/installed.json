@@ -1417,17 +1417,17 @@
         },
         {
             "name": "intervention/image",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
+            "version": "2.5.1",
+            "version_normalized": "2.5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "032263954ca2a5258fb5fe7492962c1a16ca9f3c"
+                "reference": "abbf18d5ab8367f96b3205ca3c89fb2fa598c69e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/032263954ca2a5258fb5fe7492962c1a16ca9f3c",
-                "reference": "032263954ca2a5258fb5fe7492962c1a16ca9f3c",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/abbf18d5ab8367f96b3205ca3c89fb2fa598c69e",
+                "reference": "abbf18d5ab8367f96b3205ca3c89fb2fa598c69e",
                 "shasum": ""
             },
             "require": {
@@ -1444,8 +1444,7 @@
                 "ext-imagick": "to use Imagick based image processing.",
                 "intervention/imagecache": "Caching extension for the Intervention Image library"
             },
-            "time": "2020-11-06T15:12:52+00:00",
-            "default-branch": true,
+            "time": "2019-11-02T09:15:47+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1460,7 +1459,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Intervention\\Image\\": "src/Intervention/Image"
@@ -1491,16 +1490,6 @@
                 "issues": "https://github.com/Intervention/image/issues",
                 "source": "https://github.com/Intervention/image/tree/master"
             },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/interventionphp",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/Intervention",
-                    "type": "github"
-                }
-            ],
             "install-path": "../intervention/image"
         },
         {

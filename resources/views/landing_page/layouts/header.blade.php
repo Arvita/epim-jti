@@ -88,7 +88,11 @@
             </a>
             <ul>
               <li>
+              @if(auth()->user()->role=='user')
                 <a class="nav-link dropdown-link scrollto" href="{{ route('user.dashboard') }}">Dashboard</a>
+              @else
+              <a class="nav-link dropdown-link scrollto" href="{{ route('admin.dashboard') }}">Dashboard</a>
+              @endif
               </li>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('logout') }}">Logout</a>
