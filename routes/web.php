@@ -56,10 +56,13 @@ if ($isCountdownActive) {
         //LombaIT
         Route::get('/lomba-it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
         Route::post('/lomba-it/update', [App\Http\Controllers\Admin\LombaItController::class, 'updateEvent'])->name('admin.lomba_it.update');
+        Route::post('/lomba-it/detail', [App\Http\Controllers\Admin\LombaItController::class, 'show'])->name('admin.lomba_it.detail');
 
         //LombaIT
         Route::get('/bisnis-tik', [App\Http\Controllers\Admin\LombaTcpController::class, 'index'])->name('admin.tcp_it');
         Route::post('/bisnis-tik/update', [App\Http\Controllers\Admin\LombaTcpController::class, 'updateEvent'])->name('admin.tcp_it.update');
+        Route::post('/bisnis-tit/detail', [App\Http\Controllers\Admin\LombaTcpController::class, 'show'])->name('admin.tcp_it.detail');
+
 
         // ExpoIt
         Route::get('/expo-it', [App\Http\Controllers\Admin\ExpoController::class, 'index'])->name('admin.expo_it');

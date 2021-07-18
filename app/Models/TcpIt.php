@@ -50,6 +50,14 @@ class TcpIt extends Model
         $this->attributes['ktm'] = json_encode($value);
 
     }
+
+    public function setTwibbonAttribute($value)
+
+    {
+
+        $this->attributes['twibbon'] = json_encode($value);
+
+    }
 }
 
 

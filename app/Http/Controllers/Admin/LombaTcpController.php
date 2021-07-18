@@ -105,9 +105,10 @@ class LombaTcpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $data = TcpIt::find($request->id);
+        return json_encode($data);
     }
 
     /**

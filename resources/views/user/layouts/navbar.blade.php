@@ -1,6 +1,6 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
-  <a href="{{ route('user.dashboard') }}" class="navbar-brand sidebar-gone-hide">Dashboard EPIM</a>
+  <a href="{{ route('user.dashboard') }}" class="navbar-brand sidebar-gone-hide">EPIM 2021</a>
   <div class="navbar-nav">
     <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
   </div>
@@ -30,7 +30,7 @@
       </li> --}}
       @if (Auth::user()->event == 'tcp_it')
         <li class="nav-item {{ request()->is('peserta/proposal') ? 'active' : '' }}">
-            <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
+            <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="fa fa-check"></i><span>List Proposal</span></a>
         </li>
        @else
         <li class="nav-item {{ request()->is('peserta/cek-status') ? 'active' : '' }}">

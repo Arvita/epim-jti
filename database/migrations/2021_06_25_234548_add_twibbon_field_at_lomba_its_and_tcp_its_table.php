@@ -14,10 +14,10 @@ class AddTwibbonFieldAtLombaItsAndTcpItsTable extends Migration
     public function up()
     {
         Schema::table('lomba_its', function (Blueprint $table) {
-            $table->string('twibbon')->after('lampiran_guru');
+            $table->text('twibbon')->after('lampiran_guru');
         });
         Schema::table('tcp_its', function (Blueprint $table) {
-            $table->string('twibbon')->before('biodata');
+            $table->text('twibbon')->before('biodata');
         });
     }
 

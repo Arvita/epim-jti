@@ -88,9 +88,11 @@
                             <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
-                                    <div class="badge badge-success">{{ Str::title($item->status) }}</div>
+                                    <div class="badge badge-success">Lolos</div>
+                                @elseif ($item->status == 'not verified')
+                                    <div class="badge badge-danger">Tidak Lolos</div>
                                 @else
-                                    <div class="badge badge-danger">{{  Str::title($item->status) }}</div>
+                                    <div class="badge badge-warning">Belum Diseleksi</div>
                                 @endif
                             </td>
                         </tr>

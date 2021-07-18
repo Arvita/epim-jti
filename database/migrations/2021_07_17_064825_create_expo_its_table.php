@@ -33,7 +33,7 @@ class CreateExpoItsTable extends Migration
             $table->text('ktm');
             $table->string('poster_produk');
             $table->text('foto_produk');
-            $table->string('twibbon');
+            $table->text('twibbon');
             $table->string('status');
             $table->timestamps();
         });

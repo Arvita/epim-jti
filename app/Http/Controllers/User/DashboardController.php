@@ -49,55 +49,16 @@ class DashboardController extends Controller
 
     public function checkStatus(){
         $event = Auth::user()->event;
-        // switch ($event) {
-        //     case 'tcp_it':
-        //         # code...
-        //         break;
-
-        //     default:
-        //         # code...
-        //         break;
-        // }
-
-        $getEvent = User::where([
-            ['email', Auth::user()->email],
-            ['event', $event]
-        ])->get();
-
-        $getStatus = ExpoIt::first()->where('user_id', Auth::user()->id)->get();
-        $status = [];
-        if($getStatus[0]->status == 'pending'){
-            $status = [
-                'status' => 'Pending',
-                'bgColor' => 'warning',
-                'text' => 'Masih dalam proses verifikasi'
-            ];
-        }else if($getStatus[0]->status == 'not verified'){
-            $status = [
-                'status' => 'Not Verified',
-                'bgColor' => 'danger',
-                'text' => 'Anda dinyatakan Tidak Lolos'
-            ];
-
-        }else if($getStatus[0]->status == 'not verified'){
-            $status = [
-                'status' => 'Verified',
-                'bgColor' => 'success',
-                'text' => 'Anda dinyatakan Lolos'
-            ];
-        }else{
-            $status = [];
+        $data = [];
+        if ($event == 'lomba_it') {
+            $data = $this->lombaStatus();
+        } elseif ($event == 'tcp_it') {
+            $data = $this->tcpStatus();
+        } elseif($event == 'expo_it'){
+            $data = $this->expoStatus();
+        } else {
+            return \abort(303);
         }
-
-
-
-        $data = [
-            'getEvent' => $getEvent,
-            'getStatus' => $status
-        ];
-
-        // dd(User::find(30));
-        // dd($data);
         return \view('user.check_status',$data)->render();
     }
 
@@ -179,7 +140,7 @@ class DashboardController extends Controller
                 'proposal_t'            => 'required|mimes:pdf|max:10240',
                 'biodata_t'             => 'required|mimes:pdf|max:1024',
                 'bukti_pembayaran_t'    => 'required|mimes:pdf,jpg,jpeg,png|max:1024',
-                'twibbon_t'             => 'required|max:1024|mimes:jpg,jpeg,png',
+                'twibbon_t'             => 'required|max:3072',
             ],
             [
                 'email_t.required'              => 'Email wajib di isi',
@@ -200,7 +161,7 @@ class DashboardController extends Controller
                 'bukti_pembayaran_t.mimes'      => 'Bukti pembayaran harus berformat .pdf .jpg .jpeg .png',
                 'bukti_pembayaran_t.max'        => 'Ukuran Bukti pembayaran maksimal 1MB',
                 'twibbon_t.required'            => 'Bukti upload twibbon wajib di isi',
-                'twibbon_t.required'            => 'Ukuran Bukti upload twibbon maksimal 1MB',
+                'twibbon_t.required'            => 'Ukuran Bukti upload twibbon maksimal 3MB',
                 'twibbon_t.required'            => 'Bukti upload twibbon harus berformat .jpg .jpeg .png',
             ]
         );
@@ -222,21 +183,27 @@ class DashboardController extends Controller
         $proposal_t = time() . '.' . $request->proposal_t->extension();
         $bukti_pembayaran_t = time() . '.' . $request->bukti_pembayaran_t->extension();
         $biodata_t = time() . '.' . $request->biodata_t->extension();
-        $twibbon_t = time() . '.' . $request->twibbon_t->extension();
+
 
         // Save To Folder
         $request->bukti_pembayaran_t->move(public_path('/upload/tcp/' . $email), $bukti_pembayaran_t);
         $request->proposal_t->move(public_path('/upload/tcp/' . $email), $proposal_t);
         $request->biodata_t->move(public_path('/upload/tcp/' . $email), $biodata_t);
-        $request->twibbon_t->move(public_path('/upload/tcp/' . $email), $twibbon_t);
+
 
         //Save To DB
         $tcp_it->proposal = 'tcp/' . $email . '/' . $proposal_t;
         $tcp_it->bukti_pembayaran = 'tcp/' . $email . '/' . $bukti_pembayaran_t;
         $tcp_it->biodata = 'tcp/' . $email . '/' . $biodata_t;
-        $tcp_it->twibbon = 'tcp/' . $email . '/' . $twibbon_t;
 
 
+        foreach ($request->twibbon_t as $twibbon) {
+            $twibbon_t = time() . '.' . $twibbon->extension();
+            $twibbon->move(public_path('/upload/tcp/' . $email), $twibbon_t);
+            $file_twibbon[] = 'tcp/' . $email . '/' . $twibbon_t;
+        }
+
+        $tcp_it->twibbon = $file_twibbon;
 
 
         foreach ($request->ktm_t as $ktm) {
@@ -318,9 +285,6 @@ class DashboardController extends Controller
             // dan seterusnya
         ]);
 
-
-
-
         $lomba_it = new LombaIt();
         $lomba_it->user_id = $user->id;
         $lomba_it->email = $request->email_l;
@@ -364,23 +328,6 @@ class DashboardController extends Controller
         $lomba_it->twibbon = 'lomba/' . $email . '/' . $twibbon_l;
         $lomba_it->save();
     }
-
-
-    // public function dropzone()
-    // {
-    //     $files = scandir(public_path('images'));
-    //     $data = [];
-    //     foreach ($files as $row) {
-    //         if ($row != '.' && $row != '..') {
-    //             $data[] = [
-    //                 'name' => explode('.', $row)[0],
-    //                 'url' => asset('images/' . $row)
-    //             ];
-    //         }
-    //     }
-    //     return view('welcome', compact('data'));
-    // }
-
 
     public function register_expo_it(Request $request)
     {
@@ -428,14 +375,16 @@ class DashboardController extends Controller
         $poster_produk_e = time() . $request->poster_produk_e->getInode() .'.' . $request->poster_produk_e->extension();
         $request->poster_produk_e->move(public_path('/upload/expo/' . $email), $poster_produk_e);
 
-
-        $twibbon_e = time() . $request->twibbon_e->getInode() .'.' . $request->twibbon_e->extension();
-        $request->twibbon_e->move(public_path('/upload/expo/' . $email), $twibbon_e);
-
         //Save To DB
         $expo_it->poster_produk = 'expo/' . $email . '/' . $poster_produk_e;
-        $expo_it->twibbon =  'expo/' . $email . '/' . $twibbon_e;
 
+
+        foreach ($request->twibbon_e as $twibbon) {
+            $twibbon_e = time() . $twibbon->getInode() .'.' . $twibbon->extension();
+            $twibbon->move(public_path('/upload/expo/' . $email), $twibbon_e);
+            $file_twibbon[] = 'expo/' . $email . '/' . $twibbon_e;
+        }
+        $expo_it->twibbon = $file_twibbon;
 
         foreach ($request->foto_produk_e as $foto_produk) {
             $foto_produk_e = time() . $foto_produk->getInode() .'.' . $foto_produk->extension();
@@ -457,26 +406,6 @@ class DashboardController extends Controller
             return \redirect()->back();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function tambah_proposal(Request $request)
     {
@@ -566,6 +495,147 @@ class DashboardController extends Controller
             return \redirect()->back();
         }
     }
+
+
+    public function expoStatus()
+    {
+        $event = Auth::user()->event;
+
+        $getEvent = User::where([
+            ['email', Auth::user()->email],
+            ['event', $event]
+        ])->get();
+
+        $getStatus = ExpoIt::first()->where('user_id', Auth::user()->id)->get();
+        $status = [];
+        if($getStatus[0]->status == 'pending'){
+            $status = [
+                'status' => 'Pending',
+                'bgColor' => 'warning',
+                'text' => 'Masih dalam proses verifikasi'
+            ];
+        }else if($getStatus[0]->status == 'not verified'){
+            $status = [
+                'status' => 'Not Verified',
+                'bgColor' => 'danger',
+                'text' => 'Anda dinyatakan Tidak Lolos'
+            ];
+
+        }else if($getStatus[0]->status == 'verified'){
+            $status = [
+                'status' => 'Verified',
+                'bgColor' => 'success',
+                'text' => 'Anda dinyatakan Lolos'
+            ];
+        }else{
+            $status = [];
+        }
+
+        $data = [
+            'getEvent' => $getEvent,
+            'getStatus' => $status
+        ];
+        return $data;
+
+    }
+
+    public function tcpStatus()
+    {
+        $event = Auth::user()->event;
+
+        $getEvent = User::where([
+            ['email', Auth::user()->email],
+            ['event', $event]
+        ])->get();
+
+        $getStatus = TcpIt::first()->where('user_id', Auth::user()->id)->get();
+        $status = [];
+
+        if($getStatus[0]->status == 'pending'){
+            $status = [
+                'status' => 'Pending',
+                'bgColor' => 'warning',
+                'text' => 'Masih dalam proses verifikasi'
+            ];
+        }else if($getStatus[0]->status == 'not verified'){
+            $status = [
+                'status' => 'Not Verified',
+                'bgColor' => 'danger',
+                'text' => 'Anda dinyatakan Tidak Lolos'
+            ];
+        }else if($getStatus[0]->status == 'not paid'){
+            $status = [
+                'status' => 'Not Paid',
+                'bgColor' => 'warning',
+                'text' => 'Anda dinyatakan Tidak Lolos'
+            ];
+        }else if($getStatus[0]->status == 'verified'){
+            $status = [
+                'status' => 'Verified',
+                'bgColor' => 'success',
+                'text' => 'Anda dinyatakan Lolos'
+            ];
+        }else{
+            $status = [];
+        }
+
+        $data = [
+            'getEvent' => $getEvent,
+            'getStatus' => $status
+        ];
+        return $data;
+
+    }
+
+    public function lombaStatus()
+    {
+        $event = Auth::user()->event;
+
+        $getEvent = User::where([
+            ['email', Auth::user()->email],
+            ['event', $event]
+        ])->get();
+
+        $getStatus = LombaIt::first()->where('user_id', Auth::user()->id)->get();
+        $status = [];
+
+        if($getStatus[0]->status == 'pending'){
+            $status = [
+                'status' => 'Pending',
+                'bgColor' => 'warning',
+                'text' => 'Masih dalam proses verifikasi'
+            ];
+        }else if($getStatus[0]->status == 'not verified'){
+            $status = [
+                'status' => 'Not Verified',
+                'bgColor' => 'danger',
+                'text' => 'Anda dinyatakan Tidak Lolos'
+            ];
+        }else if($getStatus[0]->status == 'not paid'){
+            $status = [
+                'status' => 'Not Paid',
+                'bgColor' => 'warning',
+                'text' => 'Anda dinyatakan Tidak Lolos'
+            ];
+        }else if($getStatus[0]->status == 'verified'){
+            $status = [
+                'status' => 'Verified',
+                'bgColor' => 'success',
+                'text' => 'Anda dinyatakan Lolos'
+            ];
+        }else{
+            $status = [];
+        }
+
+        $data = [
+            'getEvent' => $getEvent,
+            'getStatus' => $status
+        ];
+
+        return $data;
+    }
+
+
 
     public function dropzoneStore(Request $request)
     {

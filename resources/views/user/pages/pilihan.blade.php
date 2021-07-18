@@ -189,7 +189,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               </select>
                             </div>
                               <div class="mb-3">
-                                <label for="" class="form-label">Program Studi</label>
+                                <label for="" class="form-label">Semester</label>
                                 <select class="form-control" name="semester_e" id="semester_e">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -364,7 +364,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </label>
                             <input type="file"
                             class="filepond twibbon_e"
-                            name="twibbon_e" required accept=".jpg,.jpeg,.png"/>
+                            name="twibbon_e[]"  multiple required accept=".jpg,.jpeg,.png"/>
                             @error('twibbon_e')
                             <small id="twibbon_e" class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -786,8 +786,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                       <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
                                   </label>
                                   <input type="file"
-                                  class="filepond lampiran_guru"
-                                  name="twibbon_t" required accept=".jpg,.jpeg,.png"/>
+                                  class="filepond lampiran_guru" multiple
+                                  name="twibbon_t[]" required accept=".jpg,.jpeg,.png"/>
                                   @error('twibbon_t')
                                   <small id="twibbon_t" class="form-text text-danger">{{ $message }}</small>
                                     @enderror
@@ -833,7 +833,6 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
         if('{{old('submit')}}' === 'expo_it'){
             $('#fire-modal-3').modal('show');
         }
-
 
     });
 </script>

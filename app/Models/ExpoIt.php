@@ -48,4 +48,12 @@ class ExpoIt extends Model
         $this->attributes['foto_produk'] = json_encode($value);
 
     }
+
+    public function setTwibbonAttribute($value)
+
+    {
+
+        $this->attributes['twibbon'] = json_encode($value);
+
+    }
 }

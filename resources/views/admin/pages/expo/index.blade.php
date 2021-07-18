@@ -20,7 +20,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Dashboard Lomba Konfigurasi Jaringan</h1>
+            <h1>Dashboard Expo Produk IT</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -116,7 +116,7 @@
                             <td>{{$item->nomor_ketua}}</td>
                             <td>{{$item->nama_produk}}</td>
                             <td>{{Str::upper($item->kategori_produk)}}</td>
-                            <td><a href="{{$item->url_video}}">Link</a></td>>
+                            <td><a href="{{$item->url_video}}">Link</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>
@@ -270,11 +270,6 @@
 @endsection
 @section('customjs')
 <script>
-    $(document).ready(function () {
-
-    });
-    let dataGlobal = {};
-
     let assetPath = "{{ asset('upload/') }}"
     function openModalInfo(id) {
         console.log(assetPath);
@@ -287,7 +282,6 @@
            data: {id: id},
            dataType: "JSON",
            success: function (data) {
-dataGlobal = data;
             $(".list").remove();
             $("#nama_tim").text(data.nama_tim);
             $("#prodi").text(data.prodi);
@@ -295,15 +289,19 @@ dataGlobal = data;
             $("#email_ketua").text(data.email_ketua);
             $("#nama_ketua").text(data.nama_ketua);
             $("#nomor_ketua").text(data.nomor_ketua);
+
             data.email_anggota.split(',').map(item => {
                 $("#email_anggota").append(`<li class="list">${item}</li>`);
             });
+
             data.nama_anggota.split(',').map(item => {
-                console.log("fsd");
                 $("#nama_anggota").append(`<li class="list">${item}</li>`);
             });
+
             $("#nama_produk").text(data.nama_produk);
+
             $("#kategori_produk").text(data.kategori_produk);
+
             $("#deskripsi_produk").text(data.deskripsi_produk);
             $("#manfaat_produk").text(data.manfaat_produk);
             $("#url_video").attr("href",data.url_video);
@@ -333,7 +331,6 @@ dataGlobal = data;
     }
 
     function openImageInNewTab(item){
-        console.log('s');
         window.open(item, '_blank');
     }
 </script>

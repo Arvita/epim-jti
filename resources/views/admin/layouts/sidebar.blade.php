@@ -15,7 +15,7 @@
 
             <li class="menu-header">Acara</li>
             <li class="{{ request()->is('admin/expo-it') ? 'active' : '' }}">
-                <a href="{{route('admin.dashboard')}}" class="nav-link"><i class="fas fa-place-of-worship"></i><span>Expo</span></a>
+                <a href="{{route('admin.expo_it')}}" class="nav-link"><i class="fas fa-place-of-worship"></i><span>Expo</span></a>
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
