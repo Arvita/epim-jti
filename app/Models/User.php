@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\TcpIt;
+use App\Models\ExpoIt;
+use App\Models\LombaIt;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -52,6 +54,16 @@ class User extends Authenticatable
     public function tcp_its()
     {
         return $this->hasMany(TcpIt::class);
+    }
+
+    public function lomba_its()
+    {
+        return $this->hasMany(LombaIt::class);
+    }
+
+    public function expo_it()
+    {
+        return $this->belongsTo(ExpoIt::class);
     }
 
 

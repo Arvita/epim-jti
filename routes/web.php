@@ -61,6 +61,11 @@ if ($isCountdownActive) {
         Route::get('/bisnis-tik', [App\Http\Controllers\Admin\LombaTcpController::class, 'index'])->name('admin.tcp_it');
         Route::post('/bisnis-tik/update', [App\Http\Controllers\Admin\LombaTcpController::class, 'updateEvent'])->name('admin.tcp_it.update');
 
+        // ExpoIt
+        Route::get('/expo-it', [App\Http\Controllers\Admin\ExpoController::class, 'index'])->name('admin.expo_it');
+        Route::post('/expo-it/update', [App\Http\Controllers\Admin\ExpoController::class, 'updateEvent'])->name('admin.expo_it.update');
+        Route::post('/expo-it/detail', [App\Http\Controllers\Admin\ExpoController::class, 'show'])->name('admin.expo_it.detail');
+
         //USER SETTING
         Route::post('/user/data', [App\Http\Controllers\Admin\UserController::class, 'data']);
         Route::get('/user/{data}/conf', [App\Http\Controllers\Admin\UserController::class, 'confirm']);
@@ -83,6 +88,7 @@ if ($isCountdownActive) {
         // Route::post('/registrasi/bisnis-tik', [App\Http\Controllers\User\DashboardController::class, 'registrasi_bisnis'])->name('user.registrasi.bisnis');
 
 
+        Route::get('/cek-status', [DashboardController::class, 'checkStatus'])->name('user.check_status');
     });
 
 

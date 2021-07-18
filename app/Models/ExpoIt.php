@@ -2,18 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Expo extends Model
+class ExpoIt extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'nama_tim',
         'prodi',
@@ -31,6 +27,11 @@ class Expo extends Model
         'image_produk',
     ];
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function setKtmAttribute($value)
 

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
-
 use App\Models\Expo;
+
+use App\Models\User;
+use App\Models\ExpoIt;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class ExpoController extends Controller
@@ -17,10 +19,33 @@ class ExpoController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $data = Expo::latest()->get();
+        $data_lomba = ExpoIt::latest()->get();
+        $data_peserta = User::where('event', 'expo_it')->get();
+        $data_verified = ExpoIt::where('status', 'verified')->get();
+        $data_not_verified = ExpoIt::where('status', 'not verified')->get();
+        $data_pending = ExpoIt::where('status', 'pending')->get();
 
-        return view('admin.pages.expo.index', compact('data'));
+
+        $data = [
+            'data_admin' => $user,
+            'data_lomba' => $data_lomba,
+            'data_peserta' => $data_peserta,
+            'data_verified' => $data_verified,
+            'data_not_verified' => $data_not_verified,
+            'data_pending' => $data_pending,
+        ];
+        // dd($data);
+        return view('admin.pages.expo.index', $data)->render();
     }
+
+    public function updateEvent(Request $request)
+    {
+        $expo_it = ExpoIt::find($request->id);
+        $expo_it->status = $request->status;
+        $expo_it->save();
+        return redirect()->back();
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -103,9 +128,10 @@ class ExpoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $data = ExpoIt::find($request->id);
+        return json_encode($data);
     }
 
     /**

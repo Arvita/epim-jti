@@ -67,6 +67,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
         <div class="section-body">
             <div class="container">
                 <div class="row justify-content-center">
+                    @if (!preg_match('|@student.polije.ac.id$|', Auth::user()->email))
+                    @if(Auth::user()->event != "tcp_it")
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
@@ -86,6 +88,10 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                         </div>
                     </div>
+                    @endif
+                    @endif
+                    @if (!preg_match('|@student.polije.ac.id$|', Auth::user()->email))
+                    @if(Auth::user()->event != "expo_it")
                     <div class="col-lg-6 col-sm-12">
                         <div class="card shadow-lg">
                             <div class="card-body">
@@ -106,32 +112,285 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             </div>
                         </div>
                     </div>
+                    @endif
+                    @endif
+                    @if (preg_match('|@student.polije.ac.id$|', Auth::user()->email))
+                    @if(Auth::user()->event != "expo_it")
                     <div class="col-lg-6 col-sm-12">
-                        <div class="card shadow-lg">
-                            <div class="card-body">
-                                <div class="empty-state">
-                                    <div class="empty-state-icon">
-                                        <img src="{{ asset('img/expo-ti.png') }}" alt="Expo Produk IT"
-                                            class="img-fluid">
-                                    </div>
-                                    <h2>Expo Produk IT</h2>
-                                    <p class="lead">
-                                      Expo Produk IT adalah kegiatan pameran produk Mahasiswa Jurusan Teknologi Informasi Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring).
-                                    </p>
-                                    <button disabled
-                                        class="btn btn-primary btn-lg w-100 mt-4">Coming Soon</button>
-                                    <a href="{{asset('expo')}}" class="mt-4 bb">Lihat Panduan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                      <div class="card shadow-lg">
+                          <div class="card-body">
+                              <div class="empty-state">
+                                  <div class="empty-state-icon">
+                                      <img src="{{ asset('img/expo-ti.png') }}" alt="Expo Produk IT"
+                                          class="img-fluid">
+                                  </div>
+                                  <h2>Expo Produk IT</h2>
+                                  <p class="lead">
+                                    Expo Produk IT adalah kegiatan pameran produk Mahasiswa Jurusan Teknologi Informasi Politeknik Negeri Jember. Kegiatan ini dilaksanakan dalam 2 konsep acara yaitu Online (daring) dan Offline (luring).
+                                  </p>
+                                  <button id="modal-3"
+                                      class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
+                                  <a href="{{asset('expo')}}" class="mt-4 bb">Lihat Panduan</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    @endif
+                    @endif
+
                 </div>
             </div>
         </div>
     </section>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-3" aria-modal="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title"></h5> <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close"> <span aria-hidden="true">×</span> </button>
+          </div>
+          <div class="modal-body">
+              <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 text-center">
+                      <div class="form-logo mb-3">
+                        <a href="#"><img src="{{asset('img/logoo.png')}}" alt="" height="70px"></a>
+                        <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
+                      </div>
+                      <h1 class="form-title">
+                        PENDAFTARAN EXPO IT
+                      </h1>
+                    </div>
+                    <form action="{{route('user.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
+                        @csrf
+                      <div class="col-lg-12">
+                        <h2 class="form-sub-title">
+                          Data TIM
+                        </h2>
+                        <div class="form-wrapper">
+                            <div class="mb-3">
+                                <label for="nama_lengkap_peserta" class="form-label">Nama TIM
+                                </label>
+                                <input type="text" class="form-control @error('nama_tim_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_tim_e" value="{{old('nama_tim_e')}}" required>
+                                @error('nama_tim_e')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
+                              </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label">Program Studi</label>
+                                <select class="form-control" name="prodi_e" id="prodi_e">
+                                    <option value="tif">Teknik Informatika</option>
+                                    <option value="mif">Manajemen Informatika</option>
+                                    <option value="tkk">Teknik Komputer</option>
+                              </select>
+                            </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label">Program Studi</label>
+                                <select class="form-control" name="semester_e" id="semester_e">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option class="tif-option" value="7">7</option>
+                                    <option class="tif-option" value="8">8</option>
+                              </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Ketua TIM
+                                </label>
+                                <input type="email" class="form-control @error('email_ketua_e') is-invalid @enderror" id="email" name="email_ketua_e" value="{{old('email_ketua_e')}}" required>
+                                  @error('email_ketua_e')
+                                  <div class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </div>
+                                  @enderror
+                              </div>
+                              <div class="mb-3">
+                                <label for="nama_lengkap_peserta" class="form-label">Nama Ketua TIM
+                                </label>
+                                <input type="text" class="form-control @error('nama_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_ketua_e" value="{{old('nama_ketua_e')}}" required>
+                                @error('nama_ketua_e')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
+                              </div>
+                              <div class="mb-3">
+                                <label for="nama_lengkap_peserta" class="form-label">Nomor WA Ketua TIM
+                                </label>
+                                <input type="text" class="form-control @error('nomor_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nomor_ketua_e" value="{{old('nomor_ketua_e')}}" required>
+                                @error('nomor_ketua_e')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
+                              </div>
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email Anggota TIM
+                            </label>
+                            <input type="text" class="form-control @error('email_peserta_e') is-invalid @enderror" id="email" name="email_peserta_e" value="{{old('email_peserta_e')}}" required>
+                            <p>
+                                <small id="" class="form-text text-muted">Email Peserta dipisahkan oleh koma (,)</small>
+                                <small id="" class="form-text text-muted">Contoh: e41299844@student.polije.ac.id, e41123434@student.polije.ac.id, e41233942@student.polije.ac.id</small>
 
+                            </p>
+                              @error('email_peserta_e')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="mb-3">
+                            <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap Anggota TIM
+                            </label>
+                            <input type="text" class="form-control @error('nama_peserta_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_e" value="{{old('nama_peserta_e')}}" required>
+                            <p>
+                                <small id="" class="form-text text-muted">Nama Lengkap dipisahkan oleh koma (,)</small>
+                                <small id="" class="form-text text-muted">Contoh: Alvin Cahyo, Sulistywati, Iqbal Ikhlasul</small>
+
+                            </p>
+                            @error('nama_peserta_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah (semua anggota TIM)</label>
+                            <input type="file" multiple class="form-control @error('ktm_e') is-invalid @enderror" id="nis" name="ktm_e[]" value="{{old('ktm_e')}}" required>
+                            @error('ktm_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @enderror
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <h2 class="form-sub-title">
+                          Data Produk
+                        </h2>
+                        <div class="form-wrapper">
+                          <div class="mb-3">
+                            <label for="nama_lengkap_pendamping" class="form-label">Nama Produk / Judul Produk</label>
+                            <input type="text" class="form-control @error('nama_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_produk_e" value="{{old('nama_produk_e')}}" required>
+                            @error('nama_produk_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="mb-3">
+                            <label for="" class="form-label">Kategori Produk</label>
+                            <select class="form-control" name="kategori_produk_e" id="kategori_produk_e">
+                                <option value="dekstop">Desktop</option>
+                                <option value="web">Website</option>
+                                <option value="mobile">Mobile App</option>
+                                <option value="iot">IOT & Jaringan</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_lengkap_pendamping" class="form-label">Deskripsi Produk</label>
+                            <input type="text" class="form-control @error('deskripsi_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="deskripsi_produk_e" value="{{old('deskripsi_produk_e')}}" required>
+                            @error('deskripsi_produk_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="mb-3">
+                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat dan atau Tujuan Produk</label>
+                            <input type="text" class="form-control @error('manfaat_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="manfaat_produk_e" value="{{old('manfaat_produk_e')}}" required>
+                            @error('manfaat_produk_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="mb-3">
+                            <div class="form-group">
+                              <label for="poster_produk_e" class="form-label d-block">Poster / Pamflet Produk (Ukuran A4)
+                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                              </label>
+                              <input type="file"
+                              class="filepond poster_produk_e"
+                              name="poster_produk_e" required accept=".jpg,.jpeg,.png"/>
+                              @error('poster_produk_e')
+                              <small id="poster_produk_e" class="form-text text-danger">{{ $message }}</small>
+                              @enderror
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <div class="form-group">
+                              <label for="foto_produk_e" class="form-label d-block">Screen Capture / Foto Produk *maksimal 5 foto
+                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                              </label>
+                              <input type="file"
+                              class="filepond foto_produk_e"
+                              name="foto_produk_e[]" required accept=".jpg,.jpeg,.png" multiple/>
+                              @error('foto_produk_e')
+                              <small id="foto_produk_e" class="form-text text-danger">{{ $message }}</small>
+                              @enderror
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="" class="form-label">URL Video Demo Aplikasi (link embed youtube)</label>
+                            <input type="text" class="form-control @error('url_video_e') is-invalid @enderror" id="" name="url_video_e" value="{{old('url_video_e')}}" required>
+                            @error('url_video_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="mb-3">
+                            <label for="" class="form-label">URL Demo Aplikasi (*jika ada)</label>
+                            <input type="text" class="form-control @error('url_aplikasi_e') is-invalid @enderror" id="" name="url_aplikasi_e" value="{{old('url_aplikasi_e')}}">
+                            @error('url_aplikasi_e')
+                            <div class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                            <label for="twibbon_e" class="form-label d-block">Twibbon
+                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                            </label>
+                            <input type="file"
+                            class="filepond twibbon_e"
+                            name="twibbon_e" required accept=".jpg,.jpeg,.png"/>
+                            @error('twibbon_e')
+                            <small id="twibbon_e" class="form-text text-danger">{{ $message }}</small>
+                            @enderror
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <ul class="list-term">
+                          <li>Silahkan cek kembali data anda sebelum klik tombol daftar</li>
+                          <li>Pastikan anda telah membaca buku panduan</li>
+                          <li>Setelah klik daftar, anda telah menyetujui syarat dan ketentuan yang berlaku</li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-12 text-center">
+                        <button class="btn-register-submit" type="submit" name="submit" value="expo_it">
+                          Daftar
+                        </button>
+                      </div>
+                     </form>
+                  </div>
+                </div></div>
+      </div>
+  </div>
+</div>
 <div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-2" aria-modal="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -570,11 +829,28 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
         if('{{old('submit')}}' === 'tcp_it'){
             $('#fire-modal-1').modal('show');
         }
+
+        if('{{old('submit')}}' === 'expo_it'){
+            $('#fire-modal-3').modal('show');
+        }
+
+
     });
-
-
-
-    // TCP IT
 </script>
 @endif
+<script>
+    $(document).ready(function () {
+
+        $("#prodi_e").change(function (e) {
+            if($("#prodi_e").val() != "tif"){
+                $(".tif-option").remove();
+            }else{
+                $("#semester_e").append(`
+                <option class="tif-option" value="7">7</option>
+                <option class="tif-option" value="8">8</option>
+                `);
+            }
+        });
+    });
+</script>
 @endsection

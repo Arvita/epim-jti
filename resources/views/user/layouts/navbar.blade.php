@@ -25,16 +25,16 @@
       <li class="nav-item {{ request()->is('peserta') ? 'active' : '' }}">
         <a href="{{ route('user.dashboard') }}" class="nav-link"><i class="fa fa-home"></i><span>Beranda</span></a>
       </li>
-      <li class="nav-item {{ request()->is('peserta/profile') ? 'active' : '' }}">
+      {{-- <li class="nav-item {{ request()->is('peserta/profile') ? 'active' : '' }}">
         <a href="#" class="nav-link"><i class="far fa-user"></i><span>Profile</span></a>
-      </li>
+      </li> --}}
       @if (Auth::user()->event == 'tcp_it')
         <li class="nav-item {{ request()->is('peserta/proposal') ? 'active' : '' }}">
             <a href="{{ route('user.proposal.list') }}" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
         </li>
        @else
-        <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
+        <li class="nav-item {{ request()->is('peserta/cek-status') ? 'active' : '' }}">
+            <a href="{{ route('user.check_status') }}" class="nav-link"><i class="fa fa-check"></i><span>Cek Status</span></a>
         </li>
       @endif
     </ul>

@@ -109,11 +109,15 @@
                             <td>{{ $item->nama_tim }}</td>
                             <td>{{ $item->perguruan_tinggi }}</td>
                             <td>{{ $item->judul_proposal }}</td>
-                            <td>{{ $item->nama_ketua }}</td>                            
+                            <td>{{ $item->nama_ketua }}</td>
                             <td>
-                                @foreach (json_decode($item->ktm) as $ktm)                                    
-                                    <a  target="_blank" href="{{ asset('upload/'.$ktm) }}">KTM{{$loop->iteration}}</a>
-                                @endforeach
+                                @if(!is_null(json_decode($item->ktm)))
+                                    @foreach (json_decode($item->ktm) as $ktm)
+                                        <a  target="_blank" href="{{ asset('upload/'.$ktm) }}">KTM{{$loop->iteration}}</a>
+                                    @endforeach
+                                @else
+                                    Tidak Ada data
+                                @endif
                             </td>
                             <td><a  target="_blank" href="{{ asset('upload/'.$item->bukti_pembayaran) }}">Bukti Pembayaran</a></td>
                             <td><a  target="_blank" href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
