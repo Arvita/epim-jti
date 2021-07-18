@@ -30,9 +30,9 @@ class CreateExpoItsTable extends Migration
             $table->string('manfaat_produk');
             $table->string('url_video');
             $table->string('url_aplikasi')->nullable();
-            $table->string('ktm');
+            $table->text('ktm');
             $table->string('poster_produk');
-            $table->string('foto_produk');
+            $table->text('foto_produk');
             $table->string('twibbon');
             $table->string('status');
             $table->timestamps();

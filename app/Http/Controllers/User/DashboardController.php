@@ -384,37 +384,9 @@ class DashboardController extends Controller
 
     public function register_expo_it(Request $request)
     {
-
-    //    $requestAll = [
-    //    "_token" => "2oRzXZvWlFvBkyttNjHfjo7ftisyy1puNFI9PcqW",
-    //    "nama_tim_e" => "Web Dev",
-    //    "prodi_e" => "mif",
-    //    "email_ketua_e" => "e31200844@student.polije.ac.id",
-    //    "nama_ketua_e" => "Lukman Afandi",
-    //    "email_peserta_e" => "e31200844@student.polije.ac.id, E31200944@student.polije.ac.id",
-    //    "nama_peserta_e" => "Lukman Afandi, Alvin Eko Cahyo",
-    //    "nama_produk_e" => "SI Produksi Benih",
-    //    "deskripsi_produk_e" => "asdfsdklfjhasdkljfhsadjklh",
-    //    "manfaat_produk_e" => "sdkfjhasdkjfhsdjklfhasdkljfhaskldfh",
-    //    "url_video_e" => "sadfkljhsdkfjlhskjdflshjfasd.com",
-    //    "url_aplikasi_e" => "sdfjkasdhkfjashdkfjasdf.com",
-    //    "submit" => "expo_it",
-    //    "ktm_e" => "Array",
-    //   "poster_produk_e" => "gambar",
-    //   "foto_produk_e" =>"array"
-    //    ];
-        // $nama_peserta_e = array_map( 'ltrim', explode(',', $request->nama_peserta_e));
-        // $email_peserta_e = array_map( 'ltrim', explode(',', $request->email_peserta_e));
-        // $request->nama_peserta_e = $nama_peserta_e;
-        // $request->email_peserta_e = $email_peserta_e;
-        // $data = [
-        //     'no' => $nama_peserta_e,
-        // ];
-        // dd($request);
         $id_user = Auth::user()->id;
         $user = User::find($id_user);
         $email = $user->email;
-        // \dd($request);
 
         $request->validate(
             [
@@ -428,7 +400,6 @@ class DashboardController extends Controller
                 "deskripsi_produk_e" => "required",
                 "manfaat_produk_e" => "required",
                 "url_video_e" => "required",
-                "url_aplikasi_e" => "required",
             ]
         );
 
@@ -453,35 +424,33 @@ class DashboardController extends Controller
         $expo_it->status = "pending";
 
 
-        // FileName
-        $poster_produk_e = time() . '.' . $request->poster_produk_e->extension();
-        $twibbon_e = time() . '.' . $request->twibbon_e->extension();
-
-
         // Save To Folder
+        $poster_produk_e = time() . $request->poster_produk_e->getInode() .'.' . $request->poster_produk_e->extension();
         $request->poster_produk_e->move(public_path('/upload/expo/' . $email), $poster_produk_e);
+
+
+        $twibbon_e = time() . $request->twibbon_e->getInode() .'.' . $request->twibbon_e->extension();
         $request->twibbon_e->move(public_path('/upload/expo/' . $email), $twibbon_e);
 
         //Save To DB
-        $expo_it->poster_produk = $request->poster_produk_e;
-        $expo_it->twibbon = $request->twibbon_e;
+        $expo_it->poster_produk = 'expo/' . $email . '/' . $poster_produk_e;
+        $expo_it->twibbon =  'expo/' . $email . '/' . $twibbon_e;
 
 
         foreach ($request->foto_produk_e as $foto_produk) {
-            $foto_produk_e = time() . '.' . $foto_produk->extension();
+            $foto_produk_e = time() . $foto_produk->getInode() .'.' . $foto_produk->extension();
             $foto_produk->move(public_path('/upload/expo/' . $email), $foto_produk_e);
-            $produk[] = 'expo/' . $email . '/' . $foto_produk_e;
+            $file_produk[] = 'expo/' . $email . '/' . $foto_produk_e;
         }
-        $expo_it->foto_produk = $produk;
+        $expo_it->foto_produk = $file_produk;
 
         foreach ($request->ktm_e as $ktm) {
-            $ktm_e = time() . '.' . $ktm->extension();
+            $ktm_e = time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/expo/' . $email), $ktm_e);
             $foto_ktm[] = 'expo/' . $email . '/' . $ktm_e;
         }
         $expo_it->ktm = $foto_ktm;
 
-        // dd($expo_it);
         $expo_it->save();
 
         if (request()->is('peserta/proposal')) {
