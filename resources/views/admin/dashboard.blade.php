@@ -9,6 +9,68 @@
                 <h1>{{$title}}</h1>
             </div>
         <div class="section-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Peserta</h4>
+                            </div>
+                            <div class="card-body">
+                               {{count($all_peserta)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-place-of-worship"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Expo IT</h4>
+                            </div>
+                            <div class="card-body">
+                               {{count($peserta_expo)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Bisnis TIK</h4>
+                            </div>
+                            <div class="card-body">
+                               {{count($peserta_tcp)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Lomba IT</h4>
+                            </div>
+                            <div class="card-body">
+                               {{count($peserta_lomba)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="row">
             <div class="col-lg-12 mb-4">
                 <div class="hero bg-primary text-white">

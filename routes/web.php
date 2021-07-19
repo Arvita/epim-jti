@@ -37,7 +37,9 @@ if ($isCountdownActive) {
     //     return view('admin.dashboard');
     // });
 
-
+    Route::fallback(function() {
+        return abort(404);
+    });
 
     Auth::routes();
 

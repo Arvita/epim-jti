@@ -27,7 +27,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                           <i class="far fa-user"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -42,7 +42,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
-                            <i class="far fa-newspaper"></i>
+                           <i class="fas fa-check"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -57,7 +57,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
-                            <i class="far fa-file"></i>
+                           <i class="fas fa-times"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -72,7 +72,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-warning">
-                            <i class="fas fa-circle"></i>
+                           <i class="fas fa-circle"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -321,9 +321,11 @@
             JSON.parse(data.foto_produk).forEach(foto_produk => {
                 $("#foto_produk").append(`<img src="${assetPath+"/"+foto_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+foto_produk}')" />`)
             })
-            $("#twibbon").append(
-                `<img src="${assetPath+"/"+data.twibbon}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.twibbon}')" />`
-            );
+
+            JSON.parse(data.twibbon).forEach(twibbon => {
+                $("#twibbon").append(`<img src="${assetPath+"/"+twibbon}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+twibbon}')" />`)
+            })
+
             $('#fire-modal-2').modal('show');
 
            }

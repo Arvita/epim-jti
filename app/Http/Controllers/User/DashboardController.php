@@ -198,7 +198,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->twibbon_t as $twibbon) {
-            $twibbon_t = time() . '.' . $twibbon->extension();
+            $twibbon_t = time() . $twibbon->getInode() .'.' . $twibbon->extension();
             $twibbon->move(public_path('/upload/tcp/' . $email), $twibbon_t);
             $file_twibbon[] = 'tcp/' . $email . '/' . $twibbon_t;
         }
@@ -207,7 +207,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = time() . '.' . $ktm->extension();
+            $ktm_t = time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
@@ -218,7 +218,6 @@ class DashboardController extends Controller
             return \redirect()->back();
         }
     }
-
 
 
 
@@ -238,7 +237,7 @@ class DashboardController extends Controller
             'usia_l'                => 'required|numeric',
             'no_wa_peserta_l'       => 'required|min:10',
             'nama_pendamping_l'     => 'required',
-            'nip_l'                 => 'required|numeric|digits_between:18,18',
+            'nip_l'                 => 'required|numeric',
             'no_wa_pendamping_l'    => 'required|min:10',
             'foto_peserta_l'        => 'required|max:300|mimes:jpg,jpeg,png',
             'kartu_pelajar_l'       => 'required|max:300|mimes:pdf,jpg,jpeg,png',
@@ -261,7 +260,6 @@ class DashboardController extends Controller
             'no_wa_peserta_l.min'           => 'Harap mengisi nomor WhatsApp peserta minimal 10 karakter',
             'nama_pendamping_l.required'    => 'Nama pendamping wajib di isi',
             'nip_l.required'                => 'NIP pendamping wajib di isi',
-            'nip_l.digits_between'          => 'NIP harus 18 digit',
             'nip_l.numeric'                 => 'Harap masukkan NIP pendamping dengan angka!',
             'no_wa_pendamping_l.required'   => 'Nomor WhatsApp pendamping wajib di isi',
             'no_wa_pendamping_l.min'        => 'Harap mengisi nomor WhatsApp pendamping minimal 10 karakter',
@@ -484,7 +482,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = time() . '.' . $ktm->extension();
+            $ktm_t = time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }

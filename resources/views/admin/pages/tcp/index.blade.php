@@ -12,7 +12,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Dashboard Lomba Konfigurasi Jaringan</h1>
+            <h1>Dashboard Lomba Bisnis TIK</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -34,7 +34,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
-                            <i class="far fa-newspaper"></i>
+                            <i class="fas fa-check"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -49,7 +49,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
-                            <i class="far fa-file"></i>
+                            <i class="fas fa-times"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -89,16 +89,11 @@
                             </th>
                             <th>Email</th>
                             <th>Nama Tim</th>
-                            <th>Perguruan Tinggi</th>
                             <th>Judul Proposal</th>
+                            <th>Perguruan Tinggi</th>
                             <th>Nama Ketua</th>
-                            <th>KTM</th>
-                            <th>Bukti Pembayaran</th>
-                            <th>Proposal</th>
-                            <th>Biodata</th>
-                            <th>Twibbon</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -107,22 +102,9 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->nama_tim }}</td>
-                            <td>{{ $item->perguruan_tinggi }}</td>
                             <td>{{ $item->judul_proposal }}</td>
+                            <td>{{ $item->perguruan_tinggi }}</td>
                             <td>{{ $item->nama_ketua }}</td>
-                            <td>
-                                @if(!is_null(json_decode($item->ktm)))
-                                    @foreach (json_decode($item->ktm) as $ktm)
-                                        <a  target="_blank" href="{{ asset('upload/'.$ktm) }}">KTM{{$loop->iteration}}</a>
-                                    @endforeach
-                                @else
-                                    Tidak Ada data
-                                @endif
-                            </td>
-                            <td><a  target="_blank" href="{{ asset('upload/'.$item->bukti_pembayaran) }}">Bukti Pembayaran</a></td>
-                            <td><a  target="_blank" href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
-                            <td><a  target="_blank" href="{{ asset('upload/'.$item->biodata) }}">Biodata</a></td>
-                            <td><a  target="_blank" href="{{ asset('upload/'.$item->twibbon) }}">Twibbon</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>
@@ -132,9 +114,9 @@
                                     <div class="badge badge-warning">Belum Diseleksi</div>
                                 @endif
                             </td>
-                            <td>
-                                <button class="d-small btn btn-primary" onclick="openModalInfo({{ $item->id }})"><i class="fa fa-eye"></i></button>
-                                <button class="btn btn-warning" onclick="openModal('{{$item->status}}', {{$item->id}})"><i class="fa fa-edit"></i></button>
+                            <td class="px-0">
+                                <button class="btn-small btn btn-primary" onclick="openModalInfo({{ $item->id }})"><i class="fa fa-eye"></i></button>
+                                <button class="btn-small btn btn-warning" onclick="openModal('{{$item->status}}', {{$item->id}})"><i class="fa fa-edit"></i></button>
                             </td>
                         </tr>
                           @empty
@@ -192,7 +174,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Detail Produk</h5> <button type="button" class="close" data-dismiss="modal"
+                <h5 class="modal-title">Detail Proposal</h5> <button type="button" class="close" data-dismiss="modal"
                     aria-label="Close"> <span aria-hidden="true">×</span> </button>
             </div>
             <div class="modal-body">
@@ -200,16 +182,20 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mb-3">
+                                <p class="font-weight-bold mb-1">Judul Proposal</p>
+                                <p id="judul_propoasl"></p>
+                            </div>
+                            <div class="mb-3">
+                                <p class="font-weight-bold mb-1">Proposal</p>
+                                <p id="proposal"></p>
+                            </div>
+                            <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Nama TIM</p>
                                 <p id="nama_tim"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Program Studi</p>
-                                <p id="prodi"></p>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Semester</p>
-                                <p id="semester"></p>
+                                <p class="font-weight-bold mb-1">Perguruan Tinggi</p>
+                                <p id="perguruan_tinggi"></p>
                             </div>
                             <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Email Ketua TIM</p>
@@ -220,53 +206,22 @@
                                 <p id="nama_ketua"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nomor WA Ketua TIM</p>
-                                <p id="nomor_ketua"></p>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Email Anggota</p>
-                                <ol id="email_anggota"></ol>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama Ketua TIM</p>
+                                <p class="font-weight-bold mb-1">Nama Anggota TIM</p>
                                 <ol id="nama_anggota"></ol>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama Produk</p>
-                                <p id="nama_produk"></p>
+                                <p class="font-weight-bold mb-1">Berkas KTM</p>
+                                <p id="ktm"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Kategori Produk</p>
-                                <p id="kategori_produk"></p>
+                                <p class="font-weight-bold mb-1">Biodata</p>
+                                <p id="biodata"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Deskripsi Produk</p>
-                                <p id="deskripsi_produk"></p>
+                                <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
+                                <p id="bukti_pembayaran"></p>
                             </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Manfaat Produk</p>
-                                <p id="manfaat_produk"></p>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">URL Video Demo</p>
-                                <a href="" id="url_video">Link Video Demo</a>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">URL Aplikasi Demo</p>
-                                <a href="" id="url_aplikasi">Link Demo</a>
-                            </div>
-                            <div class="mb-3" id="ktm">
-                                <p  class="font-weight-bold mb-1">FOTO KTM TIM</p>
-                            </div>
-                            <div class="mb-3" id="poster_produk">
-                                <p  class="font-weight-bold mb-1">Poster Produk</p>
-                            </div>
-                            <div class="mb-3" id="foto_produk">
-                                <p  class="font-weight-bold mb-1">Foto Produk</p>
-                            </div>
-                            <div class="mb-3" id="twibbon" >
-                                <p class="font-weight-bold mb-1">Twibbon</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -279,7 +234,6 @@
 <script>
     let assetPath = "{{ asset('upload/') }}"
     function openModalInfo(id) {
-        console.log(assetPath);
        $.ajax({
            type: "POST",
            headers: {
@@ -290,21 +244,36 @@
            dataType: "JSON",
            success: function (data) {
                console.log(data);
-            // $(".list").remove();
-            // $("#nama_tim").text(data.nama_tim);
-            // $("#prodi").text(data.prodi);
-            // $("#semester").text(data.semester);
-            // $("#email_ketua").text(data.email_ketua);
-            // $("#nama_ketua").text(data.nama_ketua);
-            // $("#nomor_ketua").text(data.nomor_ketua);
-
-            // data.email_anggota.split(',').map(item => {
-            //     $("#email_anggota").append(`<li class="list">${item}</li>`);
-            // });
-
-            // data.nama_anggota.split(',').map(item => {
-            //     $("#nama_anggota").append(`<li class="list">${item}</li>`);
-            // });
+            $(".list").remove();
+            $("#nama_tim").text(data.nama_tim);
+            $("#judul_proposal").text(data.judul_proposal);
+            $("#proposal").attr("href",data.proposal);
+            $("#perguruan_tinggi").text(data.perguruan_tinggi);
+            $("#email_ketua").text(data.email);
+            $("#nama_ketua").text(data.nama_ketua);
+            $("#nama_anggota1").text(data.nama_anggota1);
+            $("#nama_anggota2").text(data.nama_anggota2);
+            $("#ktm").attr("href",data.url_video);
+            $("#biodata").attr("href",data.biodata);
+            if(data.biodata != null){
+                $("#biodata").append(`
+                    <a href="${data.biodata}">Link</a>
+                `)
+            }
+            if(data.proposal != null){
+                $("#proposal").append(`
+                    <a href="${data.proposal}">Link</a>
+                `)
+            }
+            if(data.bukti_pembayaran != null){
+                $("#bukti_pembayaran").append(`
+                    <a href="${data.bukti_pembayaran}">Link</a>
+                `)
+            }
+               JSON.parse(data.ktm).map(ktm => {
+                console.log(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`);
+                $("#ktm").append(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`)
+            })
 
             // $("#nama_produk").text(data.nama_produk);
 

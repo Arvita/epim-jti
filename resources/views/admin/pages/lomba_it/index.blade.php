@@ -33,8 +33,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
-                        <div class="card-icon bg-danger">
-                            <i class="far fa-newspaper"></i>
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-check"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -48,8 +48,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
-                        <div class="card-icon bg-warning">
-                            <i class="far fa-file"></i>
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-times"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
-                        <div class="card-icon bg-success">
+                        <div class="card-icon bg-warning">
                             <i class="fas fa-circle"></i>
                         </div>
                         <div class="card-wrap">
@@ -93,12 +93,6 @@
                             <th>Tempat Lahir</th>
                             <th>Jenis Kelamin</th>
                             <th>Usia</th>
-                            <th>Foto Peserta</th>
-                            <th>Kartu Pelajar</th>
-                            <th>Surat Pernyataan</th>
-                            <th>Bukti Pembayaran</th>
-                            <th>Lampiran Guru</th>
-                            <th>Twibbon</th>
                             <th>Status</th>
                             <th>Action</th>
                           </tr>
@@ -113,12 +107,7 @@
                             <td>{{ $item->tempat_lahir }}</td>
                             <td>{{ $item->jenis_kelamin }}</td>
                             <td>{{ $item->usia }}</td>
-                            <td><a href="{{ asset('upload/'.$item->foto_peserta) }}">Foto Peserta</a></td>
-                            <td><a href="{{ asset('upload/'.$item->kartu_pelajar) }}">Kartu Pelajar</a></td>
-                            <td><a href="{{ asset('upload/'.$item->surat_pernyataan) }}">Surat Pernyataan</a></td>
-                            <td><a href="{{ asset('upload/'.$item->bukti_pembayaran) }}">Bukti Pembayaran</a></td>
-                            <td><a href="{{ asset('upload/'.$item->lampiran_guru) }}">Lampiran Guru</a></td>
-                            <td><a href="{{ asset('upload/'.$item->twibbon) }}">twibbon</a></td>
+
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>
@@ -191,70 +180,62 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="mb-3" id="foto_peserta"></div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama TIM</p>
-                                <p id="nama_tim"></p>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Program Studi</p>
-                                <p id="prodi"></p>
+                                <p class="font-weight-bold mb-1">Nama Peserta</p>
+                                <p id="nama_peserta"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Semester</p>
-                                <p id="semester"></p>
+                                <p class="font-weight-bold mb-1">Email</p>
+                                <p id="email"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Email Ketua TIM</p>
-                                <p id="email_ketua"></p>
+                                <p class="font-weight-bold mb-1">NIS</p>
+                                <p id="nis"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama Ketua TIM</p>
-                                <p id="nama_ketua"></p>
+                                <p class="font-weight-bold mb-1">Tempat, Tanggal Lahir</p>
+                                <p><span class="tempat_lahir"></span><span class="tanggal_lahir"></span></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nomor WA Ketua TIM</p>
-                                <p id="nomor_ketua"></p>
+                                <p class="font-weight-bold mb-1">Jenis Kelamin</p>
+                                <p id="jenis_kelamin"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Email Anggota</p>
-                                <ol id="email_anggota"></ol>
+                                <p class="font-weight-bold mb-1">Nomor WA Peserta</p>
+                                <p id="nomor_peserta"></p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="font-weight-bold mb-1">Usia</p>
+                                <p id="usia"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama Ketua TIM</p>
-                                <ol id="nama_anggota"></ol>
+                                <p class="font-weight-bold mb-1">Nama Pendamping</p>
+                                <p id="nama_pendamping"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Nama Produk</p>
-                                <p id="nama_produk"></p>
+                                <p class="font-weight-bold mb-1">Nomor WA Pendamping</p>
+                                <p id="nomor_pendamping"></p>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Kategori Produk</p>
-                                <p id="kategori_produk"></p>
+                                <p class="font-weight-bold mb-1">NIP</p>
+                                <p id="nip"></p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="font-weight-bold mb-1">Lampiran Guru</p>
+                                <a href="" id="lampiran_guru">Link Lampiran Guru</a>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Deskripsi Produk</p>
-                                <p id="deskripsi_produk"></p>
+                                <p class="font-weight-bold mb-1">Surat Pernyataan</p>
+                                <a href="" id="surat_pernyataan">Link Surat Pernyataan</a>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">Manfaat Produk</p>
-                                <p id="manfaat_produk"></p>
+                                <p class="font-weight-bold mb-1">Kartu Pelajar</p>
+                                <a href="" id="kartu_pelajar">Link Kartu Pelajar</a>
                             </div>
                             <div class="mb-3">
-                                <p class="font-weight-bold mb-1">URL Video Demo</p>
-                                <a href="" id="url_video">Link Video Demo</a>
-                            </div>
-                            <div class="mb-3">
-                                <p class="font-weight-bold mb-1">URL Aplikasi Demo</p>
-                                <a href="" id="url_aplikasi">Link Demo</a>
-                            </div>
-                            <div class="mb-3" id="ktm">
-                                <p  class="font-weight-bold mb-1">FOTO KTM TIM</p>
-                            </div>
-                            <div class="mb-3" id="poster_produk">
-                                <p  class="font-weight-bold mb-1">Poster Produk</p>
-                            </div>
-                            <div class="mb-3" id="foto_produk">
-                                <p  class="font-weight-bold mb-1">Foto Produk</p>
+                                <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
+                                <a href="" id="bukti_pembayaran">Link Bukti Pembayaran</a>
                             </div>
                             <div class="mb-3" id="twibbon" >
                                 <p class="font-weight-bold mb-1">Twibbon</p>
@@ -283,12 +264,23 @@
            success: function (data) {
                console.log(data);
             // $(".list").remove();
-            // $("#nama_tim").text(data.nama_tim);
-            // $("#prodi").text(data.prodi);
-            // $("#semester").text(data.semester);
-            // $("#email_ketua").text(data.email_ketua);
-            // $("#nama_ketua").text(data.nama_ketua);
-            // $("#nomor_ketua").text(data.nomor_ketua);
+            $("#email").text(data.email);
+            $("#nama_peserta").text(data.nama_peserta);
+            $("#nis").text(data.nis);
+            $("#tempatahir").text(data.tempatahir);
+            $("#tanggalahir").text(data.tanggalahir);
+            $("#jenis_kelamin").text(data.jenis_kelamin);
+            $("#usia").text(data.usia);
+            $("#nomor_peserta").text(data.no_wa_peserta);
+            $("#nama_pendamping").text(data.nama_pendamping);
+            $("#nip").text(data.nip);
+            $("#nomor_pendamping").text(data.no_wa_pendamping);
+            $("#kartu_pelajar").attr("href",data.kartu_pelajar);
+            $("#surat_pernyataan").attr("href",data.surat_pernyataan);
+            $("#bukti_pembayaran").attr("href",data.bukti_pembayaran);
+            $("#lampiran_guru").attr("href",data.lampiran_guru);
+
+
 
             // data.email_anggota.split(',').map(item => {
             //     $("#email_anggota").append(`<li class="list">${item}</li>`);
@@ -309,21 +301,21 @@
             //     $("#url_aplikasi").attr("href",data.url_aplikasi);
             // }
 
-            // $(".img-detail").remove();
+            $(".img-detail").remove();
 
             // JSON.parse(data.ktm).map(ktm => {
             //     console.log(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`);
             //     $("#ktm").append(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`)
             // })
-            // $("#poster_produk").append(
-            //     `<img src="${assetPath+"/"+data.poster_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.poster_produk}')" />`
-            // );
+            $("#foto_peserta").append(
+                `<img src="${assetPath+"/"+data.foto_peserta}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="200" onclick="openImageInNewTab('${assetPath+"/"+data.foto_peserta}')" />`
+            );
             // JSON.parse(data.foto_produk).forEach(foto_produk => {
             //     $("#foto_produk").append(`<img src="${assetPath+"/"+foto_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+foto_produk}')" />`)
             // })
-            // $("#twibbon").append(
-            //     `<img src="${assetPath+"/"+data.twibbon}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.twibbon}')" />`
-            // );
+            $("#twibbon").append(
+                `<img src="${assetPath+"/"+data.twibbon}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.twibbon}')" />`
+            );
             $('#fire-modal-2').modal('show');
 
            }
