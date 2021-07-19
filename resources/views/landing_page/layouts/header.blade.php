@@ -4,16 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <link rel="apple-touch-icon" sizes="180x180" href="{{asset('favicon/apple-touch-icon.png')}}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon/favicon-32x32.png')}}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon/favicon-16x16.png')}}">
-  <link rel="manifest" href="/site.webmanifest">
 
   <title>EPIM 2021</title>
 
     <!-- Plugin Style -->
-    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">    
+    <link href="{{asset('dist/aos/aos.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('dist/font-awesome/css/all.min.css')}}">
 
@@ -96,11 +95,11 @@
               </li>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('logout') }}">Logout</a>
-              </li>             
+              </li>
             </ul>
           </li>
-          @endauth         
-          @guest              
+          @endauth
+          @guest
           <li class="dropdown">
             <a class="nav-link scrollto" href="#">
               <span>My Account</span> <i class="fa fa-angle-down"></i>
@@ -108,7 +107,7 @@
             <ul>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('login') }}">Login</a>
-              </li>              
+              </li>
               <li>
                 <a class="nav-link dropdown-link scrollto" href="{{ route('register') }}">Register</a>
               </li>
