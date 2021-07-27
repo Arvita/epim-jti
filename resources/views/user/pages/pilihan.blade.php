@@ -317,7 +317,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="poster_produk_e" class="form-label d-block">Poster / Pamflet Produk (Ukuran A4)
-                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                               </label>
                               <input type="file"
                               class="filepond poster_produk_e"
@@ -330,7 +330,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="foto_produk_e" class="form-label d-block">Screen Capture / Foto Produk *maksimal 5 foto
-                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                               </label>
                               <input type="file"
                               class="filepond foto_produk_e"
@@ -360,7 +360,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </div>
                           <div class="form-group">
                             <label for="twibbon_e" class="form-label d-block">Twibbon
-                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                             </label>
                             <input type="file"
                             class="filepond twibbon_e"
@@ -454,8 +454,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               @enderror
                             </div>
                             <div class="mb-3">
-                              <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                              <input type="date" class="form-control @error('tanggal_lahir_l') is-invalid @enderror" id="tempat_lahir" name="tanggal_lahir_l" value="{{old('tanggal_lahir_l')}}" required>
+                              <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                              <input type="date" class="form-control @error('tanggal_lahir_l') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir_l" value="{{old('tanggal_lahir_l')}}" required>
                               @error('tanggal_lahir_l')
                               <div class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -539,7 +539,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="foto_peserta" class="form-label d-block">Upload Foto Peserta *3x4
-                                    <small id="foto_peserta" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 300KB</small>
+                                    <small id="foto_peserta" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond foto_peserta"
@@ -552,7 +552,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="ktp" class="form-label d-block">Kartu Tanda Pelajar
-                                    <small id="ktp" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 300KB</small>
+                                    <small id="ktp" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond ktp"
@@ -565,7 +565,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="surat_pernyataan" class="form-label d-block">Scan Surat Pernyataan
-                                    <small id="surat_pernyataan" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                    <small id="surat_pernyataan" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond surat_pernyataan"
@@ -578,7 +578,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="bukti_pembayaran" class="form-label d-block">Scan Bukti Pembayaran
-                                    <small id="bukti_pembayaran" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                    <small id="bukti_pembayaran" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond bukti_pembayaran"
@@ -591,7 +591,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="lampiran_guru" class="form-label d-block">File Lampiran Guru Pendamping
-                                    <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                    <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond lampiran_guru"
@@ -604,7 +604,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                             <div class="mb-3">
                               <div class="form-group">
                                 <label for="lampiran_guru" class="form-label d-block">Twibbon
-                                    <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
+                                    <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
                                 class="filepond lampiran_guru"
@@ -729,7 +729,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="file_ktm" class="form-label d-block">Upload KTM
-                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file minimal: 5MB</small>
+                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 5MB</small>
                                   </label>
 
                                   <input type="file"
@@ -743,7 +743,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="file_ktm" class="form-label d-block">Upload Bukti Pembayaran
-                                      <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                      <small class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                   </label>
 
                                   <input type="file"
@@ -757,7 +757,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="biodata" class="form-label d-block">Upload Biodata
-                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 1MB</small>
+                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
                                   class="filepond file-biodata"
@@ -770,7 +770,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="file-proposal" class="form-label d-block">Upload Proposal
-                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file minimal: 10MB</small>
+                                      <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 10MB</small>
                                   </label>
                                   <input type="file"
                                   class="filepond"
@@ -783,7 +783,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <div class="form-group">
                                   <label for="lampiran_guru" class="form-label d-block">Twibbon
-                                      <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file minimal: 1MB</small>
+                                      <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
                                   class="filepond lampiran_guru" multiple
