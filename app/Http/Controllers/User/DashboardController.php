@@ -180,9 +180,9 @@ class DashboardController extends Controller
         $tcp_it->status = 'pending';
 
         // FileName
-        $proposal_t = time() . '.' . $request->proposal_t->extension();
-        $bukti_pembayaran_t = time() . '.' . $request->bukti_pembayaran_t->extension();
-        $biodata_t = time() . '.' . $request->biodata_t->extension();
+        $proposal_t = 'proposal_'.time() . $request->proposal_t->getInode() .'.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = 'pembayaran_'.time() . $request->bukti_pembayaran_t->getInode() .'.' . $request->bukti_pembayaran_t->extension();
+        $biodata_t = 'biodata_'.time() . $request->biodata_t->getInode() .'.' . $request->biodata_t->extension();
 
 
         // Save To Folder
@@ -198,7 +198,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->twibbon_t as $twibbon) {
-            $twibbon_t = time() . $twibbon->getInode() .'.' . $twibbon->extension();
+            $twibbon_t = 'twibbon_'.time() . $twibbon->getInode() .'.' . $twibbon->extension();
             $twibbon->move(public_path('/upload/tcp/' . $email), $twibbon_t);
             $file_twibbon[] = 'tcp/' . $email . '/' . $twibbon_t;
         }
@@ -207,7 +207,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_t = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
@@ -302,12 +302,12 @@ class DashboardController extends Controller
         $lomba_it->status = 'pending';
 
         // FileName
-        $foto_peserta_l = time() . '.' . $request->foto_peserta_l->extension();
-        $kartu_pelajar_l = time() . '.' . $request->kartu_pelajar_l->extension();
-        $surat_pernyataan_l = time() . '.' . $request->surat_pernyataan_l->extension();
-        $bukti_pembayaran_l = time() . '.' . $request->bukti_pembayaran_l->extension();
-        $lampiran_guru_l = time() . '.' . $request->lampiran_guru_l->extension();
-        $twibbon_l = time() . '.' . $request->twibbon_l->extension();
+        $foto_peserta_l = 'foto_'.time() . $request->foto_peserta_l->getInode() .'.' . $request->foto_peserta_l->extension();
+        $kartu_pelajar_l = 'kpelajar_'.time() . $request->kartu_pelajar_l->getInode() .'.' . $request->kartu_pelajar_l->extension();
+        $surat_pernyataan_l = 'pernyataan_'.time() . $request->surat_pernyataan_l->getInode() .'.' . $request->surat_pernyataan_l->extension();
+        $bukti_pembayaran_l = 'pembayaran_'.time() . $request->bukti_pembayaran_l->getInode() .'.' . $request->bukti_pembayaran_l->extension();
+        $lampiran_guru_l = 'guru_'.time() . $request->lampiran_guru_l->getInode() .'.' . $request->lampiran_guru_l->extension();
+        $twibbon_l = 'twibbon_'.time() . $request->twibbon_l->getInode() .'.' . $request->twibbon_l->extension();
 
         // Save To Folder
         $request->foto_peserta_l->move(public_path('/upload/lomba/' . $email), $foto_peserta_l);
@@ -370,7 +370,7 @@ class DashboardController extends Controller
 
 
         // Save To Folder
-        $poster_produk_e = time() . $request->poster_produk_e->getInode() .'.' . $request->poster_produk_e->extension();
+        $poster_produk_e = 'poster_'.time() . $request->poster_produk_e->getInode() .'.' . $request->poster_produk_e->extension();
         $request->poster_produk_e->move(public_path('/upload/expo/' . $email), $poster_produk_e);
 
         //Save To DB
@@ -378,21 +378,21 @@ class DashboardController extends Controller
 
 
         foreach ($request->twibbon_e as $twibbon) {
-            $twibbon_e = time() . $twibbon->getInode() .'.' . $twibbon->extension();
+            $twibbon_e = 'twibbon_'.time() . $twibbon->getInode() .'.' . $twibbon->extension();
             $twibbon->move(public_path('/upload/expo/' . $email), $twibbon_e);
             $file_twibbon[] = 'expo/' . $email . '/' . $twibbon_e;
         }
         $expo_it->twibbon = $file_twibbon;
 
         foreach ($request->foto_produk_e as $foto_produk) {
-            $foto_produk_e = time() . $foto_produk->getInode() .'.' . $foto_produk->extension();
+            $foto_produk_e = 'produk_'.time() . $foto_produk->getInode() .'.' . $foto_produk->extension();
             $foto_produk->move(public_path('/upload/expo/' . $email), $foto_produk_e);
             $file_produk[] = 'expo/' . $email . '/' . $foto_produk_e;
         }
         $expo_it->foto_produk = $file_produk;
 
         foreach ($request->ktm_e as $ktm) {
-            $ktm_e = time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_e = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/expo/' . $email), $ktm_e);
             $foto_ktm[] = 'expo/' . $email . '/' . $ktm_e;
         }
@@ -459,9 +459,9 @@ class DashboardController extends Controller
         $tcp_it->status = 'pending';
 
         // FileName
-        $proposal_t = time() . '.' . $request->proposal_t->extension();
-        $bukti_pembayaran_t = time() . '.' . $request->bukti_pembayaran_t->extension();
-        $biodata_t = time() . '.' . $request->biodata_t->extension();
+        $proposal_t = 'biodata_'.time() . $request->proposal_t->getInode() .'.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = 'pembayaran_'.time() . $request->bukti_pembayaran_t->getInode() .'.' . $request->bukti_pembayaran_t->extension();
+        $biodata_t = 'biodata_'.time() . $request->biodata_t->getInode() .'.' . $request->biodata_t->extension();
 
 
         // Save To Folder
@@ -482,7 +482,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_t = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
