@@ -275,10 +275,10 @@
             $("#nama_pendamping").text(data.nama_pendamping);
             $("#nip").text(data.nip);
             $("#nomor_pendamping").text(data.no_wa_pendamping);
-            $("#kartu_pelajar").attr("href",data.kartu_pelajar);
-            $("#surat_pernyataan").attr("href",data.surat_pernyataan);
-            $("#bukti_pembayaran").attr("href",data.bukti_pembayaran);
-            $("#lampiran_guru").attr("href",data.lampiran_guru);
+            $("#kartu_pelajar").attr("href",`${assetPath+"/"+data.kartu_pelajar}`);
+            $("#surat_pernyataan").attr("href",`${assetPath+"/"+data.surat_pernyataan}`);
+            $("#bukti_pembayaran").attr("href",`${assetPath+"/"+data.bukti_pembayaran}`);
+            $("#lampiran_guru").attr("href",`${assetPath+"/"+data.lampiran_guru}`);
 
 
 

@@ -243,18 +243,17 @@
            data: {id: id},
            dataType: "JSON",
            success: function (data) {
-               console.log(data);
             $(".list").remove();
             $("#nama_tim").text(data.nama_tim);
             $("#judul_proposal").text(data.judul_proposal);
-            $("#proposal").attr("href",data.proposal);
+            $("#proposal").attr("href",`${assetPath+"/"+data.proposal}`);
             $("#perguruan_tinggi").text(data.perguruan_tinggi);
             $("#email_ketua").text(data.email);
             $("#nama_ketua").text(data.nama_ketua);
             $("#nama_anggota1").text(data.nama_anggota1);
             $("#nama_anggota2").text(data.nama_anggota2);
-            $("#ktm").attr("href",data.url_video);
-            $("#biodata").attr("href",data.biodata);
+            $("#ktm").attr("href",`${assetPath+"/"+data.url_video}`);
+            $("#biodata").attr("href",`${assetPath+"/"+data.biodata}`);
             if(data.biodata != null){
                 $("#biodata").append(`
                     <a href="${data.biodata}">Link</a>
@@ -262,12 +261,12 @@
             }
             if(data.proposal != null){
                 $("#proposal").append(`
-                    <a href="${data.proposal}">Link</a>
+                    <a href="${assetPath+"/"+data.proposal}">Link</a>
                 `)
             }
             if(data.bukti_pembayaran != null){
                 $("#bukti_pembayaran").append(`
-                    <a href="${data.bukti_pembayaran}">Link</a>
+                    <a href="${assetPath+"/"+data.bukti_pembayaran}">Link</a>
                 `)
             }
                JSON.parse(data.ktm).map(ktm => {
