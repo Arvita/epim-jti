@@ -407,7 +407,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
                         </div>
                         <h1 class="form-title">
-                          PENDAFTARAN LOMBA IT
+                          PENDAFTARAN LOMBA KONFIGURASI JARINGAN
                         </h1>
                       </div>
                       <form action="{{route('user.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
@@ -430,6 +430,15 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap</label>
                               <input type="text" class="form-control @error('nama_peserta_l') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_l" value="{{old('nama_peserta_l')}}" required>
                               @error('nama_peserta_l')
+                              <div class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </div>
+                              @enderror
+                            </div>
+                            <div class="mb-3">
+                              <label for="asal_sekolah" class="form-label">Asal Sekolah</label>
+                              <input type="text" class="form-control @error('asal_sekolah_l') is-invalid @enderror" id="asal_sekolah" name="asal_sekolah_l" value="{{old('asal_sekolah_l')}}" required>
+                              @error('asal_sekolah_l')
                               <div class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </div>
@@ -647,7 +656,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                       <div class="col-lg-12 text-center">
                         <div class="form-logo">
                           <a href="#"><img src="http://jti.polije.ac.id/epim/assets/logoo.png" alt="" width="50px"></a>
-                          <p class="d-inline">EPIM 2021</p>
+                          <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
                         </div>
                         <h1 class="form-title">
                           PENDAFTARAN LOMBA BISNIS TIK

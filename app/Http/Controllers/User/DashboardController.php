@@ -231,6 +231,7 @@ class DashboardController extends Controller
         $request->validate([
             'email_l'               => 'required|email',
             'nama_peserta_l'        => 'required|min:4',
+            'asal_sekolah_l'        => 'required',
             'nis_l'                 => 'required',
             'tempat_lahir_l'        => 'required',
             'tanggal_lahir_l'       => 'required',
@@ -251,6 +252,7 @@ class DashboardController extends Controller
             'email_l.email'                 => 'Format email yang anda masukkan salah',
             'nama_peserta_l.required'       => 'Nama peserta wajib di isi',
             'nama_peserta_l.min'            => 'Harap mengisi nama peserta minimal 4 karakter',
+            'asal_sekolah_l.required'       => 'Nama peserta wajib di isi',
             'nis_l.required'                => 'NIS wajib di isi',
             'tempat_lahir_l.required'       => 'Tempat lahir wajib di isi',
             'tanggal_lahir_l.required'      => 'Tanggal lahir wajib di isi',
@@ -288,6 +290,7 @@ class DashboardController extends Controller
         $lomba_it->user_id = $user->id;
         $lomba_it->email = $request->email_l;
         $lomba_it->nama_peserta = $request->nama_peserta_l;
+        $lomba_it->asal_sekolah = $request->asal_sekolah_l;
         $lomba_it->nis = $request->nis_l;
         $lomba_it->tempat_lahir = $request->tempat_lahir_l;
         $lomba_it->tanggal_lahir = $request->tanggal_lahir_l;

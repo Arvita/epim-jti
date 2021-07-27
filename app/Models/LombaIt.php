@@ -18,6 +18,7 @@ class LombaIt extends Model
         'user_id',
         'email',
         'nama_peserta',
+        'asal_sekolah',
         'nis',
         'tempat_lahir',
         'tanggal_lahir',
