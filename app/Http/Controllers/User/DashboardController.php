@@ -16,9 +16,9 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-    // $this->middleware(function(){
-    //       if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
-    // });
+        // $this->middleware(function(){
+        //       if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
+        // });
     }
     public function index(Request $request)
     {
@@ -35,7 +35,7 @@ class DashboardController extends Controller
             $data = [
                 'title' => 'Lomba Bisnis TIK',
             ];
-        } elseif($event == 'expo_it'){
+        } elseif ($event == 'expo_it') {
             $data = [
                 'title' => 'Expo Produk IT',
             ];
@@ -47,19 +47,20 @@ class DashboardController extends Controller
         return view('user.dashboard', $data)->render();
     }
 
-    public function checkStatus(){
+    public function checkStatus()
+    {
         $event = Auth::user()->event;
         $data = [];
         if ($event == 'lomba_it') {
             $data = $this->lombaStatus();
         } elseif ($event == 'tcp_it') {
             $data = $this->tcpStatus();
-        } elseif($event == 'expo_it'){
+        } elseif ($event == 'expo_it') {
             $data = $this->expoStatus();
         } else {
             return \abort(303);
         }
-        return \view('user.check_status',$data)->render();
+        return \view('user.check_status', $data)->render();
     }
 
 
@@ -180,9 +181,9 @@ class DashboardController extends Controller
         $tcp_it->status = 'pending';
 
         // FileName
-        $proposal_t = 'proposal_'.time() . $request->proposal_t->getInode() .'.' . $request->proposal_t->extension();
-        $bukti_pembayaran_t = 'pembayaran_'.time() . $request->bukti_pembayaran_t->getInode() .'.' . $request->bukti_pembayaran_t->extension();
-        $biodata_t = 'biodata_'.time() . $request->biodata_t->getInode() .'.' . $request->biodata_t->extension();
+        $proposal_t = 'proposal_' . time() . $request->proposal_t->getInode() . '.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = 'pembayaran_' . time() . $request->bukti_pembayaran_t->getInode() . '.' . $request->bukti_pembayaran_t->extension();
+        $biodata_t = 'biodata_' . time() . $request->biodata_t->getInode() . '.' . $request->biodata_t->extension();
 
 
         // Save To Folder
@@ -198,7 +199,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->twibbon_t as $twibbon) {
-            $twibbon_t = 'twibbon_'.time() . $twibbon->getInode() .'.' . $twibbon->extension();
+            $twibbon_t = 'twibbon_' . time() . $twibbon->getInode() . '.' . $twibbon->extension();
             $twibbon->move(public_path('/upload/tcp/' . $email), $twibbon_t);
             $file_twibbon[] = 'tcp/' . $email . '/' . $twibbon_t;
         }
@@ -207,7 +208,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_t = 'ktm_' . time() . $ktm->getInode() . '.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
@@ -302,12 +303,12 @@ class DashboardController extends Controller
         $lomba_it->status = 'pending';
 
         // FileName
-        $foto_peserta_l = 'foto_'.time() . $request->foto_peserta_l->getInode() .'.' . $request->foto_peserta_l->extension();
-        $kartu_pelajar_l = 'kpelajar_'.time() . $request->kartu_pelajar_l->getInode() .'.' . $request->kartu_pelajar_l->extension();
-        $surat_pernyataan_l = 'pernyataan_'.time() . $request->surat_pernyataan_l->getInode() .'.' . $request->surat_pernyataan_l->extension();
-        $bukti_pembayaran_l = 'pembayaran_'.time() . $request->bukti_pembayaran_l->getInode() .'.' . $request->bukti_pembayaran_l->extension();
-        $lampiran_guru_l = 'guru_'.time() . $request->lampiran_guru_l->getInode() .'.' . $request->lampiran_guru_l->extension();
-        $twibbon_l = 'twibbon_'.time() . $request->twibbon_l->getInode() .'.' . $request->twibbon_l->extension();
+        $foto_peserta_l = 'foto_' . time() . $request->foto_peserta_l->getInode() . '.' . $request->foto_peserta_l->extension();
+        $kartu_pelajar_l = 'kpelajar_' . time() . $request->kartu_pelajar_l->getInode() . '.' . $request->kartu_pelajar_l->extension();
+        $surat_pernyataan_l = 'pernyataan_' . time() . $request->surat_pernyataan_l->getInode() . '.' . $request->surat_pernyataan_l->extension();
+        $bukti_pembayaran_l = 'pembayaran_' . time() . $request->bukti_pembayaran_l->getInode() . '.' . $request->bukti_pembayaran_l->extension();
+        $lampiran_guru_l = 'guru_' . time() . $request->lampiran_guru_l->getInode() . '.' . $request->lampiran_guru_l->extension();
+        $twibbon_l = 'twibbon_' . time() . $request->twibbon_l->getInode() . '.' . $request->twibbon_l->extension();
 
         // Save To Folder
         $request->foto_peserta_l->move(public_path('/upload/lomba/' . $email), $foto_peserta_l);
@@ -370,7 +371,7 @@ class DashboardController extends Controller
 
 
         // Save To Folder
-        $poster_produk_e = 'poster_'.time() . $request->poster_produk_e->getInode() .'.' . $request->poster_produk_e->extension();
+        $poster_produk_e = 'poster_' . time() . $request->poster_produk_e->getInode() . '.' . $request->poster_produk_e->extension();
         $request->poster_produk_e->move(public_path('/upload/expo/' . $email), $poster_produk_e);
 
         //Save To DB
@@ -378,21 +379,21 @@ class DashboardController extends Controller
 
 
         foreach ($request->twibbon_e as $twibbon) {
-            $twibbon_e = 'twibbon_'.time() . $twibbon->getInode() .'.' . $twibbon->extension();
+            $twibbon_e = 'twibbon_' . time() . $twibbon->getInode() . '.' . $twibbon->extension();
             $twibbon->move(public_path('/upload/expo/' . $email), $twibbon_e);
             $file_twibbon[] = 'expo/' . $email . '/' . $twibbon_e;
         }
         $expo_it->twibbon = $file_twibbon;
 
         foreach ($request->foto_produk_e as $foto_produk) {
-            $foto_produk_e = 'produk_'.time() . $foto_produk->getInode() .'.' . $foto_produk->extension();
+            $foto_produk_e = 'produk_' . time() . $foto_produk->getInode() . '.' . $foto_produk->extension();
             $foto_produk->move(public_path('/upload/expo/' . $email), $foto_produk_e);
             $file_produk[] = 'expo/' . $email . '/' . $foto_produk_e;
         }
         $expo_it->foto_produk = $file_produk;
 
         foreach ($request->ktm_e as $ktm) {
-            $ktm_e = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_e = 'ktm_' . time() . $ktm->getInode() . '.' . $ktm->extension();
             $ktm->move(public_path('/upload/expo/' . $email), $ktm_e);
             $foto_ktm[] = 'expo/' . $email . '/' . $ktm_e;
         }
@@ -459,9 +460,9 @@ class DashboardController extends Controller
         $tcp_it->status = 'pending';
 
         // FileName
-        $proposal_t = 'biodata_'.time() . $request->proposal_t->getInode() .'.' . $request->proposal_t->extension();
-        $bukti_pembayaran_t = 'pembayaran_'.time() . $request->bukti_pembayaran_t->getInode() .'.' . $request->bukti_pembayaran_t->extension();
-        $biodata_t = 'biodata_'.time() . $request->biodata_t->getInode() .'.' . $request->biodata_t->extension();
+        $proposal_t = 'biodata_' . time() . $request->proposal_t->getInode() . '.' . $request->proposal_t->extension();
+        $bukti_pembayaran_t = 'pembayaran_' . time() . $request->bukti_pembayaran_t->getInode() . '.' . $request->bukti_pembayaran_t->extension();
+        $biodata_t = 'biodata_' . time() . $request->biodata_t->getInode() . '.' . $request->biodata_t->extension();
 
 
         // Save To Folder
@@ -482,7 +483,7 @@ class DashboardController extends Controller
 
 
         foreach ($request->ktm_t as $ktm) {
-            $ktm_t = 'ktm_'.time() . $ktm->getInode() .'.' . $ktm->extension();
+            $ktm_t = 'ktm_' . time() . $ktm->getInode() . '.' . $ktm->extension();
             $ktm->move(public_path('/upload/tcp/' . $email), $ktm_t);
             $foto_ktm[] = 'tcp/' . $email . '/' . $ktm_t;
         }
@@ -506,26 +507,25 @@ class DashboardController extends Controller
 
         $getStatus = ExpoIt::first()->where('user_id', Auth::user()->id)->get();
         $status = [];
-        if($getStatus[0]->status == 'pending'){
+        if ($getStatus[0]->status == 'pending') {
             $status = [
-                'status' => 'Pending',
+                // 'status' => 'Pending',
                 'bgColor' => 'warning',
                 'text' => 'Masih dalam proses verifikasi'
             ];
-        }else if($getStatus[0]->status == 'not verified'){
+        } else if ($getStatus[0]->status == 'not verified') {
             $status = [
-                'status' => 'Not Verified',
+                // 'status' => 'Not Verified',
                 'bgColor' => 'danger',
                 'text' => 'Anda dinyatakan Tidak Lolos'
             ];
-
-        }else if($getStatus[0]->status == 'verified'){
+        } else if ($getStatus[0]->status == 'verified') {
             $status = [
-                'status' => 'Verified',
+                // 'status' => 'Verified',
                 'bgColor' => 'success',
                 'text' => 'Anda dinyatakan Lolos'
             ];
-        }else{
+        } else {
             $status = [];
         }
 
@@ -534,7 +534,6 @@ class DashboardController extends Controller
             'getStatus' => $status
         ];
         return $data;
-
     }
 
     public function tcpStatus()
@@ -549,31 +548,25 @@ class DashboardController extends Controller
         $getStatus = TcpIt::first()->where('user_id', Auth::user()->id)->get();
         $status = [];
 
-        if($getStatus[0]->status == 'pending'){
+        if ($getStatus[0]->status == 'pending') {
             $status = [
-                'status' => 'Pending',
+                // 'status' => 'Pending',
                 'bgColor' => 'warning',
                 'text' => 'Masih dalam proses verifikasi'
             ];
-        }else if($getStatus[0]->status == 'not verified'){
+        } else if ($getStatus[0]->status == 'not verified') {
             $status = [
-                'status' => 'Not Verified',
+                // 'status' => 'Not Verified',
                 'bgColor' => 'danger',
                 'text' => 'Anda dinyatakan Tidak Lolos'
             ];
-        }else if($getStatus[0]->status == 'not paid'){
+        } else if ($getStatus[0]->status == 'verified') {
             $status = [
-                'status' => 'Not Paid',
-                'bgColor' => 'warning',
-                'text' => 'Anda dinyatakan Tidak Lolos'
-            ];
-        }else if($getStatus[0]->status == 'verified'){
-            $status = [
-                'status' => 'Verified',
+                // 'status' => 'Verified',
                 'bgColor' => 'success',
                 'text' => 'Anda dinyatakan Lolos'
             ];
-        }else{
+        } else {
             $status = [];
         }
 
@@ -582,7 +575,6 @@ class DashboardController extends Controller
             'getStatus' => $status
         ];
         return $data;
-
     }
 
     public function lombaStatus()
@@ -597,31 +589,58 @@ class DashboardController extends Controller
         $getStatus = LombaIt::first()->where('user_id', Auth::user()->id)->get();
         $status = [];
 
-        if($getStatus[0]->status == 'pending'){
+        if ($getStatus[0]->status == 'pending') {
             $status = [
-                'status' => 'Pending',
+                // 'status' => 'Proses Verifikasi Berkas',
                 'bgColor' => 'warning',
-                'text' => 'Masih dalam proses verifikasi'
+                'text' => '
+                    <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba KONFIGURASI JARINGAN EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”
+                    File Anda telah kami terima.  Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a dan semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar berikutnya.</p>
+                    <br/>
+                    <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                    <ul>
+                    <li>082331322173 (Puja)</li>
+                    <li>08980342135 (Ageng)</li>
+                    <li>082249652927 (Alvioni)</li>
+                    </ul>
+                    <p>Terimakasih</p>
+                '
             ];
-        }else if($getStatus[0]->status == 'not verified'){
+        } else if ($getStatus[0]->status == 'not verified') {
             $status = [
-                'status' => 'Not Verified',
+                // 'status' => 'Not Verified',
                 'bgColor' => 'danger',
-                'text' => 'Anda dinyatakan Tidak Lolos'
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba KONFIGURASI JARINGAN EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas anda sudah kami verifikasi. Dan mohon maaf ANDA TIDAK LOLOS KE TAHAP SELANJUTNYA. Jangan berkecil hati tetap semangat untuk mengikuti lomba berikutnya.</p>
+                <br/>
+                <p>Terimakasih</p>
+                '
             ];
-        }else if($getStatus[0]->status == 'not paid'){
+        } else if ($getStatus[0]->status == 'verified') {
             $status = [
-                'status' => 'Not Paid',
-                'bgColor' => 'warning',
-                'text' => 'Anda dinyatakan Tidak Lolos'
-            ];
-        }else if($getStatus[0]->status == 'verified'){
-            $status = [
-                'status' => 'Verified',
+                // 'status' => 'Verified',
                 'bgColor' => 'success',
-                'text' => 'Anda dinyatakan Lolos'
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba KONFIGURASI JARINGAN EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas anda sudah kami verifikasi. Dan Selamat Anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.</p>
+                <br/>
+                <p>Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp :
+                <a href="https://chat.whatsapp.com/Jh2ihTMCByi1cRW2aIQaOM">Link WhatsApp Grup</a>
+                Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
+                <br/>
+                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                <ul>
+                <li>082331322173 (Puja)</li>
+                <li>08980342135 (Ageng)</li>
+                <li>082249652927 (Alvioni)</li>
+                </ul>
+                <p>Terimakasih</p>
+                '
             ];
-        }else{
+        } else {
             $status = [];
         }
 

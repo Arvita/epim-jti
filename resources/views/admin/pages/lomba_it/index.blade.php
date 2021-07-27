@@ -195,7 +195,7 @@
                             </div>
                             <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Tempat, Tanggal Lahir</p>
-                                <p><span class="tempat_lahir"></span><span class="tanggal_lahir"></span></p>
+                                <p><span class="tempat_lahir"></span>, <span class="tanggal_lahir"></span></p>
                             </div>
                             <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Jenis Kelamin</p>
@@ -267,8 +267,8 @@
             $("#email").text(data.email);
             $("#nama_peserta").text(data.nama_peserta);
             $("#nis").text(data.nis);
-            $("#tempatahir").text(data.tempatahir);
-            $("#tanggalahir").text(data.tanggalahir);
+            $(".tempat_lahir").text(data.tempat_lahir);
+            $(".tanggal_lahir").text(data.tanggal_lahir);
             $("#jenis_kelamin").text(data.jenis_kelamin);
             $("#usia").text(data.usia);
             $("#nomor_peserta").text(data.no_wa_peserta);

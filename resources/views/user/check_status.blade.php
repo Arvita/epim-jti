@@ -11,8 +11,7 @@
                 <div class="col-12 mb-4">
                   <div class="hero bg-{{ $getStatus['bgColor'] ? $getStatus['bgColor'] : 'primary' }} text-white">
                     <div class="hero-inner">
-                      <h2>Status: {{ $getStatus['status'] }}</h2>
-                      <p class="lead">{{$getStatus['text']}}</p>
+                      <p class="lead">{!!$getStatus['text']!!}</p>
                     </div>
                   </div>
                 </div>
