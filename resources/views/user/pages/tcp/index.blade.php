@@ -86,14 +86,8 @@
                             <td>{{ $item->nama_tim }}</td>
                             <td>{{ $item->perguruan_tinggi }}</td>
                             <td><a href="{{ asset('upload/'.$item->proposal) }}">Proposal</a></td>
-                            <td class="align-middle">
-                                @if ($item->status == 'verified')
-                                    <div class="badge badge-success">Lolos</div>
-                                @elseif ($item->status == 'not verified')
-                                    <div class="badge badge-danger">Tidak Lolos</div>
-                                @else
-                                    <div class="badge badge-warning">Belum Diseleksi</div>
-                                @endif
+                            <td class="px-0 align-center">
+                                <button class="d-small btn btn-primary" onclick="opemModalDetail({{$item->id}})">Cek Status</button>
                             </td>
                         </tr>
                           @empty
@@ -111,6 +105,13 @@
           </div>
         </section>
       </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+    </div>
       <div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-1" aria-modal="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -278,6 +279,69 @@
             </div>
         </div>
     </div>
+    @foreach ($proposal as $item)
+    <div class="modal fade" tabindex="-1" role="dialog" id="modalDetail{{$item->id}}" aria-modal="true">
+        <div class="modal-dialog modal-lg" role="document">
+            @if ($item->status == 'verified')
+            <div class="modal-content text-white bg-success">
+        @elseif ($item->status == 'not verified')
+        <div class="modal-content text-white bg-danger">
+        @else
+        <div class="modal-content text-white bg-warning">
+        @endif
+                <div class="modal-header">
+                    <h5 class="modal-title">Cek Status</h5> <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @if ($item->status == 'verified')
+                                <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba BISNIS TIK EPIM 2021 : “Optimizing the Creativity of Young Generation as Millenial Entrepeneurs”</p>
+                                <br/>
+                                <p>Berkas tim anda sudah kami verifikasi. Dan Selamat Tim anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.
+                                    Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) : <a href="https://chat.whatsapp.com/IJfacvYYovBJJ7aS0CypIF" target="_blank">Link WhatsApp Grup</a>
+                                    Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
+                                <br>
+                                <p>Terus semangat dan berdoa, semoga kamu juaranya!
+                                    Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                                <br>
+                                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                                <ul>
+                                <li>089630263559 (Shafa)</li>
+                                <li>081554347187 (Devi)</li>
+                                <li>Line ID : shafathaliah</li>
+                                </ul>
+                                <p>Terimakasih</p>
+
+                                @elseif ($item->status == 'not verified')
+                                <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba BISNIS TIK EPIM 2021 : “Optimizing the Creativity of Young Generation as Millenial Entrepeneurs”</p>
+                                <br/>
+                                <p>Berkas anda sudah kami verifikasi. Dan mohon maaf  TIM ANDA TIDAK LOLOS KE TAHAP SELANJUTNYA. Jangan berkecil hati dan tetap semangat. </p>
+                                <p>Terimakasih</p>
+                                @else
+                                <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba BISNIS TIK EPIM 2021 : “Optimizing the Creativity of Young Generation as Millenial Entrepeneurs”</p>
+                                <br/>
+                                <p>File Anda telah kami terima. Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar selanjutnya.</p>
+                                <br>
+                                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                                <ul>
+                                <li>089630263559 (Shafa)</li>
+                                <li>081554347187 (Devi)</li>
+                                <li>Line ID : shafathaliah</li>
+                                </ul>
+                                <p>Terimakasih</p>
+                                @endif
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+            </div>
+    @endforeach
 @endsection()
 @section('customjs')
     <script src="{{asset('dist/dropzone/dropzone.min.js')}}"></script>
@@ -301,5 +365,12 @@
             $("#modal-1").fireModal('');
         })
 
+        // $("#modalOpenId").click(() => {
+        //     $("#modalId").modal('show');
+        // })
+        function opemModalDetail(id){
+            console.log(id);
+            $("#modalDetail"+id).modal('show');
+        }
     </script>
 @endsection

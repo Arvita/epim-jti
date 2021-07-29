@@ -514,19 +514,58 @@ class DashboardController extends Controller
             $status = [
                 // 'status' => 'Pending',
                 'bgColor' => 'warning',
-                'text' => 'Masih dalam proses verifikasi'
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>File Anda telah kami terima. Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar selanjutnya.</p>
+                <br/>
+                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                <ul>
+                <li>085156426240 (Lukman)</li>
+                <li>082229741767 (Iqbal)</li>
+                <li>088217283172 (Nura)</li>
+                </ul>
+                <p>Terimakasih</p>
+                '
             ];
+
+
+
+
         } else if ($getStatus[0]->status == 'not verified') {
             $status = [
                 // 'status' => 'Not Verified',
                 'bgColor' => 'danger',
-                'text' => 'Anda dinyatakan Tidak Lolos'
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas anda sudah kami verifikasi. Dan mohon maaf  TIM ANDA TIDAK LOLOS KE TAHAP SELANJUTNYA. Jangan berkecil hati dan tetap semangat.</p>
+                <br/>
+                <p>Terimakasih</p>
+                '
             ];
         } else if ($getStatus[0]->status == 'verified') {
             $status = [
                 // 'status' => 'Verified',
                 'bgColor' => 'success',
-                'text' => 'Anda dinyatakan Lolos'
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas tim anda sudah kami verifikasi. Dan Selamat Tim anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.
+                Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) :
+                </p>
+                <p>Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
+                <br/>
+                <p>Terus semangat dan berdoa, semoga kamu juaranya!</p>
+                <br/>
+                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                <ul>
+                <li>085156426240 (Lukman)</li>
+                <li>082229741767 (Iqbal)</li>
+                <li>088217283172 (Nura)</li>
+                </ul>
+                <p>Terimakasih</p>
+                '
             ];
         } else {
             $status = [];
@@ -644,13 +683,29 @@ class DashboardController extends Controller
                 '
             ];
         } else {
-            $status = [];
+            $status = [
+                // 'status' => 'Proses Verifikasi Berkas',
+                'bgColor' => 'warning',
+                'text' => '
+                    <p>Terimakasih telah berpartisipasi dalam kegiatan Lomba KONFIGURASI JARINGAN EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”
+                    File Anda telah kami terima.  Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a dan semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar berikutnya.</p>
+                    <br/>
+                    <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                    <ul>
+                    <li>082331322173 (Puja)</li>
+                    <li>08980342135 (Ageng)</li>
+                    <li>082249652927 (Alvioni)</li>
+                    </ul>
+                    <p>Terimakasih</p>
+                '
+            ];
         }
 
         $data = [
             'getEvent' => $getEvent,
             'getStatus' => $status
         ];
+
 
         return $data;
     }
