@@ -160,7 +160,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                         <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
                       </div>
                       <h1 class="form-title">
-                        PENDAFTARAN EXPO IT
+                        PENDAFTARAN EXPO PRODUK IT
                       </h1>
                     </div>
                     <form action="{{route('user.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
@@ -169,11 +169,13 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                         <h2 class="form-sub-title">
                           Data TIM
                         </h2>
+                        <hr>
+
                         <div class="form-wrapper">
                             <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nama TIM
                                 </label>
-                                <input type="text" class="form-control @error('nama_tim_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_tim_e" value="{{old('nama_tim_e')}}" required>
+                                <input type="text" class="form-control @error('nama_tim_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_tim_e" value="{{old('nama_tim_e')}}" placeholder="Contoh : Bro Dev." required>
                                 @error('nama_tim_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -191,20 +193,16 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <label for="" class="form-label">Semester</label>
                                 <select class="form-control" name="semester_e" id="semester_e">
-                                    <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5</option>
                                     <option value="6">6</option>
-                                    <option class="tif-option" value="7">7</option>
-                                    <option class="tif-option" value="8">8</option>
+                                    <option value="8">8</option>
                               </select>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Ketua TIM
                                 </label>
-                                <input type="email" class="form-control @error('email_ketua_e') is-invalid @enderror" id="email" name="email_ketua_e" value="{{old('email_ketua_e')}}" required>
+                                <input type="email" class="form-control @error('email_ketua_e') is-invalid @enderror" id="email" name="email_ketua_e" value="{{old('email_ketua_e')}}" placeholder="Contoh : e41234567@student.polije.ac.id" required>
                                   @error('email_ketua_e')
                                   <div class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -214,7 +212,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nama Ketua TIM
                                 </label>
-                                <input type="text" class="form-control @error('nama_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_ketua_e" value="{{old('nama_ketua_e')}}" required>
+                                <input type="text" class="form-control @error('nama_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_ketua_e" value="{{old('nama_ketua_e')}}" placeholder="Contoh : Gilang Pamungkas" required>
                                 @error('nama_ketua_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -224,7 +222,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nomor WA Ketua TIM
                                 </label>
-                                <input type="text" class="form-control @error('nomor_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nomor_ketua_e" value="{{old('nomor_ketua_e')}}" required>
+                                <input type="number" class="form-control @error('nomor_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nomor_ketua_e" value="{{old('nomor_ketua_e')}}" placeholder="Contoh : 082123456789"  required>
                                 @error('nomor_ketua_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -232,14 +230,10 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 @enderror
                               </div>
                           <div class="mb-3">
-                            <label for="email" class="form-label">Email Anggota TIM
+                              <label for="email" class="form-label">Email Anggota TIM
+                                  <small id="" class="form-text text-muted">Email anggota dipisahkan oleh koma (,)</small>
                             </label>
-                            <input type="text" class="form-control @error('email_peserta_e') is-invalid @enderror" id="email" name="email_peserta_e" value="{{old('email_peserta_e')}}" required>
-                            <p>
-                                <small id="" class="form-text text-muted">Email Peserta dipisahkan oleh koma (,)</small>
-                                <small id="" class="form-text text-muted">Contoh: e41299844@student.polije.ac.id, e41123434@student.polije.ac.id, e41233942@student.polije.ac.id</small>
-
-                            </p>
+                                <input type="text" class="form-control @error('email_peserta_e') is-invalid @enderror" id="email" name="email_peserta_e" value="{{old('email_peserta_e')}}" placeholder="Contoh: e41299844@student.polije.ac.id, e41123434@student.polije.ac.id, e41233942@student.polije.ac.id" required>
                               @error('email_peserta_e')
                               <div class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -248,13 +242,9 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </div>
                           <div class="mb-3">
                             <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap Anggota TIM
+                                <small id="" class="form-text text-muted">Nama Lengkap Anggota TIM dipisahkan oleh koma (,)</small>
                             </label>
-                            <input type="text" class="form-control @error('nama_peserta_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_e" value="{{old('nama_peserta_e')}}" required>
-                            <p>
-                                <small id="" class="form-text text-muted">Nama Lengkap dipisahkan oleh koma (,)</small>
-                                <small id="" class="form-text text-muted">Contoh: Alvin Cahyo, Sulistywati, Iqbal Ikhlasul</small>
-
-                            </p>
+                            <input type="text" class="form-control @error('nama_peserta_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_e" value="{{old('nama_peserta_e')}}" placeholder="Contoh: Muhammad Kevin, Ilham Saputra, Siti Aisyah" required>
                             @error('nama_peserta_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -263,8 +253,12 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </div>
 
                           <div class="mb-3">
-                            <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah (semua anggota TIM)</label>
+                              <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah (semua anggota TIM)
+                                  <small id="" class="form-text text-muted">Scan di jadikan 1 file dengan format <b>.pdf</b></small>
+                              </label>
                             <input type="file" multiple class="form-control @error('ktm_e') is-invalid @enderror" id="nis" name="ktm_e[]" value="{{old('ktm_e')}}" required>
+                            <p>
+                            </p>
                             @error('ktm_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -273,14 +267,16 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </div>
                         </div>
                       </div>
+                      <hr>
                       <div class="col-lg-12">
                         <h2 class="form-sub-title">
                           Data Produk
                         </h2>
+                        <hr>
                         <div class="form-wrapper">
                           <div class="mb-3">
                             <label for="nama_lengkap_pendamping" class="form-label">Nama Produk / Judul Produk</label>
-                            <input type="text" class="form-control @error('nama_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_produk_e" value="{{old('nama_produk_e')}}" required>
+                            <input type="text" class="form-control @error('nama_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_produk_e" value="{{old('nama_produk_e')}}" placeholder="Contoh : Sistem Informasi Tanam Padi" required>
                             @error('nama_produk_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -306,8 +302,10 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               @enderror
                           </div>
                           <div class="mb-3">
-                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat dan atau Tujuan Produk</label>
-                            <input type="text" class="form-control @error('manfaat_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="manfaat_produk_e" value="{{old('manfaat_produk_e')}}" required>
+                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat atau Tujuan Produk
+                                <small id="" class="form-text text-muted">Dipisahkan dengan koma ( , )</small>
+                            </label>
+                            <input type="text" class="form-control @error('manfaat_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="manfaat_produk_e" value="{{old('manfaat_produk_e')}}" placeholder="Contoh : Untuk memudahkan pekerjaan petani, Membantu perekonomian petani, Mensejahterakan petani padi" required>
                             @error('manfaat_produk_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -317,7 +315,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="poster_produk_e" class="form-label d-block">Poster / Pamflet Produk (Ukuran A4)
-                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
+                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png | Ukuran file maksimal: 2MB</small>
                               </label>
                               <input type="file"
                               class="filepond poster_produk_e"
@@ -330,7 +328,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="foto_produk_e" class="form-label d-block">Screen Capture / Foto Produk *maksimal 5 foto
-                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
+                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB/foto</small>
                               </label>
                               <input type="file"
                               class="filepond foto_produk_e"
@@ -360,7 +358,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                           </div>
                           <div class="form-group">
                             <label for="twibbon_e" class="form-label d-block">Twibbon
-                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
+                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png| Ukuran file maksimal: 300KB</small>
                             </label>
                             <input type="file"
                             class="filepond twibbon_e"

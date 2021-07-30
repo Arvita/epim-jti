@@ -349,6 +349,18 @@ class DashboardController extends Controller
                 "deskripsi_produk_e" => "required",
                 "manfaat_produk_e" => "required",
                 "url_video_e" => "required",
+            ],
+            [
+                "nama_tim_e.required" => "Kolom Nama TIM wajib diis.i",
+                "email_ketua_e.required" => "Kolom email ketua wajib diisi.",
+                "nama_ketua_e.required" => "Kolom nama ketua wajib diisi.",
+                "nomor_ketua_e.required" => "Kolom nomor ketua wajib diisi.",
+                "email_peserta_e.required" => "Kolom email ketua wajib diisi.",
+                "nama_peserta_e.required" => "Kolom nama anggota wajib diisi.",
+                "nama_produk_e.required" => "Kolom nama produk wajib diisi.",
+                "deskripsi_produk_e.required" => "Kolom deskripsi produk wajib diisi.",
+                "manfaat_produk_e.required" => "Kolom manfaat produk wajib diisi.",
+                "url_video_e.required" => "kolom url video wajib diisi.",
             ]
         );
 
@@ -528,10 +540,6 @@ class DashboardController extends Controller
                 <p>Terimakasih</p>
                 '
             ];
-
-
-
-
         } else if ($getStatus[0]->status == 'not verified') {
             $status = [
                 // 'status' => 'Not Verified',

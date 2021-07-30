@@ -70,7 +70,7 @@
                             <h1 class="hero-title">
                                 LOMBA KONFIGURASI JARINGAN
                             </h1>
-                            <p>Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional</p>
+                            <p>Lomba Konfigurasi Jaringan adalah ajang perlombaan konfigurasi jaringan yang menggambarkan berbagai kegiatan yang berhubungan dengan membangun dan mempertahankan jaringan data. Konfigurasi Jaringan mencakup isu-isu yang berkaitan dengan memungkinkan protokol dari perspektif perangkat lunak, dan isu-isu yang berkaitan dengan router, switch, dan firewall dari perspektif hardware, dan peserta diikuti oleh siswa/siswi SMK Tingkat Nasional. Kegiatan Lomba Konfigurasi Jaringan dilaksanakan secara Daring (Online).</p>
                             <a href="{{ route('lomba_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
@@ -89,7 +89,7 @@
                             <h1 class="hero-title">
                                 LOMBA BISNIS TIK
                             </h1>
-                            <p>Lomba Bisnis TIK merupakan perlombaan atau kompetisi pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1 Se-Indonesia di perguruan tinggi negeri maupun swasta. Lomba ini memberikan kesempatan kepada peserta yang memiliki ide bisnis, start up, dan pengembangan usaha serta inovasi dan kreatifitas siswa, baik berupa jasa atau produk yang berorientasi pada bidang Teknologi Informasi.</p>
+                            <p>Lomba Bisnis TIK merupakan perlombaan atau kompetisi pembuatan proposal business plan yang ditujukan kepada mahasiswa aktif yang terdaftar dalam program Diploma/S1 Se-Indonesia di perguruan tinggi negeri maupun swasta. Lomba ini memberikan kesempatan kepada peserta yang memiliki ide bisnis, start up, dan pengembangan usaha serta inovasi dan kreatifitas siswa, baik berupa jasa atau produk yang berorientasi pada bidang Teknologi Informasi. Kegiatan Lomba Bisnis TIK dilaksanakan secara Daring (Online).</p>
                             <a href="{{ route('tcp_it') }}" class="hero-btn">Selengkapnya</a>
                         </div>
 
