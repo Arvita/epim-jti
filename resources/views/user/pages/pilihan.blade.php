@@ -1,9 +1,7 @@
 @extends('auth.master')
 @section('title', 'Pilih Lomba EPIM')
 @section('customcss')
-<link rel="stylesheet"
-href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
-<link rel="stylesheet" href="{{asset('dist/filepond/filepond.min.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
     .empty-state-icon {
         background-color: transparent !important;
@@ -54,6 +52,17 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 
 .btn-register-submit:hover{
     background-color: #a30b00ec
+}
+
+.select2-container {
+    width: 100% !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+    color: #34395e !important;
+}
+.select2-container--default .select2-selection--multiple{
+    border-color: #e4e6fc;
+    padding-bottom: 10px;
 }
 </style>
 @endsection()
@@ -284,8 +293,8 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                               @enderror
                           </div>
                           <div class="mb-3">
-                            <label for="" class="form-label">Kategori Produk</label>
-                            <select class="form-control" name="kategori_produk_e" id="kategori_produk_e">
+                            <label for="" class="form-label d-block">Kategori Produk</label>
+                            <select class="form-control" multiple="multiple" name="kategori_produk_e[]" id="kategori_produk_e">
                                 <option value="dekstop">Desktop</option>
                                 <option value="web">Website</option>
                                 <option value="mobile">Mobile App</option>
@@ -318,7 +327,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png | Ukuran file maksimal: 2MB</small>
                               </label>
                               <input type="file"
-                              class="filepond poster_produk_e"
+                              class="form-contro poster_produk_e"
                               name="poster_produk_e" required accept=".jpg,.jpeg,.png"/>
                               @error('poster_produk_e')
                               <small id="poster_produk_e" class="form-text text-danger">{{ $message }}</small>
@@ -331,7 +340,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB/foto</small>
                               </label>
                               <input type="file"
-                              class="filepond foto_produk_e"
+                              class="form-contro foto_produk_e"
                               name="foto_produk_e[]" required accept=".jpg,.jpeg,.png" multiple/>
                               @error('foto_produk_e')
                               <small id="foto_produk_e" class="form-text text-danger">{{ $message }}</small>
@@ -361,7 +370,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                 <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png| Ukuran file maksimal: 300KB</small>
                             </label>
                             <input type="file"
-                            class="filepond twibbon_e"
+                            class="form-contro twibbon_e"
                             name="twibbon_e[]"  multiple required accept=".jpg,.jpeg,.png"/>
                             @error('twibbon_e')
                             <small id="twibbon_e" class="form-text text-danger">{{ $message }}</small>
@@ -549,7 +558,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="foto_peserta" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond foto_peserta"
+                                class="form-contro foto_peserta"
                                 name="foto_peserta_l" required accept=".jpg,.jpeg,.png"/>
                                 @error('foto_peserta_l')
                                 <small id="foto_peserta_l" class="form-text text-danger">{{ $message }}</small>
@@ -562,7 +571,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="ktp" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond ktp"
+                                class="form-contro ktp"
                                 name="kartu_pelajar_l" required accept=".pdf"/>
                                 @error('kartu_pelajar_l')
                                 <small id="kartu_pelajar_l" class="form-text text-danger">{{ $message }}</small>
@@ -575,7 +584,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="surat_pernyataan" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond surat_pernyataan"
+                                class="form-contro surat_pernyataan"
                                 name="surat_pernyataan_l" required accept=".pdf"/>
                                 @error('surat_pernyataan_l')
                                 <small id="surat_pernyataan_l" class="form-text text-danger">{{ $message }}</small>
@@ -588,7 +597,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="bukti_pembayaran" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond bukti_pembayaran"
+                                class="form-contro bukti_pembayaran"
                                 name="bukti_pembayaran_l" required accept=".pdf"/>
                                 @error('bukti_pembayaran_l')
                                 <small id="bukti_pembayaran_l" class="form-text text-danger">{{ $message }}</small>
@@ -601,7 +610,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond lampiran_guru"
+                                class="form-contro lampiran_guru"
                                 name="lampiran_guru_l" required accept=".pdf"/>
                                 @error('lampiran_guru_l')
                                 <small id="lampiran_guru_l" class="form-text text-danger">{{ $message }}</small>
@@ -614,7 +623,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="filepond lampiran_guru"
+                                class="form-contro lampiran_guru"
                                 name="twibbon_l" required accept=".jpg,.jpeg,.png"/>
                                 @error('twibbon_l')
                                 <small id="twibbon_l" class="form-text text-danger">{{ $message }}</small>
@@ -740,7 +749,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   </label>
 
                                   <input type="file"
-                                  class="filepond file-ktm"
+                                  class="form-contro file-ktm"
                                   name="ktm_t[]" multiple required accept=".jpg,.jpeg,.png"/>
                                 </div>
                                 @error('ktm_t')
@@ -754,7 +763,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                   </label>
 
                                   <input type="file"
-                                  class="filepond bukti_pembayaran"
+                                  class="form-contro bukti_pembayaran"
                                   name="bukti_pembayaran_t" required accept=".pdf"/>
                                 </div>
                                 @error('bukti_pembayaran_t')
@@ -767,7 +776,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
-                                  class="filepond file-biodata"
+                                  class="form-contro file-biodata"
                                   name="biodata_t" required accept=".pdf"/>
                                   @error('biodata_t')
                                   <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
@@ -780,7 +789,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 10MB</small>
                                   </label>
                                   <input type="file"
-                                  class="filepond"
+                                  class="form-contro"
                                   name="proposal_t" required accept=".pdf"/>
                                   @error('proposal_t')
                                   <small id="proposal_t" class="form-text text-danger">{{ $message }}</small>
@@ -793,7 +802,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
                                       <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
-                                  class="filepond lampiran_guru" multiple
+                                  class="form-contro lampiran_guru" multiple
                                   name="twibbon_t[]" required accept=".jpg,.jpeg,.png"/>
                                   @error('twibbon_t')
                                   <small id="twibbon_t" class="form-text text-danger">{{ $message }}</small>
@@ -823,6 +832,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 </div>
 @endsection()
 @section('customjs')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="{{ asset('backend/modules/prism/prism.js') }}"></script>
 <script src="{{ asset('backend/js/page/bootstrap-modal.js') }}"></script>
 
@@ -846,7 +856,7 @@ href="{{asset('dist/filepond/filepond-plugin-image-preview.min.css')}}">
 @endif
 <script>
     $(document).ready(function () {
-
+        $('#kategori_produk_e').select2();
         $("#prodi_e").change(function (e) {
             if($("#prodi_e").val() != "tif"){
                 $(".tif-option").remove();

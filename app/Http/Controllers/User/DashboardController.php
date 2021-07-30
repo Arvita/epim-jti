@@ -376,13 +376,20 @@ class DashboardController extends Controller
         $expo_it->email_anggota = $request->email_peserta_e;
         $expo_it->nama_anggota = $request->nama_peserta_e;
         $expo_it->nama_produk = $request->nama_produk_e;
-        $expo_it->kategori_produk = $request->kategori_produk_e;
+
         $expo_it->deskripsi_produk = $request->deskripsi_produk_e;
         $expo_it->manfaat_produk = $request->manfaat_produk_e;
         $expo_it->url_video = $request->url_video_e;
         $expo_it->url_aplikasi = $request->url_aplikasi_e;
 
         $expo_it->status = "pending";
+
+
+
+        foreach ($request->kategori_produk_e as $item) {
+            $kategori_produk[] = $item;
+        }
+        $expo_it->kategori_produk = $kategori_produk;
 
 
         // Save To Folder
