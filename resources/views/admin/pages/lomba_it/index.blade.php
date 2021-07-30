@@ -89,6 +89,7 @@
                             </th>
                             <th>Email</th>
                             <th>Nama Peserta</th>
+                            <th>Asal Sekolah</th>
                             <th>NIS</th>
                             <th>Tempat Lahir</th>
                             <th>Jenis Kelamin</th>
@@ -103,6 +104,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->nama_peserta }}</td>
+                            <td>{{ $item->asal_sekolah }}</td>
                             <td>{{ $item->nis }}</td>
                             <td>{{ $item->tempat_lahir }}</td>
                             <td>{{ $item->jenis_kelamin }}</td>
@@ -186,6 +188,10 @@
                                 <p id="nama_peserta"></p>
                             </div>
                             <div class="mb-3">
+                                <p class="font-weight-bold mb-1">Asal Sekolah</p>
+                                <p id="asal_sekolah"></p>
+                            </div>
+                            <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Email</p>
                                 <p id="email"></p>
                             </div>
@@ -252,7 +258,6 @@
 <script>
     let assetPath = "{{ asset('upload/') }}"
     function openModalInfo(id) {
-        console.log(assetPath);
        $.ajax({
            type: "POST",
            headers: {
@@ -262,10 +267,10 @@
            data: {id: id},
            dataType: "JSON",
            success: function (data) {
-               console.log(data);
             // $(".list").remove();
             $("#email").text(data.email);
             $("#nama_peserta").text(data.nama_peserta);
+            $("#asal_sekolah").text(data.asal_sekolah);
             $("#nis").text(data.nis);
             $(".tempat_lahir").text(data.tempat_lahir);
             $(".tanggal_lahir").text(data.tanggal_lahir);

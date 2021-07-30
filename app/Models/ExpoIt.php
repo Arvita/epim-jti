@@ -56,4 +56,12 @@ class ExpoIt extends Model
         $this->attributes['twibbon'] = json_encode($value);
 
     }
+
+    public function setKategoriProdukAttribute($value)
+
+    {
+
+        $this->attributes['kategori_produk'] = json_encode($value);
+
+    }
 }
