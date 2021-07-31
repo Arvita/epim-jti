@@ -30,7 +30,6 @@
     box-sizing: inherit;
     line-height: 1;
 }
-
 .btn-register-submit{
     background-color: #a30b00;
     margin: 30px 0;
@@ -92,7 +91,6 @@
                                     <button id="modal-1" class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
                                     <a href="https://bit.ly/twibondanlampiran_BisnisTik2021" class="mt-4 bb" target="_blank">Download Lampiran Lomba Bisnis TIK</a>
                                     <a href="{{asset('buku_pedoman/BUKU PEDOMAN BISNIS TIK 2021.pdf')}}" class="mt-2 bb">Download Buku Panduan</a>
-
                                 </div>
                             </div>
                         </div>
@@ -169,7 +167,7 @@
                         <a href="#"><img src="{{asset('img/logo_epim.png')}}" alt="" height="50px"></a>
                       </div>
                       <h1 class="form-title">
-                        PENDAFTARAN EXPO PRODUK IT
+                        PENDAFTARAN EXPO IT
                       </h1>
                     </div>
                     <form action="{{route('user.registrasi.lomba')}}" name="submit" class="form-pendaftaran col-12"  method="POST" enctype="multipart/form-data">
@@ -178,13 +176,11 @@
                         <h2 class="form-sub-title">
                           Data TIM
                         </h2>
-                        <hr>
-
                         <div class="form-wrapper">
                             <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nama TIM
                                 </label>
-                                <input type="text" class="form-control @error('nama_tim_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_tim_e" value="{{old('nama_tim_e')}}" placeholder="Contoh : Bro Dev." required>
+                                <input type="text" class="form-control @error('nama_tim_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_tim_e" value="{{old('nama_tim_e')}}" required>
                                 @error('nama_tim_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -202,16 +198,20 @@
                               <div class="mb-3">
                                 <label for="" class="form-label">Semester</label>
                                 <select class="form-control" name="semester_e" id="semester_e">
+                                    <option value="1">1</option>
                                     <option value="2">2</option>
+                                    <option value="3">3</option>
                                     <option value="4">4</option>
+                                    <option value="5">5</option>
                                     <option value="6">6</option>
-                                    <option value="8">8</option>
+                                    <option class="tif-option" value="7">7</option>
+                                    <option class="tif-option" value="8">8</option>
                               </select>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Ketua TIM
                                 </label>
-                                <input type="email" class="form-control @error('email_ketua_e') is-invalid @enderror" id="email" name="email_ketua_e" value="{{old('email_ketua_e')}}" placeholder="Contoh : e41234567@student.polije.ac.id" required>
+                                <input type="email" class="form-control @error('email_ketua_e') is-invalid @enderror" id="email" name="email_ketua_e" value="{{old('email_ketua_e')}}" required>
                                   @error('email_ketua_e')
                                   <div class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -221,7 +221,7 @@
                               <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nama Ketua TIM
                                 </label>
-                                <input type="text" class="form-control @error('nama_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_ketua_e" value="{{old('nama_ketua_e')}}" placeholder="Contoh : Gilang Pamungkas" required>
+                                <input type="text" class="form-control @error('nama_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_ketua_e" value="{{old('nama_ketua_e')}}" required>
                                 @error('nama_ketua_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -231,7 +231,7 @@
                               <div class="mb-3">
                                 <label for="nama_lengkap_peserta" class="form-label">Nomor WA Ketua TIM
                                 </label>
-                                <input type="number" class="form-control @error('nomor_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nomor_ketua_e" value="{{old('nomor_ketua_e')}}" placeholder="Contoh : 082123456789"  required>
+                                <input type="text" class="form-control @error('nomor_ketua_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nomor_ketua_e" value="{{old('nomor_ketua_e')}}" required>
                                 @error('nomor_ketua_e')
                                 <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -239,10 +239,14 @@
                                 @enderror
                               </div>
                           <div class="mb-3">
-                              <label for="email" class="form-label">Email Anggota TIM
-                                  <small id="" class="form-text text-muted">Email anggota dipisahkan oleh koma (,)</small>
+                            <label for="email" class="form-label">Email Anggota TIM
                             </label>
-                                <input type="text" class="form-control @error('email_peserta_e') is-invalid @enderror" id="email" name="email_peserta_e" value="{{old('email_peserta_e')}}" placeholder="Contoh: e41299844@student.polije.ac.id, e41123434@student.polije.ac.id, e41233942@student.polije.ac.id" required>
+                            <input type="text" class="form-control @error('email_peserta_e') is-invalid @enderror" id="email" name="email_peserta_e" value="{{old('email_peserta_e')}}" required>
+                            <p>
+                                <small id="" class="form-text text-muted">Email Peserta dipisahkan oleh koma (,)</small>
+                                <small id="" class="form-text text-muted">Contoh: e41299844@student.polije.ac.id, e41123434@student.polije.ac.id, e41233942@student.polije.ac.id</small>
+
+                            </p>
                               @error('email_peserta_e')
                               <div class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -251,9 +255,13 @@
                           </div>
                           <div class="mb-3">
                             <label for="nama_lengkap_peserta" class="form-label">Nama Lengkap Anggota TIM
-                                <small id="" class="form-text text-muted">Nama Lengkap Anggota TIM dipisahkan oleh koma (,)</small>
                             </label>
-                            <input type="text" class="form-control @error('nama_peserta_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_e" value="{{old('nama_peserta_e')}}" placeholder="Contoh: Muhammad Kevin, Ilham Saputra, Siti Aisyah" required>
+                            <input type="text" class="form-control @error('nama_peserta_e') is-invalid @enderror" id="nama_lengkap_peserta" name="nama_peserta_e" value="{{old('nama_peserta_e')}}" required>
+                            <p>
+                                <small id="" class="form-text text-muted">Nama Lengkap dipisahkan oleh koma (,)</small>
+                                <small id="" class="form-text text-muted">Contoh: Alvin Cahyo, Sulistywati, Iqbal Ikhlasul</small>
+
+                            </p>
                             @error('nama_peserta_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -262,12 +270,8 @@
                           </div>
 
                           <div class="mb-3">
-                              <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah (semua anggota TIM)
-                                  <small id="" class="form-text text-muted">Scan di jadikan 1 file dengan format <b>.pdf</b></small>
-                              </label>
+                            <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah (semua anggota TIM)</label>
                             <input type="file" multiple class="form-control @error('ktm_e') is-invalid @enderror" id="nis" name="ktm_e[]" value="{{old('ktm_e')}}" required>
-                            <p>
-                            </p>
                             @error('ktm_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -276,16 +280,14 @@
                           </div>
                         </div>
                       </div>
-                      <hr>
                       <div class="col-lg-12">
                         <h2 class="form-sub-title">
                           Data Produk
                         </h2>
-                        <hr>
                         <div class="form-wrapper">
                           <div class="mb-3">
                             <label for="nama_lengkap_pendamping" class="form-label">Nama Produk / Judul Produk</label>
-                            <input type="text" class="form-control @error('nama_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_produk_e" value="{{old('nama_produk_e')}}" placeholder="Contoh : Sistem Informasi Tanam Padi" required>
+                            <input type="text" class="form-control @error('nama_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="nama_produk_e" value="{{old('nama_produk_e')}}" required>
                             @error('nama_produk_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -311,10 +313,8 @@
                               @enderror
                           </div>
                           <div class="mb-3">
-                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat atau Tujuan Produk
-                                <small id="" class="form-text text-muted">Dipisahkan dengan koma ( , )</small>
-                            </label>
-                            <input type="text" class="form-control @error('manfaat_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="manfaat_produk_e" value="{{old('manfaat_produk_e')}}" placeholder="Contoh : Untuk memudahkan pekerjaan petani, Membantu perekonomian petani, Mensejahterakan petani padi" required>
+                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat dan atau Tujuan Produk</label>
+                            <input type="text" class="form-control @error('manfaat_produk_e') is-invalid @enderror" id="nama_lengkap_pendamping" name="manfaat_produk_e" value="{{old('manfaat_produk_e')}}" required>
                             @error('manfaat_produk_e')
                             <div class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -324,10 +324,10 @@
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="poster_produk_e" class="form-label d-block">Poster / Pamflet Produk (Ukuran A4)
-                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png | Ukuran file maksimal: 2MB</small>
+                                  <small id="poster_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 2MB</small>
                               </label>
                               <input type="file"
-                              class="form-contro poster_produk_e"
+                              class="form-control poster_produk_e"
                               name="poster_produk_e" required accept=".jpg,.jpeg,.png"/>
                               @error('poster_produk_e')
                               <small id="poster_produk_e" class="form-text text-danger">{{ $message }}</small>
@@ -337,10 +337,10 @@
                           <div class="mb-3">
                             <div class="form-group">
                               <label for="foto_produk_e" class="form-label d-block">Screen Capture / Foto Produk *maksimal 5 foto
-                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB/foto</small>
+                                  <small id="foto_produk_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran tiap file maksimal: 1MB</small>
                               </label>
                               <input type="file"
-                              class="form-contro foto_produk_e"
+                              class="form-control foto_produk_e"
                               name="foto_produk_e[]" required accept=".jpg,.jpeg,.png" multiple/>
                               @error('foto_produk_e')
                               <small id="foto_produk_e" class="form-text text-danger">{{ $message }}</small>
@@ -366,11 +366,11 @@
                               @enderror
                           </div>
                           <div class="form-group">
-                            <label for="twibbon_e" class="form-label d-block">Twibbon
-                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg .jpeg .png| Ukuran file maksimal: 300KB</small>
+                            <label for="twibbon_e" class="form-label d-block">Twibbon (Semua Anggota TIM)
+                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran tiap file maksimal: 1MB</small>
                             </label>
                             <input type="file"
-                            class="form-contro twibbon_e"
+                            class="form-control twibbon_e"
                             name="twibbon_e[]"  multiple required accept=".jpg,.jpeg,.png"/>
                             @error('twibbon_e')
                             <small id="twibbon_e" class="form-text text-danger">{{ $message }}</small>
@@ -558,7 +558,7 @@
                                     <small id="foto_peserta" class="form-text text-muted">File harus bertipe: .jpg, .png| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro foto_peserta"
+                                class="form-control foto_peserta"
                                 name="foto_peserta_l" required accept=".jpg,.jpeg,.png"/>
                                 @error('foto_peserta_l')
                                 <small id="foto_peserta_l" class="form-text text-danger">{{ $message }}</small>
@@ -571,7 +571,7 @@
                                     <small id="ktp" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 300KB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro ktp"
+                                class="form-control ktp"
                                 name="kartu_pelajar_l" required accept=".pdf"/>
                                 @error('kartu_pelajar_l')
                                 <small id="kartu_pelajar_l" class="form-text text-danger">{{ $message }}</small>
@@ -584,7 +584,7 @@
                                     <small id="surat_pernyataan" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro surat_pernyataan"
+                                class="form-control surat_pernyataan"
                                 name="surat_pernyataan_l" required accept=".pdf"/>
                                 @error('surat_pernyataan_l')
                                 <small id="surat_pernyataan_l" class="form-text text-danger">{{ $message }}</small>
@@ -597,7 +597,7 @@
                                     <small id="bukti_pembayaran" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro bukti_pembayaran"
+                                class="form-control bukti_pembayaran"
                                 name="bukti_pembayaran_l" required accept=".pdf"/>
                                 @error('bukti_pembayaran_l')
                                 <small id="bukti_pembayaran_l" class="form-text text-danger">{{ $message }}</small>
@@ -610,7 +610,7 @@
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro lampiran_guru"
+                                class="form-control lampiran_guru"
                                 name="lampiran_guru_l" required accept=".pdf"/>
                                 @error('lampiran_guru_l')
                                 <small id="lampiran_guru_l" class="form-text text-danger">{{ $message }}</small>
@@ -623,7 +623,7 @@
                                     <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                 </label>
                                 <input type="file"
-                                class="form-contro lampiran_guru"
+                                class="form-control lampiran_guru"
                                 name="twibbon_l" required accept=".jpg,.jpeg,.png"/>
                                 @error('twibbon_l')
                                 <small id="twibbon_l" class="form-text text-danger">{{ $message }}</small>
@@ -749,7 +749,7 @@
                                   </label>
 
                                   <input type="file"
-                                  class="form-contro file-ktm"
+                                  class="form-control file-ktm"
                                   name="ktm_t[]" multiple required accept=".jpg,.jpeg,.png"/>
                                 </div>
                                 @error('ktm_t')
@@ -763,7 +763,7 @@
                                   </label>
 
                                   <input type="file"
-                                  class="form-contro bukti_pembayaran"
+                                  class="form-control bukti_pembayaran"
                                   name="bukti_pembayaran_t" required accept=".pdf"/>
                                 </div>
                                 @error('bukti_pembayaran_t')
@@ -776,7 +776,7 @@
                                       <small id="biodata_t" class="form-text text-muted">File harus bertipe: .pdf| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
-                                  class="form-contro file-biodata"
+                                  class="form-control file-biodata"
                                   name="biodata_t" required accept=".pdf"/>
                                   @error('biodata_t')
                                   <small id="biodata_t" class="form-text text-danger">{{ $message }}</small>
@@ -802,7 +802,7 @@
                                       <small id="lampiran_guru" class="form-text text-muted">File harus bertipe: .png| Ukuran file maksimal: 1MB</small>
                                   </label>
                                   <input type="file"
-                                  class="form-contro lampiran_guru" multiple
+                                  class="form-control lampiran_guru" multiple
                                   name="twibbon_t[]" required accept=".jpg,.jpeg,.png"/>
                                   @error('twibbon_t')
                                   <small id="twibbon_t" class="form-text text-danger">{{ $message }}</small>

@@ -97,8 +97,8 @@
                             </th>
                             <th>Nama TIM</th>
                             <th>Prodi TIM</th>
+                            <th>Semester</th>
                             <th>Nama Ketua</th>
-                            <th>Nomor Ketua</th>
                             <th>Nama Produk</th>
                             <th>Kategori</th>
                             <th>URL Video</th>
@@ -111,11 +111,15 @@
                           <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->nama_tim}}</td>
-                            <td>{{Str::upper($item->prodi)}}</td>
+                            <td class="text-center">{{Str::upper($item->prodi)}}</td>
+                            <td>{{$item->semester}}</td>
                             <td>{{$item->nama_ketua}}</td>
-                            <td>{{$item->nomor_ketua}}</td>
                             <td>{{$item->nama_produk}}</td>
-                            <td>{{Str::upper($item->kategori_produk)}}</td>
+                            <td>
+                            @foreach (json_decode($item->kategori_produk) as $i)
+                                {{ Str::ucfirst($i) }}
+                            @endforeach
+                            </td>
                             <td><a href="{{$item->url_video}}">Link</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
@@ -284,7 +288,7 @@
            success: function (data) {
             $(".list").remove();
             $("#nama_tim").text(data.nama_tim);
-            $("#prodi").text(data.prodi);
+            $("#prodi").text(data.prodi.toUpperCase());
             $("#semester").text(data.semester);
             $("#email_ketua").text(data.email_ketua);
             $("#nama_ketua").text(data.nama_ketua);
@@ -300,7 +304,10 @@
 
             $("#nama_produk").text(data.nama_produk);
 
-            $("#kategori_produk").text(data.kategori_produk);
+            // $("#kategori_produk").text(data.kategori_produk);
+            JSON.parse(data.kategori_produk).map(item => {
+                $("#kategori_produk").append(`<p class="list mb-0"> ${item}</p>`);
+            });
 
             $("#deskripsi_produk").text(data.deskripsi_produk);
             $("#manfaat_produk").text(data.manfaat_produk);
@@ -312,18 +319,20 @@
             $(".img-detail").remove();
 
             JSON.parse(data.ktm).map(ktm => {
-                console.log(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`);
-                $("#ktm").append(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`)
+                $("#ktm").append(
+                    `<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`)
             })
             $("#poster_produk").append(
                 `<img src="${assetPath+"/"+data.poster_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.poster_produk}')" />`
             );
             JSON.parse(data.foto_produk).forEach(foto_produk => {
-                $("#foto_produk").append(`<img src="${assetPath+"/"+foto_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+foto_produk}')" />`)
+                $("#foto_produk").append(
+                    `<img src="${assetPath+"/"+foto_produk}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+foto_produk}')" />`)
             })
 
             JSON.parse(data.twibbon).forEach(twibbon => {
-                $("#twibbon").append(`<img src="${assetPath+"/"+twibbon}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+twibbon}')" />`)
+                $("#twibbon").append(
+                    `<img src="${assetPath+"/"+twibbon}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+twibbon}')" />`)
             })
 
             $('#fire-modal-2').modal('show');

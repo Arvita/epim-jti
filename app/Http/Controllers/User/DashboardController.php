@@ -349,6 +349,7 @@ class DashboardController extends Controller
                 "deskripsi_produk_e" => "required",
                 "manfaat_produk_e" => "required",
                 "url_video_e" => "required",
+                "poster_produk_e" => "required|max:2000"
             ],
             [
                 "nama_tim_e.required" => "Kolom Nama TIM wajib diis.i",
@@ -361,6 +362,8 @@ class DashboardController extends Controller
                 "deskripsi_produk_e.required" => "Kolom deskripsi produk wajib diisi.",
                 "manfaat_produk_e.required" => "Kolom manfaat produk wajib diisi.",
                 "url_video_e.required" => "kolom url video wajib diisi.",
+                "poster_produk_e.required" => "kolom poster video wajib diisi.",
+                "poster_produk_e.max" => "Ukuran poster produk maksimal 2MB.",
             ]
         );
 
