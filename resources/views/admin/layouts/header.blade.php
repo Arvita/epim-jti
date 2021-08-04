@@ -23,15 +23,10 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('backend/css/components.css')}}">
-  <style>
-      .img-detail{
-          cursor: pointer;
-      }
-  </style>
 
-  <!-- Start GA -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-  <script>
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());

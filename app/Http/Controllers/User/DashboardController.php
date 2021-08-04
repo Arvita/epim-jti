@@ -138,7 +138,7 @@ class DashboardController extends Controller
                 'perguruan_tinggi_t'    => 'required|min:8',
                 'judul_proposal_t'      => 'required|min:8',
                 'nama_ketua_t'          => 'required',
-                'proposal_t'            => 'required|mimes:pdf|max:10240',
+                //'proposal_t'            => 'required|mimes:pdf|max:10240',
                 'biodata_t'             => 'required|mimes:pdf|max:1024',
                 'bukti_pembayaran_t'    => 'required|mimes:pdf,jpg,jpeg,png|max:1024',
                 'twibbon_t'             => 'required|max:3072',
@@ -152,9 +152,9 @@ class DashboardController extends Controller
                 'judul_proposal_t.required'     => 'Judul proposal wajib di isi',
                 'judul_proposal_t.min'          => 'Harap mengisi judul minimal 8 karakter',
                 'nama_ketua_t.required'         => 'Nama ketua tim wajib di isi',
-                'proposal_t.required'           => 'Proposal wajib di isi',
-                'proposal_t.mimes'              => 'Proposal harus berformat .pdf',
-                'proposal_t.max'                => 'Ukuruan proposal maksimal 20MB',
+                //'proposal_t.required'           => 'Proposal wajib di isi',
+                //'proposal_t.mimes'              => 'Proposal harus berformat .pdf',
+                //'proposal_t.max'                => 'Ukuruan proposal maksimal 20MB',
                 'biodata_t.required'            => 'Biodata tim wajib di isi',
                 'biodata_t.mimes'               => 'Biodata tim harus berformat .pdf',
                 'biodata_t.max'                 => 'Ukuran biodata tim maksimal 1MB',
@@ -245,7 +245,7 @@ class DashboardController extends Controller
             'kartu_pelajar_l'       => 'required|max:300|mimes:pdf,jpg,jpeg,png',
             'surat_pernyataan_l'    => 'required|max:1024|mimes:pdf',
             'bukti_pembayaran_l'    => 'required|max:1024|mimes:pdf',
-            'lampiran_guru_l'       => 'required|max:1024|mimes:pdf',
+            //'lampiran_guru_l'       => 'required|max:1024|mimes:pdf',
             'twibbon_l'             => 'required|max:1024|mimes:jpg,jpeg,png',
         ], [
             'email_l.required'              => 'Email wajib di isi',
@@ -277,9 +277,9 @@ class DashboardController extends Controller
             'bukti_pembayaran_l.required'   => 'Bukti pembayaran wajib di isi',
             'bukti_pembayaran_l.max'        => 'Ukuran Bukti pembayaran maksimal 1MB',
             'bukti_pembayaran_l.mimes'      => 'Bukti pembayaran harus berformat .pdf',
-            'lampiran_guru_l.required'      => 'Lampiran Guru wajib di isi',
-            'lampiran_guru_l.max'           => 'Ukuran Lampiran Guru maksimal 1MB',
-            'lampiran_guru_l.mimes'         => 'Lampiran Guru harus berformat .pdf',
+            //'lampiran_guru_l.required'      => 'Lampiran Guru wajib di isi',
+            //'lampiran_guru_l.max'           => 'Ukuran Lampiran Guru maksimal 1MB',
+            //'lampiran_guru_l.mimes'         => 'Lampiran Guru harus berformat .pdf',
             'twibbon_l.required'            => 'Bukti upload twibbon wajib di isi',
             'twibbon_l.max'                 => 'Ukuran Bukti upload twibbon maksimal 1MB',
             'twibbon_l.mimes'               => 'Bukti upload twibbon harus berformat .jpg .jpeg .png',
@@ -310,7 +310,7 @@ class DashboardController extends Controller
         $kartu_pelajar_l = 'kpelajar_' . time() . $request->kartu_pelajar_l->getInode() . '.' . $request->kartu_pelajar_l->extension();
         $surat_pernyataan_l = 'pernyataan_' . time() . $request->surat_pernyataan_l->getInode() . '.' . $request->surat_pernyataan_l->extension();
         $bukti_pembayaran_l = 'pembayaran_' . time() . $request->bukti_pembayaran_l->getInode() . '.' . $request->bukti_pembayaran_l->extension();
-        $lampiran_guru_l = 'guru_' . time() . $request->lampiran_guru_l->getInode() . '.' . $request->lampiran_guru_l->extension();
+        //$lampiran_guru_l = 'guru_' . time() . $request->lampiran_guru_l->getInode() . '.' . $request->lampiran_guru_l->extension();
         $twibbon_l = 'twibbon_' . time() . $request->twibbon_l->getInode() . '.' . $request->twibbon_l->extension();
 
         // Save To Folder
@@ -318,7 +318,7 @@ class DashboardController extends Controller
         $request->kartu_pelajar_l->move(public_path('/upload/lomba/' . $email), $kartu_pelajar_l);
         $request->surat_pernyataan_l->move(public_path('/upload/lomba/' . $email), $surat_pernyataan_l);
         $request->bukti_pembayaran_l->move(public_path('/upload/lomba/' . $email), $bukti_pembayaran_l);
-        $request->lampiran_guru_l->move(public_path('/upload/lomba/' . $email), $lampiran_guru_l);
+        //$request->lampiran_guru_l->move(public_path('/upload/lomba/' . $email), $lampiran_guru_l);
         $request->twibbon_l->move(public_path('/upload/lomba/' . $email), $twibbon_l);
 
         //Save To DB
@@ -326,7 +326,7 @@ class DashboardController extends Controller
         $lomba_it->kartu_pelajar = 'lomba/' . $email . '/' . $kartu_pelajar_l;
         $lomba_it->surat_pernyataan = 'lomba/' . $email . '/' . $surat_pernyataan_l;
         $lomba_it->bukti_pembayaran = 'lomba/' . $email . '/' . $bukti_pembayaran_l;
-        $lomba_it->lampiran_guru = 'lomba/' . $email . '/' . $lampiran_guru_l;
+        //$lomba_it->lampiran_guru = 'lomba/' . $email . '/' . $lampiran_guru_l;
         $lomba_it->twibbon = 'lomba/' . $email . '/' . $twibbon_l;
         $lomba_it->save();
     }

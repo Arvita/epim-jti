@@ -140,8 +140,13 @@ class LombaTcpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $tcp = TcpIt::where('id', $request->id)->first();
+        $folder_path = User::select('email')->where('id', $tcp->user_id)->first();
+        $path = 'upload/tcp/'.$folder_path['email'];
+        if (\File::exists(public_path($path))) \File::deleteDirectory(public_path($path));
+        $tcp->delete();
+        return redirect()->refresh();
     }
 }

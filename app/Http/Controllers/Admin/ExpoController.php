@@ -100,13 +100,13 @@ class ExpoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $expo = Expo::where('id', $id)->first();
-        if (file_exists($expo->ktm, $expo->image_produk)) {
-            unlink($expo->ktm, $expo->image_produk);
-        }
+        $expo = ExpoIt::where('id', $request->id)->first();
+        $folder_path = User::select('email')->where('id', $expo->user_id)->first();
+        $path = 'upload/expo/'.$folder_path['email'];
+        if (\File::exists(public_path($path))) \File::deleteDirectory(public_path($path));
         $expo->delete();
-        return redirect()->route('list.expo');
+        return redirect()->refresh();
     }
 }

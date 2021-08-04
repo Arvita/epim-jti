@@ -185,23 +185,13 @@ class LombaItController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $lombaIt = LombaIt::where('id', $id)->first();
-        if (file_exists(
-            $lombaIt->foto_ketua,
-            $lombaIt->foto_peserta1,
-            $lombaIt->foto_peserta2,
-            $lombaIt->foto_peserta3
-        )) {
-            unlink(
-                $lombaIt->foto_ketua,
-                $lombaIt->foto_peserta1,
-                $lombaIt->foto_peserta2,
-                $lombaIt->foto_peserta3
-            );
-        }
-        $lombaIt->delete();
-        return redirect()->route('list.lombaIt');
+        $lomba = LombaIt::where('id', $request->id)->first();
+        $folder_path = User::select('email')->where('id', $lomba->user_id)->first();
+        $path = 'upload/lomba/'.$folder_path['email'];
+        if (\File::exists(public_path($path))) \File::deleteDirectory(public_path($path));
+        $lomba->delete();
+        return redirect()->refresh();
     }
 }

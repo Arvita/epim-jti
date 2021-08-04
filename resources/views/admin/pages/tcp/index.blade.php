@@ -116,6 +116,7 @@
                             </td>
                             <td class="px-0">
                                 <button class="btn-small btn btn-primary" onclick="openModalInfo({{ $item->id }})"><i class="fa fa-eye"></i></button>
+                                <button class="btn-small btn btn-primary" onclick="deleteData({{ $item->id }})"><i class="fa fa-trash"></i></button>
                                 <button class="btn-small btn btn-warning" onclick="openModal('{{$item->status}}', {{$item->id}})"><i class="fa fa-edit"></i></button>
                             </td>
                         </tr>
@@ -215,7 +216,7 @@
                             </div>
                             <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Biodata</p>
-                                <p id="biodata"></p>
+                                <a href="" target="_blank" id="biodata">Link</a>
                             </div>
                             <div class="mb-3">
                                 <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
@@ -231,8 +232,35 @@
 </div>
 @endsection
 @section('customjs')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     let assetPath = "{{ asset('upload/') }}"
+    function deleteData(id) {
+        swal({
+            title: `Apakah anda yakin akan menghapus data ini?`,
+            text: "Jika anda menghapusnya, maka data ini tidak akan kembali",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "{{ route('admin.tcp_it.destroy') }}",
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                        }
+                    });
+                location.reload();
+                }
+            });
+    }
     function openModalInfo(id) {
        $.ajax({
            type: "POST",

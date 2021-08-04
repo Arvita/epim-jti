@@ -59,17 +59,21 @@ if ($isCountdownActive) {
         Route::get('/lomba-it', [App\Http\Controllers\Admin\LombaItController::class, 'index'])->name('admin.lomba_it');
         Route::post('/lomba-it/update', [App\Http\Controllers\Admin\LombaItController::class, 'updateEvent'])->name('admin.lomba_it.update');
         Route::post('/lomba-it/detail', [App\Http\Controllers\Admin\LombaItController::class, 'show'])->name('admin.lomba_it.detail');
+        Route::post('/lomba-it/delete', [App\Http\Controllers\Admin\LombaItController::class, 'destroy'])->name('admin.lomba_it.destroy');
+
 
         //LombaIT
         Route::get('/bisnis-tik', [App\Http\Controllers\Admin\LombaTcpController::class, 'index'])->name('admin.tcp_it');
         Route::post('/bisnis-tik/update', [App\Http\Controllers\Admin\LombaTcpController::class, 'updateEvent'])->name('admin.tcp_it.update');
-        Route::post('/bisnis-tit/detail', [App\Http\Controllers\Admin\LombaTcpController::class, 'show'])->name('admin.tcp_it.detail');
+        Route::post('/bisnis-tik/detail', [App\Http\Controllers\Admin\LombaTcpController::class, 'show'])->name('admin.tcp_it.detail');
+        Route::post('/bisnis-tik/delete', [App\Http\Controllers\Admin\LombaTcpController::class, 'destroy'])->name('admin.tcp_it.destroy');
 
 
         // ExpoIt
         Route::get('/expo-it', [App\Http\Controllers\Admin\ExpoController::class, 'index'])->name('admin.expo_it');
         Route::post('/expo-it/update', [App\Http\Controllers\Admin\ExpoController::class, 'updateEvent'])->name('admin.expo_it.update');
         Route::post('/expo-it/detail', [App\Http\Controllers\Admin\ExpoController::class, 'show'])->name('admin.expo_it.detail');
+        Route::post('/expo-it/delete', [App\Http\Controllers\Admin\ExpoController::class, 'destroy'])->name('admin.expo_it.destroy');
 
         //USER SETTING
         Route::post('/user/data', [App\Http\Controllers\Admin\UserController::class, 'data']);

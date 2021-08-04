@@ -120,7 +120,7 @@
                                 {{ Str::ucfirst($i) }}
                             @endforeach
                             </td>
-                            <td><a href="{{$item->url_video}}">Link</a></td>
+                            <td><a href="{{$item->url_video}}" target="_blank">Link</a></td>
                             <td class="align-middle">
                                 @if ($item->status == 'verified')
                                     <div class="badge badge-success">Lolos</div>
@@ -132,6 +132,7 @@
                             </td>
                             <td class="px-0">
                                 <button class="d-small btn btn-primary" onclick="openModalInfo({{ $item->id }})"><i class="fa fa-eye"></i></button>
+                                <button class="d-small btn btn-primary" onclick="deletedata({{ $item->id }})"><i class="fa fa-trash"></i></button>
                                 <button class="d-small btn btn-success" onclick="openModal('{{$item->status}}', {{$item->id}})"><i class="fa fa-edit"></i></button>
                             </td>
                         </tr>
@@ -275,13 +276,37 @@
 @section('customjs')
 <script>
     let assetPath = "{{ asset('upload/') }}"
+    function deletedata(id){
+        swal({
+          title: `Apakah anda yakin akan menghapus data ini?`,
+          text: "Jika anda menghapusnya, maka data ini tidak akan kembali",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+           type: "POST",
+           headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+           url: "{{route('admin.expo_it.destroy')}}",
+           data: {id: id},
+           success: function(data)           {
+           }
+           location.reload();
+        });
+        }
+      });
+    }
+
     function openModalInfo(id) {
-        console.log(assetPath);
        $.ajax({
            type: "POST",
            headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
            url: "{{route('admin.expo_it.detail')}}",
            data: {id: id},
            dataType: "JSON",
