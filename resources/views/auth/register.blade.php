@@ -1,4 +1,4 @@
-@extends('auth.master ')
+@extends('auth.master')
 @section('title', 'Buat Akun EPIM')
 @section('content')
     <section class="section">
@@ -28,7 +28,10 @@
                   <div class="form-group">
                       <label for="email">{{ __('E-Mail') }}</label>
                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                          <small style="display: block" id="" class="form-text text-muted"><button type="button" class="btn btn-link info-pop" style="
+                            padding: 0;
+                            color: #ff9800;
+                        ">Klik Untuk Info Pendaftaran Expo</button></small>
                           @error('email')
                               <div class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -78,4 +81,18 @@
         </div>
       </div>
     </section>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="fire-modal-3" aria-hidden="true" style="display: none;">       <div class="modal-dialog modal-md modal-dialog-centered" role="document">         <div class="modal-content">           <div class="modal-header">             <h5 class="modal-title">Info Pendaftaran Expo</h5>             <button type="button" class="close" data-dismiss="modal" aria-label="Close">               <span aria-hidden="true">×</span>             </button>           </div>           <div class="modal-body">
+        <p  class="mb-0">Untuk mendaftar Expo Produk IT peserta wajib menggunakan e-mail mahasiswa Polije dengan format email: nim@student.polije.ac.id, password: nim</p>
+        <p class="mb-0">Contoh:</p>
+        <p class="mb-0">e-mail:  e31200844@student.polije.ac.id</p>
+        <p  class="mb-0">password:  e31200844</p>
+    </div>         </div>       </div>    </div>
+@endsection
+@section('customjs')
+<script>
+   $('.info-pop').click(function (e) {
+       $('#fire-modal-3').modal('show');
+   });
+</script>
 @endsection
