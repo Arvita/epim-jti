@@ -70,13 +70,42 @@
             padding-bottom: 10px;
         }
 
+        input[type="file" i].form-control {
+            padding: .375rem .75rem !important;
+        }
+
     </style>
 @endsection()
 @section('content')
     <div class="container full-height">
         <section class="section">
-            <div class="section-header justify-content-center shadow-lg">
+            <div class="section-header justify-content-between shadow-lg">
                 <h1>Pilihan Lomba</h1>
+                <li style="list-style: none" class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+
+                    <div class="d-sm-none d-lg-inline-block"><i class="fa fa-user mr-1"></i></div></a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                      <div class="dropdown-title">Logged in {{\Carbon\Carbon::parse(session('time_logged'))->diffForHumans()}}</div>
+
+                      <div class="dropdown-divider"></div>
+                   <a href="{{route('home')}}" class="dropdown-item has-icon">
+
+                        <i class="fas fa-home"></i> Beranda
+
+                      </a>
+                      <div class="dropdown-divider"></div>
+
+                      <a href="{{route('logout')}}" class="dropdown-item has-icon text-danger">
+
+                        <i class="fas fa-sign-out-alt"></i> Logout
+
+                      </a>
+
+                    </div>
+
+                  </li>
             </div>
 
             <div class="section-body">
@@ -155,7 +184,7 @@
                                                 </p>
                                                 <button id="modal-3"
                                                     class="btn btn-primary btn-lg w-100 mt-4">Daftar</button>
-                                                <a href="{{ asset('expo') }}" class="mt-4 bb">Lihat Panduan</a>
+                                                <a href="{{ asset('buku_pedoman/PEDOMAN LOMBA KONFIGURASI JARINGAN EPIM 2021.pdf') }}" class="mt-4 bb">Lihat Panduan</a>
                                             </div>
                                         </div>
                                     </div>
@@ -312,7 +341,7 @@
                                         <div class="mb-3">
                                             <label for="nis" class="form-label">Scan KTM / Surat Keterangan Aktif Kuliah
                                                 (semua anggota TIM)</label>
-                                            <input type="file" multiple
+                                            <input type="file" accept=".pdf" multiple
                                                 class="form-control @error('ktm_e') is-invalid @enderror" id="nis"
                                                 name="ktm_e[]" value="{{ old('ktm_e') }}" required>
                                             @error('ktm_e')
@@ -343,20 +372,41 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label d-block">Kategori Produk</label>
-                                            <select class="form-control" multiple="multiple" name="kategori_produk_e[]"
-                                                id="kategori_produk_e">
-                                                <option value="dekstop">Desktop</option>
-                                                <option value="web">Website</option>
-                                                <option value="mobile">Mobile App</option>
-                                                <option value="iot">IOT & Jaringan</option>
-                                            </select>
+                                            <div class="selectgroup selectgroup-pills">
+                                                <label class="selectgroup-item">
+                                                  <input type="checkbox" name="kategori_produk_e[]" value="dekstop" class="selectgroup-input" checked="">
+                                                  <span class="selectgroup-button">Desktop</span>
+                                                </label>
+                                                <label class="selectgroup-item">
+                                                  <input type="checkbox" name="kategori_produk_e[]" value="web" class="selectgroup-input">
+                                                  <span class="selectgroup-button">Website</span>
+                                                </label>
+                                                <label class="selectgroup-item">
+                                                  <input type="checkbox" name="kategori_produk_e[]" value="mobile" class="selectgroup-input">
+                                                  <span class="selectgroup-button">Mobile App</span>
+                                                </label>
+                                                <label class="selectgroup-item">
+                                                  <input type="checkbox" name="kategori_produk_e[]" value="iot" class="selectgroup-input">
+                                                  <span class="selectgroup-button">IOT & Jaringan</span>
+                                                </label>
+                                              </div>
+                                              @error('kategori_produk_e[]')
+                                                <div class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
+                                              @error('kategori_produk_e')
+                                                <div class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label for="nama_lengkap_pendamping" class="form-label">Deskripsi Produk</label>
-                                            <input type="text"
-                                                class="form-control @error('deskripsi_produk_e') is-invalid @enderror"
-                                                id="nama_lengkap_pendamping" name="deskripsi_produk_e"
-                                                value="{{ old('deskripsi_produk_e') }}" required>
+                                            <textarea style="height: 120px" class="form-control @error('deskripsi_produk_e') is-invalid @enderror"
+                                            id="nama_lengkap_pendamping" name="deskripsi_produk_e"
+                                             required>{{ old('deskripsi_produk_e') }}</textarea>
+
                                             @error('deskripsi_produk_e')
                                                 <div class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -364,12 +414,11 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat dan atau Tujuan
+                                            <label for="nama_lengkap_pendamping" class="form-label">Manfaat dan Tujuan
                                                 Produk</label>
-                                            <input type="text"
-                                                class="form-control @error('manfaat_produk_e') is-invalid @enderror"
+                                                <textarea style="height: 120px" class="form-control @error('manfaat_produk_e') is-invalid @enderror"
                                                 id="nama_lengkap_pendamping" name="manfaat_produk_e"
-                                                value="{{ old('manfaat_produk_e') }}" required>
+                                             required>{{ old('manfaat_produk_e') }}</textarea>
                                             @error('manfaat_produk_e')
                                                 <div class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -411,6 +460,7 @@
                                             <input type="text"
                                                 class="form-control @error('url_video_e') is-invalid @enderror" id=""
                                                 name="url_video_e" value="{{ old('url_video_e') }}" required>
+                                                <small id="" class="form-text text-muted">Contoh: https://www.youtube.com/watch?v=tlEk0is6-X8</small>
                                             @error('url_video_e')
                                                 <div class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -418,7 +468,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="" class="form-label">URL Demo Aplikasi (*jika ada)</label>
+                                            <label for="" class="form-label">URL Aplikasi</label>
                                             <input type="text"
                                                 class="form-control @error('url_aplikasi_e') is-invalid @enderror" id=""
                                                 name="url_aplikasi_e" value="{{ old('url_aplikasi_e') }}">
@@ -426,17 +476,6 @@
                                                 <div class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="twibbon_e" class="form-label d-block">Twibbon (Semua Anggota TIM)
-                                                <small id="twibbon_e" class="form-text text-muted">File harus bertipe: .jpg,
-                                                    .png| Ukuran tiap file maksimal: 1MB</small>
-                                            </label>
-                                            <input type="file" class="form-control twibbon_e" name="twibbon_e[]" multiple
-                                                required accept=".jpg,.jpeg,.png" />
-                                            @error('twibbon_e')
-                                                <small id="twibbon_e" class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
@@ -699,21 +738,6 @@
                                                     name="bukti_pembayaran_l" required accept=".pdf" />
                                                 @error('bukti_pembayaran_l')
                                                     <small id="bukti_pembayaran_l"
-                                                        class="form-text text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <div class="form-group">
-                                                <label for="lampiran_guru" class="form-label d-block">File Lampiran Guru
-                                                    Pendamping
-                                                    <small id="lampiran_guru" class="form-text text-muted">File harus
-                                                        bertipe: .pdf| Ukuran file maksimal: 1MB</small>
-                                                </label>
-                                                <input type="file" class="form-control lampiran_guru" name="lampiran_guru_l"
-                                                    required accept=".pdf" />
-                                                @error('lampiran_guru_l')
-                                                    <small id="lampiran_guru_l"
                                                         class="form-text text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>

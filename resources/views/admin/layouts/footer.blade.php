@@ -17,6 +17,7 @@
 <script src="{{asset('backend/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
 {{-- <script src="{{asset('backend/modules/moment.min.js')}}"></script> --}}
 <script src="{{asset('backend/js/stisla.js')}}"></script>
+<script src="{{asset('dist/magic-popup/jquery.magnific-popup.min.js')}}"></script>
 
 <!-- JS Libraies -->
 {{-- <script src="{{asset('backend/modules/jquery.sparkline.min.js')}}"></script>

@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function __construct()
-    {
-        // $this->middleware(function(){
-        //       if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
-        // });
-    }
+    {}
     public function index(Request $request)
     {
         $event = Auth::user()->event;
@@ -345,6 +341,7 @@ class DashboardController extends Controller
                 "nomor_ketua_e" => "required",
                 "email_peserta_e" => "required",
                 "nama_peserta_e" => "required",
+                "kategori_produk_e" => "required",
                 "nama_produk_e" => "required",
                 "deskripsi_produk_e" => "required",
                 "manfaat_produk_e" => "required",
@@ -357,6 +354,7 @@ class DashboardController extends Controller
                 "nama_ketua_e.required" => "Kolom nama ketua wajib diisi.",
                 "nomor_ketua_e.required" => "Kolom nomor ketua wajib diisi.",
                 "email_peserta_e.required" => "Kolom email ketua wajib diisi.",
+                "kategori_produk_e.required" => "Kategori produk wajid untuk dipilih.",
                 "nama_peserta_e.required" => "Kolom nama anggota wajib diisi.",
                 "nama_produk_e.required" => "Kolom nama produk wajib diisi.",
                 "deskripsi_produk_e.required" => "Kolom deskripsi produk wajib diisi.",
@@ -401,15 +399,6 @@ class DashboardController extends Controller
 
         //Save To DB
         $expo_it->poster_produk = 'expo/' . $email . '/' . $poster_produk_e;
-
-
-        foreach ($request->twibbon_e as $twibbon) {
-            $twibbon_e = 'twibbon_' . time() . $twibbon->getInode() . '.' . $twibbon->extension();
-            $twibbon->move(public_path('/upload/expo/' . $email), $twibbon_e);
-            $file_twibbon[] = 'expo/' . $email . '/' . $twibbon_e;
-        }
-        $expo_it->twibbon = $file_twibbon;
-
         foreach ($request->foto_produk_e as $foto_produk) {
             $foto_produk_e = 'produk_' . time() . $foto_produk->getInode() . '.' . $foto_produk->extension();
             $foto_produk->move(public_path('/upload/expo/' . $email), $foto_produk_e);
@@ -524,7 +513,6 @@ class DashboardController extends Controller
     public function expoStatus()
     {
         $event = Auth::user()->event;
-
         $getEvent = User::where([
             ['email', Auth::user()->email],
             ['event', $event]
@@ -570,7 +558,7 @@ class DashboardController extends Controller
                 <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
                 <br/>
                 <p>Berkas tim anda sudah kami verifikasi. Dan Selamat Tim anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.
-                Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) :
+                Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) : <a target="_blank" href="https://chat.whatsapp.com/CgZpuU0kvnq027SQLprOCn">Link WhatsApp Grup</a>
                 </p>
                 <p>Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
                 <br/>
@@ -591,7 +579,8 @@ class DashboardController extends Controller
 
         $data = [
             'getEvent' => $getEvent,
-            'getStatus' => $status
+            'getStatus' => $status,
+            'getProduk' => $getStatus
         ];
         return $data;
     }
@@ -629,6 +618,9 @@ class DashboardController extends Controller
         } else {
             $status = [];
         }
+
+        // Comment jika pengumuman seleksi
+        $status['get'] =
 
         $data = [
             'getEvent' => $getEvent,
@@ -688,7 +680,7 @@ class DashboardController extends Controller
                 <p>Berkas anda sudah kami verifikasi. Dan Selamat Anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.</p>
                 <br/>
                 <p>Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp :
-                <a href="https://chat.whatsapp.com/Jh2ihTMCByi1cRW2aIQaOM">Link WhatsApp Grup</a>
+                <a target="_blank" href="https://chat.whatsapp.com/Jh2ihTMCByi1cRW2aIQaOM">Link WhatsApp Grup</a>
                 Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
                 <br/>
                 <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
@@ -728,7 +720,11 @@ class DashboardController extends Controller
         return $data;
     }
 
-
+    public function profileProduk(Request $request){
+        $produk = ExpoIt::where('user_id', Auth::id())->first();
+        // dd($produk,Auth::user(),Auth::user()->expo_it);
+        return \view('user.pages.expo.index', ['data'=>$produk]);
+    }
 
     public function dropzoneStore(Request $request)
     {

@@ -144,9 +144,12 @@ class LombaTcpController extends Controller
     {
         $tcp = TcpIt::where('id', $request->id)->first();
         $folder_path = User::select('email')->where('id', $tcp->user_id)->first();
+        \dd($tcp, $folder_path);
         $path = 'upload/tcp/'.$folder_path['email'];
         if (\File::exists(public_path($path))) \File::deleteDirectory(public_path($path));
         $tcp->delete();
-        return redirect()->refresh();
+        return response()->json([
+            'message' => 'success'
+        ]);
     }
 }

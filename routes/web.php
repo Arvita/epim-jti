@@ -89,6 +89,9 @@ if ($isCountdownActive) {
         Route::post('/registrasi/lomba', [App\Http\Controllers\User\DashboardController::class, 'registrasi_lomba'])->name('user.registrasi.lomba');
 
 
+        //Expo IT
+        Route::get('/profile', [DashboardController::class, 'profileProduk'])->name('user.profile');
+
 
         // TCP IT
         Route::get('/proposal', [DashboardController::class, 'list_proposal'])->name('user.proposal.list');

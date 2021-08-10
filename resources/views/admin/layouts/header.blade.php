@@ -21,6 +21,7 @@
   @yield('styles','')
 
   <!-- Template CSS -->
+  <link rel="stylesheet" href="{{asset('dist/magic-popup/magnific-popup.css')}}">
   <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('backend/css/components.css')}}">
 

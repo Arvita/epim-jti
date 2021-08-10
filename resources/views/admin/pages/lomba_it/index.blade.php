@@ -235,15 +235,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <p class="font-weight-bold mb-1">Surat Pernyataan</p>
-                                    <a href="" id="surat_pernyataan">Link Surat Pernyataan</a>
+                                    <a href="" id="surat_pernyataan">Donwload Surat Pernyataan</a>
                                 </div>
                                 <div class="mb-3">
                                     <p class="font-weight-bold mb-1">Kartu Pelajar</p>
-                                    <a href="" id="kartu_pelajar">Link Kartu Pelajar</a>
+                                    <a href="" id="kartu_pelajar">Download Kartu Pelajar</a>
                                 </div>
                                 <div class="mb-3">
                                     <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
-                                    <a href="" id="bukti_pembayaran">Link Bukti Pembayaran</a>
+                                    <a href="" id="bukti_pembayaran">Download Bukti Pembayaran</a>
                                 </div>
                                 <div class="mb-3" id="twibbon">
                                     <p class="font-weight-bold mb-1">Twibbon</p>
@@ -259,6 +259,31 @@
 @section('customjs')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    $(document).ready(function () {
+        $('#foto_peserta, #twibbon').magnificPopup({
+            delegate: 'a',
+          type: 'image',
+          closeOnContentClick: false,
+          closeBtnInside: false,
+          mainClass: 'mfp-with-zoom mfp-img-mobile',
+          image: {
+            verticalFit: true,
+            titleSrc: function(item) {
+              return '';
+            }
+          },
+          gallery: {
+            enabled: true
+          },
+          zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function(element) {
+              return element.find('img');
+            }
+          }
+        });
+    });
     let assetPath = "{{ asset('upload/') }}"
 
     function deletedata(id) {
@@ -316,41 +341,20 @@
                 $("#kartu_pelajar").attr("href", `${assetPath+"/"+data.kartu_pelajar}`);
                 $("#surat_pernyataan").attr("href", `${assetPath+"/"+data.surat_pernyataan}`);
                 $("#bukti_pembayaran").attr("href", `${assetPath+"/"+data.bukti_pembayaran}`);
-                //$("#lampiran_guru").attr("href",`${assetPath+"/"+data.lampiran_guru}`);
 
-
-
-                // data.email_anggota.split(',').map(item => {
-                //     $("#email_anggota").append(`<li class="list">${item}</li>`);
-                // });
-
-                // data.nama_anggota.split(',').map(item => {
-                //     $("#nama_anggota").append(`<li class="list">${item}</li>`);
-                // });
-
-                // $("#nama_produk").text(data.nama_produk);
-
-                // $("#kategori_produk").text(data.kategori_produk);
-
-                // $("#deskripsi_produk").text(data.deskripsi_produk);
-                // $("#manfaat_produk").text(data.manfaat_produk);
-                // $("#url_video").attr("href",data.url_video);
-                // if(data.url_aplikasi){
-                //     $("#url_aplikasi").attr("href",data.url_aplikasi);
-                // }
 
                 $(".img-detail").remove();
 
-                // JSON.parse(data.ktm).map(ktm => {
-                //     console.log(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`);
-                //     $("#ktm").append(`<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`)
-                // })
                 $("#foto_peserta").append(
-                    `<img src="${assetPath+"/"+data.foto_peserta}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="200" onclick="openImageInNewTab('${assetPath+"/"+data.foto_peserta}')" />`
+                    `<a class="light-single list" href="${assetPath+"/"+data.foto_peserta}">
+                        <img src="${assetPath+"/"+data.foto_peserta}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="200" />
+                    </a>`
                 );
 
                 $("#twibbon").append(
-                    `<img src="${assetPath+"/"+data.twibbon}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.twibbon}')" />`
+                    `<a class="light-single list" href="${assetPath+"/"+data.twibbon}">
+                        <img src="${assetPath+"/"+data.twibbon}" class="img-detail" alt="ktm" class="mx-2 img-detail"  height="70" />
+                    </a>`
                 );
                 $('#fire-modal-2').modal('show');
 

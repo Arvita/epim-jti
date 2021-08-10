@@ -63,7 +63,7 @@ class User extends Authenticatable
 
     public function expo_it()
     {
-        return $this->belongsTo(ExpoIt::class);
+        return $this->belongsTo(ExpoIt::class, 'user_id');
     }
 
 

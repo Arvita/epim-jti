@@ -119,7 +119,7 @@
                                                         {{ Str::ucfirst($i) }}
                                                     @endforeach
                                                 </td>
-                                                <td><a href="{{ $item->url_video }}" target="_blank">Link</a></td>
+                                                <td><a href="{{ str_replace('youtu.be/','youtube.com/watch?v=', $item->url_video) }}" class="light-yt">Preview</a></td>
                                                 <td class="align-middle">
                                                     @if ($item->status == 'verified')
                                                         <div class="badge badge-success">Lolos</div>
@@ -160,7 +160,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Status</h5> <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close"> <span aria-hidden="true">Ã—</span> </button>
+                        aria-label="Close"> <span aria-hidden="true">â€”</span> </button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -193,7 +193,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Detail Produk</h5> <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close"> <span aria-hidden="true">Ã—</span> </button>
+                        aria-label="Close"> <span aria-hidden="true">Ãƒâ€”</span> </button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -249,14 +249,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <p class="font-weight-bold mb-1">URL Video Demo</p>
-                                    <a href="" id="url_video">Link Video Demo</a>
+                                    <a href="" class="light-yt" id="url_video">Preview Video</a>
                                 </div>
                                 <div class="mb-3">
-                                    <p class="font-weight-bold mb-1">URL Aplikasi Demo</p>
-                                    <a href="" id="url_aplikasi">Link Demo</a>
+                                    <p class="font-weight-bold mb-1">URL Aplikasi</p>
+                                    <a href="" id="url_aplikasi">Link Aplikasi</a>
                                 </div>
                                 <div class="mb-3" id="ktm">
-                                    <p class="font-weight-bold mb-1">FOTO KTM TIM</p>
+                                    <p class="font-weight-bold mb-1">Berkas KTM TIM</p>
                                 </div>
                                 <div class="mb-3" id="poster_produk">
                                     <p class="font-weight-bold mb-1">Poster Produk</p>
@@ -278,6 +278,64 @@
 @section('customjs')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    $(document).ready(function() {
+
+        $('.light-single').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            closeBtnInside: false,
+            fixedContentPos: true,
+            mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+            image: {
+                verticalFit: true
+            },
+            zoom: {
+                enabled: true,
+                duration: 300 // don't foget to change the duration also in CSS
+            }
+        });
+
+
+        $('.light-yt').magnificPopup({
+            type: 'iframe'
+        });
+
+
+        $('#foto_produk, #poster_produk').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            tLoading: 'Loading image #%curr%...',
+            mainClass: 'mfp-img-mobile',
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+            },
+            image: {
+                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                titleSrc: function(item) {
+                    return "Foto Produk";
+                }
+            },
+            zoom: {
+                enabled: true,
+                duration: 300 // don't foget to change the duration also in CSS
+            }
+        });
+
+
+    });
+
+
+    function addhttp(urls) {
+        let url = urls;
+        if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+            url = "http://" + url;
+        }
+        return url;
+    }
+
+
     function deletedata(id) {
         swal({
                 title: `Apakah anda yakin akan menghapus data ini?`,
@@ -300,7 +358,7 @@
                         success: function(data) {
                             console.log(data);
                         },
-                        error: function(data){
+                        error: function(data) {
                             console.log(data);
                         }
                     });
@@ -312,6 +370,7 @@
 <script>
     let assetPath = "{{ asset('upload/') }}"
     let fileExtensionPattern = /\.([0-9a-z]+)(?=[?#])|(\.)(?:[\w]+)$/gmi;
+
     function openModalInfo(id) {
         $.ajax({
             type: "POST",
@@ -349,19 +408,19 @@
 
                 $("#deskripsi_produk").text(data.deskripsi_produk);
                 $("#manfaat_produk").text(data.manfaat_produk);
-                $("#url_video").attr("href", data.url_video);
+                $("#url_video").attr("href", data.url_video.replace('youtu.be/','youtube.com/watch?v='));
                 if (data.url_aplikasi) {
-                    $("#url_aplikasi").attr("href", data.url_aplikasi);
+                    $("#url_aplikasi").attr("href", addhttp(data.url_aplikasi));
                 }
 
                 $(".img-detail").remove();
 
                 JSON.parse(data.ktm).map((ktm, i) => {
-                    if(ktm.match(fileExtensionPattern)[0] !== '.pdf'){
+                    if (ktm.match(fileExtensionPattern)[0] !== '.pdf') {
                         $("#ktm").append(
                             `<img src="${assetPath+"/"+ktm}" alt="ktm" class="mx-2 img-detail list"  height="70" onclick="openImageInNewTab('${assetPath+"/"+ktm}')" />`
                         )
-                    }else{
+                    } else {
                         $("#ktm").append(`
                             <a target="_blank" class="list" href="${assetPath+"/"+data.bukti_pembayaran}">KTM ${i+1}</a>
                         `)
@@ -369,19 +428,21 @@
 
                 })
                 $("#poster_produk").append(
-                    `<img src="${assetPath+"/"+data.poster_produk}" alt="ktm" class="list mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+data.poster_produk}')" />`
+                    `<a class="list light-yt" href="${assetPath+"/"+data.poster_produk}"><img src="${assetPath+"/"+data.poster_produk}" alt="ktm" class="list mx-2 img-detail"  height="70" /></a>`
                 );
                 JSON.parse(data.foto_produk).forEach(foto_produk => {
                     $("#foto_produk").append(
-                        `<img src="${assetPath+"/"+foto_produk}" alt="ktm" class="list mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+foto_produk}')" />`
-                        )
+                        `<a class="list" href="${assetPath+"/"+foto_produk}"><img src="${assetPath+"/"+foto_produk}" alt="ktm" class="list mx-2 img-detail"  height="70" /></a>`
+                    )
                 })
-                if(data.twibbon){
+                if (data.twibbon) {
                     JSON.parse(data.twibbon).forEach(twibbon => {
-                    $("#twibbon").append(
-                        `<img src="${assetPath+"/"+twibbon}" alt="ktm" class="list mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+twibbon}')" />`
+                        $("#twibbon").append(
+                            `<img src="${assetPath+"/"+twibbon}" alt="ktm" class="list mx-2 img-detail"  height="70" onclick="openImageInNewTab('${assetPath+"/"+twibbon}')" />`
                         )
-                })
+                    })
+                } else {
+                    $("#twibbon").remove();
                 }
 
 

@@ -40,9 +40,13 @@ class ExpoController extends Controller
 
     public function updateEvent(Request $request)
     {
+
         $expo_it = ExpoIt::find($request->id);
+        // $user = User::find($expo_it->user_id);
+        // $user->role = 'participant';
         $expo_it->status = $request->status;
         $expo_it->save();
+        // $user->save();
         return redirect()->back();
     }
 
@@ -104,9 +108,14 @@ class ExpoController extends Controller
     {
         $expo = ExpoIt::where('id', $request->id)->first();
         $folder_path = User::select('email')->where('id', $expo->user_id)->first();
+
         $path = 'upload/expo/'.$folder_path['email'];
+
         if (\File::exists(public_path($path))) \File::deleteDirectory(public_path($path));
+
         $expo->delete();
-        return redirect()->refresh();
+        return response()->json([
+            'message' => 'success'
+        ]);
     }
 }
