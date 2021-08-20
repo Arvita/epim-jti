@@ -213,13 +213,15 @@
                         <div class="card-body">
                             <h5 class="card-title">EXPO PRODUK IT</h5>
                             <h6 class="card-subtitle mb-2">Pendaftaran Peserta</h6>
-                            <p class="card-text">19 Juli - 9 Agustus 2021</p>
+                            <p class="card-text">19 Juli - 31 Agustus 2021</p>
+                            <h6 class="card-subtitle mb-2">Seleksi Peserta</h6>
+                            <p class="card-text">01 September 2021</p>
                             <h6 class="card-subtitle mb-2">Pengumuman Hasil Seleksi</h6>
-                            <p class="card-text">17 Agustus 2021</p>
+                            <p class="card-text">03 September 2021</p>
                             <h6 class="card-subtitle mb-2">Technical Meeting</h6>
-                            <p class="card-text">21 Agustus 2021</p>
+                            <p class="card-text">04 September 2021</p>
                             <h6 class="card-subtitle mb-2">Pengumpulan Berkas Pendukung Expo</h6>
-                            <p class="card-text">23 Agustus - 1 September 2021
+                            <p class="card-text">05 September - 10 September 2021
                             </p>
                             <h6 class="card-subtitle mb-2">Acara Expo</h6>
                             <p class="card-text">13-17 September 2021</p>

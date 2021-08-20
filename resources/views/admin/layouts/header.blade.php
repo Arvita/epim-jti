@@ -11,6 +11,7 @@
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('backend/modules/bootstrap/css/bootstrap.min.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}"> --}}
   <link rel="stylesheet" href="{{asset('backend/modules/fontawesome/css/all.min.css')}}">
 
   <!-- Font -->

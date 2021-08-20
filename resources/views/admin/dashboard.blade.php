@@ -20,7 +20,7 @@
                                 <h4>Total Peserta</h4>
                             </div>
                             <div class="card-body">
-                               {{count($all_peserta)}}
+                               {{$all_peserta}}
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 <h4>Expo IT</h4>
                             </div>
                             <div class="card-body">
-                               {{count($peserta_expo)}}
+                               {{$peserta_expo}}
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <h4>Bisnis TIK</h4>
                             </div>
                             <div class="card-body">
-                               {{count($peserta_tcp)}}
+                               {{$peserta_tcp}}
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                 <h4>Lomba IT</h4>
                             </div>
                             <div class="card-body">
-                               {{count($peserta_lomba)}}
+                               {{$peserta_lomba}}
                             </div>
                         </div>
                     </div>

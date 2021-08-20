@@ -186,7 +186,7 @@
 
                     <div class="box-round-desc">
 
-                        19 Juli - 9 Agustus 2021
+                        19 Juli - 31 Agustus 2021
 
                     </div>
 
@@ -202,7 +202,7 @@
 
                     <div class="box-round-desc">
 
-                        17 Agustus 2021
+                        03 September 2021
 
                     </div>
 
@@ -218,7 +218,7 @@
 
                     <div class="box-round-desc">
 
-                        21 Agustus 2021
+                        04 September 2021
 
                     </div>
 
@@ -234,7 +234,7 @@
 
                     <div class="box-round-desc">
 
-                        23 Agustus - 1 September 2021
+                        05 September - 10 September 2021
 
                     </div>
 
