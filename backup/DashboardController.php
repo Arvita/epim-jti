@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function __construct()
-    {}
+    {
+        // $this->middleware(function(){
+        //       if (Auth::user()->role == 'admin') return \redirect()->route('admin.dashboard');
+        // });
+    }
     public function index(Request $request)
     {
         $event = Auth::user()->event;
@@ -341,7 +345,6 @@ class DashboardController extends Controller
                 "nomor_ketua_e" => "required",
                 "email_peserta_e" => "required",
                 "nama_peserta_e" => "required",
-                "kategori_produk_e" => "required",
                 "nama_produk_e" => "required",
                 "deskripsi_produk_e" => "required",
                 "manfaat_produk_e" => "required",
@@ -354,7 +357,6 @@ class DashboardController extends Controller
                 "nama_ketua_e.required" => "Kolom nama ketua wajib diisi.",
                 "nomor_ketua_e.required" => "Kolom nomor ketua wajib diisi.",
                 "email_peserta_e.required" => "Kolom email ketua wajib diisi.",
-                "kategori_produk_e.required" => "Kategori produk wajid untuk dipilih.",
                 "nama_peserta_e.required" => "Kolom nama anggota wajib diisi.",
                 "nama_produk_e.required" => "Kolom nama produk wajib diisi.",
                 "deskripsi_produk_e.required" => "Kolom deskripsi produk wajib diisi.",
@@ -399,6 +401,15 @@ class DashboardController extends Controller
 
         //Save To DB
         $expo_it->poster_produk = 'expo/' . $email . '/' . $poster_produk_e;
+
+
+        // foreach ($request->twibbon_e as $twibbon) {
+        //     $twibbon_e = 'twibbon_' . time() . $twibbon->getInode() . '.' . $twibbon->extension();
+        //     $twibbon->move(public_path('/upload/expo/' . $email), $twibbon_e);
+        //     $file_twibbon[] = 'expo/' . $email . '/' . $twibbon_e;
+        // }
+        // $expo_it->twibbon = $file_twibbon;
+
         foreach ($request->foto_produk_e as $foto_produk) {
             $foto_produk_e = 'produk_' . time() . $foto_produk->getInode() . '.' . $foto_produk->extension();
             $foto_produk->move(public_path('/upload/expo/' . $email), $foto_produk_e);
@@ -513,6 +524,7 @@ class DashboardController extends Controller
     public function expoStatus()
     {
         $event = Auth::user()->event;
+
         $getEvent = User::where([
             ['email', Auth::user()->email],
             ['event', $event]
@@ -520,92 +532,66 @@ class DashboardController extends Controller
 
         $getStatus = ExpoIt::first()->where('user_id', Auth::user()->id)->get();
         $status = [];
-
-        // Jika Pengumuman maka ubah menjadi true
-        $isPengumuman = false;
-
-        if($isPengumuman){
-            if ($getStatus[0]->status == 'pending') {
-                $status = [
-                    // 'status' => 'Pending',
-                    'bgColor' => 'warning',
-                    'text' => '
-                    <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
-                    <br/>
-                    <p>File Anda telah kami terima. Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar selanjutnya.</p>
-                    <br/>
-                    <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
-                    <ul>
-                    <li>085156426240 (Lukman)</li>
-                    <li>082229741767 (Iqbal)</li>
-                    <li>088217283172 (Nura)</li>
-                    </ul>
-                    <p>Terimakasih</p>
-                    '
-                ];
-            } else if ($getStatus[0]->status == 'not verified') {
-                $status = [
-                    // 'status' => 'Not Verified',
-                    'bgColor' => 'danger',
-                    'text' => '
-                    <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
-                    <br/>
-                    <p>Berkas anda sudah kami verifikasi. Dan mohon maaf  TIM ANDA TIDAK LOLOS KE TAHAP SELANJUTNYA. Jangan berkecil hati dan tetap semangat.</p>
-                    <br/>
-                    <p>Terimakasih</p>
-                    '
-                ];
-            } else if ($getStatus[0]->status == 'verified') {
-                $status = [
-                    // 'status' => 'Verified',
-                    'bgColor' => 'success',
-                    'text' => '
-                    <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
-                    <br/>
-                    <p>Berkas tim anda sudah kami verifikasi. Dan Selamat Tim anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.
-                    Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) : <a target="_blank" href="https://chat.whatsapp.com/CgZpuU0kvnq027SQLprOCn">Link WhatsApp Grup</a>
-                    </p>
-                    <p>Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
-                    <br/>
-                    <p>Terus semangat dan berdoa, semoga kamu juaranya!</p>
-                    <br/>
-                    <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
-                    <ul>
-                    <li>085156426240 (Lukman)</li>
-                    <li>082229741767 (Iqbal)</li>
-                    <li>088217283172 (Nura)</li>
-                    </ul>
-                    <p>Terimakasih</p>
-                    '
-                ];
-            } else {
-                $status = [];
-            }
-        }else{
+        if ($getStatus[0]->status == 'pending') {
             $status = [
-                // 'status' => 'Verified',
+                // 'status' => 'Pending',
                 'bgColor' => 'warning',
                 'text' => '
-                    <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
-                    <br/>
-                    <p>Berkas Anda telah kami terima. Mohon untuk menunggu pengumuman seleksi yang akan diumumkan pada tanggal 3 September 2021. Selalu berdoa’a semoga tim Anda lolos seleksi. Tetap stay tune di website dan sosial media kami untuk kabar selanjutnya.
-                    </p>
-                    <br/>
-                    <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
-                    <ul>
-                    <li>085156426240 (Lukman)</li>
-                    <li>082229741767 (Iqbal)</li>
-                    <li>088217283172 (Nura)</li>
-                    </ul>
-                    <p>Terimakasih</p>
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>File Anda telah kami terima. Silahkan tunggu proses verifikasi berkas. Tetap berdoa’a semoga lolos ke tahap selanjutnya. Tetap stay tune di website dan sosial media kami untuk kabar selanjutnya.</p>
+                <br/>
+                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                <ul>
+                <li>085156426240 (Lukman)</li>
+                <li>082229741767 (Iqbal)</li>
+                <li>088217283172 (Nura)</li>
+                </ul>
+                <p>Terimakasih</p>
                 '
             ];
+        } else if ($getStatus[0]->status == 'not verified') {
+            $status = [
+                // 'status' => 'Not Verified',
+                'bgColor' => 'danger',
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas anda sudah kami verifikasi. Dan mohon maaf  TIM ANDA TIDAK LOLOS KE TAHAP SELANJUTNYA. Jangan berkecil hati dan tetap semangat.</p>
+                <br/>
+                <p>Terimakasih</p>
+                '
+            ];
+        } else if ($getStatus[0]->status == 'verified') {
+            $status = [
+                // 'status' => 'Verified',
+                'bgColor' => 'success',
+                'text' => '
+                <p>Terimakasih telah berpartisipasi dalam kegiatan Expo Produk IT EPIM 2021 : “Millennial Optimization to Create Creative, Competitive, and Realistic Technologies Innovations for Golden Indonesia 2045”</p>
+                <br/>
+                <p>Berkas tim anda sudah kami verifikasi. Dan Selamat Tim anda dinyatakan LOLOS KE TAHAP SELANJUTNYA.
+                Untuk memudahkan komunikasi, silahkan bergabung dalam grub whatsapp (Hanya ketua tim) : <a target="_blank" href="https://chat.whatsapp.com/CgZpuU0kvnq027SQLprOCn">Link WhatsApp Grup</a>
+                </p>
+                <p>Pantau terus sosial media kami agar tidak ketinggalan info terbaru lainnya.</p>
+                <br/>
+                <p>Terus semangat dan berdoa, semoga kamu juaranya!</p>
+                <br/>
+                <p>Jika ada yang ingin ditanyakan, silahkan hub:</p>
+                <ul>
+                <li>085156426240 (Lukman)</li>
+                <li>082229741767 (Iqbal)</li>
+                <li>088217283172 (Nura)</li>
+                </ul>
+                <p>Terimakasih</p>
+                '
+            ];
+        } else {
+            $status = [];
         }
 
         $data = [
             'getEvent' => $getEvent,
-            'getStatus' => $status,
-            'getProduk' => $getStatus
+            'getStatus' => $status
         ];
         return $data;
     }
@@ -643,9 +629,6 @@ class DashboardController extends Controller
         } else {
             $status = [];
         }
-
-        // Comment jika pengumuman seleksi
-        $status['get'] =
 
         $data = [
             'getEvent' => $getEvent,
@@ -745,11 +728,7 @@ class DashboardController extends Controller
         return $data;
     }
 
-    public function profileProduk(Request $request){
-        $produk = ExpoIt::where('user_id', Auth::id())->first();
-        // dd($produk,Auth::user(),Auth::user()->expo_it);
-        return \view('user.pages.expo.index', ['data'=>$produk]);
-    }
+
 
     public function dropzoneStore(Request $request)
     {

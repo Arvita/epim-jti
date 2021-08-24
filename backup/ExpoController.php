@@ -41,15 +41,6 @@ class ExpoController extends Controller
     public function updateEvent(Request $request)
     {
         $expo_it = ExpoIt::find($request->id);
-        // $user = User::find($expo_it->user_id);
-
-        // if($request->status == "verified"){
-        // $user->role = 'participants';
-        // $user->save();
-        // }else{
-
-        // }
-
         $expo_it->status = $request->status;
         $expo_it->save();
         return redirect()->back();
