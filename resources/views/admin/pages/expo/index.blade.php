@@ -116,7 +116,11 @@
                                                 <td>{{ $item->nama_produk }}</td>
                                                 <td>
                                                     @foreach (json_decode($item->kategori_produk) as $i)
-                                                        {{ Str::ucfirst($i) }}
+                                                        @if ($i == "iot")
+                                                            {{ "IOT dan Jaringan" }}
+                                                        @else
+                                                            {{ Str::ucfirst($i) }}
+                                                        @endif
                                                     @endforeach
                                                 </td>
                                                 <td><a href="{{ str_replace('youtu.be/', 'youtube.com/watch?v=', $item->url_video) }}"
